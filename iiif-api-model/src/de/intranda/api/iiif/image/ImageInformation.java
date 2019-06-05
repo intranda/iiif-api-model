@@ -82,75 +82,8 @@ public class ImageInformation extends Service {
         addProfile(new ComplianceLevelProfile(IIIF_COMPLIANCE_LEVEL));
     }
 
-    public ImageInformation(String id, String attribution, String license, String logo) {
-        this(id);
-        this.attribution = attribution;
-        this.license = license;
-        this.logo = logo;
-    }
-
     public ImageInformation() {
         this("");
-    }
-
-    /**
-     * 
-     * @param imageURI
-     * @param watermarkConfigUri
-     * @param resourceURI
-     * @throws WatermarkException
-     */
-    public ImageInformation(URI imageURI, String resourceURI, int width, int height) {
-        this(resourceURI.toString());
-        setWidth(width);
-        setHeight(height);
-        setTiles(calculateFixedTileSizes(512, 0, getWidth(), getHeight()));
-    }
-    
-    /**
-     * 
-     * @param imageURI
-     * @param watermarkConfigUri
-     * @param resourceURI
-     * @param resolution    dpi
-     * @throws WatermarkException
-     */
-    public ImageInformation(URI imageURI, String resourceURI, int width, int height, float resolution) {
-        this(imageURI, resourceURI, width, height);
-        setService(new PhysicalDimension(resolution, ResolutionUnit.inch));
-    }
-
-    private List<ImageTile> calculateFixedTileSizes(int minSize, int depth, int origWidth, int origHeight) {
-
-        List<ImageTile> tiles = new ArrayList<>();
-
-        //        tiles.add(new ImageTile(2048, 2048, 4));
-        //        tiles.add(new ImageTile(1024, 1024, 2));
-        tiles.add(new ImageTile(512, 512, 1, 32));
-
-        //        Integer resolution = (int) Math.pow(2, depth);
-        //        for (int tileSize = (int) (minSize*Math.pow(2, depth)); tileSize >= minSize; tileSize/=2) {
-        //            ImageTile tile = new ImageTile(tileSize, tileSize, resolution, resolution/2, resolution/4);
-        //            resolution /= 2;
-        //            tiles.add(tile);
-        //        }
-
-        return tiles;
-    }
-
-    private List<ImageTile> calculateTilesForImage(int width, int height, int depth) {
-
-        List<ImageTile> tiles = new ArrayList<>();
-
-        Integer resolution = 1;
-        for (int i = depth; i >= 0; i--) {
-            double region = Math.pow(2, i);
-            ImageTile tile = new ImageTile((int) (width / region) + 1, (int) (height / region) + 1, resolution);
-            resolution *= 2;
-            tiles.add(tile);
-        }
-
-        return tiles;
     }
 
     @XmlElement(name = "width")
