@@ -21,47 +21,49 @@ package de.intranda.metadata.multilanguage;
  */
 public class Metadata {
 
-    private final IMetadataValue label;
-    private final IMetadataValue value;
+    private IMetadataValue label;
+    private IMetadataValue value;
 
-    
+    public Metadata() {
+        super();
+    }
+
     public Metadata(IMetadataValue label, IMetadataValue value) {
         super();
         this.label = label;
         this.value = value;
     }
-    
+
     public Metadata(String label, IMetadataValue value) {
         super();
         this.label = new SimpleMetadataValue(label);
         this.value = value;
     }
-    
+
     public Metadata(IMetadataValue label, String value) {
         super();
         this.label = label;
         this.value = new SimpleMetadataValue(value);
     }
-    
+
     public Metadata(String label, String value) {
         super();
         this.label = new SimpleMetadataValue(label);
         this.value = new SimpleMetadataValue(value);
     }
-    
+
     /**
      * @return the label
      */
     public IMetadataValue getLabel() {
         return label;
     }
-    
+
     /**
      * @return the value
      */
     public IMetadataValue getValue() {
         return value;
     }
-    
-    
+
 }

@@ -20,6 +20,10 @@ import java.util.Locale;
 import java.util.Optional;
 import java.util.function.UnaryOperator;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+
+import de.intranda.api.deserializer.IMetadataValueDeserializer;
+
 /**
  * Interface to access both single and multi language metadata. Both implementations of this interface contain simple Strings representing the
  * metadata value. In the case of SimpleMetadataValue there is only a single String, MultiLanguageMetadataValue on the other hand can include a number
@@ -29,6 +33,7 @@ import java.util.function.UnaryOperator;
  * @author Florian Alpers
  *
  */
+@JsonDeserialize(using = IMetadataValueDeserializer.class)
 public interface IMetadataValue {
 
     /**
@@ -128,8 +133,5 @@ public interface IMetadataValue {
      * @return true if no entry is set for the given locale
      */
     public boolean isEmpty(String locale);
-
-
-
 
 }

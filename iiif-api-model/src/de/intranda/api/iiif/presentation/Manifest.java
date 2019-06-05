@@ -32,7 +32,11 @@ public class Manifest extends AbstractPresentationModelElement implements IPrese
     public final List<Sequence> sequences = new ArrayList<>(1);
     public final List<Range> structures = new ArrayList<>(1);
     public Date navDate = null;
-    
+
+    public Manifest() {
+        super();
+    }
+
     /**
      * @param id
      */
@@ -47,35 +51,37 @@ public class Manifest extends AbstractPresentationModelElement implements IPrese
     public String getType() {
         return TYPE;
     }
-    
+
     /**
      * @return the sequences
      */
     public List<Sequence> getSequences() {
         return sequences;
     }
-    
+
     public void setSequence(Sequence sequence) {
-        if(this.sequences.isEmpty()) {
+        if (this.sequences.isEmpty()) {
             this.sequences.add(sequence);
-        } else {            
+        } else {
             this.sequences.set(0, sequence);
         }
     }
-    
+
     /**
      * @return the structures
      */
     public List<Range> getStructures() {
         return structures;
     }
-    
+
     public void addStructure(Range range) {
         this.structures.add(range);
     }
+
     /**
      * @return the navDate
      */
+    @Override
     @JsonFormat(pattern = DATETIME_FORMAT)
     public Date getNavDate() {
         return navDate;
@@ -84,9 +90,9 @@ public class Manifest extends AbstractPresentationModelElement implements IPrese
     /**
      * @param navDate the navDate to set
      */
+    @Override
     public void setNavDate(Date navDate) {
         this.navDate = navDate;
     }
-    
-    
+
 }

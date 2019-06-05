@@ -16,6 +16,7 @@
 package de.intranda.api.iiif.presentation;
 
 import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -43,6 +44,14 @@ public class Range extends AbstractPresentationModelElement implements IPresenta
     @JsonIgnore
     private boolean useMembers = false;
 
+    public Range() {
+
+    }
+
+    public Range(String id) throws URISyntaxException {
+        super(new URI(id));
+    }
+
     /**
      * @param id
      */
@@ -61,7 +70,7 @@ public class Range extends AbstractPresentationModelElement implements IPresenta
     /**
      * @return the startCanvas
      */
-    @JsonSerialize(using=URLOnlySerializer.class)
+    @JsonSerialize(using = URLOnlySerializer.class)
     public Canvas getStartCanvas() {
         return startCanvas;
     }
@@ -76,7 +85,7 @@ public class Range extends AbstractPresentationModelElement implements IPresenta
     /**
      * @return the contentLayer
      */
-    @JsonSerialize(using=URLOnlySerializer.class)
+    @JsonSerialize(using = URLOnlySerializer.class)
     public Layer getContentLayer() {
         return contentLayer;
     }
@@ -93,9 +102,9 @@ public class Range extends AbstractPresentationModelElement implements IPresenta
      */
     @JsonSerialize(using = URLOnlySerializer.class)
     public List<Canvas> getCanvases() {
-        if(isUseMembers()) {
-            return null; 
-        } else {            
+        if (isUseMembers()) {
+            return null;
+        } else {
             return canvases.isEmpty() ? null : canvases;
         }
     }
@@ -105,18 +114,18 @@ public class Range extends AbstractPresentationModelElement implements IPresenta
      */
     @JsonSerialize(using = URLOnlySerializer.class)
     public List<Range> getRanges() {
-        if(isUseMembers()) {
+        if (isUseMembers()) {
             return null;
-        } else {            
+        } else {
             return ranges.isEmpty() ? null : ranges;
         }
     }
-    
+
     @JsonIgnore
     public List<Range> getRangeList() {
         return ranges;
     }
-    
+
     public void resetRanges() {
         this.ranges.clear();
     }
@@ -131,7 +140,7 @@ public class Range extends AbstractPresentationModelElement implements IPresenta
 
     @JsonSerialize(using = ContentLinkSerializer.class)
     public List<IPresentationModelElement> getMembers() {
-        if(isUseMembers()) {            
+        if (isUseMembers()) {
             List<IPresentationModelElement> list = new ArrayList<>();
             list.addAll(ranges);
             list.addAll(canvases);

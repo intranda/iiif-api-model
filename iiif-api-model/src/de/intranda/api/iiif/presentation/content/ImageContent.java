@@ -16,8 +16,6 @@
 package de.intranda.api.iiif.presentation.content;
 
 import java.net.URI;
-import java.net.URISyntaxException;
-import java.util.Optional;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -38,102 +36,105 @@ import de.intranda.metadata.multilanguage.IMetadataValue;
  */
 @JsonInclude(Include.NON_EMPTY)
 public class ImageContent implements IContent {
-    
+
     private static final Logger logger = LoggerFactory.getLogger(ImageContent.class);
-	
-	private final DcType TYPE = DcType.IMAGE;
-	
-	private final URI id;
-	private int width;
-	private int height;
-	private Format format;
-	private ImageInformation service;
-	
-	public ImageContent(URI id) {
-		this.id = id;
-	}
-	
-   public ImageContent(URI id, ImageInformation service) {
+
+    private final DcType TYPE = DcType.IMAGE;
+
+    private final URI id;
+    private int width;
+    private int height;
+    private Format format;
+    private ImageInformation service;
+
+    public ImageContent() {
+        this.id = null;
+    }
+
+    public ImageContent(URI id) {
+        this.id = id;
+    }
+
+    public ImageContent(URI id, ImageInformation service) {
         this.id = id;
         this.service = service;
     }
 
+    /* (non-Javadoc)
+     * @see de.intranda.digiverso.presentation.model.iiif.presentation.content.IContent#getType()
+     */
+    @Override
+    public DcType getType() {
+        return TYPE;
+    }
 
     /* (non-Javadoc)
-	 * @see de.intranda.digiverso.presentation.model.iiif.presentation.content.IContent#getType()
-	 */
-	@Override
-	public DcType getType() {
-		return TYPE;
-	}
+     * @see de.intranda.digiverso.presentation.model.iiif.presentation.content.IContent#getWidth()
+     */
+    @Override
+    public Integer getWidth() {
+        return width;
+    }
 
-	/* (non-Javadoc)
-	 * @see de.intranda.digiverso.presentation.model.iiif.presentation.content.IContent#getWidth()
-	 */
-	@Override
-	public Integer getWidth() {
-		return width;
-	}
+    /* (non-Javadoc)
+     * @see de.intranda.digiverso.presentation.model.iiif.presentation.content.IContent#setWidth(int)
+     */
+    public void setWidth(int width) {
+        this.width = width;
+    }
 
-	/* (non-Javadoc)
-	 * @see de.intranda.digiverso.presentation.model.iiif.presentation.content.IContent#setWidth(int)
-	 */
-	public void setWidth(int width) {
-		this.width = width;
-	}
+    /* (non-Javadoc)
+     * @see de.intranda.digiverso.presentation.model.iiif.presentation.content.IContent#getHeight()
+     */
+    @Override
+    public Integer getHeight() {
+        return height;
+    }
 
-	/* (non-Javadoc)
-	 * @see de.intranda.digiverso.presentation.model.iiif.presentation.content.IContent#getHeight()
-	 */
-	@Override
-	public Integer getHeight() {
-		return height;
-	}
+    /* (non-Javadoc)
+     * @see de.intranda.digiverso.presentation.model.iiif.presentation.content.IContent#setHeight(int)
+     */
+    public void setHeight(int height) {
+        this.height = height;
+    }
 
-	/* (non-Javadoc)
-	 * @see de.intranda.digiverso.presentation.model.iiif.presentation.content.IContent#setHeight(int)
-	 */
-	public void setHeight(int height) {
-		this.height = height;
-	}
+    /* (non-Javadoc)
+     * @see de.intranda.digiverso.presentation.model.iiif.presentation.content.IContent#getFormat()
+     */
+    @Override
+    public Format getFormat() {
+        return format;
+    }
 
-	/* (non-Javadoc)
-	 * @see de.intranda.digiverso.presentation.model.iiif.presentation.content.IContent#getFormat()
-	 */
-	@Override
-	public Format getFormat() {
-		return format;
-	}
+    /* (non-Javadoc)
+     * @see de.intranda.digiverso.presentation.model.iiif.presentation.content.IContent#setFormat(de.intranda.digiverso.presentation.model.iiif.presentation.enums.Format)
+     */
+    public void setFormat(Format format) {
+        this.format = format;
+    }
 
-	/* (non-Javadoc)
-	 * @see de.intranda.digiverso.presentation.model.iiif.presentation.content.IContent#setFormat(de.intranda.digiverso.presentation.model.iiif.presentation.enums.Format)
-	 */
-	public void setFormat(Format format) {
-		this.format = format;
-	}
+    /**
+     * @return the service
+     */
+    public ImageInformation getService() {
+        return service;
+    }
 
-	/**
-	 * @return the service
-	 */
-	public ImageInformation getService() {
-		return service;
-	}
+    /**
+     * @param service the service to set
+     */
+    @JsonSerialize(using = ImageInformationSerializer.class)
+    public void setService(ImageInformation service) {
+        this.service = service;
+    }
 
-	/**
-	 * @param service the service to set
-	 */
-	@JsonSerialize(using=ImageInformationSerializer.class)
-	public void setService(ImageInformation service) {
-		this.service = service;
-	}
-
-	/* (non-Javadoc)
-	 * @see de.intranda.digiverso.presentation.model.iiif.presentation.content.IContent#getId()
-	 */
-	@Override
-	public URI getId() {
-		return id;
-	}
+    /* (non-Javadoc)
+     * @see de.intranda.digiverso.presentation.model.iiif.presentation.content.IContent#getId()
+     */
+    @Override
+    public URI getId() {
+        return id;
+    }
 
     /* (non-Javadoc)
      * @see de.intranda.digiverso.presentation.model.iiif.presentation.content.IContent#getLabel()
@@ -142,6 +143,5 @@ public class ImageContent implements IContent {
     public IMetadataValue getLabel() {
         return null;
     }
-	
 
 }

@@ -16,36 +16,35 @@
 package de.intranda.api.annotation;
 
 import java.net.URI;
-import java.net.URISyntaxException;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
-import de.intranda.api.iiif.presentation.AbstractPresentationModelElement;
-import de.intranda.api.iiif.presentation.Canvas;
-import de.intranda.api.iiif.presentation.IPresentationModelElement;
+import de.intranda.api.deserializer.LinkedAnnotationResourceDeserializer;
 import de.intranda.api.iiif.presentation.content.IContent;
-import de.intranda.api.iiif.presentation.enums.Motivation;
-import de.intranda.api.serializer.URLOnlySerializer;
 
 /**
  * @author Florian Alpers
  *
  */
-public class LinkedAnnotation extends AbstractAnnotation implements IAnnotation{
-    
+public class LinkedAnnotation extends AbstractAnnotation implements IAnnotation {
+
+    public LinkedAnnotation() {
+        super(null);
+    }
+
     private IContent resource;
-    
+
     /**
      * @param id
      */
     public LinkedAnnotation(URI id) {
-       super(id);
+        super(id);
     }
 
     /**
      * @return the resource
      */
+    @JsonDeserialize(using = LinkedAnnotationResourceDeserializer.class)
     public IContent getResource() {
         return resource;
     }
@@ -56,8 +55,5 @@ public class LinkedAnnotation extends AbstractAnnotation implements IAnnotation{
     public void setResource(IContent resource) {
         this.resource = resource;
     }
-
-
-    
 
 }

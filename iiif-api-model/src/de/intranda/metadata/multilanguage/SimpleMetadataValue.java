@@ -29,20 +29,20 @@ import com.fasterxml.jackson.annotation.JsonValue;
  * @author Florian Alpers
  *
  */
-public class SimpleMetadataValue implements IMetadataValue{
+public class SimpleMetadataValue implements IMetadataValue {
 
     String value = null;
-    
+
     /**
      * 
      */
     public SimpleMetadataValue() {
     }
-    
+
     public SimpleMetadataValue(String value) {
         this.value = value;
     }
-    
+
     /* (non-Javadoc)
      * @see de.intranda.digiverso.presentation.model.toc.IMetadataValue#getValue(java.util.Locale)
      */
@@ -58,7 +58,7 @@ public class SimpleMetadataValue implements IMetadataValue{
     public void setValue(String value, Locale locale) {
         setValue(value);
     }
-    
+
     /* (non-Javadoc)
      * @see de.intranda.digiverso.presentation.model.toc.metadata.IMetadataValue#setValue(java.lang.String, java.lang.String)
      */
@@ -90,7 +90,7 @@ public class SimpleMetadataValue implements IMetadataValue{
     public Optional<String> getValue() {
         return Optional.ofNullable(value);
     }
-    
+
     /* (non-Javadoc)
      * @see java.lang.Object#toString()
      */
@@ -99,7 +99,7 @@ public class SimpleMetadataValue implements IMetadataValue{
     public String toString() {
         return value;
     }
-    
+
     /* (non-Javadoc)
      * @see java.lang.Object#hashCode()
      */
@@ -107,15 +107,15 @@ public class SimpleMetadataValue implements IMetadataValue{
     public int hashCode() {
         return value.hashCode();
     }
-    
+
     /* (non-Javadoc)
      * @see java.lang.Object#equals(java.lang.Object)
      */
     @Override
     public boolean equals(Object obj) {
-        if(obj.getClass().equals(SimpleMetadataValue.class)) {
-            return ((SimpleMetadataValue)obj).getValue().equals(this.getValue());
-        }else {
+        if (obj.getClass().equals(SimpleMetadataValue.class)) {
+            return ((SimpleMetadataValue) obj).getValue().equals(this.getValue());
+        } else {
             return false;
         }
     }
@@ -134,7 +134,7 @@ public class SimpleMetadataValue implements IMetadataValue{
     @Override
     public void addPrefix(String prefix) {
         this.value = prefix + this.value;
-        
+
     }
 
     /* (non-Javadoc)
@@ -150,7 +150,7 @@ public class SimpleMetadataValue implements IMetadataValue{
      */
     @Override
     public void mapEach(UnaryOperator<String> function) {
-       this.value = function.apply(this.value);
+        this.value = function.apply(this.value);
     }
 
     /* (non-Javadoc)

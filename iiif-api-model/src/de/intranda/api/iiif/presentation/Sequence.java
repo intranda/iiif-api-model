@@ -30,10 +30,11 @@ public class Sequence extends AbstractPresentationModelElement implements IPrese
 
     private static final String TYPE = "sc:Sequence";
 
-    
     private final List<Canvas> canvases = new ArrayList<>();
 
-    
+    public Sequence() {
+    }
+
     /**
      * @param id
      */
@@ -48,23 +49,24 @@ public class Sequence extends AbstractPresentationModelElement implements IPrese
     public String getType() {
         return TYPE;
     }
-    
+
     /**
      * @return the images
      */
     public List<Canvas> getCanvases() {
         return canvases.isEmpty() ? null : canvases;
     }
-    
+
     public void addCanvas(Canvas image) {
         this.canvases.add(image);
     }
-    
+
     /*TODO: viewinghint dependent on configuration or metadata*/
+    @Override
     public ViewingHint getViewingHint() {
         return ViewingHint.paged;
     }
-    
+
     /*TODO: viewingdirection dependent on configuration or metadata*/
     public ViewingDirection getViewingDirection() {
         return ViewingDirection.LEFT_TO_RIGHT;
