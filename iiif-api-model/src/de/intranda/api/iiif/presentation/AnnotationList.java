@@ -19,10 +19,12 @@ import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 import de.intranda.api.PropertyList;
 import de.intranda.api.annotation.IAnnotation;
+import de.intranda.api.deserializer.AnnotationListResourceDeserializer;
 import de.intranda.api.serializer.IIIFAnnotationSerializer;
 
 /**
@@ -58,6 +60,7 @@ public class AnnotationList extends AbstractPresentationModelElement implements 
      * @return the resources, null if empty
      */
     @JsonSerialize(using = IIIFAnnotationSerializer.class)
+    @JsonDeserialize(using = AnnotationListResourceDeserializer.class)
     public List<IAnnotation> getResources() {
         return resources.isEmpty() ? null : resources;
     }
