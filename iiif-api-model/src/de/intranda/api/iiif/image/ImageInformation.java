@@ -26,13 +26,10 @@
 package de.intranda.api.iiif.image;
 
 import java.awt.Dimension;
-import java.io.FileNotFoundException;
-import java.net.URI;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
-import java.util.Optional;
 
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlElementWrapper;
@@ -45,8 +42,9 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
-import de.intranda.api.iiif.image.PhysicalDimension.ResolutionUnit;
+import de.intranda.api.deserializer.ProfileDeserializer;
 
 /**
  * Implementation of the iiif ImageInformation object specified in http://iiif.io/api/image/2.0/#image-information
@@ -109,6 +107,7 @@ public class ImageInformation extends Service {
     @XmlElementWrapper(name = "profiles")
     @XmlElement(name = "profile")
     @JsonProperty("profile")
+    @JsonDeserialize(using = ProfileDeserializer.class)
     public List<IiifProfile> getProfiles() {
         return profiles;
     }

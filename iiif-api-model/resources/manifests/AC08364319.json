@@ -1,0 +1,4353 @@
+{
+	"@context": "http://iiif.io/api/presentation/2/context.json",
+	"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/manifest",
+	"@type": "sc:Manifest",
+	"label": "700 Jahr-Feier der Stadt Eferding",
+	"metadata": [
+		{
+			"label": [
+				{
+					"@value": "Signaturen",
+					"@language": "de"
+				},
+				{
+					"@value": "Shelfmark ",
+					"@language": "en"
+				}
+			],
+			"value": "II-164"
+		},
+		{
+			"label": [
+				{
+					"@value": "Illustrationsangabe",
+					"@language": "de"
+				},
+				{
+					"@value": "Illustration description",
+					"@language": "en"
+				}
+			],
+			"value": "Ill."
+		},
+		{
+			"label": "MD_PROCESSID",
+			"value": "5306"
+		},
+		{
+			"label": [
+				{
+					"@value": "Untertitel",
+					"@language": "de"
+				},
+				{
+					"@value": "Sub title",
+					"@language": "en"
+				}
+			],
+			"value": "15. - 23. August 1925"
+		},
+		{
+			"label": [
+				{
+					"@value": "Größe",
+					"@language": "de"
+				},
+				{
+					"@value": "Size",
+					"@language": "en"
+				}
+			],
+			"value": "320x240"
+		},
+		{
+			"label": [
+				{
+					"@value": "Datierung",
+					"@language": "de"
+				},
+				{
+					"@value": "Dating",
+					"@language": "en"
+				}
+			],
+			"value": "1925"
+		},
+		{
+			"label": [
+				{
+					"@value": "Titel",
+					"@language": "de"
+				},
+				{
+					"@value": "Title",
+					"@language": "en"
+				}
+			],
+			"value": "700 Jahr-Feier der Stadt Eferding"
+		},
+		{
+			"label": [
+				{
+					"@value": "Größe",
+					"@language": "de"
+				},
+				{
+					"@value": "Size",
+					"@language": "en"
+				}
+			],
+			"value": "S. 321 - 342, [6] Bl."
+		},
+		{
+			"label": [
+				{
+					"@value": "Signatur",
+					"@language": "de"
+				},
+				{
+					"@value": "Shelfmark",
+					"@language": "en"
+				}
+			],
+			"value": "II-164"
+		},
+		{
+			"label": [
+				{
+					"@value": "Erscheinungsort",
+					"@language": "de"
+				},
+				{
+					"@value": "Place of publication",
+					"@language": "en"
+				}
+			],
+			"value": "Linz"
+		},
+		{
+			"label": [
+				{
+					"@value": "Erscheinungsjahr",
+					"@language": "de"
+				},
+				{
+					"@value": "Year of publication",
+					"@language": "en"
+				}
+			],
+			"value": "1925"
+		},
+		{
+			"label": [
+				{
+					"@value": "Sprache",
+					"@language": "de"
+				},
+				{
+					"@value": "Language",
+					"@language": "en"
+				}
+			],
+			"value": "ger"
+		},
+		{
+			"label": [
+				{
+					"@value": "Umfang",
+					"@language": "de"
+				},
+				{
+					"@value": "Scope",
+					"@language": "en"
+				}
+			],
+			"value": "S. 321 - 342, [6] Bl."
+		},
+		{
+			"label": [
+				{
+					"@value": "Herausgeber",
+					"@language": "de"
+				},
+				{
+					"@value": "Publisher",
+					"@language": "en"
+				}
+			],
+			"value": "Kath. Preßverein d. Diözese Linz"
+		}
+	],
+	"thumbnail": {
+		"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000001.tif/full/!400,400/0/default.jpg",
+		"@type": "dcTypes:Image",
+		"service": {
+			"@context": "http://iiif.io/api/image/2/context.json",
+			"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000001.tif",
+			"profile": "http://iiif.io/api/image/2/level2.json"
+		}
+	},
+	"attribution": "Digitale Landesbibliothek Oberösterreich",
+	"logo": {
+		"@id": "https://digi.landesbibliothek.at/viewer/resources/themes/oolbib/images/dfgviewer_oolbib.jpg",
+		"@type": "dcTypes:Image"
+	},
+	"rendering": [
+		{
+			"@id": "https://digi.landesbibliothek.at/viewer/image/AC08364319/1/LOG_0000/",
+			"label": "goobi viewer",
+			"format": "text/html"
+		},
+		{
+			"@id": "https://digi.landesbibliothek.at/viewer/rest/pdf/mets/AC08364319.xml/700_JahrFeier_der_Stadt_Eferding.pdf?watermarkText=https%3A%2F%2Fdigi.landesbibliothek.at%2Fviewer%2Fimage%2FAC08364319%2F1%2F",
+			"label": "PDF",
+			"format": "applocation/pdf"
+		}
+	],
+	"seeAlso": {
+		"@id": "https://digi.landesbibliothek.at/viewer/metsresolver?id=AC08364319",
+		"label": "METS/MODS",
+		"format": "text/xml"
+	},
+	"sequences": [
+		{
+			"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/sequence/basic",
+			"@type": "sc:Sequence",
+			"viewingHint": "paged",
+			"within": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/manifest",
+			"canvases": [
+				{
+					"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/1",
+					"@type": "sc:Canvas",
+					"label": " - ",
+					"thumbnail": {
+						"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000001.tif/full/!400,400/0/default.jpg",
+						"@type": "dcTypes:Image"
+					},
+					"rendering": {
+						"@id": "https://digi.landesbibliothek.at/viewer/image/AC08364319/1/",
+						"label": "goobi viewer",
+						"format": "text/html"
+					},
+					"within": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/sequence/basic",
+					"width": 5985,
+					"height": 7927,
+					"images": [
+						{
+							"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/1/image/1",
+							"@type": "oa:Annotation",
+							"motivation": "sc:painting",
+							"on": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/1",
+							"resource": {
+								"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000001.tif/full/!400,400/0/default.jpg",
+								"@type": "dcTypes:Image",
+								"width": 5985,
+								"height": 7927,
+								"format": "image/jpeg",
+								"service": {
+									"@context": "http://iiif.io/api/image/2/context.json",
+									"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000001.tif",
+									"profile": "http://iiif.io/api/image/2/level2.json"
+								}
+							}
+						}
+					],
+					"otherContent": [
+						{
+							"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/list/1/ALTO",
+							"@type": "sc:AnnotationList",
+							"label": "ALTO"
+						},
+						{
+							"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/list/1/PDF",
+							"@type": "sc:AnnotationList",
+							"label": "PDF"
+						},
+						{
+							"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/list/1/FULLTEXT",
+							"@type": "sc:AnnotationList",
+							"label": [
+								{
+									"@value": "Volltext",
+									"@language": "de"
+								},
+								{
+									"@value": "Full text",
+									"@language": "en"
+								}
+							]
+						}
+					]
+				},
+				{
+					"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/2",
+					"@type": "sc:Canvas",
+					"label": " - ",
+					"thumbnail": {
+						"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000002.tif/full/!400,400/0/default.jpg",
+						"@type": "dcTypes:Image"
+					},
+					"rendering": {
+						"@id": "https://digi.landesbibliothek.at/viewer/image/AC08364319/2/",
+						"label": "goobi viewer",
+						"format": "text/html"
+					},
+					"within": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/sequence/basic",
+					"width": 5985,
+					"height": 7817,
+					"images": [
+						{
+							"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/2/image/1",
+							"@type": "oa:Annotation",
+							"motivation": "sc:painting",
+							"on": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/2",
+							"resource": {
+								"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000002.tif/full/!400,400/0/default.jpg",
+								"@type": "dcTypes:Image",
+								"width": 5985,
+								"height": 7817,
+								"format": "image/jpeg",
+								"service": {
+									"@context": "http://iiif.io/api/image/2/context.json",
+									"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000002.tif",
+									"profile": "http://iiif.io/api/image/2/level2.json"
+								}
+							}
+						}
+					],
+					"otherContent": [
+						{
+							"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/list/2/ALTO",
+							"@type": "sc:AnnotationList",
+							"label": "ALTO"
+						},
+						{
+							"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/list/2/PDF",
+							"@type": "sc:AnnotationList",
+							"label": "PDF"
+						},
+						{
+							"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/list/2/FULLTEXT",
+							"@type": "sc:AnnotationList",
+							"label": [
+								{
+									"@value": "Volltext",
+									"@language": "de"
+								},
+								{
+									"@value": "Full text",
+									"@language": "en"
+								}
+							]
+						}
+					]
+				},
+				{
+					"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/3",
+					"@type": "sc:Canvas",
+					"label": "321",
+					"thumbnail": {
+						"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000003.tif/full/!400,400/0/default.jpg",
+						"@type": "dcTypes:Image"
+					},
+					"rendering": {
+						"@id": "https://digi.landesbibliothek.at/viewer/image/AC08364319/3/",
+						"label": "goobi viewer",
+						"format": "text/html"
+					},
+					"within": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/sequence/basic",
+					"width": 6034,
+					"height": 7829,
+					"images": [
+						{
+							"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/3/image/1",
+							"@type": "oa:Annotation",
+							"motivation": "sc:painting",
+							"on": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/3",
+							"resource": {
+								"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000003.tif/full/!400,400/0/default.jpg",
+								"@type": "dcTypes:Image",
+								"width": 6034,
+								"height": 7829,
+								"format": "image/jpeg",
+								"service": {
+									"@context": "http://iiif.io/api/image/2/context.json",
+									"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000003.tif",
+									"profile": "http://iiif.io/api/image/2/level2.json"
+								}
+							}
+						}
+					],
+					"otherContent": [
+						{
+							"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/list/3/ALTO",
+							"@type": "sc:AnnotationList",
+							"label": "ALTO"
+						},
+						{
+							"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/list/3/PDF",
+							"@type": "sc:AnnotationList",
+							"label": "PDF"
+						},
+						{
+							"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/list/3/FULLTEXT",
+							"@type": "sc:AnnotationList",
+							"label": [
+								{
+									"@value": "Volltext",
+									"@language": "de"
+								},
+								{
+									"@value": "Full text",
+									"@language": "en"
+								}
+							]
+						}
+					]
+				},
+				{
+					"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/4",
+					"@type": "sc:Canvas",
+					"label": "322",
+					"thumbnail": {
+						"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000004.tif/full/!400,400/0/default.jpg",
+						"@type": "dcTypes:Image"
+					},
+					"rendering": {
+						"@id": "https://digi.landesbibliothek.at/viewer/image/AC08364319/4/",
+						"label": "goobi viewer",
+						"format": "text/html"
+					},
+					"within": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/sequence/basic",
+					"width": 5985,
+					"height": 7817,
+					"images": [
+						{
+							"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/4/image/1",
+							"@type": "oa:Annotation",
+							"motivation": "sc:painting",
+							"on": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/4",
+							"resource": {
+								"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000004.tif/full/!400,400/0/default.jpg",
+								"@type": "dcTypes:Image",
+								"width": 5985,
+								"height": 7817,
+								"format": "image/jpeg",
+								"service": {
+									"@context": "http://iiif.io/api/image/2/context.json",
+									"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000004.tif",
+									"profile": "http://iiif.io/api/image/2/level2.json"
+								}
+							}
+						}
+					],
+					"otherContent": [
+						{
+							"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/list/4/ALTO",
+							"@type": "sc:AnnotationList",
+							"label": "ALTO"
+						},
+						{
+							"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/list/4/PDF",
+							"@type": "sc:AnnotationList",
+							"label": "PDF"
+						},
+						{
+							"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/list/4/FULLTEXT",
+							"@type": "sc:AnnotationList",
+							"label": [
+								{
+									"@value": "Volltext",
+									"@language": "de"
+								},
+								{
+									"@value": "Full text",
+									"@language": "en"
+								}
+							]
+						}
+					]
+				},
+				{
+					"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/5",
+					"@type": "sc:Canvas",
+					"label": "323",
+					"thumbnail": {
+						"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000005.tif/full/!400,400/0/default.jpg",
+						"@type": "dcTypes:Image"
+					},
+					"rendering": {
+						"@id": "https://digi.landesbibliothek.at/viewer/image/AC08364319/5/",
+						"label": "goobi viewer",
+						"format": "text/html"
+					},
+					"within": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/sequence/basic",
+					"width": 6034,
+					"height": 7829,
+					"images": [
+						{
+							"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/5/image/1",
+							"@type": "oa:Annotation",
+							"motivation": "sc:painting",
+							"on": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/5",
+							"resource": {
+								"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000005.tif/full/!400,400/0/default.jpg",
+								"@type": "dcTypes:Image",
+								"width": 6034,
+								"height": 7829,
+								"format": "image/jpeg",
+								"service": {
+									"@context": "http://iiif.io/api/image/2/context.json",
+									"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000005.tif",
+									"profile": "http://iiif.io/api/image/2/level2.json"
+								}
+							}
+						}
+					],
+					"otherContent": [
+						{
+							"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/list/5/ALTO",
+							"@type": "sc:AnnotationList",
+							"label": "ALTO"
+						},
+						{
+							"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/list/5/PDF",
+							"@type": "sc:AnnotationList",
+							"label": "PDF"
+						},
+						{
+							"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/list/5/FULLTEXT",
+							"@type": "sc:AnnotationList",
+							"label": [
+								{
+									"@value": "Volltext",
+									"@language": "de"
+								},
+								{
+									"@value": "Full text",
+									"@language": "en"
+								}
+							]
+						}
+					]
+				},
+				{
+					"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/6",
+					"@type": "sc:Canvas",
+					"label": "324",
+					"thumbnail": {
+						"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000006.tif/full/!400,400/0/default.jpg",
+						"@type": "dcTypes:Image"
+					},
+					"rendering": {
+						"@id": "https://digi.landesbibliothek.at/viewer/image/AC08364319/6/",
+						"label": "goobi viewer",
+						"format": "text/html"
+					},
+					"within": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/sequence/basic",
+					"width": 5985,
+					"height": 7817,
+					"images": [
+						{
+							"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/6/image/1",
+							"@type": "oa:Annotation",
+							"motivation": "sc:painting",
+							"on": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/6",
+							"resource": {
+								"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000006.tif/full/!400,400/0/default.jpg",
+								"@type": "dcTypes:Image",
+								"width": 5985,
+								"height": 7817,
+								"format": "image/jpeg",
+								"service": {
+									"@context": "http://iiif.io/api/image/2/context.json",
+									"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000006.tif",
+									"profile": "http://iiif.io/api/image/2/level2.json"
+								}
+							}
+						}
+					],
+					"otherContent": [
+						{
+							"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/list/6/ALTO",
+							"@type": "sc:AnnotationList",
+							"label": "ALTO"
+						},
+						{
+							"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/list/6/PDF",
+							"@type": "sc:AnnotationList",
+							"label": "PDF"
+						},
+						{
+							"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/list/6/FULLTEXT",
+							"@type": "sc:AnnotationList",
+							"label": [
+								{
+									"@value": "Volltext",
+									"@language": "de"
+								},
+								{
+									"@value": "Full text",
+									"@language": "en"
+								}
+							]
+						}
+					]
+				},
+				{
+					"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/7",
+					"@type": "sc:Canvas",
+					"label": "325",
+					"thumbnail": {
+						"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000007.tif/full/!400,400/0/default.jpg",
+						"@type": "dcTypes:Image"
+					},
+					"rendering": {
+						"@id": "https://digi.landesbibliothek.at/viewer/image/AC08364319/7/",
+						"label": "goobi viewer",
+						"format": "text/html"
+					},
+					"within": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/sequence/basic",
+					"width": 6034,
+					"height": 7829,
+					"images": [
+						{
+							"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/7/image/1",
+							"@type": "oa:Annotation",
+							"motivation": "sc:painting",
+							"on": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/7",
+							"resource": {
+								"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000007.tif/full/!400,400/0/default.jpg",
+								"@type": "dcTypes:Image",
+								"width": 6034,
+								"height": 7829,
+								"format": "image/jpeg",
+								"service": {
+									"@context": "http://iiif.io/api/image/2/context.json",
+									"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000007.tif",
+									"profile": "http://iiif.io/api/image/2/level2.json"
+								}
+							}
+						}
+					],
+					"otherContent": [
+						{
+							"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/list/7/ALTO",
+							"@type": "sc:AnnotationList",
+							"label": "ALTO"
+						},
+						{
+							"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/list/7/PDF",
+							"@type": "sc:AnnotationList",
+							"label": "PDF"
+						},
+						{
+							"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/list/7/FULLTEXT",
+							"@type": "sc:AnnotationList",
+							"label": [
+								{
+									"@value": "Volltext",
+									"@language": "de"
+								},
+								{
+									"@value": "Full text",
+									"@language": "en"
+								}
+							]
+						}
+					]
+				},
+				{
+					"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/8",
+					"@type": "sc:Canvas",
+					"label": "326",
+					"thumbnail": {
+						"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000008.tif/full/!400,400/0/default.jpg",
+						"@type": "dcTypes:Image"
+					},
+					"rendering": {
+						"@id": "https://digi.landesbibliothek.at/viewer/image/AC08364319/8/",
+						"label": "goobi viewer",
+						"format": "text/html"
+					},
+					"within": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/sequence/basic",
+					"width": 5985,
+					"height": 7817,
+					"images": [
+						{
+							"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/8/image/1",
+							"@type": "oa:Annotation",
+							"motivation": "sc:painting",
+							"on": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/8",
+							"resource": {
+								"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000008.tif/full/!400,400/0/default.jpg",
+								"@type": "dcTypes:Image",
+								"width": 5985,
+								"height": 7817,
+								"format": "image/jpeg",
+								"service": {
+									"@context": "http://iiif.io/api/image/2/context.json",
+									"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000008.tif",
+									"profile": "http://iiif.io/api/image/2/level2.json"
+								}
+							}
+						}
+					],
+					"otherContent": [
+						{
+							"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/list/8/ALTO",
+							"@type": "sc:AnnotationList",
+							"label": "ALTO"
+						},
+						{
+							"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/list/8/PDF",
+							"@type": "sc:AnnotationList",
+							"label": "PDF"
+						},
+						{
+							"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/list/8/FULLTEXT",
+							"@type": "sc:AnnotationList",
+							"label": [
+								{
+									"@value": "Volltext",
+									"@language": "de"
+								},
+								{
+									"@value": "Full text",
+									"@language": "en"
+								}
+							]
+						}
+					]
+				},
+				{
+					"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/9",
+					"@type": "sc:Canvas",
+					"label": "327",
+					"thumbnail": {
+						"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000009.tif/full/!400,400/0/default.jpg",
+						"@type": "dcTypes:Image"
+					},
+					"rendering": {
+						"@id": "https://digi.landesbibliothek.at/viewer/image/AC08364319/9/",
+						"label": "goobi viewer",
+						"format": "text/html"
+					},
+					"within": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/sequence/basic",
+					"width": 6034,
+					"height": 7829,
+					"images": [
+						{
+							"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/9/image/1",
+							"@type": "oa:Annotation",
+							"motivation": "sc:painting",
+							"on": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/9",
+							"resource": {
+								"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000009.tif/full/!400,400/0/default.jpg",
+								"@type": "dcTypes:Image",
+								"width": 6034,
+								"height": 7829,
+								"format": "image/jpeg",
+								"service": {
+									"@context": "http://iiif.io/api/image/2/context.json",
+									"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000009.tif",
+									"profile": "http://iiif.io/api/image/2/level2.json"
+								}
+							}
+						}
+					],
+					"otherContent": [
+						{
+							"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/list/9/ALTO",
+							"@type": "sc:AnnotationList",
+							"label": "ALTO"
+						},
+						{
+							"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/list/9/PDF",
+							"@type": "sc:AnnotationList",
+							"label": "PDF"
+						},
+						{
+							"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/list/9/FULLTEXT",
+							"@type": "sc:AnnotationList",
+							"label": [
+								{
+									"@value": "Volltext",
+									"@language": "de"
+								},
+								{
+									"@value": "Full text",
+									"@language": "en"
+								}
+							]
+						}
+					]
+				},
+				{
+					"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/10",
+					"@type": "sc:Canvas",
+					"label": "328",
+					"thumbnail": {
+						"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000010.tif/full/!400,400/0/default.jpg",
+						"@type": "dcTypes:Image"
+					},
+					"rendering": {
+						"@id": "https://digi.landesbibliothek.at/viewer/image/AC08364319/10/",
+						"label": "goobi viewer",
+						"format": "text/html"
+					},
+					"within": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/sequence/basic",
+					"width": 5985,
+					"height": 7817,
+					"images": [
+						{
+							"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/10/image/1",
+							"@type": "oa:Annotation",
+							"motivation": "sc:painting",
+							"on": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/10",
+							"resource": {
+								"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000010.tif/full/!400,400/0/default.jpg",
+								"@type": "dcTypes:Image",
+								"width": 5985,
+								"height": 7817,
+								"format": "image/jpeg",
+								"service": {
+									"@context": "http://iiif.io/api/image/2/context.json",
+									"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000010.tif",
+									"profile": "http://iiif.io/api/image/2/level2.json"
+								}
+							}
+						}
+					],
+					"otherContent": [
+						{
+							"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/list/10/ALTO",
+							"@type": "sc:AnnotationList",
+							"label": "ALTO"
+						},
+						{
+							"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/list/10/PDF",
+							"@type": "sc:AnnotationList",
+							"label": "PDF"
+						},
+						{
+							"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/list/10/FULLTEXT",
+							"@type": "sc:AnnotationList",
+							"label": [
+								{
+									"@value": "Volltext",
+									"@language": "de"
+								},
+								{
+									"@value": "Full text",
+									"@language": "en"
+								}
+							]
+						}
+					]
+				},
+				{
+					"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/11",
+					"@type": "sc:Canvas",
+					"label": "329",
+					"thumbnail": {
+						"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000011.tif/full/!400,400/0/default.jpg",
+						"@type": "dcTypes:Image"
+					},
+					"rendering": {
+						"@id": "https://digi.landesbibliothek.at/viewer/image/AC08364319/11/",
+						"label": "goobi viewer",
+						"format": "text/html"
+					},
+					"within": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/sequence/basic",
+					"width": 6034,
+					"height": 7829,
+					"images": [
+						{
+							"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/11/image/1",
+							"@type": "oa:Annotation",
+							"motivation": "sc:painting",
+							"on": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/11",
+							"resource": {
+								"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000011.tif/full/!400,400/0/default.jpg",
+								"@type": "dcTypes:Image",
+								"width": 6034,
+								"height": 7829,
+								"format": "image/jpeg",
+								"service": {
+									"@context": "http://iiif.io/api/image/2/context.json",
+									"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000011.tif",
+									"profile": "http://iiif.io/api/image/2/level2.json"
+								}
+							}
+						}
+					],
+					"otherContent": [
+						{
+							"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/list/11/ALTO",
+							"@type": "sc:AnnotationList",
+							"label": "ALTO"
+						},
+						{
+							"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/list/11/PDF",
+							"@type": "sc:AnnotationList",
+							"label": "PDF"
+						},
+						{
+							"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/list/11/FULLTEXT",
+							"@type": "sc:AnnotationList",
+							"label": [
+								{
+									"@value": "Volltext",
+									"@language": "de"
+								},
+								{
+									"@value": "Full text",
+									"@language": "en"
+								}
+							]
+						}
+					]
+				},
+				{
+					"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/12",
+					"@type": "sc:Canvas",
+					"label": "330",
+					"thumbnail": {
+						"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000012.tif/full/!400,400/0/default.jpg",
+						"@type": "dcTypes:Image"
+					},
+					"rendering": {
+						"@id": "https://digi.landesbibliothek.at/viewer/image/AC08364319/12/",
+						"label": "goobi viewer",
+						"format": "text/html"
+					},
+					"within": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/sequence/basic",
+					"width": 5985,
+					"height": 7817,
+					"images": [
+						{
+							"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/12/image/1",
+							"@type": "oa:Annotation",
+							"motivation": "sc:painting",
+							"on": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/12",
+							"resource": {
+								"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000012.tif/full/!400,400/0/default.jpg",
+								"@type": "dcTypes:Image",
+								"width": 5985,
+								"height": 7817,
+								"format": "image/jpeg",
+								"service": {
+									"@context": "http://iiif.io/api/image/2/context.json",
+									"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000012.tif",
+									"profile": "http://iiif.io/api/image/2/level2.json"
+								}
+							}
+						}
+					],
+					"otherContent": [
+						{
+							"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/list/12/ALTO",
+							"@type": "sc:AnnotationList",
+							"label": "ALTO"
+						},
+						{
+							"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/list/12/PDF",
+							"@type": "sc:AnnotationList",
+							"label": "PDF"
+						},
+						{
+							"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/list/12/FULLTEXT",
+							"@type": "sc:AnnotationList",
+							"label": [
+								{
+									"@value": "Volltext",
+									"@language": "de"
+								},
+								{
+									"@value": "Full text",
+									"@language": "en"
+								}
+							]
+						}
+					]
+				},
+				{
+					"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/13",
+					"@type": "sc:Canvas",
+					"label": "331",
+					"thumbnail": {
+						"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000013.tif/full/!400,400/0/default.jpg",
+						"@type": "dcTypes:Image"
+					},
+					"rendering": {
+						"@id": "https://digi.landesbibliothek.at/viewer/image/AC08364319/13/",
+						"label": "goobi viewer",
+						"format": "text/html"
+					},
+					"within": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/sequence/basic",
+					"width": 6034,
+					"height": 7829,
+					"images": [
+						{
+							"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/13/image/1",
+							"@type": "oa:Annotation",
+							"motivation": "sc:painting",
+							"on": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/13",
+							"resource": {
+								"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000013.tif/full/!400,400/0/default.jpg",
+								"@type": "dcTypes:Image",
+								"width": 6034,
+								"height": 7829,
+								"format": "image/jpeg",
+								"service": {
+									"@context": "http://iiif.io/api/image/2/context.json",
+									"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000013.tif",
+									"profile": "http://iiif.io/api/image/2/level2.json"
+								}
+							}
+						}
+					],
+					"otherContent": [
+						{
+							"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/list/13/ALTO",
+							"@type": "sc:AnnotationList",
+							"label": "ALTO"
+						},
+						{
+							"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/list/13/PDF",
+							"@type": "sc:AnnotationList",
+							"label": "PDF"
+						},
+						{
+							"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/list/13/FULLTEXT",
+							"@type": "sc:AnnotationList",
+							"label": [
+								{
+									"@value": "Volltext",
+									"@language": "de"
+								},
+								{
+									"@value": "Full text",
+									"@language": "en"
+								}
+							]
+						}
+					]
+				},
+				{
+					"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/14",
+					"@type": "sc:Canvas",
+					"label": "332",
+					"thumbnail": {
+						"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000014.tif/full/!400,400/0/default.jpg",
+						"@type": "dcTypes:Image"
+					},
+					"rendering": {
+						"@id": "https://digi.landesbibliothek.at/viewer/image/AC08364319/14/",
+						"label": "goobi viewer",
+						"format": "text/html"
+					},
+					"within": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/sequence/basic",
+					"width": 5985,
+					"height": 7817,
+					"images": [
+						{
+							"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/14/image/1",
+							"@type": "oa:Annotation",
+							"motivation": "sc:painting",
+							"on": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/14",
+							"resource": {
+								"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000014.tif/full/!400,400/0/default.jpg",
+								"@type": "dcTypes:Image",
+								"width": 5985,
+								"height": 7817,
+								"format": "image/jpeg",
+								"service": {
+									"@context": "http://iiif.io/api/image/2/context.json",
+									"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000014.tif",
+									"profile": "http://iiif.io/api/image/2/level2.json"
+								}
+							}
+						}
+					],
+					"otherContent": [
+						{
+							"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/list/14/ALTO",
+							"@type": "sc:AnnotationList",
+							"label": "ALTO"
+						},
+						{
+							"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/list/14/PDF",
+							"@type": "sc:AnnotationList",
+							"label": "PDF"
+						},
+						{
+							"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/list/14/FULLTEXT",
+							"@type": "sc:AnnotationList",
+							"label": [
+								{
+									"@value": "Volltext",
+									"@language": "de"
+								},
+								{
+									"@value": "Full text",
+									"@language": "en"
+								}
+							]
+						}
+					]
+				},
+				{
+					"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/15",
+					"@type": "sc:Canvas",
+					"label": "333",
+					"thumbnail": {
+						"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000015.tif/full/!400,400/0/default.jpg",
+						"@type": "dcTypes:Image"
+					},
+					"rendering": {
+						"@id": "https://digi.landesbibliothek.at/viewer/image/AC08364319/15/",
+						"label": "goobi viewer",
+						"format": "text/html"
+					},
+					"within": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/sequence/basic",
+					"width": 6034,
+					"height": 7829,
+					"images": [
+						{
+							"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/15/image/1",
+							"@type": "oa:Annotation",
+							"motivation": "sc:painting",
+							"on": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/15",
+							"resource": {
+								"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000015.tif/full/!400,400/0/default.jpg",
+								"@type": "dcTypes:Image",
+								"width": 6034,
+								"height": 7829,
+								"format": "image/jpeg",
+								"service": {
+									"@context": "http://iiif.io/api/image/2/context.json",
+									"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000015.tif",
+									"profile": "http://iiif.io/api/image/2/level2.json"
+								}
+							}
+						}
+					],
+					"otherContent": [
+						{
+							"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/list/15/ALTO",
+							"@type": "sc:AnnotationList",
+							"label": "ALTO"
+						},
+						{
+							"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/list/15/PDF",
+							"@type": "sc:AnnotationList",
+							"label": "PDF"
+						},
+						{
+							"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/list/15/FULLTEXT",
+							"@type": "sc:AnnotationList",
+							"label": [
+								{
+									"@value": "Volltext",
+									"@language": "de"
+								},
+								{
+									"@value": "Full text",
+									"@language": "en"
+								}
+							]
+						}
+					]
+				},
+				{
+					"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/16",
+					"@type": "sc:Canvas",
+					"label": "334",
+					"thumbnail": {
+						"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000016.tif/full/!400,400/0/default.jpg",
+						"@type": "dcTypes:Image"
+					},
+					"rendering": {
+						"@id": "https://digi.landesbibliothek.at/viewer/image/AC08364319/16/",
+						"label": "goobi viewer",
+						"format": "text/html"
+					},
+					"within": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/sequence/basic",
+					"width": 5985,
+					"height": 7817,
+					"images": [
+						{
+							"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/16/image/1",
+							"@type": "oa:Annotation",
+							"motivation": "sc:painting",
+							"on": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/16",
+							"resource": {
+								"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000016.tif/full/!400,400/0/default.jpg",
+								"@type": "dcTypes:Image",
+								"width": 5985,
+								"height": 7817,
+								"format": "image/jpeg",
+								"service": {
+									"@context": "http://iiif.io/api/image/2/context.json",
+									"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000016.tif",
+									"profile": "http://iiif.io/api/image/2/level2.json"
+								}
+							}
+						}
+					],
+					"otherContent": [
+						{
+							"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/list/16/ALTO",
+							"@type": "sc:AnnotationList",
+							"label": "ALTO"
+						},
+						{
+							"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/list/16/PDF",
+							"@type": "sc:AnnotationList",
+							"label": "PDF"
+						},
+						{
+							"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/list/16/FULLTEXT",
+							"@type": "sc:AnnotationList",
+							"label": [
+								{
+									"@value": "Volltext",
+									"@language": "de"
+								},
+								{
+									"@value": "Full text",
+									"@language": "en"
+								}
+							]
+						}
+					]
+				},
+				{
+					"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/17",
+					"@type": "sc:Canvas",
+					"label": "335",
+					"thumbnail": {
+						"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000017.tif/full/!400,400/0/default.jpg",
+						"@type": "dcTypes:Image"
+					},
+					"rendering": {
+						"@id": "https://digi.landesbibliothek.at/viewer/image/AC08364319/17/",
+						"label": "goobi viewer",
+						"format": "text/html"
+					},
+					"within": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/sequence/basic",
+					"width": 6034,
+					"height": 7829,
+					"images": [
+						{
+							"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/17/image/1",
+							"@type": "oa:Annotation",
+							"motivation": "sc:painting",
+							"on": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/17",
+							"resource": {
+								"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000017.tif/full/!400,400/0/default.jpg",
+								"@type": "dcTypes:Image",
+								"width": 6034,
+								"height": 7829,
+								"format": "image/jpeg",
+								"service": {
+									"@context": "http://iiif.io/api/image/2/context.json",
+									"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000017.tif",
+									"profile": "http://iiif.io/api/image/2/level2.json"
+								}
+							}
+						}
+					],
+					"otherContent": [
+						{
+							"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/list/17/ALTO",
+							"@type": "sc:AnnotationList",
+							"label": "ALTO"
+						},
+						{
+							"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/list/17/PDF",
+							"@type": "sc:AnnotationList",
+							"label": "PDF"
+						},
+						{
+							"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/list/17/FULLTEXT",
+							"@type": "sc:AnnotationList",
+							"label": [
+								{
+									"@value": "Volltext",
+									"@language": "de"
+								},
+								{
+									"@value": "Full text",
+									"@language": "en"
+								}
+							]
+						}
+					]
+				},
+				{
+					"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/18",
+					"@type": "sc:Canvas",
+					"label": "336",
+					"thumbnail": {
+						"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000018.tif/full/!400,400/0/default.jpg",
+						"@type": "dcTypes:Image"
+					},
+					"rendering": {
+						"@id": "https://digi.landesbibliothek.at/viewer/image/AC08364319/18/",
+						"label": "goobi viewer",
+						"format": "text/html"
+					},
+					"within": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/sequence/basic",
+					"width": 5985,
+					"height": 7817,
+					"images": [
+						{
+							"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/18/image/1",
+							"@type": "oa:Annotation",
+							"motivation": "sc:painting",
+							"on": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/18",
+							"resource": {
+								"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000018.tif/full/!400,400/0/default.jpg",
+								"@type": "dcTypes:Image",
+								"width": 5985,
+								"height": 7817,
+								"format": "image/jpeg",
+								"service": {
+									"@context": "http://iiif.io/api/image/2/context.json",
+									"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000018.tif",
+									"profile": "http://iiif.io/api/image/2/level2.json"
+								}
+							}
+						}
+					],
+					"otherContent": [
+						{
+							"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/list/18/ALTO",
+							"@type": "sc:AnnotationList",
+							"label": "ALTO"
+						},
+						{
+							"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/list/18/PDF",
+							"@type": "sc:AnnotationList",
+							"label": "PDF"
+						},
+						{
+							"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/list/18/FULLTEXT",
+							"@type": "sc:AnnotationList",
+							"label": [
+								{
+									"@value": "Volltext",
+									"@language": "de"
+								},
+								{
+									"@value": "Full text",
+									"@language": "en"
+								}
+							]
+						}
+					]
+				},
+				{
+					"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/19",
+					"@type": "sc:Canvas",
+					"label": "337",
+					"thumbnail": {
+						"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000019.tif/full/!400,400/0/default.jpg",
+						"@type": "dcTypes:Image"
+					},
+					"rendering": {
+						"@id": "https://digi.landesbibliothek.at/viewer/image/AC08364319/19/",
+						"label": "goobi viewer",
+						"format": "text/html"
+					},
+					"within": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/sequence/basic",
+					"width": 6034,
+					"height": 7829,
+					"images": [
+						{
+							"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/19/image/1",
+							"@type": "oa:Annotation",
+							"motivation": "sc:painting",
+							"on": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/19",
+							"resource": {
+								"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000019.tif/full/!400,400/0/default.jpg",
+								"@type": "dcTypes:Image",
+								"width": 6034,
+								"height": 7829,
+								"format": "image/jpeg",
+								"service": {
+									"@context": "http://iiif.io/api/image/2/context.json",
+									"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000019.tif",
+									"profile": "http://iiif.io/api/image/2/level2.json"
+								}
+							}
+						}
+					],
+					"otherContent": [
+						{
+							"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/list/19/ALTO",
+							"@type": "sc:AnnotationList",
+							"label": "ALTO"
+						},
+						{
+							"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/list/19/PDF",
+							"@type": "sc:AnnotationList",
+							"label": "PDF"
+						},
+						{
+							"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/list/19/FULLTEXT",
+							"@type": "sc:AnnotationList",
+							"label": [
+								{
+									"@value": "Volltext",
+									"@language": "de"
+								},
+								{
+									"@value": "Full text",
+									"@language": "en"
+								}
+							]
+						}
+					]
+				},
+				{
+					"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/20",
+					"@type": "sc:Canvas",
+					"label": "338",
+					"thumbnail": {
+						"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000020.tif/full/!400,400/0/default.jpg",
+						"@type": "dcTypes:Image"
+					},
+					"rendering": {
+						"@id": "https://digi.landesbibliothek.at/viewer/image/AC08364319/20/",
+						"label": "goobi viewer",
+						"format": "text/html"
+					},
+					"within": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/sequence/basic",
+					"width": 5985,
+					"height": 7817,
+					"images": [
+						{
+							"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/20/image/1",
+							"@type": "oa:Annotation",
+							"motivation": "sc:painting",
+							"on": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/20",
+							"resource": {
+								"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000020.tif/full/!400,400/0/default.jpg",
+								"@type": "dcTypes:Image",
+								"width": 5985,
+								"height": 7817,
+								"format": "image/jpeg",
+								"service": {
+									"@context": "http://iiif.io/api/image/2/context.json",
+									"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000020.tif",
+									"profile": "http://iiif.io/api/image/2/level2.json"
+								}
+							}
+						}
+					],
+					"otherContent": [
+						{
+							"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/list/20/ALTO",
+							"@type": "sc:AnnotationList",
+							"label": "ALTO"
+						},
+						{
+							"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/list/20/PDF",
+							"@type": "sc:AnnotationList",
+							"label": "PDF"
+						},
+						{
+							"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/list/20/FULLTEXT",
+							"@type": "sc:AnnotationList",
+							"label": [
+								{
+									"@value": "Volltext",
+									"@language": "de"
+								},
+								{
+									"@value": "Full text",
+									"@language": "en"
+								}
+							]
+						}
+					]
+				},
+				{
+					"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/21",
+					"@type": "sc:Canvas",
+					"label": "339",
+					"thumbnail": {
+						"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000021.tif/full/!400,400/0/default.jpg",
+						"@type": "dcTypes:Image"
+					},
+					"rendering": {
+						"@id": "https://digi.landesbibliothek.at/viewer/image/AC08364319/21/",
+						"label": "goobi viewer",
+						"format": "text/html"
+					},
+					"within": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/sequence/basic",
+					"width": 6034,
+					"height": 7829,
+					"images": [
+						{
+							"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/21/image/1",
+							"@type": "oa:Annotation",
+							"motivation": "sc:painting",
+							"on": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/21",
+							"resource": {
+								"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000021.tif/full/!400,400/0/default.jpg",
+								"@type": "dcTypes:Image",
+								"width": 6034,
+								"height": 7829,
+								"format": "image/jpeg",
+								"service": {
+									"@context": "http://iiif.io/api/image/2/context.json",
+									"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000021.tif",
+									"profile": "http://iiif.io/api/image/2/level2.json"
+								}
+							}
+						}
+					],
+					"otherContent": [
+						{
+							"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/list/21/ALTO",
+							"@type": "sc:AnnotationList",
+							"label": "ALTO"
+						},
+						{
+							"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/list/21/PDF",
+							"@type": "sc:AnnotationList",
+							"label": "PDF"
+						},
+						{
+							"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/list/21/FULLTEXT",
+							"@type": "sc:AnnotationList",
+							"label": [
+								{
+									"@value": "Volltext",
+									"@language": "de"
+								},
+								{
+									"@value": "Full text",
+									"@language": "en"
+								}
+							]
+						}
+					]
+				},
+				{
+					"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/22",
+					"@type": "sc:Canvas",
+					"label": "340",
+					"thumbnail": {
+						"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000022.tif/full/!400,400/0/default.jpg",
+						"@type": "dcTypes:Image"
+					},
+					"rendering": {
+						"@id": "https://digi.landesbibliothek.at/viewer/image/AC08364319/22/",
+						"label": "goobi viewer",
+						"format": "text/html"
+					},
+					"within": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/sequence/basic",
+					"width": 5985,
+					"height": 7817,
+					"images": [
+						{
+							"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/22/image/1",
+							"@type": "oa:Annotation",
+							"motivation": "sc:painting",
+							"on": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/22",
+							"resource": {
+								"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000022.tif/full/!400,400/0/default.jpg",
+								"@type": "dcTypes:Image",
+								"width": 5985,
+								"height": 7817,
+								"format": "image/jpeg",
+								"service": {
+									"@context": "http://iiif.io/api/image/2/context.json",
+									"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000022.tif",
+									"profile": "http://iiif.io/api/image/2/level2.json"
+								}
+							}
+						}
+					],
+					"otherContent": [
+						{
+							"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/list/22/ALTO",
+							"@type": "sc:AnnotationList",
+							"label": "ALTO"
+						},
+						{
+							"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/list/22/PDF",
+							"@type": "sc:AnnotationList",
+							"label": "PDF"
+						},
+						{
+							"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/list/22/FULLTEXT",
+							"@type": "sc:AnnotationList",
+							"label": [
+								{
+									"@value": "Volltext",
+									"@language": "de"
+								},
+								{
+									"@value": "Full text",
+									"@language": "en"
+								}
+							]
+						}
+					]
+				},
+				{
+					"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/23",
+					"@type": "sc:Canvas",
+					"label": "341",
+					"thumbnail": {
+						"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000023.tif/full/!400,400/0/default.jpg",
+						"@type": "dcTypes:Image"
+					},
+					"rendering": {
+						"@id": "https://digi.landesbibliothek.at/viewer/image/AC08364319/23/",
+						"label": "goobi viewer",
+						"format": "text/html"
+					},
+					"within": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/sequence/basic",
+					"width": 5936,
+					"height": 7829,
+					"images": [
+						{
+							"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/23/image/1",
+							"@type": "oa:Annotation",
+							"motivation": "sc:painting",
+							"on": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/23",
+							"resource": {
+								"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000023.tif/full/!400,400/0/default.jpg",
+								"@type": "dcTypes:Image",
+								"width": 5936,
+								"height": 7829,
+								"format": "image/jpeg",
+								"service": {
+									"@context": "http://iiif.io/api/image/2/context.json",
+									"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000023.tif",
+									"profile": "http://iiif.io/api/image/2/level2.json"
+								}
+							}
+						}
+					],
+					"otherContent": [
+						{
+							"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/list/23/ALTO",
+							"@type": "sc:AnnotationList",
+							"label": "ALTO"
+						},
+						{
+							"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/list/23/PDF",
+							"@type": "sc:AnnotationList",
+							"label": "PDF"
+						},
+						{
+							"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/list/23/FULLTEXT",
+							"@type": "sc:AnnotationList",
+							"label": [
+								{
+									"@value": "Volltext",
+									"@language": "de"
+								},
+								{
+									"@value": "Full text",
+									"@language": "en"
+								}
+							]
+						}
+					]
+				},
+				{
+					"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/24",
+					"@type": "sc:Canvas",
+					"label": "342",
+					"thumbnail": {
+						"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000024.tif/full/!400,400/0/default.jpg",
+						"@type": "dcTypes:Image"
+					},
+					"rendering": {
+						"@id": "https://digi.landesbibliothek.at/viewer/image/AC08364319/24/",
+						"label": "goobi viewer",
+						"format": "text/html"
+					},
+					"within": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/sequence/basic",
+					"width": 5985,
+					"height": 7817,
+					"images": [
+						{
+							"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/24/image/1",
+							"@type": "oa:Annotation",
+							"motivation": "sc:painting",
+							"on": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/24",
+							"resource": {
+								"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000024.tif/full/!400,400/0/default.jpg",
+								"@type": "dcTypes:Image",
+								"width": 5985,
+								"height": 7817,
+								"format": "image/jpeg",
+								"service": {
+									"@context": "http://iiif.io/api/image/2/context.json",
+									"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000024.tif",
+									"profile": "http://iiif.io/api/image/2/level2.json"
+								}
+							}
+						}
+					],
+					"otherContent": [
+						{
+							"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/list/24/ALTO",
+							"@type": "sc:AnnotationList",
+							"label": "ALTO"
+						},
+						{
+							"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/list/24/PDF",
+							"@type": "sc:AnnotationList",
+							"label": "PDF"
+						},
+						{
+							"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/list/24/FULLTEXT",
+							"@type": "sc:AnnotationList",
+							"label": [
+								{
+									"@value": "Volltext",
+									"@language": "de"
+								},
+								{
+									"@value": "Full text",
+									"@language": "en"
+								}
+							]
+						}
+					]
+				},
+				{
+					"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/25",
+					"@type": "sc:Canvas",
+					"label": " - ",
+					"thumbnail": {
+						"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000025.tif/full/!400,400/0/default.jpg",
+						"@type": "dcTypes:Image"
+					},
+					"rendering": {
+						"@id": "https://digi.landesbibliothek.at/viewer/image/AC08364319/25/",
+						"label": "goobi viewer",
+						"format": "text/html"
+					},
+					"within": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/sequence/basic",
+					"width": 5936,
+					"height": 7829,
+					"images": [
+						{
+							"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/25/image/1",
+							"@type": "oa:Annotation",
+							"motivation": "sc:painting",
+							"on": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/25",
+							"resource": {
+								"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000025.tif/full/!400,400/0/default.jpg",
+								"@type": "dcTypes:Image",
+								"width": 5936,
+								"height": 7829,
+								"format": "image/jpeg",
+								"service": {
+									"@context": "http://iiif.io/api/image/2/context.json",
+									"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000025.tif",
+									"profile": "http://iiif.io/api/image/2/level2.json"
+								}
+							}
+						}
+					],
+					"otherContent": [
+						{
+							"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/list/25/ALTO",
+							"@type": "sc:AnnotationList",
+							"label": "ALTO"
+						},
+						{
+							"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/list/25/PDF",
+							"@type": "sc:AnnotationList",
+							"label": "PDF"
+						},
+						{
+							"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/list/25/FULLTEXT",
+							"@type": "sc:AnnotationList",
+							"label": [
+								{
+									"@value": "Volltext",
+									"@language": "de"
+								},
+								{
+									"@value": "Full text",
+									"@language": "en"
+								}
+							]
+						}
+					]
+				},
+				{
+					"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/26",
+					"@type": "sc:Canvas",
+					"label": " - ",
+					"thumbnail": {
+						"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000026.tif/full/!400,400/0/default.jpg",
+						"@type": "dcTypes:Image"
+					},
+					"rendering": {
+						"@id": "https://digi.landesbibliothek.at/viewer/image/AC08364319/26/",
+						"label": "goobi viewer",
+						"format": "text/html"
+					},
+					"within": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/sequence/basic",
+					"width": 5985,
+					"height": 7817,
+					"images": [
+						{
+							"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/26/image/1",
+							"@type": "oa:Annotation",
+							"motivation": "sc:painting",
+							"on": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/26",
+							"resource": {
+								"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000026.tif/full/!400,400/0/default.jpg",
+								"@type": "dcTypes:Image",
+								"width": 5985,
+								"height": 7817,
+								"format": "image/jpeg",
+								"service": {
+									"@context": "http://iiif.io/api/image/2/context.json",
+									"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000026.tif",
+									"profile": "http://iiif.io/api/image/2/level2.json"
+								}
+							}
+						}
+					],
+					"otherContent": [
+						{
+							"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/list/26/ALTO",
+							"@type": "sc:AnnotationList",
+							"label": "ALTO"
+						},
+						{
+							"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/list/26/PDF",
+							"@type": "sc:AnnotationList",
+							"label": "PDF"
+						},
+						{
+							"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/list/26/FULLTEXT",
+							"@type": "sc:AnnotationList",
+							"label": [
+								{
+									"@value": "Volltext",
+									"@language": "de"
+								},
+								{
+									"@value": "Full text",
+									"@language": "en"
+								}
+							]
+						}
+					]
+				},
+				{
+					"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/27",
+					"@type": "sc:Canvas",
+					"label": " - ",
+					"thumbnail": {
+						"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000027.tif/full/!400,400/0/default.jpg",
+						"@type": "dcTypes:Image"
+					},
+					"rendering": {
+						"@id": "https://digi.landesbibliothek.at/viewer/image/AC08364319/27/",
+						"label": "goobi viewer",
+						"format": "text/html"
+					},
+					"within": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/sequence/basic",
+					"width": 5936,
+					"height": 7829,
+					"images": [
+						{
+							"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/27/image/1",
+							"@type": "oa:Annotation",
+							"motivation": "sc:painting",
+							"on": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/27",
+							"resource": {
+								"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000027.tif/full/!400,400/0/default.jpg",
+								"@type": "dcTypes:Image",
+								"width": 5936,
+								"height": 7829,
+								"format": "image/jpeg",
+								"service": {
+									"@context": "http://iiif.io/api/image/2/context.json",
+									"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000027.tif",
+									"profile": "http://iiif.io/api/image/2/level2.json"
+								}
+							}
+						}
+					],
+					"otherContent": [
+						{
+							"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/list/27/ALTO",
+							"@type": "sc:AnnotationList",
+							"label": "ALTO"
+						},
+						{
+							"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/list/27/PDF",
+							"@type": "sc:AnnotationList",
+							"label": "PDF"
+						},
+						{
+							"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/list/27/FULLTEXT",
+							"@type": "sc:AnnotationList",
+							"label": [
+								{
+									"@value": "Volltext",
+									"@language": "de"
+								},
+								{
+									"@value": "Full text",
+									"@language": "en"
+								}
+							]
+						}
+					]
+				},
+				{
+					"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/28",
+					"@type": "sc:Canvas",
+					"label": " - ",
+					"thumbnail": {
+						"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000028.tif/full/!400,400/0/default.jpg",
+						"@type": "dcTypes:Image"
+					},
+					"rendering": {
+						"@id": "https://digi.landesbibliothek.at/viewer/image/AC08364319/28/",
+						"label": "goobi viewer",
+						"format": "text/html"
+					},
+					"within": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/sequence/basic",
+					"width": 5985,
+					"height": 7817,
+					"images": [
+						{
+							"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/28/image/1",
+							"@type": "oa:Annotation",
+							"motivation": "sc:painting",
+							"on": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/28",
+							"resource": {
+								"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000028.tif/full/!400,400/0/default.jpg",
+								"@type": "dcTypes:Image",
+								"width": 5985,
+								"height": 7817,
+								"format": "image/jpeg",
+								"service": {
+									"@context": "http://iiif.io/api/image/2/context.json",
+									"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000028.tif",
+									"profile": "http://iiif.io/api/image/2/level2.json"
+								}
+							}
+						}
+					],
+					"otherContent": [
+						{
+							"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/list/28/ALTO",
+							"@type": "sc:AnnotationList",
+							"label": "ALTO"
+						},
+						{
+							"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/list/28/PDF",
+							"@type": "sc:AnnotationList",
+							"label": "PDF"
+						},
+						{
+							"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/list/28/FULLTEXT",
+							"@type": "sc:AnnotationList",
+							"label": [
+								{
+									"@value": "Volltext",
+									"@language": "de"
+								},
+								{
+									"@value": "Full text",
+									"@language": "en"
+								}
+							]
+						}
+					]
+				},
+				{
+					"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/29",
+					"@type": "sc:Canvas",
+					"label": " - ",
+					"thumbnail": {
+						"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000029.tif/full/!400,400/0/default.jpg",
+						"@type": "dcTypes:Image"
+					},
+					"rendering": {
+						"@id": "https://digi.landesbibliothek.at/viewer/image/AC08364319/29/",
+						"label": "goobi viewer",
+						"format": "text/html"
+					},
+					"within": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/sequence/basic",
+					"width": 5936,
+					"height": 7829,
+					"images": [
+						{
+							"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/29/image/1",
+							"@type": "oa:Annotation",
+							"motivation": "sc:painting",
+							"on": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/29",
+							"resource": {
+								"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000029.tif/full/!400,400/0/default.jpg",
+								"@type": "dcTypes:Image",
+								"width": 5936,
+								"height": 7829,
+								"format": "image/jpeg",
+								"service": {
+									"@context": "http://iiif.io/api/image/2/context.json",
+									"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000029.tif",
+									"profile": "http://iiif.io/api/image/2/level2.json"
+								}
+							}
+						}
+					],
+					"otherContent": [
+						{
+							"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/list/29/ALTO",
+							"@type": "sc:AnnotationList",
+							"label": "ALTO"
+						},
+						{
+							"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/list/29/PDF",
+							"@type": "sc:AnnotationList",
+							"label": "PDF"
+						},
+						{
+							"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/list/29/FULLTEXT",
+							"@type": "sc:AnnotationList",
+							"label": [
+								{
+									"@value": "Volltext",
+									"@language": "de"
+								},
+								{
+									"@value": "Full text",
+									"@language": "en"
+								}
+							]
+						}
+					]
+				},
+				{
+					"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/30",
+					"@type": "sc:Canvas",
+					"label": " - ",
+					"thumbnail": {
+						"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000030.tif/full/!400,400/0/default.jpg",
+						"@type": "dcTypes:Image"
+					},
+					"rendering": {
+						"@id": "https://digi.landesbibliothek.at/viewer/image/AC08364319/30/",
+						"label": "goobi viewer",
+						"format": "text/html"
+					},
+					"within": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/sequence/basic",
+					"width": 5985,
+					"height": 7817,
+					"images": [
+						{
+							"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/30/image/1",
+							"@type": "oa:Annotation",
+							"motivation": "sc:painting",
+							"on": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/30",
+							"resource": {
+								"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000030.tif/full/!400,400/0/default.jpg",
+								"@type": "dcTypes:Image",
+								"width": 5985,
+								"height": 7817,
+								"format": "image/jpeg",
+								"service": {
+									"@context": "http://iiif.io/api/image/2/context.json",
+									"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000030.tif",
+									"profile": "http://iiif.io/api/image/2/level2.json"
+								}
+							}
+						}
+					],
+					"otherContent": [
+						{
+							"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/list/30/ALTO",
+							"@type": "sc:AnnotationList",
+							"label": "ALTO"
+						},
+						{
+							"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/list/30/PDF",
+							"@type": "sc:AnnotationList",
+							"label": "PDF"
+						},
+						{
+							"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/list/30/FULLTEXT",
+							"@type": "sc:AnnotationList",
+							"label": [
+								{
+									"@value": "Volltext",
+									"@language": "de"
+								},
+								{
+									"@value": "Full text",
+									"@language": "en"
+								}
+							]
+						}
+					]
+				},
+				{
+					"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/31",
+					"@type": "sc:Canvas",
+					"label": " - ",
+					"thumbnail": {
+						"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000031.tif/full/!400,400/0/default.jpg",
+						"@type": "dcTypes:Image"
+					},
+					"rendering": {
+						"@id": "https://digi.landesbibliothek.at/viewer/image/AC08364319/31/",
+						"label": "goobi viewer",
+						"format": "text/html"
+					},
+					"within": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/sequence/basic",
+					"width": 5936,
+					"height": 7829,
+					"images": [
+						{
+							"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/31/image/1",
+							"@type": "oa:Annotation",
+							"motivation": "sc:painting",
+							"on": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/31",
+							"resource": {
+								"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000031.tif/full/!400,400/0/default.jpg",
+								"@type": "dcTypes:Image",
+								"width": 5936,
+								"height": 7829,
+								"format": "image/jpeg",
+								"service": {
+									"@context": "http://iiif.io/api/image/2/context.json",
+									"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000031.tif",
+									"profile": "http://iiif.io/api/image/2/level2.json"
+								}
+							}
+						}
+					],
+					"otherContent": [
+						{
+							"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/list/31/ALTO",
+							"@type": "sc:AnnotationList",
+							"label": "ALTO"
+						},
+						{
+							"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/list/31/PDF",
+							"@type": "sc:AnnotationList",
+							"label": "PDF"
+						},
+						{
+							"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/list/31/FULLTEXT",
+							"@type": "sc:AnnotationList",
+							"label": [
+								{
+									"@value": "Volltext",
+									"@language": "de"
+								},
+								{
+									"@value": "Full text",
+									"@language": "en"
+								}
+							]
+						}
+					]
+				},
+				{
+					"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/32",
+					"@type": "sc:Canvas",
+					"label": " - ",
+					"thumbnail": {
+						"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000032.tif/full/!400,400/0/default.jpg",
+						"@type": "dcTypes:Image"
+					},
+					"rendering": {
+						"@id": "https://digi.landesbibliothek.at/viewer/image/AC08364319/32/",
+						"label": "goobi viewer",
+						"format": "text/html"
+					},
+					"within": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/sequence/basic",
+					"width": 6070,
+					"height": 7853,
+					"images": [
+						{
+							"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/32/image/1",
+							"@type": "oa:Annotation",
+							"motivation": "sc:painting",
+							"on": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/32",
+							"resource": {
+								"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000032.tif/full/!400,400/0/default.jpg",
+								"@type": "dcTypes:Image",
+								"width": 6070,
+								"height": 7853,
+								"format": "image/jpeg",
+								"service": {
+									"@context": "http://iiif.io/api/image/2/context.json",
+									"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000032.tif",
+									"profile": "http://iiif.io/api/image/2/level2.json"
+								}
+							}
+						}
+					],
+					"otherContent": [
+						{
+							"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/list/32/ALTO",
+							"@type": "sc:AnnotationList",
+							"label": "ALTO"
+						},
+						{
+							"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/list/32/PDF",
+							"@type": "sc:AnnotationList",
+							"label": "PDF"
+						},
+						{
+							"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/list/32/FULLTEXT",
+							"@type": "sc:AnnotationList",
+							"label": [
+								{
+									"@value": "Volltext",
+									"@language": "de"
+								},
+								{
+									"@value": "Full text",
+									"@language": "en"
+								}
+							]
+						}
+					]
+				},
+				{
+					"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/33",
+					"@type": "sc:Canvas",
+					"label": " - ",
+					"thumbnail": {
+						"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000033.tif/full/!400,400/0/default.jpg",
+						"@type": "dcTypes:Image"
+					},
+					"rendering": {
+						"@id": "https://digi.landesbibliothek.at/viewer/image/AC08364319/33/",
+						"label": "goobi viewer",
+						"format": "text/html"
+					},
+					"within": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/sequence/basic",
+					"width": 5936,
+					"height": 7829,
+					"images": [
+						{
+							"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/33/image/1",
+							"@type": "oa:Annotation",
+							"motivation": "sc:painting",
+							"on": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/33",
+							"resource": {
+								"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000033.tif/full/!400,400/0/default.jpg",
+								"@type": "dcTypes:Image",
+								"width": 5936,
+								"height": 7829,
+								"format": "image/jpeg",
+								"service": {
+									"@context": "http://iiif.io/api/image/2/context.json",
+									"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000033.tif",
+									"profile": "http://iiif.io/api/image/2/level2.json"
+								}
+							}
+						}
+					],
+					"otherContent": [
+						{
+							"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/list/33/ALTO",
+							"@type": "sc:AnnotationList",
+							"label": "ALTO"
+						},
+						{
+							"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/list/33/PDF",
+							"@type": "sc:AnnotationList",
+							"label": "PDF"
+						},
+						{
+							"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/list/33/FULLTEXT",
+							"@type": "sc:AnnotationList",
+							"label": [
+								{
+									"@value": "Volltext",
+									"@language": "de"
+								},
+								{
+									"@value": "Full text",
+									"@language": "en"
+								}
+							]
+						}
+					]
+				},
+				{
+					"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/34",
+					"@type": "sc:Canvas",
+					"label": " - ",
+					"thumbnail": {
+						"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000034.tif/full/!400,400/0/default.jpg",
+						"@type": "dcTypes:Image"
+					},
+					"rendering": {
+						"@id": "https://digi.landesbibliothek.at/viewer/image/AC08364319/34/",
+						"label": "goobi viewer",
+						"format": "text/html"
+					},
+					"within": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/sequence/basic",
+					"width": 5985,
+					"height": 7817,
+					"images": [
+						{
+							"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/34/image/1",
+							"@type": "oa:Annotation",
+							"motivation": "sc:painting",
+							"on": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/34",
+							"resource": {
+								"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000034.tif/full/!400,400/0/default.jpg",
+								"@type": "dcTypes:Image",
+								"width": 5985,
+								"height": 7817,
+								"format": "image/jpeg",
+								"service": {
+									"@context": "http://iiif.io/api/image/2/context.json",
+									"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000034.tif",
+									"profile": "http://iiif.io/api/image/2/level2.json"
+								}
+							}
+						}
+					],
+					"otherContent": [
+						{
+							"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/list/34/ALTO",
+							"@type": "sc:AnnotationList",
+							"label": "ALTO"
+						},
+						{
+							"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/list/34/PDF",
+							"@type": "sc:AnnotationList",
+							"label": "PDF"
+						},
+						{
+							"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/list/34/FULLTEXT",
+							"@type": "sc:AnnotationList",
+							"label": [
+								{
+									"@value": "Volltext",
+									"@language": "de"
+								},
+								{
+									"@value": "Full text",
+									"@language": "en"
+								}
+							]
+						}
+					]
+				},
+				{
+					"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/35",
+					"@type": "sc:Canvas",
+					"label": " - ",
+					"thumbnail": {
+						"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000035.tif/full/!400,400/0/default.jpg",
+						"@type": "dcTypes:Image"
+					},
+					"rendering": {
+						"@id": "https://digi.landesbibliothek.at/viewer/image/AC08364319/35/",
+						"label": "goobi viewer",
+						"format": "text/html"
+					},
+					"within": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/sequence/basic",
+					"width": 5936,
+					"height": 7829,
+					"images": [
+						{
+							"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/35/image/1",
+							"@type": "oa:Annotation",
+							"motivation": "sc:painting",
+							"on": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/35",
+							"resource": {
+								"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000035.tif/full/!400,400/0/default.jpg",
+								"@type": "dcTypes:Image",
+								"width": 5936,
+								"height": 7829,
+								"format": "image/jpeg",
+								"service": {
+									"@context": "http://iiif.io/api/image/2/context.json",
+									"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000035.tif",
+									"profile": "http://iiif.io/api/image/2/level2.json"
+								}
+							}
+						}
+					],
+					"otherContent": [
+						{
+							"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/list/35/ALTO",
+							"@type": "sc:AnnotationList",
+							"label": "ALTO"
+						},
+						{
+							"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/list/35/PDF",
+							"@type": "sc:AnnotationList",
+							"label": "PDF"
+						},
+						{
+							"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/list/35/FULLTEXT",
+							"@type": "sc:AnnotationList",
+							"label": [
+								{
+									"@value": "Volltext",
+									"@language": "de"
+								},
+								{
+									"@value": "Full text",
+									"@language": "en"
+								}
+							]
+						}
+					]
+				},
+				{
+					"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/36",
+					"@type": "sc:Canvas",
+					"label": " - ",
+					"thumbnail": {
+						"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000036.tif/full/!400,400/0/default.jpg",
+						"@type": "dcTypes:Image"
+					},
+					"rendering": {
+						"@id": "https://digi.landesbibliothek.at/viewer/image/AC08364319/36/",
+						"label": "goobi viewer",
+						"format": "text/html"
+					},
+					"within": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/sequence/basic",
+					"width": 5985,
+					"height": 7817,
+					"images": [
+						{
+							"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/36/image/1",
+							"@type": "oa:Annotation",
+							"motivation": "sc:painting",
+							"on": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/36",
+							"resource": {
+								"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000036.tif/full/!400,400/0/default.jpg",
+								"@type": "dcTypes:Image",
+								"width": 5985,
+								"height": 7817,
+								"format": "image/jpeg",
+								"service": {
+									"@context": "http://iiif.io/api/image/2/context.json",
+									"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000036.tif",
+									"profile": "http://iiif.io/api/image/2/level2.json"
+								}
+							}
+						}
+					],
+					"otherContent": [
+						{
+							"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/list/36/ALTO",
+							"@type": "sc:AnnotationList",
+							"label": "ALTO"
+						},
+						{
+							"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/list/36/PDF",
+							"@type": "sc:AnnotationList",
+							"label": "PDF"
+						},
+						{
+							"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/list/36/FULLTEXT",
+							"@type": "sc:AnnotationList",
+							"label": [
+								{
+									"@value": "Volltext",
+									"@language": "de"
+								},
+								{
+									"@value": "Full text",
+									"@language": "en"
+								}
+							]
+						}
+					]
+				}
+			],
+			"viewingDirection": "left-to-right"
+		}
+	],
+	"structures": [
+		{
+			"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/range/LOG_0000",
+			"@type": "sc:Range",
+			"label": "CONTENT",
+			"viewingHint": "top",
+			"ranges": [
+				"https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/range/LOG_0001",
+				"https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/range/LOG_0002",
+				"https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/range/LOG_0003",
+				"https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/range/LOG_0004",
+				"https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/range/LOG_0009",
+				"https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/range/LOG_0011",
+				"https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/range/LOG_0015",
+				"https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/range/LOG_0018",
+				"https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/range/LOG_0022",
+				"https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/range/LOG_0026",
+				"https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/range/LOG_0029",
+				"https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/range/LOG_0031",
+				"https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/range/LOG_0032",
+				"https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/range/LOG_0033"
+			]
+		},
+		{
+			"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/range/LOG_0001",
+			"@type": "sc:Range",
+			"label": [
+				{
+					"@value": "Einband",
+					"@language": "de"
+				}
+			],
+			"thumbnail": {
+				"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000001.tif/full/!400,400/0/default.jpg",
+				"@type": "dcTypes:Image",
+				"service": {
+					"@context": "http://iiif.io/api/image/2/context.json",
+					"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000001.tif",
+					"profile": "http://iiif.io/api/image/2/level2.json"
+				}
+			},
+			"rendering": [
+				{
+					"@id": "image/AC08364319/1/LOG_0001/",
+					"label": "goobi viewer",
+					"format": "text/html"
+				},
+				{
+					"@id": "https://digi.landesbibliothek.at/viewer/rest/pdf/mets/AC08364319.xml/LOG_0001/Einband.pdf?watermarkText=https%3A%2F%2Fdigi.landesbibliothek.at%2Fviewer%2Fimage%2FAC08364319%2F1%2F",
+					"label": "PDF",
+					"format": "applocation/pdf"
+				}
+			],
+			"within": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/range/LOG_0000",
+			"canvases": [
+				"https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/1"
+			]
+		},
+		{
+			"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/range/LOG_0002",
+			"@type": "sc:Range",
+			"label": [
+				{
+					"@value": "Titelseite",
+					"@language": "de"
+				},
+				{
+					"@value": "Title page",
+					"@language": "en"
+				}
+			],
+			"thumbnail": {
+				"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000001.tif/full/!400,400/0/default.jpg",
+				"@type": "dcTypes:Image",
+				"service": {
+					"@context": "http://iiif.io/api/image/2/context.json",
+					"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000001.tif",
+					"profile": "http://iiif.io/api/image/2/level2.json"
+				}
+			},
+			"rendering": [
+				{
+					"@id": "image/AC08364319/1/LOG_0002/",
+					"label": "goobi viewer",
+					"format": "text/html"
+				},
+				{
+					"@id": "https://digi.landesbibliothek.at/viewer/rest/pdf/mets/AC08364319.xml/LOG_0002/Titelseite.pdf?watermarkText=https%3A%2F%2Fdigi.landesbibliothek.at%2Fviewer%2Fimage%2FAC08364319%2F1%2F",
+					"label": "PDF",
+					"format": "applocation/pdf"
+				}
+			],
+			"within": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/range/LOG_0000",
+			"canvases": [
+				"https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/1"
+			]
+		},
+		{
+			"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/range/LOG_0003",
+			"@type": "sc:Range",
+			"label": [
+				{
+					"@value": "Werbung",
+					"@language": "de"
+				}
+			],
+			"thumbnail": {
+				"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000002.tif/full/!400,400/0/default.jpg",
+				"@type": "dcTypes:Image",
+				"service": {
+					"@context": "http://iiif.io/api/image/2/context.json",
+					"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000002.tif",
+					"profile": "http://iiif.io/api/image/2/level2.json"
+				}
+			},
+			"rendering": [
+				{
+					"@id": "image/AC08364319/2/LOG_0003/",
+					"label": "goobi viewer",
+					"format": "text/html"
+				},
+				{
+					"@id": "https://digi.landesbibliothek.at/viewer/rest/pdf/mets/AC08364319.xml/LOG_0003/Werbung.pdf?watermarkText=https%3A%2F%2Fdigi.landesbibliothek.at%2Fviewer%2Fimage%2FAC08364319%2F1%2F",
+					"label": "PDF",
+					"format": "applocation/pdf"
+				}
+			],
+			"within": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/range/LOG_0000",
+			"canvases": [
+				"https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/2"
+			]
+		},
+		{
+			"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/range/LOG_0004",
+			"@type": "sc:Range",
+			"label": "Das Eferdinger Stadtrecht von 1222",
+			"metadata": [
+				{
+					"label": "MD_ORDERLABELRANGE",
+					"value": "321 - 324"
+				},
+				{
+					"label": [
+						{
+							"@value": "Autor",
+							"@language": "de"
+						},
+						{
+							"@value": "Author",
+							"@language": "en"
+						}
+					],
+					"value": "Trinks, Erich"
+				},
+				{
+					"label": [
+						{
+							"@value": "Titel",
+							"@language": "de"
+						},
+						{
+							"@value": "Title",
+							"@language": "en"
+						}
+					],
+					"value": "Das Eferdinger Stadtrecht von 1222"
+				}
+			],
+			"thumbnail": {
+				"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000003.tif/full/!400,400/0/default.jpg",
+				"@type": "dcTypes:Image",
+				"service": {
+					"@context": "http://iiif.io/api/image/2/context.json",
+					"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000003.tif",
+					"profile": "http://iiif.io/api/image/2/level2.json"
+				}
+			},
+			"rendering": [
+				{
+					"@id": "image/AC08364319/3/LOG_0004/",
+					"label": "goobi viewer",
+					"format": "text/html"
+				},
+				{
+					"@id": "https://digi.landesbibliothek.at/viewer/rest/pdf/mets/AC08364319.xml/LOG_0004/Das_Eferdinger_Stadtrecht_von_1222.pdf?watermarkText=https%3A%2F%2Fdigi.landesbibliothek.at%2Fviewer%2Fimage%2FAC08364319%2F1%2F",
+					"label": "PDF",
+					"format": "applocation/pdf"
+				}
+			],
+			"within": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/range/LOG_0000",
+			"canvases": [
+				"https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/3",
+				"https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/4",
+				"https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/5",
+				"https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/6"
+			],
+			"ranges": [
+				"https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/range/LOG_0005",
+				"https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/range/LOG_0006",
+				"https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/range/LOG_0007",
+				"https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/range/LOG_0008"
+			]
+		},
+		{
+			"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/range/LOG_0005",
+			"@type": "sc:Range",
+			"label": "[Abb.]: Das Eferdinger Stadtwappen",
+			"metadata": [
+				{
+					"label": "MD_ORDERLABELRANGE",
+					"value": "321 - 321"
+				},
+				{
+					"label": [
+						{
+							"@value": "Fotograf",
+							"@language": "de"
+						},
+						{
+							"@value": "Photographer",
+							"@language": "en"
+						}
+					],
+					"value": "Fürböck"
+				},
+				{
+					"label": [
+						{
+							"@value": "Titel",
+							"@language": "de"
+						},
+						{
+							"@value": "Title",
+							"@language": "en"
+						}
+					],
+					"value": "[Abb.]: Das Eferdinger Stadtwappen"
+				}
+			],
+			"thumbnail": {
+				"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000003.tif/full/!400,400/0/default.jpg",
+				"@type": "dcTypes:Image",
+				"service": {
+					"@context": "http://iiif.io/api/image/2/context.json",
+					"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000003.tif",
+					"profile": "http://iiif.io/api/image/2/level2.json"
+				}
+			},
+			"rendering": [
+				{
+					"@id": "image/AC08364319/3/LOG_0005/",
+					"label": "goobi viewer",
+					"format": "text/html"
+				},
+				{
+					"@id": "https://digi.landesbibliothek.at/viewer/rest/pdf/mets/AC08364319.xml/LOG_0005/Abb_Das_Eferdinger_Stadtwappen.pdf?watermarkText=https%3A%2F%2Fdigi.landesbibliothek.at%2Fviewer%2Fimage%2FAC08364319%2F1%2F",
+					"label": "PDF",
+					"format": "applocation/pdf"
+				}
+			],
+			"within": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/range/LOG_0004",
+			"canvases": [
+				"https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/3"
+			]
+		},
+		{
+			"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/range/LOG_0006",
+			"@type": "sc:Range",
+			"label": "[2 Abb.]: (1)Die Schaumburg. (2)Alte Ansicht von Eferding (nach Merian).",
+			"metadata": [
+				{
+					"label": "MD_ORDERLABELRANGE",
+					"value": "322 - 322"
+				},
+				{
+					"label": [
+						{
+							"@value": "Titel",
+							"@language": "de"
+						},
+						{
+							"@value": "Title",
+							"@language": "en"
+						}
+					],
+					"value": "[2 Abb.]: (1)Die Schaumburg. (2)Alte Ansicht von Eferding (nach Merian)."
+				}
+			],
+			"thumbnail": {
+				"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000004.tif/full/!400,400/0/default.jpg",
+				"@type": "dcTypes:Image",
+				"service": {
+					"@context": "http://iiif.io/api/image/2/context.json",
+					"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000004.tif",
+					"profile": "http://iiif.io/api/image/2/level2.json"
+				}
+			},
+			"rendering": [
+				{
+					"@id": "image/AC08364319/4/LOG_0006/",
+					"label": "goobi viewer",
+					"format": "text/html"
+				},
+				{
+					"@id": "https://digi.landesbibliothek.at/viewer/rest/pdf/mets/AC08364319.xml/LOG_0006/2_Abb_1Die_Schaumburg_2Alte_Ansicht_von_Eferding_nach_Merian.pdf?watermarkText=https%3A%2F%2Fdigi.landesbibliothek.at%2Fviewer%2Fimage%2FAC08364319%2F1%2F",
+					"label": "PDF",
+					"format": "applocation/pdf"
+				}
+			],
+			"within": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/range/LOG_0004",
+			"canvases": [
+				"https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/4"
+			]
+		},
+		{
+			"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/range/LOG_0007",
+			"@type": "sc:Range",
+			"label": "[Abb.]: Das Starhemberg-Schloß.",
+			"metadata": [
+				{
+					"label": "MD_ORDERLABELRANGE",
+					"value": "323 - 323"
+				},
+				{
+					"label": [
+						{
+							"@value": "Fotograf",
+							"@language": "de"
+						},
+						{
+							"@value": "Photographer",
+							"@language": "en"
+						}
+					],
+					"value": "Fürböck"
+				},
+				{
+					"label": [
+						{
+							"@value": "Titel",
+							"@language": "de"
+						},
+						{
+							"@value": "Title",
+							"@language": "en"
+						}
+					],
+					"value": "[Abb.]: Das Starhemberg-Schloß."
+				}
+			],
+			"thumbnail": {
+				"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000005.tif/full/!400,400/0/default.jpg",
+				"@type": "dcTypes:Image",
+				"service": {
+					"@context": "http://iiif.io/api/image/2/context.json",
+					"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000005.tif",
+					"profile": "http://iiif.io/api/image/2/level2.json"
+				}
+			},
+			"rendering": [
+				{
+					"@id": "image/AC08364319/5/LOG_0007/",
+					"label": "goobi viewer",
+					"format": "text/html"
+				},
+				{
+					"@id": "https://digi.landesbibliothek.at/viewer/rest/pdf/mets/AC08364319.xml/LOG_0007/Abb_Das_StarhembergSchlo.pdf?watermarkText=https%3A%2F%2Fdigi.landesbibliothek.at%2Fviewer%2Fimage%2FAC08364319%2F1%2F",
+					"label": "PDF",
+					"format": "applocation/pdf"
+				}
+			],
+			"within": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/range/LOG_0004",
+			"canvases": [
+				"https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/5"
+			]
+		},
+		{
+			"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/range/LOG_0008",
+			"@type": "sc:Range",
+			"label": "Quellen und wichtige Literatur:",
+			"metadata": [
+				{
+					"label": "MD_ORDERLABELRANGE",
+					"value": "324 - 324"
+				},
+				{
+					"label": [
+						{
+							"@value": "Titel",
+							"@language": "de"
+						},
+						{
+							"@value": "Title",
+							"@language": "en"
+						}
+					],
+					"value": "Quellen und wichtige Literatur:"
+				}
+			],
+			"thumbnail": {
+				"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000006.tif/full/!400,400/0/default.jpg",
+				"@type": "dcTypes:Image",
+				"service": {
+					"@context": "http://iiif.io/api/image/2/context.json",
+					"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000006.tif",
+					"profile": "http://iiif.io/api/image/2/level2.json"
+				}
+			},
+			"rendering": [
+				{
+					"@id": "image/AC08364319/6/LOG_0008/",
+					"label": "goobi viewer",
+					"format": "text/html"
+				},
+				{
+					"@id": "https://digi.landesbibliothek.at/viewer/rest/pdf/mets/AC08364319.xml/LOG_0008/Quellen_und_wichtige_Literatur.pdf?watermarkText=https%3A%2F%2Fdigi.landesbibliothek.at%2Fviewer%2Fimage%2FAC08364319%2F1%2F",
+					"label": "PDF",
+					"format": "applocation/pdf"
+				}
+			],
+			"within": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/range/LOG_0004",
+			"canvases": [
+				"https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/6"
+			]
+		},
+		{
+			"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/range/LOG_0009",
+			"@type": "sc:Range",
+			"label": "Eferding während der Bauernunruhen",
+			"metadata": [
+				{
+					"label": "MD_ORDERLABELRANGE",
+					"value": "324 - 325"
+				},
+				{
+					"label": [
+						{
+							"@value": "Autor",
+							"@language": "de"
+						},
+						{
+							"@value": "Author",
+							"@language": "en"
+						}
+					],
+					"value": "Straßmayr, Eduard"
+				},
+				{
+					"label": [
+						{
+							"@value": "Titel",
+							"@language": "de"
+						},
+						{
+							"@value": "Title",
+							"@language": "en"
+						}
+					],
+					"value": "Eferding während der Bauernunruhen"
+				}
+			],
+			"thumbnail": {
+				"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000006.tif/full/!400,400/0/default.jpg",
+				"@type": "dcTypes:Image",
+				"service": {
+					"@context": "http://iiif.io/api/image/2/context.json",
+					"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000006.tif",
+					"profile": "http://iiif.io/api/image/2/level2.json"
+				}
+			},
+			"rendering": [
+				{
+					"@id": "image/AC08364319/6/LOG_0009/",
+					"label": "goobi viewer",
+					"format": "text/html"
+				},
+				{
+					"@id": "https://digi.landesbibliothek.at/viewer/rest/pdf/mets/AC08364319.xml/LOG_0009/Eferding_whrend_der_Bauernunruhen.pdf?watermarkText=https%3A%2F%2Fdigi.landesbibliothek.at%2Fviewer%2Fimage%2FAC08364319%2F1%2F",
+					"label": "PDF",
+					"format": "applocation/pdf"
+				}
+			],
+			"within": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/range/LOG_0000",
+			"canvases": [
+				"https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/6",
+				"https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/7"
+			],
+			"ranges": [
+				"https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/range/LOG_0010"
+			]
+		},
+		{
+			"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/range/LOG_0010",
+			"@type": "sc:Range",
+			"label": "[Abb.]: Hof im Weiß-Hause.",
+			"metadata": [
+				{
+					"label": "MD_ORDERLABELRANGE",
+					"value": "325 - 325"
+				},
+				{
+					"label": [
+						{
+							"@value": "Fotograf",
+							"@language": "de"
+						},
+						{
+							"@value": "Photographer",
+							"@language": "en"
+						}
+					],
+					"value": "Fürböck"
+				},
+				{
+					"label": [
+						{
+							"@value": "Titel",
+							"@language": "de"
+						},
+						{
+							"@value": "Title",
+							"@language": "en"
+						}
+					],
+					"value": "[Abb.]: Hof im Weiß-Hause."
+				}
+			],
+			"thumbnail": {
+				"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000007.tif/full/!400,400/0/default.jpg",
+				"@type": "dcTypes:Image",
+				"service": {
+					"@context": "http://iiif.io/api/image/2/context.json",
+					"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000007.tif",
+					"profile": "http://iiif.io/api/image/2/level2.json"
+				}
+			},
+			"rendering": [
+				{
+					"@id": "image/AC08364319/7/LOG_0010/",
+					"label": "goobi viewer",
+					"format": "text/html"
+				},
+				{
+					"@id": "https://digi.landesbibliothek.at/viewer/rest/pdf/mets/AC08364319.xml/LOG_0010/Abb_Hof_im_WeiHause.pdf?watermarkText=https%3A%2F%2Fdigi.landesbibliothek.at%2Fviewer%2Fimage%2FAC08364319%2F1%2F",
+					"label": "PDF",
+					"format": "applocation/pdf"
+				}
+			],
+			"within": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/range/LOG_0009",
+			"canvases": [
+				"https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/7"
+			]
+		},
+		{
+			"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/range/LOG_0011",
+			"@type": "sc:Range",
+			"label": "Das Stadtbild Eferdings am Ende des Bauernkrieges.",
+			"metadata": [
+				{
+					"label": "MD_ORDERLABELRANGE",
+					"value": "326 - 328"
+				},
+				{
+					"label": [
+						{
+							"@value": "Autor",
+							"@language": "de"
+						},
+						{
+							"@value": "Author",
+							"@language": "en"
+						}
+					],
+					"value": "Ecker, Maximilian"
+				},
+				{
+					"label": [
+						{
+							"@value": "Titel",
+							"@language": "de"
+						},
+						{
+							"@value": "Title",
+							"@language": "en"
+						}
+					],
+					"value": "Das Stadtbild Eferdings am Ende des Bauernkrieges."
+				}
+			],
+			"thumbnail": {
+				"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000008.tif/full/!400,400/0/default.jpg",
+				"@type": "dcTypes:Image",
+				"service": {
+					"@context": "http://iiif.io/api/image/2/context.json",
+					"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000008.tif",
+					"profile": "http://iiif.io/api/image/2/level2.json"
+				}
+			},
+			"rendering": [
+				{
+					"@id": "image/AC08364319/8/LOG_0011/",
+					"label": "goobi viewer",
+					"format": "text/html"
+				},
+				{
+					"@id": "https://digi.landesbibliothek.at/viewer/rest/pdf/mets/AC08364319.xml/LOG_0011/Das_Stadtbild_Eferdings_am_Ende_des_Bauernkrieges.pdf?watermarkText=https%3A%2F%2Fdigi.landesbibliothek.at%2Fviewer%2Fimage%2FAC08364319%2F1%2F",
+					"label": "PDF",
+					"format": "applocation/pdf"
+				}
+			],
+			"within": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/range/LOG_0000",
+			"canvases": [
+				"https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/8",
+				"https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/9",
+				"https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/10"
+			],
+			"ranges": [
+				"https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/range/LOG_0012",
+				"https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/range/LOG_0013",
+				"https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/range/LOG_0014"
+			]
+		},
+		{
+			"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/range/LOG_0012",
+			"@type": "sc:Range",
+			"label": "[2 Abb.]: (1)Gasthaus \"Zum goldenen Löwen\", wo Kepler mit der Eferdinger Bürgerstochter Reutinger Hochzeit hielt. (2)Johannes Kepler.",
+			"metadata": [
+				{
+					"label": "MD_ORDERLABELRANGE",
+					"value": "326 - 326"
+				},
+				{
+					"label": [
+						{
+							"@value": "Titel",
+							"@language": "de"
+						},
+						{
+							"@value": "Title",
+							"@language": "en"
+						}
+					],
+					"value": "[2 Abb.]: (1)Gasthaus \"Zum goldenen Löwen\", wo Kepler mit der Eferdinger Bürgerstochter Reutinger Hochzeit hielt. (2)Johannes Kepler."
+				}
+			],
+			"thumbnail": {
+				"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000008.tif/full/!400,400/0/default.jpg",
+				"@type": "dcTypes:Image",
+				"service": {
+					"@context": "http://iiif.io/api/image/2/context.json",
+					"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000008.tif",
+					"profile": "http://iiif.io/api/image/2/level2.json"
+				}
+			},
+			"rendering": [
+				{
+					"@id": "image/AC08364319/8/LOG_0012/",
+					"label": "goobi viewer",
+					"format": "text/html"
+				},
+				{
+					"@id": "https://digi.landesbibliothek.at/viewer/rest/pdf/mets/AC08364319.xml/LOG_0012/2_Abb_1Gasthaus_Zum_goldenen_Lwen_wo_Kepler_mit_der_Eferdinger_Brgerstochter_Reutinger_Hochzeit_hielt_2Johannes_Kepler.pdf?watermarkText=https%3A%2F%2Fdigi.landesbibliothek.at%2Fviewer%2Fimage%2FAC08364319%2F1%2F",
+					"label": "PDF",
+					"format": "applocation/pdf"
+				}
+			],
+			"within": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/range/LOG_0011",
+			"canvases": [
+				"https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/8"
+			]
+		},
+		{
+			"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/range/LOG_0013",
+			"@type": "sc:Range",
+			"label": "[Abb.]: Stadtpfarrkirche Eferding.",
+			"metadata": [
+				{
+					"label": "MD_ORDERLABELRANGE",
+					"value": "327 - 327"
+				},
+				{
+					"label": [
+						{
+							"@value": "Titel",
+							"@language": "de"
+						},
+						{
+							"@value": "Title",
+							"@language": "en"
+						}
+					],
+					"value": "[Abb.]: Stadtpfarrkirche Eferding."
+				},
+				{
+					"label": [
+						{
+							"@value": "Künstler-Illustrator",
+							"@language": "de"
+						},
+						{
+							"@value": "Illustrator / Artist",
+							"@language": "en"
+						}
+					],
+					"value": "Wunder, Hans"
+				}
+			],
+			"thumbnail": {
+				"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000009.tif/full/!400,400/0/default.jpg",
+				"@type": "dcTypes:Image",
+				"service": {
+					"@context": "http://iiif.io/api/image/2/context.json",
+					"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000009.tif",
+					"profile": "http://iiif.io/api/image/2/level2.json"
+				}
+			},
+			"rendering": [
+				{
+					"@id": "image/AC08364319/9/LOG_0013/",
+					"label": "goobi viewer",
+					"format": "text/html"
+				},
+				{
+					"@id": "https://digi.landesbibliothek.at/viewer/rest/pdf/mets/AC08364319.xml/LOG_0013/Abb_Stadtpfarrkirche_Eferding.pdf?watermarkText=https%3A%2F%2Fdigi.landesbibliothek.at%2Fviewer%2Fimage%2FAC08364319%2F1%2F",
+					"label": "PDF",
+					"format": "applocation/pdf"
+				}
+			],
+			"within": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/range/LOG_0011",
+			"canvases": [
+				"https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/9"
+			]
+		},
+		{
+			"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/range/LOG_0014",
+			"@type": "sc:Range",
+			"label": "[Abb.]: Eferding vom Luftballon aus gesehen.",
+			"metadata": [
+				{
+					"label": "MD_ORDERLABELRANGE",
+					"value": "328 - 328"
+				},
+				{
+					"label": [
+						{
+							"@value": "Titel",
+							"@language": "de"
+						},
+						{
+							"@value": "Title",
+							"@language": "en"
+						}
+					],
+					"value": "[Abb.]: Eferding vom Luftballon aus gesehen."
+				}
+			],
+			"thumbnail": {
+				"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000010.tif/full/!400,400/0/default.jpg",
+				"@type": "dcTypes:Image",
+				"service": {
+					"@context": "http://iiif.io/api/image/2/context.json",
+					"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000010.tif",
+					"profile": "http://iiif.io/api/image/2/level2.json"
+				}
+			},
+			"rendering": [
+				{
+					"@id": "image/AC08364319/10/LOG_0014/",
+					"label": "goobi viewer",
+					"format": "text/html"
+				},
+				{
+					"@id": "https://digi.landesbibliothek.at/viewer/rest/pdf/mets/AC08364319.xml/LOG_0014/Abb_Eferding_vom_Luftballon_aus_gesehen.pdf?watermarkText=https%3A%2F%2Fdigi.landesbibliothek.at%2Fviewer%2Fimage%2FAC08364319%2F1%2F",
+					"label": "PDF",
+					"format": "applocation/pdf"
+				}
+			],
+			"within": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/range/LOG_0011",
+			"canvases": [
+				"https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/10"
+			]
+		},
+		{
+			"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/range/LOG_0015",
+			"@type": "sc:Range",
+			"label": "Die Eferdinger Märkte",
+			"metadata": [
+				{
+					"label": "MD_ORDERLABELRANGE",
+					"value": "329 - 331"
+				},
+				{
+					"label": [
+						{
+							"@value": "Autor",
+							"@language": "de"
+						},
+						{
+							"@value": "Author",
+							"@language": "en"
+						}
+					],
+					"value": "Vogl, Franz"
+				},
+				{
+					"label": [
+						{
+							"@value": "Titel",
+							"@language": "de"
+						},
+						{
+							"@value": "Title",
+							"@language": "en"
+						}
+					],
+					"value": "Die Eferdinger Märkte"
+				}
+			],
+			"thumbnail": {
+				"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000011.tif/full/!400,400/0/default.jpg",
+				"@type": "dcTypes:Image",
+				"service": {
+					"@context": "http://iiif.io/api/image/2/context.json",
+					"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000011.tif",
+					"profile": "http://iiif.io/api/image/2/level2.json"
+				}
+			},
+			"rendering": [
+				{
+					"@id": "image/AC08364319/11/LOG_0015/",
+					"label": "goobi viewer",
+					"format": "text/html"
+				},
+				{
+					"@id": "https://digi.landesbibliothek.at/viewer/rest/pdf/mets/AC08364319.xml/LOG_0015/Die_Eferdinger_Mrkte.pdf?watermarkText=https%3A%2F%2Fdigi.landesbibliothek.at%2Fviewer%2Fimage%2FAC08364319%2F1%2F",
+					"label": "PDF",
+					"format": "applocation/pdf"
+				}
+			],
+			"within": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/range/LOG_0000",
+			"canvases": [
+				"https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/11",
+				"https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/12",
+				"https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/13"
+			],
+			"ranges": [
+				"https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/range/LOG_0016",
+				"https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/range/LOG_0017"
+			]
+		},
+		{
+			"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/range/LOG_0016",
+			"@type": "sc:Range",
+			"label": "[Abb.]: Burgruinen um Eferding: Ruine Schaumburg gegen Donautal.",
+			"metadata": [
+				{
+					"label": "MD_ORDERLABELRANGE",
+					"value": "329 - 329"
+				},
+				{
+					"label": [
+						{
+							"@value": "Fotograf",
+							"@language": "de"
+						},
+						{
+							"@value": "Photographer",
+							"@language": "en"
+						}
+					],
+					"value": "Bregenzer, A."
+				},
+				{
+					"label": [
+						{
+							"@value": "Titel",
+							"@language": "de"
+						},
+						{
+							"@value": "Title",
+							"@language": "en"
+						}
+					],
+					"value": "[Abb.]: Burgruinen um Eferding: Ruine Schaumburg gegen Donautal."
+				}
+			],
+			"thumbnail": {
+				"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000011.tif/full/!400,400/0/default.jpg",
+				"@type": "dcTypes:Image",
+				"service": {
+					"@context": "http://iiif.io/api/image/2/context.json",
+					"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000011.tif",
+					"profile": "http://iiif.io/api/image/2/level2.json"
+				}
+			},
+			"rendering": [
+				{
+					"@id": "image/AC08364319/11/LOG_0016/",
+					"label": "goobi viewer",
+					"format": "text/html"
+				},
+				{
+					"@id": "https://digi.landesbibliothek.at/viewer/rest/pdf/mets/AC08364319.xml/LOG_0016/Abb_Burgruinen_um_Eferding_Ruine_Schaumburg_gegen_Donautal.pdf?watermarkText=https%3A%2F%2Fdigi.landesbibliothek.at%2Fviewer%2Fimage%2FAC08364319%2F1%2F",
+					"label": "PDF",
+					"format": "applocation/pdf"
+				}
+			],
+			"within": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/range/LOG_0015",
+			"canvases": [
+				"https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/11"
+			]
+		},
+		{
+			"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/range/LOG_0017",
+			"@type": "sc:Range",
+			"label": "[Abb.]: Burgruinen um Eferding: Ruine Stauf im Aschachtal.",
+			"metadata": [
+				{
+					"label": "MD_ORDERLABELRANGE",
+					"value": "330 - 330"
+				},
+				{
+					"label": [
+						{
+							"@value": "Titel",
+							"@language": "de"
+						},
+						{
+							"@value": "Title",
+							"@language": "en"
+						}
+					],
+					"value": "[Abb.]: Burgruinen um Eferding: Ruine Stauf im Aschachtal."
+				}
+			],
+			"thumbnail": {
+				"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000012.tif/full/!400,400/0/default.jpg",
+				"@type": "dcTypes:Image",
+				"service": {
+					"@context": "http://iiif.io/api/image/2/context.json",
+					"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000012.tif",
+					"profile": "http://iiif.io/api/image/2/level2.json"
+				}
+			},
+			"rendering": [
+				{
+					"@id": "image/AC08364319/12/LOG_0017/",
+					"label": "goobi viewer",
+					"format": "text/html"
+				},
+				{
+					"@id": "https://digi.landesbibliothek.at/viewer/rest/pdf/mets/AC08364319.xml/LOG_0017/Abb_Burgruinen_um_Eferding_Ruine_Stauf_im_Aschachtal.pdf?watermarkText=https%3A%2F%2Fdigi.landesbibliothek.at%2Fviewer%2Fimage%2FAC08364319%2F1%2F",
+					"label": "PDF",
+					"format": "applocation/pdf"
+				}
+			],
+			"within": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/range/LOG_0015",
+			"canvases": [
+				"https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/12"
+			]
+		},
+		{
+			"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/range/LOG_0018",
+			"@type": "sc:Range",
+			"label": "Zur Geschichte der katholischen Pfarre Eferding.",
+			"metadata": [
+				{
+					"label": "MD_ORDERLABELRANGE",
+					"value": "331 - 335"
+				},
+				{
+					"label": [
+						{
+							"@value": "Autor",
+							"@language": "de"
+						},
+						{
+							"@value": "Author",
+							"@language": "en"
+						}
+					],
+					"value": "Ecker, Maximilian"
+				},
+				{
+					"label": [
+						{
+							"@value": "Titel",
+							"@language": "de"
+						},
+						{
+							"@value": "Title",
+							"@language": "en"
+						}
+					],
+					"value": "Zur Geschichte der katholischen Pfarre Eferding."
+				}
+			],
+			"thumbnail": {
+				"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000013.tif/full/!400,400/0/default.jpg",
+				"@type": "dcTypes:Image",
+				"service": {
+					"@context": "http://iiif.io/api/image/2/context.json",
+					"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000013.tif",
+					"profile": "http://iiif.io/api/image/2/level2.json"
+				}
+			},
+			"rendering": [
+				{
+					"@id": "image/AC08364319/13/LOG_0018/",
+					"label": "goobi viewer",
+					"format": "text/html"
+				},
+				{
+					"@id": "https://digi.landesbibliothek.at/viewer/rest/pdf/mets/AC08364319.xml/LOG_0018/Zur_Geschichte_der_katholischen_Pfarre_Eferding.pdf?watermarkText=https%3A%2F%2Fdigi.landesbibliothek.at%2Fviewer%2Fimage%2FAC08364319%2F1%2F",
+					"label": "PDF",
+					"format": "applocation/pdf"
+				}
+			],
+			"within": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/range/LOG_0000",
+			"canvases": [
+				"https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/13",
+				"https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/14",
+				"https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/15",
+				"https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/16",
+				"https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/17"
+			],
+			"ranges": [
+				"https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/range/LOG_0019",
+				"https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/range/LOG_0020",
+				"https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/range/LOG_0021"
+			]
+		},
+		{
+			"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/range/LOG_0019",
+			"@type": "sc:Range",
+			"label": "[Abb.]: Stadtpfarrkirche Eferding.",
+			"metadata": [
+				{
+					"label": "MD_ORDERLABELRANGE",
+					"value": "332 - 332"
+				},
+				{
+					"label": [
+						{
+							"@value": "Fotograf",
+							"@language": "de"
+						},
+						{
+							"@value": "Photographer",
+							"@language": "en"
+						}
+					],
+					"value": "Fürböck"
+				},
+				{
+					"label": [
+						{
+							"@value": "Titel",
+							"@language": "de"
+						},
+						{
+							"@value": "Title",
+							"@language": "en"
+						}
+					],
+					"value": "[Abb.]: Stadtpfarrkirche Eferding."
+				}
+			],
+			"thumbnail": {
+				"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000014.tif/full/!400,400/0/default.jpg",
+				"@type": "dcTypes:Image",
+				"service": {
+					"@context": "http://iiif.io/api/image/2/context.json",
+					"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000014.tif",
+					"profile": "http://iiif.io/api/image/2/level2.json"
+				}
+			},
+			"rendering": [
+				{
+					"@id": "image/AC08364319/14/LOG_0019/",
+					"label": "goobi viewer",
+					"format": "text/html"
+				},
+				{
+					"@id": "https://digi.landesbibliothek.at/viewer/rest/pdf/mets/AC08364319.xml/LOG_0019/Abb_Stadtpfarrkirche_Eferding.pdf?watermarkText=https%3A%2F%2Fdigi.landesbibliothek.at%2Fviewer%2Fimage%2FAC08364319%2F1%2F",
+					"label": "PDF",
+					"format": "applocation/pdf"
+				}
+			],
+			"within": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/range/LOG_0018",
+			"canvases": [
+				"https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/14"
+			]
+		},
+		{
+			"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/range/LOG_0020",
+			"@type": "sc:Range",
+			"label": "[2 Abb.]: (1)Portal der Stadtpfarrkirche. (2)Grabdenkmal Rüdigers von Starhemberg, des Befreiers von Wien.",
+			"metadata": [
+				{
+					"label": "MD_ORDERLABELRANGE",
+					"value": "333 - 333"
+				},
+				{
+					"label": [
+						{
+							"@value": "Fotograf",
+							"@language": "de"
+						},
+						{
+							"@value": "Photographer",
+							"@language": "en"
+						}
+					],
+					"value": "Bregenzer, A."
+				},
+				{
+					"label": [
+						{
+							"@value": "Titel",
+							"@language": "de"
+						},
+						{
+							"@value": "Title",
+							"@language": "en"
+						}
+					],
+					"value": "[2 Abb.]: (1)Portal der Stadtpfarrkirche. (2)Grabdenkmal Rüdigers von Starhemberg, des Befreiers von Wien."
+				}
+			],
+			"thumbnail": {
+				"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000015.tif/full/!400,400/0/default.jpg",
+				"@type": "dcTypes:Image",
+				"service": {
+					"@context": "http://iiif.io/api/image/2/context.json",
+					"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000015.tif",
+					"profile": "http://iiif.io/api/image/2/level2.json"
+				}
+			},
+			"rendering": [
+				{
+					"@id": "image/AC08364319/15/LOG_0020/",
+					"label": "goobi viewer",
+					"format": "text/html"
+				},
+				{
+					"@id": "https://digi.landesbibliothek.at/viewer/rest/pdf/mets/AC08364319.xml/LOG_0020/2_Abb_1Portal_der_Stadtpfarrkirche_2Grabdenkmal_Rdigers_von_Starhemberg_des_Befreiers_von_Wien.pdf?watermarkText=https%3A%2F%2Fdigi.landesbibliothek.at%2Fviewer%2Fimage%2FAC08364319%2F1%2F",
+					"label": "PDF",
+					"format": "applocation/pdf"
+				}
+			],
+			"within": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/range/LOG_0018",
+			"canvases": [
+				"https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/15"
+			]
+		},
+		{
+			"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/range/LOG_0021",
+			"@type": "sc:Range",
+			"label": "[Abb.]: Wappentiere der Schaumburger an der Stadtpfarrkirche Eferding.",
+			"metadata": [
+				{
+					"label": "MD_ORDERLABELRANGE",
+					"value": "334 - 334"
+				},
+				{
+					"label": [
+						{
+							"@value": "Titel",
+							"@language": "de"
+						},
+						{
+							"@value": "Title",
+							"@language": "en"
+						}
+					],
+					"value": "[Abb.]: Wappentiere der Schaumburger an der Stadtpfarrkirche Eferding."
+				}
+			],
+			"thumbnail": {
+				"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000016.tif/full/!400,400/0/default.jpg",
+				"@type": "dcTypes:Image",
+				"service": {
+					"@context": "http://iiif.io/api/image/2/context.json",
+					"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000016.tif",
+					"profile": "http://iiif.io/api/image/2/level2.json"
+				}
+			},
+			"rendering": [
+				{
+					"@id": "image/AC08364319/16/LOG_0021/",
+					"label": "goobi viewer",
+					"format": "text/html"
+				},
+				{
+					"@id": "https://digi.landesbibliothek.at/viewer/rest/pdf/mets/AC08364319.xml/LOG_0021/Abb_Wappentiere_der_Schaumburger_an_der_Stadtpfarrkirche_Eferding.pdf?watermarkText=https%3A%2F%2Fdigi.landesbibliothek.at%2Fviewer%2Fimage%2FAC08364319%2F1%2F",
+					"label": "PDF",
+					"format": "applocation/pdf"
+				}
+			],
+			"within": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/range/LOG_0018",
+			"canvases": [
+				"https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/16"
+			]
+		},
+		{
+			"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/range/LOG_0022",
+			"@type": "sc:Range",
+			"label": "Die Eferdinger Stadttore im Wandel der Zeiten",
+			"metadata": [
+				{
+					"label": "MD_ORDERLABELRANGE",
+					"value": "335 - 338"
+				},
+				{
+					"label": [
+						{
+							"@value": "Autor",
+							"@language": "de"
+						},
+						{
+							"@value": "Author",
+							"@language": "en"
+						}
+					],
+					"value": "Vogl, Franz"
+				},
+				{
+					"label": [
+						{
+							"@value": "Titel",
+							"@language": "de"
+						},
+						{
+							"@value": "Title",
+							"@language": "en"
+						}
+					],
+					"value": "Die Eferdinger Stadttore im Wandel der Zeiten"
+				}
+			],
+			"thumbnail": {
+				"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000017.tif/full/!400,400/0/default.jpg",
+				"@type": "dcTypes:Image",
+				"service": {
+					"@context": "http://iiif.io/api/image/2/context.json",
+					"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000017.tif",
+					"profile": "http://iiif.io/api/image/2/level2.json"
+				}
+			},
+			"rendering": [
+				{
+					"@id": "image/AC08364319/17/LOG_0022/",
+					"label": "goobi viewer",
+					"format": "text/html"
+				},
+				{
+					"@id": "https://digi.landesbibliothek.at/viewer/rest/pdf/mets/AC08364319.xml/LOG_0022/Die_Eferdinger_Stadttore_im_Wandel_der_Zeiten.pdf?watermarkText=https%3A%2F%2Fdigi.landesbibliothek.at%2Fviewer%2Fimage%2FAC08364319%2F1%2F",
+					"label": "PDF",
+					"format": "applocation/pdf"
+				}
+			],
+			"within": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/range/LOG_0000",
+			"canvases": [
+				"https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/17",
+				"https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/18",
+				"https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/19",
+				"https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/20"
+			],
+			"ranges": [
+				"https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/range/LOG_0023",
+				"https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/range/LOG_0024",
+				"https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/range/LOG_0025"
+			]
+		},
+		{
+			"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/range/LOG_0023",
+			"@type": "sc:Range",
+			"label": "[2 Abb.]: (1)Schaunberger-Grab in der Wilheringer Stiftskirche. (2)Schaunberger-Gräber in der Wilheringer Stiftskirche: Grabmal Ulrich II.",
+			"metadata": [
+				{
+					"label": "MD_ORDERLABELRANGE",
+					"value": "336 - 336"
+				},
+				{
+					"label": [
+						{
+							"@value": "Titel",
+							"@language": "de"
+						},
+						{
+							"@value": "Title",
+							"@language": "en"
+						}
+					],
+					"value": "[2 Abb.]: (1)Schaunberger-Grab in der Wilheringer Stiftskirche. (2)Schaunberger-Gräber in der Wilheringer Stiftskirche: Grabmal Ulrich II."
+				}
+			],
+			"thumbnail": {
+				"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000018.tif/full/!400,400/0/default.jpg",
+				"@type": "dcTypes:Image",
+				"service": {
+					"@context": "http://iiif.io/api/image/2/context.json",
+					"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000018.tif",
+					"profile": "http://iiif.io/api/image/2/level2.json"
+				}
+			},
+			"rendering": [
+				{
+					"@id": "image/AC08364319/18/LOG_0023/",
+					"label": "goobi viewer",
+					"format": "text/html"
+				},
+				{
+					"@id": "https://digi.landesbibliothek.at/viewer/rest/pdf/mets/AC08364319.xml/LOG_0023/2_Abb_1SchaunbergerGrab_in_der_Wilheringer_Stiftskirche_2SchaunbergerGrber_in_der_Wilheringer_Stiftskirche_Grabmal_Ulrich_II.pdf?watermarkText=https%3A%2F%2Fdigi.landesbibliothek.at%2Fviewer%2Fimage%2FAC08364319%2F1%2F",
+					"label": "PDF",
+					"format": "applocation/pdf"
+				}
+			],
+			"within": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/range/LOG_0022",
+			"canvases": [
+				"https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/18"
+			]
+		},
+		{
+			"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/range/LOG_0024",
+			"@type": "sc:Range",
+			"label": "[Abb.]: Das Schiferkirchlein.",
+			"metadata": [
+				{
+					"label": "MD_ORDERLABELRANGE",
+					"value": "337 - 337"
+				},
+				{
+					"label": [
+						{
+							"@value": "Titel",
+							"@language": "de"
+						},
+						{
+							"@value": "Title",
+							"@language": "en"
+						}
+					],
+					"value": "[Abb.]: Das Schiferkirchlein."
+				}
+			],
+			"thumbnail": {
+				"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000019.tif/full/!400,400/0/default.jpg",
+				"@type": "dcTypes:Image",
+				"service": {
+					"@context": "http://iiif.io/api/image/2/context.json",
+					"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000019.tif",
+					"profile": "http://iiif.io/api/image/2/level2.json"
+				}
+			},
+			"rendering": [
+				{
+					"@id": "image/AC08364319/19/LOG_0024/",
+					"label": "goobi viewer",
+					"format": "text/html"
+				},
+				{
+					"@id": "https://digi.landesbibliothek.at/viewer/rest/pdf/mets/AC08364319.xml/LOG_0024/Abb_Das_Schiferkirchlein.pdf?watermarkText=https%3A%2F%2Fdigi.landesbibliothek.at%2Fviewer%2Fimage%2FAC08364319%2F1%2F",
+					"label": "PDF",
+					"format": "applocation/pdf"
+				}
+			],
+			"within": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/range/LOG_0022",
+			"canvases": [
+				"https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/19"
+			]
+		},
+		{
+			"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/range/LOG_0025",
+			"@type": "sc:Range",
+			"label": "[Abb.]: Das Schifersche Erbstift, eines der ältesten Wohltätigkeitsinstitute in Oberösterreich.",
+			"metadata": [
+				{
+					"label": "MD_ORDERLABELRANGE",
+					"value": "338 - 338"
+				},
+				{
+					"label": [
+						{
+							"@value": "Fotograf",
+							"@language": "de"
+						},
+						{
+							"@value": "Photographer",
+							"@language": "en"
+						}
+					],
+					"value": "Bregenzer, A."
+				},
+				{
+					"label": [
+						{
+							"@value": "Titel",
+							"@language": "de"
+						},
+						{
+							"@value": "Title",
+							"@language": "en"
+						}
+					],
+					"value": "[Abb.]: Das Schifersche Erbstift, eines der ältesten Wohltätigkeitsinstitute in Oberösterreich."
+				}
+			],
+			"thumbnail": {
+				"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000020.tif/full/!400,400/0/default.jpg",
+				"@type": "dcTypes:Image",
+				"service": {
+					"@context": "http://iiif.io/api/image/2/context.json",
+					"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000020.tif",
+					"profile": "http://iiif.io/api/image/2/level2.json"
+				}
+			},
+			"rendering": [
+				{
+					"@id": "image/AC08364319/20/LOG_0025/",
+					"label": "goobi viewer",
+					"format": "text/html"
+				},
+				{
+					"@id": "https://digi.landesbibliothek.at/viewer/rest/pdf/mets/AC08364319.xml/LOG_0025/Abb_Das_Schifersche_Erbstift_eines_der_ltesten_Wohlttigkeitsinstitute_in_Obersterreich.pdf?watermarkText=https%3A%2F%2Fdigi.landesbibliothek.at%2Fviewer%2Fimage%2FAC08364319%2F1%2F",
+					"label": "PDF",
+					"format": "applocation/pdf"
+				}
+			],
+			"within": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/range/LOG_0022",
+			"canvases": [
+				"https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/20"
+			]
+		},
+		{
+			"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/range/LOG_0026",
+			"@type": "sc:Range",
+			"label": "Kurze Geschichte des Spitals und der Spitalskirche",
+			"metadata": [
+				{
+					"label": "MD_ORDERLABELRANGE",
+					"value": "338 - 340"
+				},
+				{
+					"label": [
+						{
+							"@value": "Autor",
+							"@language": "de"
+						},
+						{
+							"@value": "Author",
+							"@language": "en"
+						}
+					],
+					"value": "Ecker, Maximilian"
+				},
+				{
+					"label": [
+						{
+							"@value": "Titel",
+							"@language": "de"
+						},
+						{
+							"@value": "Title",
+							"@language": "en"
+						}
+					],
+					"value": "Kurze Geschichte des Spitals und der Spitalskirche"
+				}
+			],
+			"thumbnail": {
+				"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000020.tif/full/!400,400/0/default.jpg",
+				"@type": "dcTypes:Image",
+				"service": {
+					"@context": "http://iiif.io/api/image/2/context.json",
+					"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000020.tif",
+					"profile": "http://iiif.io/api/image/2/level2.json"
+				}
+			},
+			"rendering": [
+				{
+					"@id": "image/AC08364319/20/LOG_0026/",
+					"label": "goobi viewer",
+					"format": "text/html"
+				},
+				{
+					"@id": "https://digi.landesbibliothek.at/viewer/rest/pdf/mets/AC08364319.xml/LOG_0026/Kurze_Geschichte_des_Spitals_und_der_Spitalskirche.pdf?watermarkText=https%3A%2F%2Fdigi.landesbibliothek.at%2Fviewer%2Fimage%2FAC08364319%2F1%2F",
+					"label": "PDF",
+					"format": "applocation/pdf"
+				}
+			],
+			"within": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/range/LOG_0000",
+			"canvases": [
+				"https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/20",
+				"https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/21",
+				"https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/22"
+			],
+			"ranges": [
+				"https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/range/LOG_0027",
+				"https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/range/LOG_0028"
+			]
+		},
+		{
+			"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/range/LOG_0027",
+			"@type": "sc:Range",
+			"label": "[2 Abb.]: (1)Interessanter gotischer Grabstein in der Spitalskirche. (2)Grabmal Rudolf Schifers, des Stifters, in der Spitalskirche.",
+			"metadata": [
+				{
+					"label": "MD_ORDERLABELRANGE",
+					"value": "339 - 339"
+				},
+				{
+					"label": [
+						{
+							"@value": "Titel",
+							"@language": "de"
+						},
+						{
+							"@value": "Title",
+							"@language": "en"
+						}
+					],
+					"value": "[2 Abb.]: (1)Interessanter gotischer Grabstein in der Spitalskirche. (2)Grabmal Rudolf Schifers, des Stifters, in der Spitalskirche."
+				}
+			],
+			"thumbnail": {
+				"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000021.tif/full/!400,400/0/default.jpg",
+				"@type": "dcTypes:Image",
+				"service": {
+					"@context": "http://iiif.io/api/image/2/context.json",
+					"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000021.tif",
+					"profile": "http://iiif.io/api/image/2/level2.json"
+				}
+			},
+			"rendering": [
+				{
+					"@id": "image/AC08364319/21/LOG_0027/",
+					"label": "goobi viewer",
+					"format": "text/html"
+				},
+				{
+					"@id": "https://digi.landesbibliothek.at/viewer/rest/pdf/mets/AC08364319.xml/LOG_0027/2_Abb_1Interessanter_gotischer_Grabstein_in_der_Spitalskirche_2Grabmal_Rudolf_Schifers_des_Stifters_in_der_Spitalskirche.pdf?watermarkText=https%3A%2F%2Fdigi.landesbibliothek.at%2Fviewer%2Fimage%2FAC08364319%2F1%2F",
+					"label": "PDF",
+					"format": "applocation/pdf"
+				}
+			],
+			"within": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/range/LOG_0026",
+			"canvases": [
+				"https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/21"
+			]
+		},
+		{
+			"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/range/LOG_0028",
+			"@type": "sc:Range",
+			"label": "[Abb.]: Mariensäule vor dem Schiferschen Stift",
+			"metadata": [
+				{
+					"label": "MD_ORDERLABELRANGE",
+					"value": "340 - 340"
+				},
+				{
+					"label": [
+						{
+							"@value": "Fotograf",
+							"@language": "de"
+						},
+						{
+							"@value": "Photographer",
+							"@language": "en"
+						}
+					],
+					"value": "Bregenzer, A."
+				},
+				{
+					"label": [
+						{
+							"@value": "Titel",
+							"@language": "de"
+						},
+						{
+							"@value": "Title",
+							"@language": "en"
+						}
+					],
+					"value": "[Abb.]: Mariensäule vor dem Schiferschen Stift"
+				}
+			],
+			"thumbnail": {
+				"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000022.tif/full/!400,400/0/default.jpg",
+				"@type": "dcTypes:Image",
+				"service": {
+					"@context": "http://iiif.io/api/image/2/context.json",
+					"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000022.tif",
+					"profile": "http://iiif.io/api/image/2/level2.json"
+				}
+			},
+			"rendering": [
+				{
+					"@id": "image/AC08364319/22/LOG_0028/",
+					"label": "goobi viewer",
+					"format": "text/html"
+				},
+				{
+					"@id": "https://digi.landesbibliothek.at/viewer/rest/pdf/mets/AC08364319.xml/LOG_0028/Abb_Mariensule_vor_dem_Schiferschen_Stift.pdf?watermarkText=https%3A%2F%2Fdigi.landesbibliothek.at%2Fviewer%2Fimage%2FAC08364319%2F1%2F",
+					"label": "PDF",
+					"format": "applocation/pdf"
+				}
+			],
+			"within": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/range/LOG_0026",
+			"canvases": [
+				"https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/22"
+			]
+		},
+		{
+			"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/range/LOG_0029",
+			"@type": "sc:Range",
+			"label": "Die Eferdinger Stadtrichter, Syndici und Bürgermeister. Entnommen den Urkunden usw. [1235 - 1917].",
+			"metadata": [
+				{
+					"label": "MD_ORDERLABELRANGE",
+					"value": "340 - 341"
+				},
+				{
+					"label": [
+						{
+							"@value": "Titel",
+							"@language": "de"
+						},
+						{
+							"@value": "Title",
+							"@language": "en"
+						}
+					],
+					"value": "Die Eferdinger Stadtrichter, Syndici und Bürgermeister. Entnommen den Urkunden usw. [1235 - 1917]."
+				}
+			],
+			"thumbnail": {
+				"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000022.tif/full/!400,400/0/default.jpg",
+				"@type": "dcTypes:Image",
+				"service": {
+					"@context": "http://iiif.io/api/image/2/context.json",
+					"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000022.tif",
+					"profile": "http://iiif.io/api/image/2/level2.json"
+				}
+			},
+			"rendering": [
+				{
+					"@id": "image/AC08364319/22/LOG_0029/",
+					"label": "goobi viewer",
+					"format": "text/html"
+				},
+				{
+					"@id": "https://digi.landesbibliothek.at/viewer/rest/pdf/mets/AC08364319.xml/LOG_0029/Die_Eferdinger_Stadtrichter_Syndici_und_Brgermeister_Entnommen_den_Urkunden_usw_1235__1917.pdf?watermarkText=https%3A%2F%2Fdigi.landesbibliothek.at%2Fviewer%2Fimage%2FAC08364319%2F1%2F",
+					"label": "PDF",
+					"format": "applocation/pdf"
+				}
+			],
+			"within": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/range/LOG_0000",
+			"canvases": [
+				"https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/22",
+				"https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/23"
+			],
+			"ranges": [
+				"https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/range/LOG_0030"
+			]
+		},
+		{
+			"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/range/LOG_0030",
+			"@type": "sc:Range",
+			"label": "[Abb.]: Stadtplatz in Eferding.",
+			"metadata": [
+				{
+					"label": "MD_ORDERLABELRANGE",
+					"value": "341 - 341"
+				},
+				{
+					"label": [
+						{
+							"@value": "Titel",
+							"@language": "de"
+						},
+						{
+							"@value": "Title",
+							"@language": "en"
+						}
+					],
+					"value": "[Abb.]: Stadtplatz in Eferding."
+				},
+				{
+					"label": [
+						{
+							"@value": "Künstler-Illustrator",
+							"@language": "de"
+						},
+						{
+							"@value": "Illustrator / Artist",
+							"@language": "en"
+						}
+					],
+					"value": "Wunder, Hans"
+				}
+			],
+			"thumbnail": {
+				"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000023.tif/full/!400,400/0/default.jpg",
+				"@type": "dcTypes:Image",
+				"service": {
+					"@context": "http://iiif.io/api/image/2/context.json",
+					"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000023.tif",
+					"profile": "http://iiif.io/api/image/2/level2.json"
+				}
+			},
+			"rendering": [
+				{
+					"@id": "image/AC08364319/23/LOG_0030/",
+					"label": "goobi viewer",
+					"format": "text/html"
+				},
+				{
+					"@id": "https://digi.landesbibliothek.at/viewer/rest/pdf/mets/AC08364319.xml/LOG_0030/Abb_Stadtplatz_in_Eferding.pdf?watermarkText=https%3A%2F%2Fdigi.landesbibliothek.at%2Fviewer%2Fimage%2FAC08364319%2F1%2F",
+					"label": "PDF",
+					"format": "applocation/pdf"
+				}
+			],
+			"within": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/range/LOG_0029",
+			"canvases": [
+				"https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/23"
+			]
+		},
+		{
+			"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/range/LOG_0031",
+			"@type": "sc:Range",
+			"label": "Reihenfolge der kathol. Pfarrer in Eferding [1209 - 1908].",
+			"metadata": [
+				{
+					"label": "MD_ORDERLABELRANGE",
+					"value": "341 - 342"
+				},
+				{
+					"label": [
+						{
+							"@value": "Titel",
+							"@language": "de"
+						},
+						{
+							"@value": "Title",
+							"@language": "en"
+						}
+					],
+					"value": "Reihenfolge der kathol. Pfarrer in Eferding [1209 - 1908]."
+				}
+			],
+			"thumbnail": {
+				"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000023.tif/full/!400,400/0/default.jpg",
+				"@type": "dcTypes:Image",
+				"service": {
+					"@context": "http://iiif.io/api/image/2/context.json",
+					"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000023.tif",
+					"profile": "http://iiif.io/api/image/2/level2.json"
+				}
+			},
+			"rendering": [
+				{
+					"@id": "image/AC08364319/23/LOG_0031/",
+					"label": "goobi viewer",
+					"format": "text/html"
+				},
+				{
+					"@id": "https://digi.landesbibliothek.at/viewer/rest/pdf/mets/AC08364319.xml/LOG_0031/Reihenfolge_der_kathol_Pfarrer_in_Eferding_1209__1908.pdf?watermarkText=https%3A%2F%2Fdigi.landesbibliothek.at%2Fviewer%2Fimage%2FAC08364319%2F1%2F",
+					"label": "PDF",
+					"format": "applocation/pdf"
+				}
+			],
+			"within": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/range/LOG_0000",
+			"canvases": [
+				"https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/23",
+				"https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/24"
+			]
+		},
+		{
+			"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/range/LOG_0032",
+			"@type": "sc:Range",
+			"label": [
+				{
+					"@value": "Werbung",
+					"@language": "de"
+				}
+			],
+			"thumbnail": {
+				"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000024.tif/full/!400,400/0/default.jpg",
+				"@type": "dcTypes:Image",
+				"service": {
+					"@context": "http://iiif.io/api/image/2/context.json",
+					"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000024.tif",
+					"profile": "http://iiif.io/api/image/2/level2.json"
+				}
+			},
+			"rendering": [
+				{
+					"@id": "image/AC08364319/24/LOG_0032/",
+					"label": "goobi viewer",
+					"format": "text/html"
+				},
+				{
+					"@id": "https://digi.landesbibliothek.at/viewer/rest/pdf/mets/AC08364319.xml/LOG_0032/Werbung.pdf?watermarkText=https%3A%2F%2Fdigi.landesbibliothek.at%2Fviewer%2Fimage%2FAC08364319%2F1%2F",
+					"label": "PDF",
+					"format": "applocation/pdf"
+				}
+			],
+			"within": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/range/LOG_0000",
+			"canvases": [
+				"https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/24",
+				"https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/25",
+				"https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/26",
+				"https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/27",
+				"https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/28",
+				"https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/29",
+				"https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/30",
+				"https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/31",
+				"https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/32",
+				"https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/33",
+				"https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/34",
+				"https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/35",
+				"https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/36"
+			]
+		},
+		{
+			"@id": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/range/LOG_0033",
+			"@type": "sc:Range",
+			"label": [
+				{
+					"@value": "Einband",
+					"@language": "de"
+				}
+			],
+			"thumbnail": {
+				"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000036.tif/full/!400,400/0/default.jpg",
+				"@type": "dcTypes:Image",
+				"service": {
+					"@context": "http://iiif.io/api/image/2/context.json",
+					"@id": "https://digi.landesbibliothek.at/viewer/rest/image/AC08364319/00000036.tif",
+					"profile": "http://iiif.io/api/image/2/level2.json"
+				}
+			},
+			"rendering": [
+				{
+					"@id": "image/AC08364319/36/LOG_0033/",
+					"label": "goobi viewer",
+					"format": "text/html"
+				},
+				{
+					"@id": "https://digi.landesbibliothek.at/viewer/rest/pdf/mets/AC08364319.xml/LOG_0033/Einband.pdf?watermarkText=https%3A%2F%2Fdigi.landesbibliothek.at%2Fviewer%2Fimage%2FAC08364319%2F1%2F",
+					"label": "PDF",
+					"format": "applocation/pdf"
+				}
+			],
+			"within": "https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/range/LOG_0000",
+			"canvases": [
+				"https://digi.landesbibliothek.at/viewer/rest/iiif/manifests/AC08364319/canvas/36"
+			]
+		}
+	]
+}
