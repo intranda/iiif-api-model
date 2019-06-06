@@ -42,41 +42,44 @@ import de.intranda.metadata.multilanguage.Metadata;
  * @author florian
  *
  */
-@JsonPropertyOrder({"@context", "@id", "@type"})
+@JsonPropertyOrder({ "@context", "@id", "@type" })
 @JsonInclude(Include.NON_EMPTY)
 public abstract class AbstractPresentationModelElement implements IPresentationModelElement {
-	
-    
+
     protected static final String DATETIME_FORMAT = "yyyy-MM-dd'T'HH:mm:ssZ";
 
-    
-	private final URI id;
-	private IMetadataValue label;
-	private IMetadataValue description;
-	private List<Metadata> metadata = new ArrayList<Metadata>();
-	private ImageContent thumbnail;
-	private IMetadataValue attribution;
-	private URI license;
-	private ImageContent logo;
-	private ViewingHint viewingHint;
-	private List<LinkingContent> related = new PropertyList<>();
-	private List<LinkingContent> rendering = new PropertyList<>();
-	private String context = null;
-	private List<Service> service = new PropertyList<Service>();
-	private List<LinkingContent> seeAlso = new PropertyList<>();
-	private List<IPresentationModelElement> within = new PropertyList<>();
-	
-	public AbstractPresentationModelElement(URI id) {
-		this.id = id;
-	}
-	
-	/**
+    private final URI id;
+    private IMetadataValue label;
+    private IMetadataValue description;
+    private List<Metadata> metadata = new ArrayList<Metadata>();
+    private ImageContent thumbnail;
+    private IMetadataValue attribution;
+    private URI license;
+    private ImageContent logo;
+    private ViewingHint viewingHint;
+    private List<LinkingContent> related = new PropertyList<>();
+    private List<LinkingContent> rendering = new PropertyList<>();
+    private String context = null;
+    private List<Service> service = new PropertyList<Service>();
+    private List<LinkingContent> seeAlso = new PropertyList<>();
+    private List<IPresentationModelElement> within = new PropertyList<>();
+
+    public AbstractPresentationModelElement() {
+        super();
+        this.id = null;
+    }
+
+    public AbstractPresentationModelElement(URI id) {
+        this.id = id;
+    }
+
+    /**
      * @param context the context to set
      */
     public void setContext(String context) {
         this.context = context;
     }
-    
+
     /**
      * @return the context
      */
@@ -85,171 +88,171 @@ public abstract class AbstractPresentationModelElement implements IPresentationM
         return context;
     }
 
-	
-	/* (non-Javadoc)
-	 * @see de.intranda.digiverso.presentation.model.iiif.presentation.IPresentationModelElement#getType()
-	 */
-	@Override
+    /* (non-Javadoc)
+     * @see de.intranda.digiverso.presentation.model.iiif.presentation.IPresentationModelElement#getType()
+     */
+    @Override
     @JsonProperty("@type")
-	public abstract String getType();
+    public abstract String getType();
 
-	/* (non-Javadoc)
-	 * @see de.intranda.digiverso.presentation.model.iiif.presentation.IPresentationModelElement#getLabel()
-	 */
-	@Override
-	public IMetadataValue getLabel() {
-		return label;
-	}
+    /* (non-Javadoc)
+     * @see de.intranda.digiverso.presentation.model.iiif.presentation.IPresentationModelElement#getLabel()
+     */
+    @Override
+    public IMetadataValue getLabel() {
+        return label;
+    }
 
-	/**
-	 * @param label the label to set
-	 */
-	public void setLabel(IMetadataValue label) {
-		this.label = label;
-	}
+    /**
+     * @param label the label to set
+     */
+    public void setLabel(IMetadataValue label) {
+        this.label = label;
+    }
 
-	/* (non-Javadoc)
-	 * @see de.intranda.digiverso.presentation.model.iiif.presentation.IPresentationModelElement#getDescription()
-	 */
-	@Override
-	public IMetadataValue getDescription() {
-		return description;
-	}
+    /* (non-Javadoc)
+     * @see de.intranda.digiverso.presentation.model.iiif.presentation.IPresentationModelElement#getDescription()
+     */
+    @Override
+    public IMetadataValue getDescription() {
+        return description;
+    }
 
-	/**
-	 * @param description the description to set
-	 */
-	public void setDescription(IMetadataValue description) {
-		this.description = description;
-	}
+    /**
+     * @param description the description to set
+     */
+    public void setDescription(IMetadataValue description) {
+        this.description = description;
+    }
 
-	/* (non-Javadoc)
-	 * @see de.intranda.digiverso.presentation.model.iiif.presentation.IPresentationModelElement#getMetadata()
-	 */
-	@Override
-	public List<Metadata> getMetadata() {
-		return this.metadata.isEmpty() ? null : this.metadata;
-	}
-	public void addMetadata(Metadata md)  {
-		this.metadata.add(md);
-	}
+    /* (non-Javadoc)
+     * @see de.intranda.digiverso.presentation.model.iiif.presentation.IPresentationModelElement#getMetadata()
+     */
+    @Override
+    public List<Metadata> getMetadata() {
+        return this.metadata.isEmpty() ? null : this.metadata;
+    }
 
-	/**
-	 * @param metadata the metadata to set
-	 */
-	public void setMetadata(List<Metadata> metadata) {
-		this.metadata = metadata;
-	}
+    public void addMetadata(Metadata md) {
+        this.metadata.add(md);
+    }
 
-	/* (non-Javadoc)
-	 * @see de.intranda.digiverso.presentation.model.iiif.presentation.IPresentationModelElement#getThumbnail()
-	 */
-	@Override
-	public ImageContent getThumbnail() {
-		return thumbnail;
-	}
+    /**
+     * @param metadata the metadata to set
+     */
+    public void setMetadata(List<Metadata> metadata) {
+        this.metadata = metadata;
+    }
 
-	/**
-	 * @param thumbnail the thumbnail to set
-	 */
-	public void setThumbnail(ImageContent thumbnail) {
-		this.thumbnail = thumbnail;
-	}
+    /* (non-Javadoc)
+     * @see de.intranda.digiverso.presentation.model.iiif.presentation.IPresentationModelElement#getThumbnail()
+     */
+    @Override
+    public ImageContent getThumbnail() {
+        return thumbnail;
+    }
 
-	/* (non-Javadoc)
-	 * @see de.intranda.digiverso.presentation.model.iiif.presentation.IPresentationModelElement#getAttribution()
-	 */
-	@Override
-	public IMetadataValue getAttribution() {
-		return attribution;
-	}
+    /**
+     * @param thumbnail the thumbnail to set
+     */
+    public void setThumbnail(ImageContent thumbnail) {
+        this.thumbnail = thumbnail;
+    }
 
-	/**
-	 * @param attribution the attribution to set
-	 */
-	public void setAttribution(IMetadataValue attribution) {
-		this.attribution = attribution;
-	}
+    /* (non-Javadoc)
+     * @see de.intranda.digiverso.presentation.model.iiif.presentation.IPresentationModelElement#getAttribution()
+     */
+    @Override
+    public IMetadataValue getAttribution() {
+        return attribution;
+    }
 
-	/* (non-Javadoc)
-	 * @see de.intranda.digiverso.presentation.model.iiif.presentation.IPresentationModelElement#getLicense()
-	 */
-	@Override
-	public URI getLicense() {
-		return license;
-	}
+    /**
+     * @param attribution the attribution to set
+     */
+    public void setAttribution(IMetadataValue attribution) {
+        this.attribution = attribution;
+    }
 
-	/**
-	 * @param license the license to set
-	 */
-	public void setLicense(URI license) {
-		this.license = license;
-	}
+    /* (non-Javadoc)
+     * @see de.intranda.digiverso.presentation.model.iiif.presentation.IPresentationModelElement#getLicense()
+     */
+    @Override
+    public URI getLicense() {
+        return license;
+    }
 
-	/* (non-Javadoc)
-	 * @see de.intranda.digiverso.presentation.model.iiif.presentation.IPresentationModelElement#getLogo()
-	 */
-	@Override
-	   @JsonSerialize(using=ImageContentLinkSerializer.class)
-	public ImageContent getLogo() {
-		return logo;
-	}
+    /**
+     * @param license the license to set
+     */
+    public void setLicense(URI license) {
+        this.license = license;
+    }
 
-	/**
-	 * @param logo the logo to set
-	 */
-	public void setLogo(ImageContent logo) {
-		this.logo = logo;
-	}
+    /* (non-Javadoc)
+     * @see de.intranda.digiverso.presentation.model.iiif.presentation.IPresentationModelElement#getLogo()
+     */
+    @Override
+    @JsonSerialize(using = ImageContentLinkSerializer.class)
+    public ImageContent getLogo() {
+        return logo;
+    }
 
-	/* (non-Javadoc)
-	 * @see de.intranda.digiverso.presentation.model.iiif.presentation.IPresentationModelElement#getViewingHint()
-	 */
-	@Override
-	public ViewingHint getViewingHint() {
-		return viewingHint;
-	}
+    /**
+     * @param logo the logo to set
+     */
+    public void setLogo(ImageContent logo) {
+        this.logo = logo;
+    }
 
-	/**
-	 * @param viewingHint the viewingHint to set
-	 */
-	public void setViewingHint(ViewingHint viewingHint) {
-		this.viewingHint = viewingHint;
-	}
+    /* (non-Javadoc)
+     * @see de.intranda.digiverso.presentation.model.iiif.presentation.IPresentationModelElement#getViewingHint()
+     */
+    @Override
+    public ViewingHint getViewingHint() {
+        return viewingHint;
+    }
 
-	/* (non-Javadoc)
-	 * @see de.intranda.digiverso.presentation.model.iiif.presentation.IPresentationModelElement#getRelated()
-	 */
-	@Override
-	public List<LinkingContent> getRelated() {
-		return related.isEmpty() ? null : related;
-	}
+    /**
+     * @param viewingHint the viewingHint to set
+     */
+    public void setViewingHint(ViewingHint viewingHint) {
+        this.viewingHint = viewingHint;
+    }
 
-	/**
-	 * @param related the related to set
-	 */
-	public void addRelated(LinkingContent related) {
-		this.related.add(related);
-	}
+    /* (non-Javadoc)
+     * @see de.intranda.digiverso.presentation.model.iiif.presentation.IPresentationModelElement#getRelated()
+     */
+    @Override
+    public List<LinkingContent> getRelated() {
+        return related.isEmpty() ? null : related;
+    }
 
-	/* (non-Javadoc)
-	 * @see de.intranda.digiverso.presentation.model.iiif.presentation.IPresentationModelElement#getRendering()
-	 */
-	@Override
-	public List<LinkingContent> getRendering() {
-		return rendering.isEmpty() ? null : rendering;
-	}
+    /**
+     * @param related the related to set
+     */
+    public void addRelated(LinkingContent related) {
+        this.related.add(related);
+    }
 
-	/**
-	 * @param rendering the rendering to set
-	 */
-	public void addRendering(LinkingContent rendering) {
-		this.rendering.add(rendering);
-	}
-	
-	   /* (non-Javadoc)
+    /* (non-Javadoc)
      * @see de.intranda.digiverso.presentation.model.iiif.presentation.IPresentationModelElement#getRendering()
      */
+    @Override
+    public List<LinkingContent> getRendering() {
+        return rendering.isEmpty() ? null : rendering;
+    }
+
+    /**
+     * @param rendering the rendering to set
+     */
+    public void addRendering(LinkingContent rendering) {
+        this.rendering.add(rendering);
+    }
+
+    /* (non-Javadoc)
+    * @see de.intranda.digiverso.presentation.model.iiif.presentation.IPresentationModelElement#getRendering()
+    */
     @Override
     public List<LinkingContent> getSeeAlso() {
         return seeAlso.isEmpty() ? null : seeAlso;
@@ -261,30 +264,28 @@ public abstract class AbstractPresentationModelElement implements IPresentationM
     public void addSeeAlso(LinkingContent seeAlso) {
         this.seeAlso.add(seeAlso);
     }
-	
-	
 
-	/* (non-Javadoc)
-	 * @see de.intranda.digiverso.presentation.model.iiif.presentation.IPresentationModelElement#getId()
-	 */
-	@Override
+    /* (non-Javadoc)
+     * @see de.intranda.digiverso.presentation.model.iiif.presentation.IPresentationModelElement#getId()
+     */
+    @Override
     @JsonProperty("@id")
-	public URI getId() {
-		return id;
-	}
-	
-	/* (non-Javadoc)
-	 * @see de.intranda.digiverso.presentation.model.iiif.presentation.IPresentationModelElement#getService()
-	 */
-	@Override
-	public List<Service> getService() {
-	    return service.isEmpty() ? null : service;
-	}
-	
-	public void addService(Service service) {
-	    this.service.add(service);
-	}
-	
+    public URI getId() {
+        return id;
+    }
+
+    /* (non-Javadoc)
+     * @see de.intranda.digiverso.presentation.model.iiif.presentation.IPresentationModelElement#getService()
+     */
+    @Override
+    public List<Service> getService() {
+        return service.isEmpty() ? null : service;
+    }
+
+    public void addService(Service service) {
+        this.service.add(service);
+    }
+
     /**
      * @return the navDate
      */
@@ -298,14 +299,15 @@ public abstract class AbstractPresentationModelElement implements IPresentationM
      */
     public void setNavDate(Date navDate) {
     }
-    
+
     /**
      * @return the within
      */
+    @Override
     public List<IPresentationModelElement> getWithin() {
         return within.isEmpty() ? null : within;
     }
-    
+
     public void addWithin(IPresentationModelElement within) {
         this.within.add(within);
     }

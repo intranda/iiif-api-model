@@ -16,6 +16,7 @@
 package de.intranda.api.iiif.presentation;
 
 import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,12 +32,19 @@ import de.intranda.api.serializer.ContentLinkSerializer;
 public class Canvas extends AbstractPresentationModelElement implements IPresentationModelElement, ICanvas {
 
     private static final String TYPE = "sc:Canvas";
-    
+
     private int width;
     private int height;
     private final List<LinkedAnnotation> images = new ArrayList<>();
     private final List<AnnotationList> otherContent = new ArrayList<>();
-    
+
+    public Canvas() {
+    }
+
+    public Canvas(String uri) throws URISyntaxException {
+        this(new URI(uri));
+    }
+
     /**
      * @param id
      */
@@ -51,54 +59,54 @@ public class Canvas extends AbstractPresentationModelElement implements IPresent
     public String getType() {
         return TYPE;
     }
-    
+
     /**
      * @return the width
      */
     public int getWidth() {
         return width;
     }
-    
+
     /**
      * @return the height
      */
     public int getHeight() {
         return height;
     }
-    
+
     /**
      * @param width the width to set
      */
     public void setWidth(int width) {
         this.width = width;
     }
-    
+
     /**
      * @param height the height to set
      */
     public void setHeight(int height) {
         this.height = height;
     }
-    
+
     /**
      * @return the images
      */
     public List<LinkedAnnotation> getImages() {
         return images;
     }
-    
+
     /**
      * @return the otherContent
      */
-    @JsonSerialize(using=ContentLinkSerializer.class)
+    @JsonSerialize(using = ContentLinkSerializer.class)
     public List<AnnotationList> getOtherContent() {
         return otherContent.isEmpty() ? null : otherContent;
     }
-    
+
     public void addImage(LinkedAnnotation image) {
         this.images.add(image);
     }
-    
+
     public void addOtherContent(AnnotationList content) {
         this.otherContent.add(content);
     }

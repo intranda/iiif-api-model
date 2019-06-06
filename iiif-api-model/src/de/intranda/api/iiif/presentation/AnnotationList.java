@@ -19,22 +19,28 @@ import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 import de.intranda.api.PropertyList;
 import de.intranda.api.annotation.IAnnotation;
+import de.intranda.api.deserializer.AnnotationListResourceDeserializer;
 import de.intranda.api.serializer.IIIFAnnotationSerializer;
 
 /**
  * @author Florian Alpers
  *
  */
-public class AnnotationList extends AbstractPresentationModelElement implements IPresentationModelElement{
-    
-     private static final String TYPE = "sc:AnnotationList";
-     private final List<IAnnotation> resources = new ArrayList<>();
-     private List<IPresentationModelElement> within = new PropertyList<>();
-     
+public class AnnotationList extends AbstractPresentationModelElement implements IPresentationModelElement {
+
+    private static final String TYPE = "sc:AnnotationList";
+    private final List<IAnnotation> resources = new ArrayList<>();
+    private List<IPresentationModelElement> within = new PropertyList<>();
+
+    public AnnotationList() {
+
+    }
+
     /**
      * @param id
      */
@@ -47,31 +53,33 @@ public class AnnotationList extends AbstractPresentationModelElement implements 
      */
     @Override
     public String getType() {
-       return TYPE;
+        return TYPE;
     }
-    
+
     /**
      * @return the resources, null if empty
      */
-    @JsonSerialize(using=IIIFAnnotationSerializer.class)
+    @JsonSerialize(using = IIIFAnnotationSerializer.class)
+    @JsonDeserialize(using = AnnotationListResourceDeserializer.class)
     public List<IAnnotation> getResources() {
         return resources.isEmpty() ? null : resources;
     }
-    
+
     public void addResource(IAnnotation resource) {
         this.resources.add(resource);
     }
-    
+
     /**
      * @return the within
      */
+    @Override
     public List<IPresentationModelElement> getWithin() {
         return within.isEmpty() ? null : within;
     }
 
+    @Override
     public void addWithin(IPresentationModelElement within) {
         this.within.add(within);
     }
-    
-    
+
 }

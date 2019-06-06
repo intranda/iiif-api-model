@@ -22,9 +22,11 @@ import java.util.stream.Collectors;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 import de.intranda.api.PropertyList;
+import de.intranda.api.deserializer.URLOnlyListDeserializer;
 import de.intranda.api.iiif.presentation.content.ImageContent;
 import de.intranda.api.iiif.presentation.content.LinkingContent;
 import de.intranda.api.iiif.presentation.enums.ViewingHint;
@@ -41,89 +43,90 @@ import de.intranda.metadata.multilanguage.Metadata;
 @JsonInclude(Include.NON_EMPTY)
 public interface IPresentationModelElement {
 
-	String getType();
+    String getType();
 
-	/**
-	 * @return the label
-	 */
-	IMetadataValue getLabel();
+    /**
+     * @return the label
+     */
+    IMetadataValue getLabel();
 
-	/**
-	 * @return the description
-	 */
-	IMetadataValue getDescription();
+    /**
+     * @return the description
+     */
+    IMetadataValue getDescription();
 
-	/**
-	 * @return the metadata
-	 */
-	List<Metadata> getMetadata();
+    /**
+     * @return the metadata
+     */
+    List<Metadata> getMetadata();
 
-	/**
-	 * @return the thumbnail
-	 */
-	@JsonSerialize(using=ImageContentLinkSerializer.class)
-	ImageContent getThumbnail();
+    /**
+     * @return the thumbnail
+     */
+    @JsonSerialize(using = ImageContentLinkSerializer.class)
+    ImageContent getThumbnail();
 
-	/**
-	 * @return the attribution
-	 */
-	IMetadataValue getAttribution();
+    /**
+     * @return the attribution
+     */
+    IMetadataValue getAttribution();
 
-	/**
-	 * @return the license
-	 */
-	URI getLicense();
+    /**
+     * @return the license
+     */
+    URI getLicense();
 
-	/**
-	 * @return the logo
-	 */
-	ImageContent getLogo();
+    /**
+     * @return the logo
+     */
+    ImageContent getLogo();
 
-	/**
-	 * @return the viewingHint
-	 */
-	ViewingHint getViewingHint();
+    /**
+     * @return the viewingHint
+     */
+    ViewingHint getViewingHint();
 
-	/**
-	 * @return the related
-	 */
-	List<LinkingContent> getRelated();
-	
-	/**
-	 * @return the rendering
-	 */
-	List<LinkingContent> getRendering();
-	
-	/**
-	 * @return one or more services - may be null!
-	 */
-	List<Service> getService();
-	
-	List<LinkingContent> getSeeAlso();
+    /**
+     * @return the related
+     */
+    List<LinkingContent> getRelated();
 
-	/**
-	 * 
-	 * @param allowedClasses   All classes which should be included in the service list
-	 * @return                 A PropertyList of all services of one of the given classes
-	 */
-	default List<Service> getService(Class... allowedClasses) {
-	    List<Class> allowedClassesList = Arrays.asList(allowedClasses);
-	    if(this.getService() != null) {
-	        return new PropertyList(this.getService().stream()
-	        .filter(service -> allowedClassesList.contains(service.getClass()))
-	        .collect(Collectors.toList()));
-	    } else {
-	        return null;
-	    }
-	}
-	
-	/**
-	 * @return the id
-	 */
-	URI getId();
+    /**
+     * @return the rendering
+     */
+    List<LinkingContent> getRendering();
+
+    /**
+     * @return one or more services - may be null!
+     */
+    @JsonDeserialize(contentAs = CollectionExtent.class)
+    List<Service> getService();
+
+    List<LinkingContent> getSeeAlso();
+
+    /**
+     * 
+     * @param allowedClasses All classes which should be included in the service list
+     * @return A PropertyList of all services of one of the given classes
+     */
+    default List<Service> getService(Class... allowedClasses) {
+        List<Class> allowedClassesList = Arrays.asList(allowedClasses);
+        if (this.getService() != null) {
+            return new PropertyList(this.getService().stream()
+                    .filter(service -> allowedClassesList.contains(service.getClass()))
+                    .collect(Collectors.toList()));
+        } else {
+            return null;
+        }
+    }
+
+    /**
+     * @return the id
+     */
+    URI getId();
 
     @JsonSerialize(using = URLOnlySerializer.class)
-	List<IPresentationModelElement> getWithin();
-	
+    @JsonDeserialize(using = URLOnlyListDeserializer.class)
+    List<IPresentationModelElement> getWithin();
 
 }

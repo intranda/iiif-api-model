@@ -8,7 +8,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 import de.intranda.api.iiif.presentation.Canvas;
-import de.intranda.api.iiif.presentation.content.IContent;
 import de.intranda.api.iiif.presentation.enums.Motivation;
 import de.intranda.api.serializer.URLOnlySerializer;
 
@@ -19,14 +18,14 @@ public class AbstractAnnotation implements IAnnotation {
     private Motivation motivation;
     private Canvas on;
     private final URI id;
-    
+
     /**
      * @param id
      */
     public AbstractAnnotation(URI id) {
-       this.id = id;
+        this.id = id;
     }
-    
+
     @Override
     @JsonProperty("@id")
     public URI getId() throws URISyntaxException {
@@ -55,7 +54,7 @@ public class AbstractAnnotation implements IAnnotation {
     /**
      * @return the on
      */
-    @JsonSerialize(using=URLOnlySerializer.class)
+    @JsonSerialize(using = URLOnlySerializer.class)
     public Canvas getOn() {
         return on;
     }

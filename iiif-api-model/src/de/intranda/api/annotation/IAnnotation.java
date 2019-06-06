@@ -25,6 +25,6 @@ import java.net.URISyntaxException;
 public interface IAnnotation {
 
     public URI getId() throws URISyntaxException;
-    
+
     public URI getTarget() throws URISyntaxException;
 }

@@ -35,14 +35,18 @@ public class LinkingContent implements IContent {
     private IMetadataValue label;
     private DcType type = null;
     private Format format = Format.TEXT_HTML;
-    
+
+    public LinkingContent() {
+        this.id = null;
+    }
+
     /**
      * 
      */
     public LinkingContent(URI id) {
         this.id = id;
     }
-    
+
     public LinkingContent(URI id, IMetadataValue label) {
         this.id = id;
         this.label = label;
@@ -55,7 +59,7 @@ public class LinkingContent implements IContent {
     public DcType getType() {
         return type;
     }
-    
+
     /**
      * @param type the type to set
      */
@@ -86,7 +90,7 @@ public class LinkingContent implements IContent {
     public Format getFormat() {
         return format;
     }
-    
+
     /**
      * @param format the format to set
      */
@@ -109,7 +113,7 @@ public class LinkingContent implements IContent {
     public IMetadataValue getLabel() {
         return label;
     }
-    
+
     /**
      * @param label the label to set
      */
