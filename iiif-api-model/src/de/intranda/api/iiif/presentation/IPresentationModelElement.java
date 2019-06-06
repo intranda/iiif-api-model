@@ -99,6 +99,7 @@ public interface IPresentationModelElement {
     /**
      * @return one or more services - may be null!
      */
+    @JsonDeserialize(contentAs = CollectionExtent.class)
     List<Service> getService();
 
     List<LinkingContent> getSeeAlso();
