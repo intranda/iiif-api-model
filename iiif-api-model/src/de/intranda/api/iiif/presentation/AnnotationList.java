@@ -59,7 +59,7 @@ public class AnnotationList extends AbstractPresentationModelElement implements 
     /**
      * @return the resources, null if empty
      */
-    @JsonSerialize(using = IIIFAnnotationSerializer.class)
+//    @JsonSerialize(using = IIIFAnnotationSerializer.class)
     @JsonDeserialize(using = AnnotationListResourceDeserializer.class)
     public List<IAnnotation> getResources() {
         return resources.isEmpty() ? null : resources;
