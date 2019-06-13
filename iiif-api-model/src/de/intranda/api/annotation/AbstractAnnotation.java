@@ -8,6 +8,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 import de.intranda.api.iiif.presentation.Canvas;
+import de.intranda.api.iiif.presentation.ICanvas;
 import de.intranda.api.iiif.presentation.enums.Motivation;
 import de.intranda.api.serializer.URLOnlySerializer;
 
@@ -16,7 +17,7 @@ public class AbstractAnnotation implements IAnnotation {
     public final static String TYPE = "oa:Annotation";
 
     private Motivation motivation;
-    private Canvas on;
+    private ICanvas on;
     private final URI id;
 
     /**
@@ -55,14 +56,14 @@ public class AbstractAnnotation implements IAnnotation {
      * @return the on
      */
     @JsonSerialize(using = URLOnlySerializer.class)
-    public Canvas getOn() {
+    public ICanvas getOn() {
         return on;
     }
 
     /**
      * @param on the on to set
      */
-    public void setOn(Canvas on) {
+    public void setOn(ICanvas on) {
         this.on = on;
     }
 
