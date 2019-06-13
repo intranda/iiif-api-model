@@ -5,13 +5,16 @@ import java.net.URISyntaxException;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 import de.intranda.api.iiif.presentation.Canvas;
 import de.intranda.api.iiif.presentation.ICanvas;
 import de.intranda.api.iiif.presentation.enums.Motivation;
+import de.intranda.api.serializer.AnnotationTargetSerializer;
 import de.intranda.api.serializer.URLOnlySerializer;
 
+@JsonPropertyOrder({"@id", "@type", "motivation", "on", "resource"})
 public class AbstractAnnotation implements IAnnotation {
 
     public final static String TYPE = "oa:Annotation";
@@ -55,7 +58,7 @@ public class AbstractAnnotation implements IAnnotation {
     /**
      * @return the on
      */
-    @JsonSerialize(using = URLOnlySerializer.class)
+    @JsonSerialize(using = AnnotationTargetSerializer.class)
     public ICanvas getOn() {
         return on;
     }
