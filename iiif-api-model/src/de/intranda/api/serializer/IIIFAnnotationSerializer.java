@@ -66,7 +66,7 @@ public class IIIFAnnotationSerializer extends JsonSerializer<Object> {
                 generator.writeStringField("@id", comment.getId().toString());
                 generator.writeStringField("@type", "oa:Annotation");
                 generator.writeStringField("motivation", "oa:commenting");
-                generator.writeStringField("on", comment.getTarget().toString());
+                generator.writeObjectField("on", comment.getTarget());
                 generator.writeObjectFieldStart("resource");
                 generator.writeStringField("@type", "cnt:ContentAsText");
                 generator.writeStringField("format", "text/plain");

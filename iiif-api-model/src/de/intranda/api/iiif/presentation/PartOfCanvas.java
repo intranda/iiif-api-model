@@ -27,7 +27,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
  */
 public class PartOfCanvas implements ICanvas {
 
-    private static final String ANCHOR = "#xywh=";
+    private static final String ANCHOR = "xywh=";
     
     private Canvas canvas;
     private Rectangle area;
@@ -39,6 +39,7 @@ public class PartOfCanvas implements ICanvas {
     @JsonValue
     public URI getId() {
         StringBuilder id = new StringBuilder(canvas.getId().toString());
+        id.append("#");
         id.append(ANCHOR);
         id.append(area.x).append(",");
         id.append(area.y).append(",");
@@ -80,6 +81,9 @@ public class PartOfCanvas implements ICanvas {
         this.area = area;
     }
     
+    public String getFragment() {
+        return ANCHOR + getArea().x + "," + getArea().y + "," + getArea().width + "," + getArea().height;
+    }
     
 
 }
