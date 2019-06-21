@@ -234,19 +234,7 @@
 
 	</dependencies>
 
-<build>
-		<sourceDirectory>src</sourceDirectory>
-		<testSourceDirectory>test/src</testSourceDirectory>
-		<resources>
-			<resource>
-				<directory>src</directory>
-				<excludes>
-					<exclude>**/*.java</exclude>
-					<exclude>rebel.xml</exclude>
-				</excludes>
-			</resource>
-		</resources>
-
+	<build>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>

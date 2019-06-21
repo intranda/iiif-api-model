@@ -35,8 +35,8 @@ public class ManifestTest {
         ObjectMapper mapper = new ObjectMapper();
         mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
         mapper.configure(DeserializationFeature.ACCEPT_SINGLE_VALUE_AS_ARRAY, true);
-        Manifest manifest1 = mapper.readValue(new File("resources/manifests/bsb00079445.json"), Manifest.class);
-        Manifest manifest2 = mapper.readValue(new File("resources/manifests/AC08364319.json"), Manifest.class);
+        Manifest manifest1 = mapper.readValue(new File("src/test/resources/manifests/bsb00079445.json"), Manifest.class);
+        Manifest manifest2 = mapper.readValue(new File("src/test/resources/manifests/AC08364319.json"), Manifest.class);
 
     }
 
