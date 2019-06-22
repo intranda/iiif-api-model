@@ -34,7 +34,7 @@ public class IMetadataValueDeserializer extends StdDeserializer<IMetadataValue> 
             if (node.isArray()) {
                 MultiLanguageMetadataValue mlmv = new MultiLanguageMetadataValue();
                 for (JsonNode objNode : node) {
-                    if (node.isObject()) {
+                    if (objNode.isObject()) {
                         mlmv.setValue(objNode.get("@value").asText(), objNode.get("@language").asText());
                     } else {
                         return new SimpleMetadataValue(objNode.asText());
