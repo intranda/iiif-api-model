@@ -13,13 +13,12 @@
  *
  * You should have received a copy of the GNU General Public License along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
-package de.intranda.api.annotation.wa;
+package de.intranda.api.annotation;
 
 import java.net.URI;
 
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
-import de.intranda.api.annotation.IAnnotation;
 import de.intranda.api.deserializer.LinkedAnnotationResourceDeserializer;
 import de.intranda.api.iiif.presentation.content.IContent;
 
@@ -46,14 +45,14 @@ public class LinkedAnnotation extends AbstractAnnotation implements IAnnotation 
      * @return the resource
      */
     @JsonDeserialize(using = LinkedAnnotationResourceDeserializer.class)
-    public IContent getBody() {
+    public IContent getResource() {
         return resource;
     }
 
     /**
      * @param resource the resource to set
      */
-    public void setBody(IContent resource) {
+    public void setResource(IContent resource) {
         this.resource = resource;
     }
 

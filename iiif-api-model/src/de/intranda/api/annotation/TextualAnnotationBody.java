@@ -1,14 +1,12 @@
-package de.intranda.api.annotation.wa;
+package de.intranda.api.annotation;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
-import de.intranda.api.annotation.IResource;
-
 @JsonPropertyOrder({"@type", "format", "chars"})
-public class TextualAnnotationBody implements IResource {
+public class TextualAnnotationBody {
 
-    private static final String TYPE = "TextualBody";
+    private static final String TYPE = "cnt:ContentAsText";
     private static final String FORMAT = "text/plain";
     
     private String value;

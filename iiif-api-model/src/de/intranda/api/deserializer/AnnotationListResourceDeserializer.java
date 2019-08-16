@@ -14,8 +14,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.deser.std.StdDeserializer;
 
 import de.intranda.api.annotation.IAnnotation;
-import de.intranda.api.annotation.oa.LinkedAnnotation;
-import de.intranda.api.annotation.oa.TextualAnnotation;
+import de.intranda.api.annotation.LinkedAnnotation;
+import de.intranda.api.annotation.TextualAnnotation;
 
 public class AnnotationListResourceDeserializer extends StdDeserializer<List<IAnnotation>> {
     private static final long serialVersionUID = 7191457467443751957L;

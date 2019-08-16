@@ -1,10 +1,8 @@
-package de.intranda.api.annotation.wa;
+package de.intranda.api.annotation;
 
 import java.net.URI;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-
-import de.intranda.api.annotation.IAnnotation;
 
 public class TextualAnnotation  extends AbstractAnnotation implements IAnnotation{
 
@@ -14,6 +12,7 @@ public class TextualAnnotation  extends AbstractAnnotation implements IAnnotatio
         super(id);
     }
 
+    @JsonProperty("resource")
     public TextualAnnotationBody getBody() {
         return body;
     }
