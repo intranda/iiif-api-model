@@ -16,7 +16,7 @@
 package de.intranda.api.annotation;
 
 import java.net.URI;
-import java.net.URISyntaxException;
+import java.util.Date;
 
 /**
  * @author Florian Alpers
@@ -24,7 +24,17 @@ import java.net.URISyntaxException;
  */
 public interface IAnnotation {
 
-    public URI getId() throws URISyntaxException;
+    public URI getId();
 
-    public URI getTarget() throws URISyntaxException;
+    public IResource getTarget();
+    
+    public IResource getBody();
+    
+    public IAgent getCreator();
+    
+    public IAgent getGenerator();
+    
+    public Date getCreated();
+    
+    public Date getModified();
 }

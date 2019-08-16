@@ -20,6 +20,7 @@ import java.net.URI;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
+import de.intranda.api.annotation.IResource;
 import de.intranda.api.iiif.presentation.enums.DcType;
 import de.intranda.api.iiif.presentation.enums.Format;
 import de.intranda.metadata.multilanguage.IMetadataValue;
@@ -29,7 +30,7 @@ import de.intranda.metadata.multilanguage.IMetadataValue;
  *
  */
 @JsonPropertyOrder({"@id", "@type"})
-public interface IContent {
+public interface IContent extends IResource {
 
     @JsonProperty("@type")
 	public DcType getType();

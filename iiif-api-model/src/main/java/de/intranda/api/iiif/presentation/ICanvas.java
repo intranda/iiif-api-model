@@ -17,11 +17,13 @@ package de.intranda.api.iiif.presentation;
 
 import java.net.URI;
 
+import de.intranda.api.annotation.IResource;
+
 /**
  * @author Florian Alpers
  *
  */
-public interface ICanvas {
+public interface ICanvas extends IResource {
 
     public URI getId();
 }

@@ -25,7 +25,7 @@ import com.fasterxml.jackson.databind.JsonSerializer;
 import com.fasterxml.jackson.databind.SerializerProvider;
 
 import de.intranda.api.annotation.IAnnotation;
-import de.intranda.api.annotation.TextualAnnotation;
+import de.intranda.api.annotation.oa.TextualAnnotation;
 
 /**
  * @author Florian Alpers
@@ -72,8 +72,6 @@ public class IIIFAnnotationSerializer extends JsonSerializer<Object> {
                 generator.writeStringField("format", "text/plain");
                 generator.writeStringField("chars", comment.getBody().getValue());
                 generator.writeEndObject();
-            } catch (URISyntaxException e) {
-                throw new IOException(e);
             } finally {
                 generator.writeEndObject();
             }

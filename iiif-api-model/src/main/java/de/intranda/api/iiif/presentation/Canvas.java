@@ -22,7 +22,7 @@ import java.util.List;
 
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
-import de.intranda.api.annotation.LinkedAnnotation;
+import de.intranda.api.annotation.oa.LinkedAnnotation;
 import de.intranda.api.serializer.ContentLinkSerializer;
 
 /**
