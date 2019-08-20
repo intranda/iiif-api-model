@@ -14,8 +14,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.deser.std.StdDeserializer;
 
 import de.intranda.api.annotation.IAnnotation;
-import de.intranda.api.annotation.oa.LinkedAnnotation;
-import de.intranda.api.annotation.oa.TextualAnnotation;
+import de.intranda.api.annotation.oa.OpenAnnotation;
 
 public class AnnotationListResourceDeserializer extends StdDeserializer<List<IAnnotation>> {
     private static final long serialVersionUID = 7191457467443751957L;
@@ -46,9 +45,9 @@ public class AnnotationListResourceDeserializer extends StdDeserializer<List<IAn
 
     private IAnnotation deserializeSingleAnno(JsonNode node) throws JsonProcessingException {
         if (node.has("resource")) {
-            return mapper.treeToValue(node, LinkedAnnotation.class);
+            return mapper.treeToValue(node, OpenAnnotation.class);
         } else {
-            return mapper.treeToValue(node, TextualAnnotation.class);
+            return mapper.treeToValue(node, OpenAnnotation.class);
         }
     }
 }

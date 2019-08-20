@@ -13,48 +13,27 @@
  *
  * You should have received a copy of the GNU General Public License along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
-package de.intranda.api.annotation.wa;
-
-import java.net.URI;
-
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-
-import de.intranda.api.annotation.IAnnotation;
-import de.intranda.api.deserializer.LinkedAnnotationResourceDeserializer;
-import de.intranda.api.iiif.presentation.content.IContent;
+package de.intranda.api.annotation.oa;
 
 /**
  * @author Florian Alpers
  *
  */
-public class LinkedAnnotation extends AbstractAnnotation implements IAnnotation {
+public class Motivation {
 
-    public LinkedAnnotation() {
-        super(null);
-    }
+    public static final String PAINTING = "sc:painting";
+    public static final String COMMENTING = "oa:commenting";
+    public static final String LINKING = "oa:linking";
+    public static final String BOOKMARKING = "oa:bookmarking";
+    public static final String CLASSIFYING = "oa:classifying";
+    public static final String DESCRIBING = "oa:describing";
+    public static final String EDITING = "oa:editing";
+    public static final String HIGHLIGHTING = "oa:highlighting";
+    public static final String IDENTIFIYING = "oa:identifying";
+    public static final String MODERATING = "oa:moderating";
+    public static final String QUESTIONING = "oa:questioning";
+    public static final String REPLYING = "oa:replying";
+    public static final String TAGGING = "oa:tagging";
 
-    private IContent resource;
-
-    /**
-     * @param id
-     */
-    public LinkedAnnotation(URI id) {
-        super(id);
-    }
-
-    /**
-     * @return the resource
-     */
-    @JsonDeserialize(using = LinkedAnnotationResourceDeserializer.class)
-    public IContent getBody() {
-        return resource;
-    }
-
-    /**
-     * @param resource the resource to set
-     */
-    public void setBody(IContent resource) {
-        this.resource = resource;
-    }
-
+    private Motivation() {}
 }

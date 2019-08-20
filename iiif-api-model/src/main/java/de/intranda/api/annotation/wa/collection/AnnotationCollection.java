@@ -13,14 +13,20 @@
  *
  * You should have received a copy of the GNU General Public License along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
-package de.intranda.api.iiif.discovery;
+package de.intranda.api.annotation.wa.collection;
 
 import java.net.URI;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+
+import de.intranda.api.serializer.MetadataSerializer;
+import de.intranda.metadata.multilanguage.IMetadataValue;
+
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 /**
  * A collection of items, divided into pages
@@ -28,22 +34,23 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
  * @author Florian Alpers
  *
  */
-@JsonPropertyOrder({"@context", "id", "type", "totalItems", "first", "last"})
+@JsonPropertyOrder({"@context", "id", "type", "total", "first", "last"})
 @JsonInclude(Include.NON_EMPTY)
-public class OrderedCollection<T> {
+public class AnnotationCollection {
 
-    private final static String TYPE = "OrderedCollection";
+    private final static String TYPE = "AnnotationCollection";
+    private static final String CONTEXT = "http://www.w3.org/ns/anno.jsonld";
     
-    private String[] context;
     private final URI id;
     private long totalItems;
-    private OrderedCollectionPage<T> first;
-    private OrderedCollectionPage<T> last;
+    private IMetadataValue label;
+    private AnnotationPage first;
+    private AnnotationPage last;
     
     /**
      * Constructs a collection from the URI to the resource providing this object
      */
-    public OrderedCollection(URI id) {
+    public AnnotationCollection(URI id) {
        this.id = id;
     }
     
@@ -59,6 +66,7 @@ public class OrderedCollection<T> {
      * 
      * @return the total number of items contained in the collection
      */
+    @JsonProperty("total")
     public long getTotalItems() {
         return totalItems;
     }
@@ -75,7 +83,7 @@ public class OrderedCollection<T> {
      * 
      * @return a reference to the first page of this collection
      */
-    public OrderedCollectionPage<T> getFirst() {
+    public AnnotationPage getFirst() {
         return first;
     }
     /**
@@ -83,7 +91,7 @@ public class OrderedCollection<T> {
      * 
      * @param first the first page to set
      */
-    public void setFirst(OrderedCollectionPage<T> first) {
+    public void setFirst(AnnotationPage first) {
         this.first = first;
     }
     
@@ -92,7 +100,7 @@ public class OrderedCollection<T> {
      * 
      * @return a reference to the last page of this collection
      */
-    public OrderedCollectionPage<T> getLast() {
+    public AnnotationPage getLast() {
         return last;
     }
     /**
@@ -100,7 +108,7 @@ public class OrderedCollection<T> {
      * 
      * @param last the last page to set
      */
-    public void setLast(OrderedCollectionPage<T> last) {
+    public void setLast(AnnotationPage last) {
         this.last = last;
     }
     /**
@@ -109,18 +117,10 @@ public class OrderedCollection<T> {
      * @return The JSON-LD context of the resource
      */
     @JsonProperty("@context")    
-    public String[] getContext() {
-        return this.context;
+    public String getContext() {
+        return CONTEXT;
     }
-    
-    /**
-     * Set the JSON-LD context of the resource
-     * 
-     * @param context the context to set
-     */
-    public void setContext(String[] context) {
-        this.context = context;
-    }
+
     
     /**
      * The type of this resource. Always "OrderedCollection"
@@ -129,6 +129,15 @@ public class OrderedCollection<T> {
      */
     public String getType() {
         return TYPE;
+    }
+    
+    public IMetadataValue getLabel() {
+        return label;
+    }
+    
+    @JsonSerialize(using = MetadataSerializer.class)
+    public void setLabel(IMetadataValue label) {
+        this.label = label;
     }
     
     

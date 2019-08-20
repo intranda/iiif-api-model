@@ -28,6 +28,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 import de.intranda.api.PropertyList;
+import de.intranda.api.annotation.IResource;
 import de.intranda.api.iiif.presentation.content.ImageContent;
 import de.intranda.api.iiif.presentation.content.LinkingContent;
 import de.intranda.api.iiif.presentation.enums.ViewingHint;
@@ -44,7 +45,7 @@ import de.intranda.metadata.multilanguage.Metadata;
  */
 @JsonPropertyOrder({ "@context", "@id", "@type" })
 @JsonInclude(Include.NON_EMPTY)
-public abstract class AbstractPresentationModelElement implements IPresentationModelElement {
+public abstract class AbstractPresentationModelElement implements IPresentationModelElement, IResource {
 
     protected static final String DATETIME_FORMAT = "yyyy-MM-dd'T'HH:mm:ss'Z'";
 

@@ -13,7 +13,7 @@
  *
  * You should have received a copy of the GNU General Public License along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
-package de.intranda.api.iiif.presentation.enums;
+package de.intranda.api.annotation.wa;
 
 import com.fasterxml.jackson.annotation.JsonValue;
 
@@ -21,30 +21,21 @@ import com.fasterxml.jackson.annotation.JsonValue;
  * @author Florian Alpers
  *
  */
-public enum Motivation {
+public class Motivation {
 
-    PAINTING("sc:painting"),
-    COMMENTING("oa:commenting"),
-    LINKING("oa:linking"),
-    BOOKMARKING("oa:bookmarking"),
-    CLASSIFYING("oa:classifying"),
-    DESCRIBING("oa:describing"),
-    EDITING("oa:editing"),
-    HIGHLIGHTING("oa:highlighting"),
-    IDENTIFIYING("oa:identifying"),
-    MODERATING("oa:moderating"),
-    QUESTIONING("oa:questioning"),
-    REPLYING("oa:replying"),
-    TAGGING("oa:tagging");
-    
-    private final String label;
-    
-    private Motivation(String label) {
-        this.label = label;
-    }
-    
-    @JsonValue
-    public String getLabel() {
-        return label;
-    }
+    public static final String PAINTING = "Painting";
+    public static final String COMMENTING = "Commenting";
+    public static final String LINKING = "Linking";
+    public static final String BOOKMARKING = "Bookmarking";
+    public static final String CLASSIFYING = "Classifying";
+    public static final String DESCRIBING = "Describing";
+    public static final String EDITING = "Editing";
+    public static final String HIGHLIGHTING = "Highlighting";
+    public static final String IDENTIFIYING = "Identifying";
+    public static final String MODERATING = "Moderating";
+    public static final String QUESTIONING = "Questioning";
+    public static final String REPLYING = "Replying";
+    public static final String TAGGING = "Tagging";
+
+    private Motivation() {}
 }
