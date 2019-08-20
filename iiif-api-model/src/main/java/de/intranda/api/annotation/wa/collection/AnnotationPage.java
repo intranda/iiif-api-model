@@ -43,6 +43,7 @@ public class AnnotationPage {
     private AnnotationCollection partOf;
     private AnnotationPage prev;
     private AnnotationPage next;
+    private Integer startIndex = null;
     private List<IAnnotation> items = new ArrayList<>();
     
     /**
@@ -147,6 +148,14 @@ public class AnnotationPage {
      */
     public URI getId() {
         return id;
+    }
+    
+    public void setStartIndex(Integer startIndex) {
+        this.startIndex = startIndex;
+    }
+    
+    public Integer getStartIndex() {
+        return startIndex;
     }
     
     

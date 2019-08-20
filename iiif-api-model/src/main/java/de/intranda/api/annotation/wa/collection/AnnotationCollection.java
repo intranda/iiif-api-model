@@ -24,6 +24,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 import de.intranda.api.serializer.MetadataSerializer;
+import de.intranda.api.serializer.URLOnlySerializer;
 import de.intranda.metadata.multilanguage.IMetadataValue;
 
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
@@ -35,7 +36,7 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
  *
  */
 @JsonPropertyOrder({"@context", "id", "type", "total", "first", "last"})
-@JsonInclude(Include.NON_EMPTY)
+@JsonInclude(Include.NON_NULL)
 public class AnnotationCollection {
 
     private final static String TYPE = "AnnotationCollection";
@@ -83,6 +84,7 @@ public class AnnotationCollection {
      * 
      * @return a reference to the first page of this collection
      */
+    @JsonSerialize(using = URLOnlySerializer.class)
     public AnnotationPage getFirst() {
         return first;
     }
@@ -100,6 +102,7 @@ public class AnnotationCollection {
      * 
      * @return a reference to the last page of this collection
      */
+    @JsonSerialize(using = URLOnlySerializer.class)
     public AnnotationPage getLast() {
         return last;
     }

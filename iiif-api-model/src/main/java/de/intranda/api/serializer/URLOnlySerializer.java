@@ -24,6 +24,8 @@ import com.fasterxml.jackson.databind.JsonSerializer;
 import com.fasterxml.jackson.databind.SerializerProvider;
 
 import de.intranda.api.PropertyList;
+import de.intranda.api.annotation.IResource;
+import de.intranda.api.annotation.wa.collection.AnnotationPage;
 import de.intranda.api.iiif.presentation.IPresentationModelElement;
 
 /**
@@ -59,6 +61,12 @@ public class URLOnlySerializer extends JsonSerializer<Object> {
                 }
                 generator.writeEndArray();
             } 
+        } else if(o instanceof IResource) {
+            IResource resource = (IResource) o;
+            generator.writeString(resource.getId().toString());
+        } else if(o instanceof AnnotationPage) {
+            AnnotationPage resource = (AnnotationPage) o;
+            generator.writeString(resource.getId().toString());
         }
     }
 

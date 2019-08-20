@@ -58,4 +58,20 @@ public class WebAnnotation extends AbstractAnnotation {
     public Date getModified() {
         return modified;
     }
+    
+    public void setCreator(Agent creator) {
+        this.creator = creator;
+    }
+    
+    public void setGenerator(Agent generator) {
+        this.generator = generator;
+    }
+    
+    public void setCreated(Date created) {
+        this.created = created;
+    }
+    
+    public void setModified(Date modified) {
+        this.modified = modified;
+    }
 }
