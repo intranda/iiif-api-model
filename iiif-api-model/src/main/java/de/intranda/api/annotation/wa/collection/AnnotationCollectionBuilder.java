@@ -18,6 +18,8 @@ package de.intranda.api.annotation.wa.collection;
 import java.net.URI;
 import java.util.List;
 
+import javax.ws.rs.core.UriBuilder;
+
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
@@ -33,30 +35,39 @@ import de.intranda.metadata.multilanguage.IMetadataValue;
 @JsonInclude(Include.NON_NULL)
 public class AnnotationCollectionBuilder {
 
+    private int itemsPerPage = 10;
+    private IMetadataValue label = null;
+    private final long totalItemCount;
+    private final URI baseURI;
+    private String pageUrlPrefix = "";
+
+    public AnnotationCollectionBuilder(URI baseURI, long totalItemCount) {
+        this.baseURI = baseURI;
+        this.totalItemCount = totalItemCount;
+    }
     
-    public AnnotationCollection buildCollection(int totalItemCount, int numPages, URI baseURI, IMetadataValue label) {
+    public AnnotationCollection buildCollection() {
         
         AnnotationCollection collection = new AnnotationCollection(baseURI);
         
         collection.setTotalItems(totalItemCount);
         collection.setLabel(label);
-        collection.setFirst(new AnnotationPage(getFirstPageURI(baseURI.toString())));
+        collection.setFirst(new AnnotationPage(getPageURI(baseURI.toString(), 1)));
         if(totalItemCount > 0) {            
-            collection.setLast(new AnnotationPage(getPageURI(baseURI.toString(), numPages)));
+            collection.setLast(new AnnotationPage(getPageURI(baseURI.toString(), getLastPageNo())));
         }
 
         return collection;
     }
     
-    public AnnotationPage buildPage(List<IAnnotation> items, int pageNo, int totalPageCount, Integer startIndex, URI baseURI) {
+    public AnnotationPage buildPage(List<IAnnotation> items, int pageNo) {
         
         
         AnnotationPage page = new AnnotationPage(getPageURI(baseURI.toString(), pageNo));
-        
         AnnotationCollection collection = new AnnotationCollection(baseURI);
         page.setPartOf(collection);
         
-        if(pageNo < totalPageCount) {
+        if(pageNo < getLastPageNo()) {
             AnnotationPage next = new AnnotationPage(getPageURI(baseURI.toString(), pageNo + 1));
             page.setNext(next);
         }
@@ -67,52 +78,31 @@ public class AnnotationCollectionBuilder {
         
         page.setItems(items);
         
-        page.setStartIndex(startIndex);
+        page.setStartIndex(getStartIndex(pageNo));
         
         return page;
     }
 
 
+    private int getStartIndex(int pageNo) {
+        return (pageNo-1) * itemsPerPage;
+    }
+    
     /**
      * @param first
      * @param totalItemCount
      * @return
      */
-    public static int getPageNo(int first, int itemsPerPage) {
-        return (first-1/itemsPerPage)+1;
+    public int getPageNo(int first) {
+        return ((first-1)/itemsPerPage)+1;
     }
 
     /**
      * @param totalItemCount
      * @return
      */
-    public static int getLastPageNo(int totalItemCount, int itemsPerPage) {
-        return (totalItemCount-1/itemsPerPage) + 1;
-    }
-
-    /**
-     * @param baseURI
-     * @return
-     */
-    private URI getLastPageURI(String baseURI, int totalItemCount, int itemsPerPage) {
-  
-        if(!baseURI.endsWith("/")) {
-            baseURI = baseURI + "/";
-        }
-        URI id = URI.create(baseURI + getLastPageNo(totalItemCount, itemsPerPage)); 
-        return id;
-    }
-    
-    /**
-     * @param baseURI
-     * @return
-     */
-    private URI getFirstPageURI(String baseURI) {
-        if(!baseURI.endsWith("/")) {
-            baseURI = baseURI + "/";
-        }
-        URI id = URI.create(baseURI + "1"); 
-        return id;
+    public int getLastPageNo() {
+        return (int)((totalItemCount-1)/itemsPerPage) + 1;
     }
     
     /**
@@ -120,11 +110,24 @@ public class AnnotationCollectionBuilder {
      * @return
      */
     private URI getPageURI(String baseURI, int order) {
-        if(!baseURI.endsWith("/")) {
-            baseURI = baseURI + "/";
-        }
-        URI id = URI.create(baseURI + order); 
+        URI id = UriBuilder.fromUri(baseURI).path(pageUrlPrefix + Integer.toString(order)).build();
+
         return id;
+    }
+    
+    public AnnotationCollectionBuilder setItemsPerPage(int itemsPerPage) {
+        this.itemsPerPage = itemsPerPage;
+        return this;
+    }
+    
+    public AnnotationCollectionBuilder setLabel(IMetadataValue label) {
+        this.label = label;
+        return this;
+    }
+    
+    public AnnotationCollectionBuilder setPageUrlPrefix(String pageUrlPrefix) {
+        this.pageUrlPrefix = pageUrlPrefix;
+        return this;
     }
 
 }

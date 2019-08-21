@@ -84,7 +84,6 @@ public class AnnotationCollection {
      * 
      * @return a reference to the first page of this collection
      */
-    @JsonSerialize(using = URLOnlySerializer.class)
     public AnnotationPage getFirst() {
         return first;
     }
@@ -102,7 +101,6 @@ public class AnnotationCollection {
      * 
      * @return a reference to the last page of this collection
      */
-    @JsonSerialize(using = URLOnlySerializer.class)
     public AnnotationPage getLast() {
         return last;
     }

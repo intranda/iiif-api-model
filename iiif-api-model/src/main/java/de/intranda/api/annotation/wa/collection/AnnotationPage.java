@@ -23,8 +23,10 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 import de.intranda.api.annotation.IAnnotation;
+import de.intranda.api.serializer.URLOnlySerializer;
 
 /**
  * A Page in a resource list which contains a list of paged items and a reference to the next and previous page and the containing list
@@ -67,6 +69,7 @@ public class AnnotationPage {
      * 
      * @param partOf the containing collection
      */
+    @JsonSerialize(using = URLOnlySerializer.class)
     public void setPartOf(AnnotationCollection partOf) {
         this.partOf = partOf;
     }
