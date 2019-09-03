@@ -17,4 +17,18 @@ public class TextualResource extends TypedResource {
     public String getText() {
         return text;
     }
+    
+    @Override
+    public boolean equals(Object obj) {
+        if(obj.getClass().equals(this.getClass())) {
+            return this.getText().equals(((TextualResource) obj).getText());
+        } else {
+            return false;
+        }
+    }
+    
+    @Override
+    public String toString() {
+        return getText();
+    }
 }

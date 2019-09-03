@@ -26,5 +26,17 @@ public class SpecificResource extends TypedResource {
         return super.getId();
     }
 
-
+    @Override
+    public boolean equals(Object obj) {
+        if(obj.getClass().equals(this.getClass())) {
+            return this.getId().equals(((SpecificResource)obj).getId()) && this.selector.equals(((SpecificResource)obj).getSelector());
+        } else {
+            return false;
+        }
+    }
+    
+    @Override
+    public String toString() {
+        return this.getId() + " / " + this.selector.toString();
+    }
 }

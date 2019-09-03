@@ -33,4 +33,21 @@ public class ImageResource extends TypedResource {
         return service.map(info -> info.getHeight()).orElse(null);
     }
     
+    @Override
+    public boolean equals(Object obj) {
+        if(obj.getClass().equals(this.getClass())) {
+            return this.getId().equals(((ImageResource) obj).getId());
+        } else {
+           return false;
+        }
+    }
+    
+    @Override
+    public String toString() {
+       String ret = this.getId().toString();
+       if(service.isPresent()) {
+           ret += "\n\t" + service.get().toString();
+       }
+       return ret;
+    }
 }

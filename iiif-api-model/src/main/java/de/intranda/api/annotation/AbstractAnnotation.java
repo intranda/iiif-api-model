@@ -1,15 +1,15 @@
 package de.intranda.api.annotation;
 
 import java.net.URI;
+import java.util.Objects;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
-import de.intranda.api.annotation.oa.Motivation;
-import de.intranda.api.deserializer.ProfileDeserializer;
 import de.intranda.api.deserializer.ResourceDeserializer;
 
 @JsonPropertyOrder({ "@id", "@type", "motivation", "on", "resource" })
@@ -70,6 +70,29 @@ public abstract class AbstractAnnotation implements IAnnotation {
     @JsonDeserialize(using = ResourceDeserializer.class)
     public IResource getBody() {
         return body;
+    }
+    
+    @Override
+    public boolean equals(Object obj) {
+        if(obj.getClass().equals(this.getClass())) {
+            AbstractAnnotation other = (AbstractAnnotation)obj;
+            return this.getId().equals(other.getId())
+                    && Objects.equals(this.getBody(), other.getBody()) 
+                    && Objects.equals(this.getTarget(), other.getBody())
+                    && Objects.equals(this.getMotivation(), other.getMotivation());
+        } else {
+            return false;
+        }
+    }
+    
+    @Override
+    public String toString() {
+        ObjectMapper mapper = new ObjectMapper();
+        try {
+            return mapper.writeValueAsString(this);
+        } catch (JsonProcessingException e) {
+            return super.toString();
+        }
     }
 
 }

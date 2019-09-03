@@ -2,6 +2,9 @@ package de.intranda.api.annotation.wa;
 
 import java.awt.Rectangle;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import de.intranda.api.annotation.ISelector;
 
 public class FragmentSelector implements ISelector {
@@ -14,7 +17,8 @@ public class FragmentSelector implements ISelector {
         this.fragment = fragment;
     }
     
-    public static String getType() {
+    
+    public String getType() {
         return TYPE;
     }
 
@@ -23,4 +27,23 @@ public class FragmentSelector implements ISelector {
         return "xywh=" + fragment.x + "," + fragment.y + "," + fragment.width + "," + fragment.height;
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        if(obj.getClass().equals(this.getClass())) {
+            return ((ISelector) obj).getValue().equals(this.getValue());
+        } else {
+            return false;
+        }
+    }
+    
+    @Override
+    public String toString() {
+        ObjectMapper mapper = new ObjectMapper();        
+        try {
+            return mapper.writeValueAsString(this);
+        } catch (JsonProcessingException e) {
+           return super.toString();
+        }
+    }
+    
 }

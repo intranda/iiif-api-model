@@ -2,10 +2,13 @@ package de.intranda.api.annotation.wa;
 
 import java.net.URI;
 import java.util.Date;
+import java.util.Objects;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 import de.intranda.api.annotation.AbstractAnnotation;
 import de.intranda.api.annotation.IAgent;
@@ -73,5 +76,27 @@ public class WebAnnotation extends AbstractAnnotation {
     
     public void setModified(Date modified) {
         this.modified = modified;
+    }
+    
+    @Override
+    public boolean equals(Object obj) {
+        if(obj.getClass().equals(this.getClass())) {
+            WebAnnotation other = (WebAnnotation)obj;
+            return super.equals(other)
+                    && Objects.equals(this.getCreator(), other.getCreator())
+                    && Objects.equals(this.getGenerator(), other.getGenerator());
+        } else {
+            return false;
+        }
+    }
+    
+    @Override
+    public String toString() {
+        ObjectMapper mapper = new ObjectMapper();
+        try {
+            return mapper.writeValueAsString(this);
+        } catch (JsonProcessingException e) {
+            return super.toString();
+        }
     }
 }

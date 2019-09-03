@@ -14,7 +14,7 @@ public class FragmentSelector implements ISelector {
         this.fragment = fragment;
     }
     
-    public static String getType() {
+    public String getType() {
         return TYPE;
     }
 
