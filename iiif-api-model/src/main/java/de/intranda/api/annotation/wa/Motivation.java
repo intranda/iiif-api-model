@@ -23,19 +23,20 @@ import com.fasterxml.jackson.annotation.JsonValue;
  */
 public class Motivation {
 
-    public static final String PAINTING = "Painting";
-    public static final String COMMENTING = "Commenting";
-    public static final String LINKING = "Linking";
-    public static final String BOOKMARKING = "Bookmarking";
-    public static final String CLASSIFYING = "Classifying";
-    public static final String DESCRIBING = "Describing";
-    public static final String EDITING = "Editing";
-    public static final String HIGHLIGHTING = "Highlighting";
-    public static final String IDENTIFIYING = "Identifying";
-    public static final String MODERATING = "Moderating";
-    public static final String QUESTIONING = "Questioning";
-    public static final String REPLYING = "Replying";
-    public static final String TAGGING = "Tagging";
+    public static final String PAINTING = "painting";
+    public static final String ASSESSING = "assessing";
+    public static final String COMMENTING = "commenting";
+    public static final String LINKING = "linking";
+    public static final String BOOKMARKING = "bookmarking";
+    public static final String CLASSIFYING = "classifying";
+    public static final String DESCRIBING = "describing";
+    public static final String EDITING = "editing";
+    public static final String HIGHLIGHTING = "highlighting";
+    public static final String IDENTIFIYING = "identifying";
+    public static final String MODERATING = "moderating";
+    public static final String QUESTIONING = "questioning";
+    public static final String REPLYING = "replying";
+    public static final String TAGGING = "tagging";
 
     private Motivation() {}
 }

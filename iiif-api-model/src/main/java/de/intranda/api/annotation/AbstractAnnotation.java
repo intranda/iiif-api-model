@@ -78,7 +78,7 @@ public abstract class AbstractAnnotation implements IAnnotation {
             AbstractAnnotation other = (AbstractAnnotation)obj;
             return this.getId().equals(other.getId())
                     && Objects.equals(this.getBody(), other.getBody()) 
-                    && Objects.equals(this.getTarget(), other.getBody())
+                    && Objects.equals(this.getTarget(), other.getTarget())
                     && Objects.equals(this.getMotivation(), other.getMotivation());
         } else {
             return false;
