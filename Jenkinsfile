@@ -27,6 +27,7 @@
           when {
             anyOf {
             branch 'master'
+			branch 'develop'
             }
           }
           steps {
