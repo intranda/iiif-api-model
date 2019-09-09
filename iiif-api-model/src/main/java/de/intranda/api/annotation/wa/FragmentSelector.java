@@ -2,6 +2,7 @@ package de.intranda.api.annotation.wa;
 
 import java.awt.Rectangle;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -27,6 +28,7 @@ public class FragmentSelector implements ISelector {
         return "xywh=" + fragment.x + "," + fragment.y + "," + fragment.width + "," + fragment.height;
     }
     
+    @JsonIgnore
     public Rectangle getFragment() {
         return fragment;
     }

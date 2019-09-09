@@ -2,6 +2,9 @@ package de.intranda.api.annotation.oa;
 
 import java.awt.Rectangle;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import de.intranda.api.annotation.ISelector;
 
 public class FragmentSelector implements ISelector {
@@ -14,11 +17,13 @@ public class FragmentSelector implements ISelector {
         this.fragment = fragment;
     }
     
+    @JsonProperty("@type")
     public String getType() {
         return TYPE;
     }
     
-   public Rectangle getFragment() {
+    @JsonIgnore
+    public Rectangle getFragment() {
         return fragment;
     }
 
