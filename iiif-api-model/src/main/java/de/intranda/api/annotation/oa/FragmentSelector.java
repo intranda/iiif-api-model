@@ -17,6 +17,10 @@ public class FragmentSelector implements ISelector {
     public String getType() {
         return TYPE;
     }
+    
+   public Rectangle getFragment() {
+        return fragment;
+    }
 
     @Override
     public String getValue() {

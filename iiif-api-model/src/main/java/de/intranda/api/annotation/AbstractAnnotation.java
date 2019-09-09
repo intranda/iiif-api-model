@@ -17,7 +17,7 @@ import de.intranda.api.deserializer.ResourceDeserializer;
 public abstract class AbstractAnnotation implements IAnnotation {
 
     private String motivation;
-    private final URI id;
+    private URI id;
     private IResource body;
     private IResource target;
 
@@ -33,7 +33,9 @@ public abstract class AbstractAnnotation implements IAnnotation {
         return id;
     }
 
-
+    public void setId(URI id) {
+        this.id = id;
+    }
 
     /**
      * @return the motivation

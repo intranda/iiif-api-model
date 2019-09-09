@@ -5,6 +5,7 @@ import java.util.Date;
 import java.util.Objects;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -13,7 +14,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import de.intranda.api.annotation.AbstractAnnotation;
 import de.intranda.api.annotation.IAgent;
 
-@JsonPropertyOrder({ "@id", "@type", "motivation", "body", "target" })
+@JsonPropertyOrder({ "id", "type", "motivation", "body", "target" })
+@JsonIgnoreProperties(ignoreUnknown=true)
 public class WebAnnotation extends AbstractAnnotation {
 
     public final static String TYPE = "Annotation";

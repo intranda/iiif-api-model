@@ -15,6 +15,8 @@
  */
 package de.intranda.api.annotation.oa;
 
+import org.apache.commons.lang3.StringUtils;
+
 /**
  * @author Florian Alpers
  *
@@ -35,5 +37,13 @@ public class Motivation {
     public static final String REPLYING = "oa:replying";
     public static final String TAGGING = "oa:tagging";
 
+    public static String convertFromWebAnnotationMotivation(String value) {
+        if(StringUtils.isNotBlank(value)) {            
+            return "oa:" + value.toLowerCase();
+        } else {
+            return null;
+        }
+    }
+    
     private Motivation() {}
 }

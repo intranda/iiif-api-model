@@ -26,6 +26,10 @@ public class FragmentSelector implements ISelector {
     public String getValue() {
         return "xywh=" + fragment.x + "," + fragment.y + "," + fragment.width + "," + fragment.height;
     }
+    
+    public Rectangle getFragment() {
+        return fragment;
+    }
 
     @Override
     public boolean equals(Object obj) {
