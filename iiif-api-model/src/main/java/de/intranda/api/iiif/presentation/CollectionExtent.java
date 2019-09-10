@@ -44,7 +44,7 @@ public class CollectionExtent implements Service {
     public CollectionExtent(String baseURI) {
         this.children = 0;
         this.containedWorks = 0;
-        baseURI =  baseURI;
+        this.baseURI =  baseURI;
      }
     
     /**
@@ -55,7 +55,12 @@ public class CollectionExtent implements Service {
     public CollectionExtent(int items, int extent) {
         this.children = items;
         this.containedWorks = extent;
+        baseURI =  "";
      }
+    
+    public void setBaseURI(String baseURI) {
+        this.baseURI = baseURI;
+    }
     
     /* (non-Javadoc)
      * @see de.intranda.digiverso.presentation.servlets.rest.services.Service#getContext()
