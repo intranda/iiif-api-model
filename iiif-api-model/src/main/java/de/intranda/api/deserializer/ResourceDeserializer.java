@@ -104,7 +104,7 @@ public class ResourceDeserializer extends StdDeserializer<IResource> {
     }
 
     private Rectangle getRectangle(String value) {
-        String pattern = "xywh=(\\d+),(\\d+),(\\d+),(\\d+)";
+        String pattern = "xywh=(-?\\d+),(-?\\d+),(-?\\d+),(-?\\d+)";
         Matcher m = Pattern.compile(pattern).matcher(value);
         if (m.find()) {
             int x = Integer.parseInt(m.group(1));

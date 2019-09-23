@@ -32,6 +32,8 @@ public class FragmentSelector implements ISelector {
     public Rectangle getFragment() {
         return fragment;
     }
+    
+    
 
     @Override
     public boolean equals(Object obj) {

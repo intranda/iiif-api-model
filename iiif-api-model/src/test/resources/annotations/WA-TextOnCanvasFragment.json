@@ -8,7 +8,7 @@
         "source": "https://viewer.goobi.io/rest/iiif/manifests/1019375248/canvas/1",
         "selector": {
             "type": "FragmentSelector",
-            "value": "xywh=363,62,490,30"
+            "value": "xywh=-363,62,490,30"
         }
     },
     "body": {

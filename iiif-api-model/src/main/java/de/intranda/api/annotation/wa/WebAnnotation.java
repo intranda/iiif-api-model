@@ -12,7 +12,6 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import de.intranda.api.annotation.AbstractAnnotation;
-import de.intranda.api.annotation.IAgent;
 
 @JsonPropertyOrder({ "id", "type", "motivation", "body", "target" })
 @JsonIgnoreProperties(ignoreUnknown=true)
