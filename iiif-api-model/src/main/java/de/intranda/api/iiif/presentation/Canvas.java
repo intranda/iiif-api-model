@@ -22,20 +22,20 @@ import java.util.List;
 
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
-import de.intranda.api.annotation.oa.LinkedAnnotation;
+import de.intranda.api.annotation.oa.OpenAnnotation;
 import de.intranda.api.serializer.ContentLinkSerializer;
 
 /**
  * @author Florian Alpers
  *
  */
-public class Canvas extends AbstractPresentationModelElement implements IPresentationModelElement, ICanvas {
+public class Canvas extends AbstractPresentationModelElement implements IPresentationModelElement {
 
     private static final String TYPE = "sc:Canvas";
 
     private int width;
     private int height;
-    private final List<LinkedAnnotation> images = new ArrayList<>();
+    private final List<OpenAnnotation> images = new ArrayList<>();
     private final List<AnnotationList> otherContent = new ArrayList<>();
 
     public Canvas() {
@@ -91,7 +91,7 @@ public class Canvas extends AbstractPresentationModelElement implements IPresent
     /**
      * @return the images
      */
-    public List<LinkedAnnotation> getImages() {
+    public List<OpenAnnotation> getImages() {
         return images;
     }
 
@@ -103,7 +103,7 @@ public class Canvas extends AbstractPresentationModelElement implements IPresent
         return otherContent.isEmpty() ? null : otherContent;
     }
 
-    public void addImage(LinkedAnnotation image) {
+    public void addImage(OpenAnnotation image) {
         this.images.add(image);
     }
 

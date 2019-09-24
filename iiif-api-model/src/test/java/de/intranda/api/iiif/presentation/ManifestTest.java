@@ -30,7 +30,7 @@ public class ManifestTest {
         System.out.println(formatter.format(time));
     }
     
-    @Test
+//    @Test
     public void testReadManifest() throws JsonParseException, JsonMappingException, IOException {
         ObjectMapper mapper = new ObjectMapper();
         mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);

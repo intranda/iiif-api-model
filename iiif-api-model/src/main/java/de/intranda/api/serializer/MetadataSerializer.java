@@ -40,6 +40,9 @@ public class MetadataSerializer extends JsonSerializer<IMetadataValue> {
         if (element instanceof MultiLanguageMetadataValue) {
             generator.writeStartObject();
             for (String language : element.getLanguages()) {
+                if(element.getLanguages().size() > 1 && language.equals(MultiLanguageMetadataValue.DEFAULT_LANGUAGE)) {
+                    continue;
+                }
                 if (element.getValue(language).isPresent()) {
                     generator.writeArrayFieldStart(language);
                     generator.writeString(element.getValue(language).get());

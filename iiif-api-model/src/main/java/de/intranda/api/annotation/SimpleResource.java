@@ -18,5 +18,19 @@ public class SimpleResource implements IResource {
         return id;
     }
     
+    @Override
+    public int hashCode() {
+        return this.id.hashCode();
+    }
+    
+    @Override
+    public boolean equals(Object obj) {
+        if(obj.getClass().equals(SimpleResource.class)) {
+            return this.id.equals(((SimpleResource)obj).id);            
+        } else {
+            return false;
+        }
+    }
+    
 
 }

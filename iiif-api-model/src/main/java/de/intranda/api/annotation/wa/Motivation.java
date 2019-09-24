@@ -15,46 +15,28 @@
  */
 package de.intranda.api.annotation.wa;
 
-import java.net.URI;
-
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-
-import de.intranda.api.annotation.IAnnotation;
-import de.intranda.api.deserializer.LinkedAnnotationResourceDeserializer;
-import de.intranda.api.iiif.presentation.content.IContent;
+import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
  * @author Florian Alpers
  *
  */
-public class LinkedAnnotation extends AbstractAnnotation implements IAnnotation {
+public class Motivation {
 
-    public LinkedAnnotation() {
-        super(null);
-    }
+    public static final String PAINTING = "painting";
+    public static final String ASSESSING = "assessing";
+    public static final String COMMENTING = "commenting";
+    public static final String LINKING = "linking";
+    public static final String BOOKMARKING = "bookmarking";
+    public static final String CLASSIFYING = "classifying";
+    public static final String DESCRIBING = "describing";
+    public static final String EDITING = "editing";
+    public static final String HIGHLIGHTING = "highlighting";
+    public static final String IDENTIFIYING = "identifying";
+    public static final String MODERATING = "moderating";
+    public static final String QUESTIONING = "questioning";
+    public static final String REPLYING = "replying";
+    public static final String TAGGING = "tagging";
 
-    private IContent resource;
-
-    /**
-     * @param id
-     */
-    public LinkedAnnotation(URI id) {
-        super(id);
-    }
-
-    /**
-     * @return the resource
-     */
-    @JsonDeserialize(using = LinkedAnnotationResourceDeserializer.class)
-    public IContent getBody() {
-        return resource;
-    }
-
-    /**
-     * @param resource the resource to set
-     */
-    public void setBody(IContent resource) {
-        this.resource = resource;
-    }
-
+    private Motivation() {}
 }

@@ -29,7 +29,8 @@ public enum AnnotationType {
     PDF,
     COMMENT,
     TEI,
-    CMDI;
+    CMDI,
+    CROWDSOURCING;
 
     public Format getFormat() {
         switch (this) {

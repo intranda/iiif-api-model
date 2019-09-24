@@ -58,6 +58,17 @@ public class MultiLanguageMetadataValue implements IMetadataValue {
         this(metadataValuesForLanguage, 0);
     }
 
+    public MultiLanguageMetadataValue(String[]...values) {
+        this.values = new HashMap<>();
+        for (String[] value : values) {
+            if(value.length >= 2) {
+                String lang = value[0];
+                String translation = value[1];
+                setValue(translation, lang);
+            }
+        }
+    }
+    
     /**
      * Creates values from a map with the language codes as keys and values which are either Strings or a list of Strings. In the latter case, the
      * entry of index {@code valueIndex} in the list is as taken as value
