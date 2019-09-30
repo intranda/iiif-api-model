@@ -4,6 +4,7 @@ import java.awt.Rectangle;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.Optional;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -17,6 +18,9 @@ import com.fasterxml.jackson.databind.deser.std.StdDeserializer;
 import de.intranda.api.annotation.IResource;
 import de.intranda.api.annotation.ISelector;
 import de.intranda.api.annotation.SimpleResource;
+import de.intranda.api.annotation.GeoLocation.Geometry;
+import de.intranda.api.annotation.GeoLocation.Properties;
+import de.intranda.api.annotation.GeoLocation.ViewPoint;
 
 public class ResourceDeserializer extends StdDeserializer<IResource> {
 
@@ -94,6 +98,12 @@ public class ResourceDeserializer extends StdDeserializer<IResource> {
                         }
                         resource = new de.intranda.api.annotation.wa.SpecificResource(parseNode(node.get("source")).getId(), selector);
                         break;
+                    case "Feature": //geoJson
+                        Geometry geometry = new Geometry(getAsDoubleArray(node.get("geometry").withArray("coordinates")), node.get("geometry").get("type").asText());
+                        Properties properties = new Properties(Optional.ofNullable(node.get("properties").get("name")).map(JsonNode::asText).orElse(""));
+                        ViewPoint view = new ViewPoint(node.get("view").get("zoom").asDouble(), getAsDoubleArray(node.get("view").withArray("center")));
+                        resource = new de.intranda.api.annotation.GeoLocation(geometry, properties, view);
+                        break;
                     default: 
                         resource = new de.intranda.api.annotation.wa.TypedResource(new URI(node.get("id").asText()), node.get("type").asText(),
                                     node.get("format").asText());
@@ -101,6 +111,14 @@ public class ResourceDeserializer extends StdDeserializer<IResource> {
 
             }
             return resource;
+    }
+
+    private double[] getAsDoubleArray(JsonNode withArray) {
+        double[] d = new double[withArray.size()];
+        for(int i = 0; i < withArray.size(); i++) {
+            d[i] = withArray.get(i).asDouble();
+        }
+        return d;
     }
 
     private Rectangle getRectangle(String value) {
