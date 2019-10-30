@@ -16,7 +16,7 @@
 package de.intranda.api;
 
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Collection;
 
 import com.fasterxml.jackson.annotation.JsonValue;
 
@@ -34,7 +34,7 @@ public class PropertyList<T> extends ArrayList<T>{
     /**
      * @param collect
      */
-    public PropertyList(List<T> collect) {
+    public PropertyList(Collection<T> collect) {
         super(collect);
     }
 

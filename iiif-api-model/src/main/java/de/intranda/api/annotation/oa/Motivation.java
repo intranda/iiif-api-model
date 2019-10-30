@@ -36,6 +36,10 @@ public class Motivation {
     public static final String QUESTIONING = "oa:questioning";
     public static final String REPLYING = "oa:replying";
     public static final String TAGGING = "oa:tagging";
+    /**
+     * meta-motivation for search. Don't tag your annotations with it.
+     */
+    public static final String NON_PAINTING = "non-painting";
 
     public static String convertFromWebAnnotationMotivation(String value) {
         if(StringUtils.isNotBlank(value)) {            
@@ -44,6 +48,7 @@ public class Motivation {
             return null;
         }
     }
+
     
     private Motivation() {}
 }

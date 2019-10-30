@@ -17,6 +17,7 @@ package de.intranda.api.iiif.presentation;
 
 import java.net.URI;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
@@ -85,8 +86,8 @@ public abstract class AbstractPresentationModelElement implements IPresentationM
      * @return the context
      */
     @JsonProperty("@context")
-    public String getContext() {
-        return context;
+    public PropertyList<String> getContext() {
+        return new PropertyList<>(Collections.singletonList(context));
     }
 
     /* (non-Javadoc)
