@@ -4,6 +4,12 @@ import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
+
+@JsonPropertyOrder({ "@context", "@id", "@type" })
+@JsonInclude(Include.NON_EMPTY)
 public class SearchResultLayer {
 
     private static final String TYPE = "sc:Layer";
