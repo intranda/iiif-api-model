@@ -100,7 +100,6 @@ public class SearchResult {
     /**
      * @param startIndex the startIndex to set
      */
-    @JsonIgnore
     public void setStartIndex(int startIndex) {
         this.startIndex = startIndex;
     }
