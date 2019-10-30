@@ -7,6 +7,7 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 @JsonPropertyOrder({ "@context", "@id", "@type" })
 @JsonInclude(Include.NON_EMPTY)
@@ -18,6 +19,7 @@ public class SearchResultLayer {
     private URI first;
     private URI last;
     private List<String> ignored = new ArrayList<>();
+    
     /**
      * @return the total
      */
@@ -74,7 +76,8 @@ public class SearchResultLayer {
     /**
      * @return the type
      */
-    public static String getType() {
+    @JsonProperty("@type")
+    public String getType() {
         return TYPE;
     }
     

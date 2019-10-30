@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -12,9 +13,10 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 import de.intranda.api.PropertyList;
 import de.intranda.api.annotation.IAnnotation;
+import de.intranda.metadata.multilanguage.IMetadataValue;
 
-@JsonPropertyOrder({ "@context", "@id", "@type" })
-@JsonInclude(Include.NON_EMPTY)
+@JsonPropertyOrder({ "@context", "@id", "@type", "within"})
+@JsonInclude(Include.NON_NULL)
 public class SearchResult {
 
     private static final String TYPE = "sc:AnnotationList";
@@ -98,6 +100,7 @@ public class SearchResult {
     /**
      * @param startIndex the startIndex to set
      */
+    @JsonIgnore
     public void setStartIndex(int startIndex) {
         this.startIndex = startIndex;
     }
@@ -120,7 +123,7 @@ public class SearchResult {
         this.within = within;
     }
 
-    
+
      
     
 }
