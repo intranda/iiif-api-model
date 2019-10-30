@@ -91,6 +91,8 @@ public class SearchResult {
     }
 
     /**
+     * The result is not accurate if more than one type (motivation) of annotations is searched, because the page results for all types are combined to one page, skewing the actual indexes
+     * 
      * @return the startIndex
      */
     public int getStartIndex() {
