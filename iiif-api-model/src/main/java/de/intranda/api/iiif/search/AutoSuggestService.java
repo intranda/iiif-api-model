@@ -1,56 +1,45 @@
 package de.intranda.api.iiif.search;
 
 import java.net.URI;
-import java.util.Arrays;
+import java.net.URISyntaxException;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
-import de.intranda.api.PropertyList;
 import de.intranda.api.services.Service;
 import de.intranda.metadata.multilanguage.IMetadataValue;
 
 @JsonPropertyOrder({ "@context", "@id", "profile", "@type"})
-@JsonInclude(Include.NON_EMPTY)
-public class SearchService implements Service{
-    
+@JsonInclude(Include.NON_NULL)
+public class AutoSuggestService implements Service {
+
     private static final String CONTEXT = "http://iiif.io/api/search/1/context.json";
-    private static final String PROFILE = "http://iiif.io/api/search/1/search";
+    private static final String PROFILE = "http://iiif.io/api/search/1/autocomplete";
     
     private final URI id;
-    private PropertyList<Service> service = new PropertyList<>();
     private IMetadataValue label = null;
 
-
-    public SearchService(URI id) {
+    
+    public  AutoSuggestService(URI id) {
         this.id = id;
+    }
+    
+    @Override
+    @JsonIgnore
+    public URI getContext() throws URISyntaxException {
+        return URI.create(CONTEXT);
+    }
+    
+    public String getProfile() {
+        return PROFILE;
     }
     
     @JsonProperty("@id")
     public URI getId() {
         return id;
-    }
-    
-    public URI getContext() {
-        return URI.create(CONTEXT);
-    }
-    
-    public URI getProfile() {
-        return URI.create(PROFILE);
-    }
-    
-    public void setService(PropertyList<Service> service) {
-        this.service = service;
-    }
-    
-    public void addService(Service service) {
-        this.service.add(service);
-    }
-    
-    public PropertyList<Service> getService() {
-        return service;
     }
     
     public IMetadataValue getLabel() {
@@ -60,6 +49,5 @@ public class SearchService implements Service{
     public void setLabel(IMetadataValue label) {
         this.label = label;
     }
-
 
 }
