@@ -21,6 +21,8 @@ import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
+import org.apache.commons.lang3.StringUtils;
+
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
@@ -87,8 +89,12 @@ public abstract class AbstractPresentationModelElement implements IPresentationM
      */
     @JsonProperty("@context")
     public PropertyList<String> getContext() {
-        return new PropertyList<>(Collections.singletonList(context));
-    }
+        if(StringUtils.isNotBlank(context)) {            
+            return new PropertyList<>(Collections.singletonList(context));
+        } else {
+            return null;
+        }
+    } 
 
     /* (non-Javadoc)
      * @see de.intranda.digiverso.presentation.model.iiif.presentation.IPresentationModelElement#getType()

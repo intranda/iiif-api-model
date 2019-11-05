@@ -18,12 +18,15 @@ package de.intranda.api;
 import java.util.ArrayList;
 import java.util.Collection;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 /**
  * @author Florian Alpers
  *
  */
+@JsonInclude(Include.NON_EMPTY)
 public class PropertyList<T> extends ArrayList<T>{
 
     /**

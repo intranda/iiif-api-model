@@ -30,7 +30,8 @@ public enum AnnotationType {
     COMMENT,
     TEI,
     CMDI,
-    CROWDSOURCING;
+    CROWDSOURCING,
+    METADATA;
 
     public Format getFormat() {
         switch (this) {
@@ -48,6 +49,7 @@ public enum AnnotationType {
             case PDF:
                 return Format.APPLICATION_PDF;
             case FULLTEXT:
+            case METADATA:
             default:
                 return Format.TEXT_PLAIN;
         }
@@ -67,6 +69,7 @@ public enum AnnotationType {
             case HTML:
             case COMMENT:
             case FULLTEXT:
+            case METADATA:
             default:
                 return DcType.TEXT;
         }
