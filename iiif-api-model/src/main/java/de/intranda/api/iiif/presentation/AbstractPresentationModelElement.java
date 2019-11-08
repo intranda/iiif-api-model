@@ -84,6 +84,7 @@ public abstract class AbstractPresentationModelElement implements IPresentationM
         this.context = context;
     }
 
+    @JsonProperty("@context")
     public PropertyList<String> getContext() {
         if(StringUtils.isNotBlank(context)) {            
             return new PropertyList<>(Collections.singletonList(context));
