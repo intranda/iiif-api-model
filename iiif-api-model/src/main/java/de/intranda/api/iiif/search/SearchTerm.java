@@ -55,7 +55,7 @@ public class SearchTerm implements IResource {
     @Override
     public boolean equals(Object obj) {
         if(obj.getClass().equals(SearchTerm.class)) {
-            return ((SearchTerm)obj).getMatch().equals(this.getMatch());
+            return ((SearchTerm)obj).getMatch().equalsIgnoreCase(this.getMatch());
         } else {
             return false;
         }
