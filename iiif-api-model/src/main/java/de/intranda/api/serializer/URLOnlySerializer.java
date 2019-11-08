@@ -17,6 +17,7 @@ package de.intranda.api.serializer;
 
 import java.io.IOException;
 import java.util.Collection;
+import java.util.Optional;
 
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -24,7 +25,9 @@ import com.fasterxml.jackson.databind.JsonSerializer;
 import com.fasterxml.jackson.databind.SerializerProvider;
 
 import de.intranda.api.PropertyList;
+import de.intranda.api.annotation.IAnnotation;
 import de.intranda.api.annotation.IResource;
+import de.intranda.api.annotation.wa.SpecificResource;
 import de.intranda.api.annotation.wa.collection.AnnotationCollection;
 import de.intranda.api.annotation.wa.collection.AnnotationPage;
 import de.intranda.api.iiif.presentation.IPresentationModelElement;
@@ -41,36 +44,41 @@ public class URLOnlySerializer extends JsonSerializer<Object> {
     @Override
     public void serialize(Object o, JsonGenerator generator, SerializerProvider provider) throws IOException, JsonProcessingException {
 
+        write(o, generator);
+    }
+    
+    private void write(Object o, JsonGenerator generator) throws IOException {
         if (o instanceof IPresentationModelElement) {
             IPresentationModelElement element = (IPresentationModelElement) o;
             generator.writeString(element.getId().toString());
-        } else if (o instanceof Collection) {
-            Collection collection = (Collection) o;
-            if (collection instanceof PropertyList &&  collection.size() == 1) {
-                Object obj = collection.iterator().next();
-                if (obj instanceof IPresentationModelElement) {
-                    IPresentationModelElement element = (IPresentationModelElement) obj;
-                    generator.writeString(element.getId().toString());
-                }
-            } else if (!collection.isEmpty()) {
-                generator.writeStartArray();
-                for (Object child : collection) {
-                    if (child instanceof IPresentationModelElement) {
-                        IPresentationModelElement element = (IPresentationModelElement) child;
-                        generator.writeString(element.getId().toString());
-                    }
-                }
-                generator.writeEndArray();
-            } 
         } else if(o instanceof IResource) {
             IResource resource = (IResource) o;
-            generator.writeString(resource.getId().toString());
+            if(resource instanceof SpecificResource) {
+                SpecificResource s = (SpecificResource)resource;
+                generator.writeString(s.getId() + Optional.ofNullable(s.getSelector()).map(selector -> "#" + selector.getValue()).orElse(""));
+            } else {                
+                generator.writeString(resource.getId().toString());
+            }
         } else if(o instanceof AnnotationPage) {
             AnnotationPage resource = (AnnotationPage) o;
             generator.writeString(resource.getId().toString());
         }else if(o instanceof AnnotationCollection) {
             AnnotationCollection resource = (AnnotationCollection) o;
             generator.writeString(resource.getId().toString());
+        } else if(o instanceof IAnnotation)  {
+            IAnnotation anno = (IAnnotation)o;
+            generator.writeString(anno.getId().toString());
+        } else if (o instanceof Collection) {
+            Collection collection = (Collection) o;
+            if (collection instanceof PropertyList &&  collection.size() == 1) {
+                Object obj = collection.iterator().next();
+                write(obj, generator);
+            } else if (!collection.isEmpty()) {
+                generator.writeStartArray();
+                for (Object child : collection) {
+                    write(child, generator);
+                }
+            }
         }
     }
 
