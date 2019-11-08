@@ -50,6 +50,9 @@ public class SearchService implements Service{
     }
     
     public PropertyList<Service> getService() {
+        if(service.isEmpty()) {
+            return null;
+        }
         return service;
     }
     

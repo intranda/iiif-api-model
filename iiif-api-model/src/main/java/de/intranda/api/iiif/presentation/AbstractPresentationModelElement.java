@@ -86,8 +86,9 @@ public abstract class AbstractPresentationModelElement implements IPresentationM
      * @return the context
      */
     @JsonProperty("@context")
-    public PropertyList<String> getContext() {
-        return new PropertyList<>(Collections.singletonList(context));
+    public String getContext() {
+        return context;
+//        return new PropertyList<>(Collections.singletonList(context));
     }
 
     /* (non-Javadoc)

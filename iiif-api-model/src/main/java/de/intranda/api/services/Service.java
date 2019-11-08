@@ -18,6 +18,8 @@ package de.intranda.api.services;
 import java.net.URI;
 import java.net.URISyntaxException;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
