@@ -23,6 +23,7 @@ public class SearchResult {
     
     private final URI id;
     private List<IAnnotation> resources = new ArrayList<>();
+    private List<SearchHit> hits = new ArrayList<>();
     private PropertyList<String> context = new PropertyList<>();   
     private SearchResultLayer within;
     private URI next;
@@ -121,6 +122,18 @@ public class SearchResult {
      */
     public void setWithin(SearchResultLayer within) {
         this.within = within;
+    }
+    
+    public void setHits(List<SearchHit> hits) {
+        this.hits = hits;
+    }
+    
+    public List<SearchHit> getHits() {
+        return hits;
+    }
+    
+    public void addHit(SearchHit hit) {
+        this.hits.add(hit);
     }
 
 

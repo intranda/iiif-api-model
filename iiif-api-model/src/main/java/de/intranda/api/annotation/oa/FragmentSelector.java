@@ -48,5 +48,7 @@ public class FragmentSelector implements ISelector {
     public String getValue() {
         return "xywh=" + fragment.x + "," + fragment.y + "," + fragment.width + "," + fragment.height;
     }
+    
+    
 
 }
