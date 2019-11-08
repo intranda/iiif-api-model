@@ -5,5 +5,4 @@ public interface ISelector {
     public String getValue();
     
     public String getType();
-
 }

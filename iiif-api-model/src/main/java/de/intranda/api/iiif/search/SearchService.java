@@ -12,7 +12,7 @@ import de.intranda.api.PropertyList;
 import de.intranda.api.services.Service;
 import de.intranda.metadata.multilanguage.IMetadataValue;
 
-@JsonPropertyOrder({ "@context", "@id", "@type"})
+@JsonPropertyOrder({ "@context", "@id", "profile", "@type"})
 @JsonInclude(Include.NON_EMPTY)
 public class SearchService implements Service{
     
