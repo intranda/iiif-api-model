@@ -53,8 +53,11 @@ public class URLOnlySerializer extends JsonSerializer<Object> {
             generator.writeString(element.getId().toString());
         } else if(o instanceof IResource) {
             IResource resource = (IResource) o;
-            if(resource instanceof SpecificResource) {
-                SpecificResource s = (SpecificResource)resource;
+            if(resource instanceof de.intranda.api.annotation.oa.SpecificResource) {
+                de.intranda.api.annotation.oa.SpecificResource s = (de.intranda.api.annotation.oa.SpecificResource)resource;
+                generator.writeString(s.getId() + Optional.ofNullable(s.getSelector()).map(selector -> "#" + selector.getValue()).orElse(""));
+            } else if(resource instanceof de.intranda.api.annotation.wa.SpecificResource) {
+                de.intranda.api.annotation.wa.SpecificResource s = (de.intranda.api.annotation.wa.SpecificResource)resource;
                 generator.writeString(s.getId() + Optional.ofNullable(s.getSelector()).map(selector -> "#" + selector.getValue()).orElse(""));
             } else {                
                 generator.writeString(resource.getId().toString());

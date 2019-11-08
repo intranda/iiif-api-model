@@ -1,12 +1,12 @@
 package de.intranda.api.annotation.oa;
 
-import java.awt.Rectangle;
 import java.net.URI;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 import de.intranda.api.annotation.ISelector;
+import de.intranda.api.serializer.URLOnlySerializer;
 
 public class SpecificResource extends TypedResource {
     
