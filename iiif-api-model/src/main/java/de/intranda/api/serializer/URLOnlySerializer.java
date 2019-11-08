@@ -81,6 +81,7 @@ public class URLOnlySerializer extends JsonSerializer<Object> {
                 for (Object child : collection) {
                     write(child, generator);
                 }
+                generator.writeEndArray();
             }
         }
     }
