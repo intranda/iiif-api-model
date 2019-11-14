@@ -130,9 +130,6 @@ public class SearchResult {
     }
     
     public List<SearchHit> getHits() {
-    	if(hits.isEmpty()) {
-    		return null;
-    	}
         return hits;
     }
     

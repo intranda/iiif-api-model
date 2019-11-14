@@ -48,7 +48,9 @@ public class SearchHit {
     }
     
     public void addAnnotation(IAnnotation annotation) {
-        this.annotations.add(annotation);
+        if(!this.annotations.contains(annotation)) {            
+            this.annotations.add(annotation);
+        }
     }
 
     /**

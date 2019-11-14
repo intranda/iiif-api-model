@@ -74,14 +74,17 @@ public abstract class AbstractAnnotation implements IAnnotation {
         return body;
     }
     
+    
+    @Override
+    public int hashCode() {
+        return getId().hashCode();
+    }
+    
     @Override
     public boolean equals(Object obj) {
         if(obj.getClass().equals(this.getClass())) {
             AbstractAnnotation other = (AbstractAnnotation)obj;
-            return this.getId().equals(other.getId())
-                    && Objects.equals(this.getBody(), other.getBody()) 
-                    && Objects.equals(this.getTarget(), other.getTarget())
-                    && Objects.equals(this.getMotivation(), other.getMotivation());
+            return this.getId().equals(other.getId());
         } else {
             return false;
         }

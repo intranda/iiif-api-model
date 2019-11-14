@@ -1,5 +1,6 @@
 package de.intranda.api.annotation.oa;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -49,6 +50,7 @@ public class TextQuoteSelector implements ISelector {
     }
 
     @Override
+    @JsonIgnore
     public String getValue() {
         return "exact=" + getFragment();
     }
