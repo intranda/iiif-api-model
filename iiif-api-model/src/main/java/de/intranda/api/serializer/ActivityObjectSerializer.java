@@ -12,9 +12,10 @@ public class ActivityObjectSerializer extends JsonSerializer<IPresentationModelE
 
     @Override
     public void serialize(IPresentationModelElement value, JsonGenerator generator, SerializerProvider provider) throws IOException {
-        
+        generator.writeStartObject();
         generator.writeStringField("id", value.getId().toString());
         generator.writeStringField("type", value.getType());
+        generator.writeEndObject();
     }
 
 }
