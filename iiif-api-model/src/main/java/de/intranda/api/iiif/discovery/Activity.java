@@ -18,8 +18,10 @@ package de.intranda.api.iiif.discovery;
 import java.util.Date;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 import de.intranda.api.iiif.presentation.IPresentationModelElement;
+import de.intranda.api.serializer.ActivityObjectSerializer;
 
 /**
  * A JSON-serializable object to represent an "activity" as described in https://iiif.io/api/discovery/0.1/#activities
@@ -55,6 +57,7 @@ public class Activity {
      * 
      * @return the object
      */
+    @JsonSerialize(using=ActivityObjectSerializer.class)
     public IPresentationModelElement getObject() {
         return object;
     }
