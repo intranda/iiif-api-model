@@ -54,7 +54,7 @@ public class Collection extends AbstractPresentationModelElement implements IPre
      * @return the collections
      */
 //    @JsonSerialize(using = URLOnlySerializer.class)
-//    @JsonSerialize(using = ContentLinkSerializer.class)
+    @JsonSerialize(using = ContentLinkSerializer.class)
     @JsonIgnore
     public List<Collection> getCollections() {
         return collections.isEmpty() ? null : collections;
@@ -68,7 +68,7 @@ public class Collection extends AbstractPresentationModelElement implements IPre
      * @return the manifests
      */
 //    @JsonSerialize(using = URLOnlySerializer.class)
-//    @JsonSerialize(using = ContentLinkSerializer.class)
+    @JsonSerialize(using = ContentLinkSerializer.class)
     @JsonIgnore
     public List<Manifest> getManifests() {
         return manifests.isEmpty() ? null : manifests;
@@ -80,6 +80,7 @@ public class Collection extends AbstractPresentationModelElement implements IPre
     
 //    @JsonSerialize(using = URLOnlySerializer.class)
     @JsonSerialize(using = ContentLinkSerializer.class)
+//    @JsonIgnore
     public List<IPresentationModelElement> getMembers() {
         List<IPresentationModelElement> list = new ArrayList<>();
         list.addAll(collections);

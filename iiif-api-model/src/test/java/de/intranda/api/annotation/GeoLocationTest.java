@@ -43,7 +43,7 @@ public class GeoLocationTest {
 //       mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
 //       mapper.configure(DeserializationFeature.ACCEPT_SINGLE_VALUE_AS_ARRAY, true);
        WebAnnotation annotation = new ObjectMapper().readValue(json, WebAnnotation.class);
-       System.out.println("Annotation: " + annotation);
+//       System.out.println("Annotation: " + annotation);
        Assert.assertTrue(annotation.getBody() instanceof GeoLocation);
     }
     

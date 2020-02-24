@@ -36,6 +36,16 @@
         }
       }
       post {
+        always {
+          junit "**/target/surefire-reports/*.xml"
+          step([
+            $class           : 'JacocoPublisher',
+            execPattern      : 'goobi-viewer-core/target/jacoco.exec',
+            classPattern     : 'goobi-viewer-core/target/classes/',
+            sourcePattern    : 'goobi-viewer-core/src/main/java',
+            exclusionPattern : '**/*Test.class'
+          ])
+        }
         success {
           archiveArtifacts artifacts: '**/target/*.jar', fingerprint: true
         }

@@ -22,12 +22,12 @@ public class ManifestTest {
         String dateString = "2019-06-06";
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern(AbstractPresentationModelElement.DATETIME_FORMAT);
         LocalDate dateTime = LocalDate.parse(dateString);
-        System.out.println(formatter.format(dateTime.atStartOfDay(ZoneId.systemDefault())));
+//        System.out.println(formatter.format(dateTime.atStartOfDay(ZoneId.systemDefault())));
         
         
         String dateStringISO="2019-06-06T00:00:00Z";
         LocalDateTime time = LocalDateTime.parse(dateStringISO, formatter);
-        System.out.println(formatter.format(time));
+//        System.out.println(formatter.format(time));
     }
     
 //    @Test
