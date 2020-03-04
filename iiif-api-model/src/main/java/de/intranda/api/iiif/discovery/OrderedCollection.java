@@ -36,7 +36,7 @@ public class OrderedCollection<T> {
     
     private String[] context;
     private final URI id;
-    private long totalItems;
+    private Long totalItems;
     private OrderedCollectionPage<T> first;
     private OrderedCollectionPage<T> last;
     
@@ -45,6 +45,7 @@ public class OrderedCollection<T> {
      */
     public OrderedCollection(URI id) {
        this.id = id;
+       this.totalItems = null;
     }
     
     /**
@@ -59,7 +60,7 @@ public class OrderedCollection<T> {
      * 
      * @return the total number of items contained in the collection
      */
-    public long getTotalItems() {
+    public Long getTotalItems() {
         return totalItems;
     }
     /**
@@ -67,7 +68,7 @@ public class OrderedCollection<T> {
      * 
      * @param totalItems the totalItems to set
      */
-    public void setTotalItems(long totalItems) {
+    public void setTotalItems(Long totalItems) {
         this.totalItems = totalItems;
     }
     /**
