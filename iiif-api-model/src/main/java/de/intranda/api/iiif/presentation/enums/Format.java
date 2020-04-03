@@ -34,7 +34,7 @@ public enum Format {
     TEXT_PLAIN("text/plain"),
     TEXT_XML("text/xml"),
     TEXT_HTML("text/html"),
-    APPLICATION_PDF("applocation/pdf"),
+    APPLICATION_PDF("application/pdf"),
     APPLICATION_RDFXML("application/rdf+xml"),
     APPLICATION_MARCXML("application/marcxml+xml");
 
