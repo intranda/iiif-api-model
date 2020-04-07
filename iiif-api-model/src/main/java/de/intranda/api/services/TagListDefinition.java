@@ -15,25 +15,41 @@
  */
 package de.intranda.api.services;
 
-import java.net.URI;
-import java.net.URISyntaxException;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * Interface for any services linked to in a rest response
+ * A Json-ld context definition for sets of categories associated with an item
  * 
  * @author Florian Alpers
  *
  */
-@JsonPropertyOrder({"@context"})
-public interface Service {
+public class TagListDefinition {
+
+    private static final Context SCHEMA = new Context("schema",  "https://schema.org/");
     
+    private static final Definition NAME = new Definition(SCHEMA, "name");
+    private static final Definition TAGS = new Definition(SCHEMA, "itemListElement");
+
+    public static final String URI_PATH = "/taglists/context.json";
+    
+    private IContextDefinition context = new IContextDefinition() {
+        
+        public Context getSchema() {
+            return SCHEMA;
+        }
+        
+        public Definition getName() {
+            return NAME;
+        }
+        
+        public Definition getTags() {
+            return TAGS;
+        }
+    };
+
     @JsonProperty("@context")
-    public URI getContext() throws URISyntaxException;
+    public IContextDefinition getContext() {
+        return context;
+    }
 
 }

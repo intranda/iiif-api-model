@@ -15,32 +15,43 @@
  */
 package de.intranda.api.services;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 /**
  * @author Florian Alpers
  *
  */
 public class CollectionExtentDefinition {
-
+    
     private static final Context DCTERMS = new Context("dcTerms",  "http://purl.org/dc/terms/");
     private static final Context ACTIVITYSTREAMS = new Context("as",  "http://www.w3.org/ns/activitystreams#");
     
     private static final Definition ITEMS = new Definition(ACTIVITYSTREAMS, "totalItems");
     private static final Definition EXTENT = new Definition(DCTERMS, "extent");
+    public static final String URI_PATH = "/collection/extent/context.json";
     
-    public Context getDcterms() {
-        return DCTERMS;
-    }
-    
-    public Context getAs() {
-        return ACTIVITYSTREAMS;
-    }
-    
-    public Definition getItems() {
-        return ITEMS;
-    }
-    
-    public Definition getExtent() {
-        return EXTENT;
-    }
+    private IContextDefinition context = new IContextDefinition() {
+        
+        public Context getDcterms() { 
+            return DCTERMS;
+        }
+        
+        public Context getAs() {
+            return ACTIVITYSTREAMS;
+        }
+        
+        public Definition getItems() {
+            return ITEMS;
+        }
+        
+        public Definition getExtent() {
+            return EXTENT;
+        }
+    };
 
+    @JsonProperty("@context")
+    public IContextDefinition getContext() {
+        return context;
+    }
+    
 }

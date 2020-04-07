@@ -26,10 +26,10 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonSerializer;
 import com.fasterxml.jackson.databind.SerializerProvider;
 
-import de.intranda.api.iiif.presentation.CollectionExtent;
 import de.intranda.api.iiif.presentation.IPresentationModelElement;
 import de.intranda.api.iiif.presentation.Range;
 import de.intranda.api.iiif.presentation.content.LinkingContent;
+import de.intranda.api.services.Service;
 
 /**
  * @author Florian Alpers
@@ -77,7 +77,15 @@ public class ContentLinkSerializer extends JsonSerializer<List<IPresentationMode
         }
 
         if (element.getService() != null) {
-            generator.writeObjectField("service", element.getService(CollectionExtent.class));
+            if(element.getService().size() == 1) {                
+                generator.writeObjectField("service", element.getService().get(0));
+            } else if(element.getService().size() > 1) {
+                generator.writeArrayFieldStart("service");
+                for (Service service : element.getService()) {
+                    generator.writeObject(service);
+                }
+                generator.writeEndArray();
+            }
         }
         
         if (element.getRendering() != null && !element.getRendering().isEmpty()) {

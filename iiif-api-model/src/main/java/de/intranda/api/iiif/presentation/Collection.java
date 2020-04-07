@@ -19,6 +19,7 @@ import java.net.URI;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -41,13 +42,16 @@ public class Collection extends AbstractPresentationModelElement implements IPre
     public final List<Collection> collections = new ArrayList<>();
     @JsonIgnore
     public final List<Manifest> manifests = new ArrayList<>();
-    public Date navDate = null;
+    private Date navDate = null;
+    private final String internalName;
+
     
     /**
      * @param id
      */
-    public Collection(URI id) {
+    public Collection(URI id, String name) {
         super(id);
+        this.internalName = name;
     }
     
     /**
@@ -112,6 +116,24 @@ public class Collection extends AbstractPresentationModelElement implements IPre
         return TYPE;
     }
 
+    @JsonIgnore
+    public String getInternalName() {
+        return internalName;
+    }
+
+    public Optional<Collection> getCollectionByInternalName(String name) {
+        if(name.equals(this.getInternalName())) {
+            return Optional.of(this);
+        } else {
+            for (Collection collection : collections) {
+                Optional<Collection> match = collection.getCollectionByInternalName(name);
+                if(match.isPresent()) {
+                    return match;
+                }
+            }
+        }
+        return Optional.empty();
+    }
 
 
 }

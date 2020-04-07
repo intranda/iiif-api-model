@@ -18,6 +18,7 @@ package de.intranda.api.iiif.presentation;
 import java.net.URI;
 import java.net.URISyntaxException;
 
+import de.intranda.api.services.CollectionExtentDefinition;
 import de.intranda.api.services.Service;
 
 /**
@@ -26,7 +27,7 @@ import de.intranda.api.services.Service;
  */
 public class CollectionExtent implements Service {
 
-    private static final String CONTEXTPATH = "api/collections/extent/context.json";
+    private static final String CONTEXTPATH = CollectionExtentDefinition.URI_PATH;
 
     private int children;
     private int containedWorks;
