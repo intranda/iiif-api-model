@@ -45,14 +45,17 @@ public class ContentLinkSerializer extends JsonSerializer<List<IPresentationMode
     @Override
     public void serialize(List<IPresentationModelElement> elements, JsonGenerator generator, SerializerProvider provider)
             throws IOException, JsonProcessingException {
-
         if (elements != null && !elements.isEmpty()) {
-                generator.writeStartArray();
-                for (IPresentationModelElement element : elements) {
+            generator.writeStartArray();
+            for (IPresentationModelElement element : elements) {
+                try {
                     writeElement(element, generator, provider);
+                } catch (IOException e) {
+                    //Ignore: probably a ClientAbortException
                 }
-                generator.writeEndArray();
             }
+            generator.writeEndArray();
+        }
 
     }
 
@@ -77,9 +80,9 @@ public class ContentLinkSerializer extends JsonSerializer<List<IPresentationMode
         }
 
         if (element.getService() != null) {
-            if(element.getService().size() == 1) {                
+            if (element.getService().size() == 1) {
                 generator.writeObjectField("service", element.getService().get(0));
-            } else if(element.getService().size() > 1) {
+            } else if (element.getService().size() > 1) {
                 generator.writeArrayFieldStart("service");
                 for (Service service : element.getService()) {
                     generator.writeObject(service);
@@ -87,7 +90,7 @@ public class ContentLinkSerializer extends JsonSerializer<List<IPresentationMode
                 generator.writeEndArray();
             }
         }
-        
+
         if (element.getRendering() != null && !element.getRendering().isEmpty()) {
             generator.writeFieldName("rendering");
             generator.writeStartArray();
@@ -96,7 +99,7 @@ public class ContentLinkSerializer extends JsonSerializer<List<IPresentationMode
             }
             generator.writeEndArray();
         }
-        
+
         if (element.getRelated() != null && !element.getRelated().isEmpty()) {
             generator.writeFieldName("related");
             generator.writeStartArray();
@@ -105,13 +108,12 @@ public class ContentLinkSerializer extends JsonSerializer<List<IPresentationMode
             }
             generator.writeEndArray();
         }
-         
+
         if (element instanceof Range) {
-            if(((Range) element).getStartCanvas() != null) {       
+            if (((Range) element).getStartCanvas() != null) {
                 generator.writeObjectField("startCanvas", ((Range) element).getStartCanvas().getId());
             }
         }
-
 
         generator.writeEndObject();
     }
