@@ -40,6 +40,10 @@ public class OrderedCollection<T> {
     private OrderedCollectionPage<T> first;
     private OrderedCollectionPage<T> last;
     
+    public OrderedCollection() {
+        this.id = null;
+    }
+    
     /**
      * Constructs a collection from the URI to the resource providing this object
      */

@@ -43,6 +43,10 @@ public class OrderedCollectionPage<T> {
     private OrderedCollectionPage<T> next;
     private List<T> orderedItems = new ArrayList<>();
     
+    public OrderedCollectionPage() {
+        this.id = null;
+    }
+    
     /**
      * Constructs a collection page from the URI to the resource providing this object
      */
