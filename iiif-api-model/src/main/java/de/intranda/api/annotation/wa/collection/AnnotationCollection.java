@@ -23,6 +23,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
+import de.intranda.api.annotation.IResource;
 import de.intranda.api.serializer.MetadataSerializer;
 import de.intranda.api.serializer.URLOnlySerializer;
 import de.intranda.metadata.multilanguage.IMetadataValue;
@@ -37,7 +38,7 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
  */
 @JsonPropertyOrder({"@context", "id", "type", "total", "first", "last"})
 @JsonInclude(Include.NON_NULL)
-public class AnnotationCollection {
+public class AnnotationCollection implements IResource{
 
     private final static String TYPE = "AnnotationCollection";
     private static final String CONTEXT = "http://www.w3.org/ns/anno.jsonld";

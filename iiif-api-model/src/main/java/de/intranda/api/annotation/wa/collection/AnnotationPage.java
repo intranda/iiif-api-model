@@ -26,6 +26,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 import de.intranda.api.annotation.IAnnotation;
+import de.intranda.api.annotation.IResource;
 import de.intranda.api.serializer.URLOnlySerializer;
 
 /**
@@ -36,7 +37,7 @@ import de.intranda.api.serializer.URLOnlySerializer;
  */
 @JsonPropertyOrder({"@context", "id", "type", "prev", "next", "partOf", "items"})
 @JsonInclude(Include.NON_EMPTY)
-public class AnnotationPage {
+public class AnnotationPage implements IResource{
 
     private final static String TYPE = "AnnotationPage";
     private static final String CONTEXT = "http://www.w3.org/ns/anno.jsonld";
