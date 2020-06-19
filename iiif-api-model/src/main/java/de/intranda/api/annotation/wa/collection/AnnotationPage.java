@@ -23,10 +23,14 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 import de.intranda.api.annotation.IAnnotation;
+import de.intranda.api.annotation.IAnnotationCollection;
 import de.intranda.api.annotation.IResource;
+import de.intranda.api.deserializer.AnnotationDeserializer;
+import de.intranda.api.deserializer.AnnotationListResourceDeserializer;
 import de.intranda.api.serializer.URLOnlySerializer;
 
 /**
@@ -37,7 +41,7 @@ import de.intranda.api.serializer.URLOnlySerializer;
  */
 @JsonPropertyOrder({"@context", "id", "type", "prev", "next", "partOf", "items"})
 @JsonInclude(Include.NON_EMPTY)
-public class AnnotationPage implements IResource{
+public class AnnotationPage implements IAnnotationCollection{
 
     private final static String TYPE = "AnnotationPage";
     private static final String CONTEXT = "http://www.w3.org/ns/anno.jsonld";
@@ -48,6 +52,10 @@ public class AnnotationPage implements IResource{
     private AnnotationPage next;
     private Integer startIndex = null;
     private List<IAnnotation> items = new ArrayList<>();
+    
+    public AnnotationPage() {
+        this.id = null;
+    }
     
     /**
      * Constructs a collection page from the URI to the resource providing this object
@@ -116,6 +124,7 @@ public class AnnotationPage implements IResource{
      * 
      * @return the items
      */
+    @JsonDeserialize(using=AnnotationListResourceDeserializer.class)
     public List<IAnnotation> getItems() {
         return items;
     }

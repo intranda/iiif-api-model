@@ -23,20 +23,21 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 import de.intranda.api.PropertyList;
 import de.intranda.api.annotation.IAnnotation;
+import de.intranda.api.annotation.IAnnotationCollection;
 import de.intranda.api.deserializer.AnnotationListResourceDeserializer;
 
 /**
  * @author Florian Alpers
  *
  */
-public class AnnotationList extends AbstractPresentationModelElement implements IPresentationModelElement {
+public class AnnotationList extends AbstractPresentationModelElement implements IPresentationModelElement, IAnnotationCollection {
 
     private static final String TYPE = "sc:AnnotationList";
     private final List<IAnnotation> resources = new ArrayList<>();
     private List<IPresentationModelElement> within = new PropertyList<>();
 
     public AnnotationList() {
-
+        super();
     }
 
     /**

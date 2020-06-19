@@ -21,6 +21,7 @@ import de.intranda.api.annotation.SimpleResource;
 import de.intranda.api.annotation.GeoLocation.Geometry;
 import de.intranda.api.annotation.GeoLocation.Properties;
 import de.intranda.api.annotation.GeoLocation.ViewPoint;
+import de.intranda.api.annotation.wa.collection.AnnotationCollection;
 
 public class ResourceDeserializer extends StdDeserializer<IResource> {
 
@@ -80,8 +81,11 @@ public class ResourceDeserializer extends StdDeserializer<IResource> {
                         resource = new de.intranda.api.annotation.oa.SpecificResource(parseNode(node.get("full")).getId(), selector);
                         break;
                     default: 
-                        resource = new de.intranda.api.annotation.oa.TypedResource(new URI(node.get("@id").asText()), node.get("@type").asText(),
-                                    node.get("format").asText());
+                        if(node.has("format")) {
+                            resource = new de.intranda.api.annotation.oa.TypedResource(new URI(node.get("@id").asText()), node.get("@type").asText(), node.get("format").asText());
+                        } else {                            
+                            resource = new de.intranda.api.annotation.oa.TypedResource(new URI(node.get("@id").asText()), node.get("@type").asText());
+                        }
                 }
             } else {    
                 //WebAnnotationsResource

@@ -18,6 +18,11 @@ package de.intranda.api.annotation;
 import java.net.URI;
 import java.util.Date;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+
+import de.intranda.api.deserializer.AnnotationDeserializer;
+import de.intranda.api.deserializer.ResourceDeserializer;
+
 /**
  * @author Florian Alpers
  *
