@@ -22,7 +22,7 @@ import java.util.Date;
  * @author Florian Alpers
  *
  */
-public interface IAnnotation extends IResource{
+public interface IAnnotation{
 
     public URI getId();
 
