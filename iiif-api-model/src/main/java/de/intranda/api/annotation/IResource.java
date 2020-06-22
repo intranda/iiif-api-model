@@ -7,7 +7,6 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 import de.intranda.api.deserializer.ResourceDeserializer;
 
-@JsonDeserialize(using=ResourceDeserializer.class)
 @JsonIgnoreProperties(ignoreUnknown=true)
 public interface IResource {
 

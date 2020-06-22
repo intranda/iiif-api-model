@@ -12,7 +12,9 @@ import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.DeserializationContext;
+import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.deser.std.StdDeserializer;
 
 import de.intranda.api.annotation.IResource;
@@ -22,6 +24,7 @@ import de.intranda.api.annotation.GeoLocation.Geometry;
 import de.intranda.api.annotation.GeoLocation.Properties;
 import de.intranda.api.annotation.GeoLocation.ViewPoint;
 import de.intranda.api.annotation.wa.collection.AnnotationCollection;
+import de.intranda.api.iiif.presentation.Manifest;
 
 public class ResourceDeserializer extends StdDeserializer<IResource> {
 
@@ -29,9 +32,12 @@ public class ResourceDeserializer extends StdDeserializer<IResource> {
      * 
      */
     private static final long serialVersionUID = -6733687272555595794L;
+    
+    private ObjectMapper mapper = new ObjectMapper();
 
     public ResourceDeserializer() {
         this(null);
+        mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
     }
     
     /**
@@ -39,14 +45,15 @@ public class ResourceDeserializer extends StdDeserializer<IResource> {
      */
     public ResourceDeserializer(Class<?> vc) {
         super(vc);
+        mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
     }
 
 
     @Override
-    public IResource deserialize(JsonParser p, DeserializationContext ctxt) throws IOException, JsonProcessingException {
+    public IResource deserialize(JsonParser p, DeserializationContext context) throws IOException, JsonProcessingException {
         JsonNode node = p.getCodec().readTree(p);
         try {
-            return parseNode(node);
+            return parseNode(node, p, context);
         } catch (URISyntaxException e) {
             throw new JsonParseException(p, "Resource id '" + node.asText() + "' is not a URI");
         } catch (NullPointerException e) {
@@ -58,9 +65,12 @@ public class ResourceDeserializer extends StdDeserializer<IResource> {
     /**
      * @param p
      * @param node
+     * @param p 
+     * @param context 
+     * @throws IOException 
      * @throws JsonParseException
      */
-    private IResource parseNode(JsonNode node) throws URISyntaxException {
+    private IResource parseNode(JsonNode node, JsonParser p, DeserializationContext context) throws URISyntaxException, IOException {
         IResource resource = null;
             if (node.isTextual()) {
                 resource = new SimpleResource(new URI(node.asText()));
@@ -78,7 +88,7 @@ public class ResourceDeserializer extends StdDeserializer<IResource> {
                         if(node.get("selector").get("@type").asText().equals("oa:FragmentSelector")) {     
                             selector = new de.intranda.api.annotation.oa.FragmentSelector(getRectangle(node.get("selector").get("value").asText()));
                         }
-                        resource = new de.intranda.api.annotation.oa.SpecificResource(parseNode(node.get("full")).getId(), selector);
+                        resource = new de.intranda.api.annotation.oa.SpecificResource(parseNode(node.get("full"), p, context).getId(), selector);
                         break;
                     default: 
                         if(node.has("format")) {
@@ -100,7 +110,7 @@ public class ResourceDeserializer extends StdDeserializer<IResource> {
                         if(node.get("selector").get("type").asText().equals("FragmentSelector")) {     
                             selector = new de.intranda.api.annotation.wa.FragmentSelector(getRectangle(node.get("selector").get("value").asText()));
                         }
-                        resource = new de.intranda.api.annotation.wa.SpecificResource(parseNode(node.get("source")).getId(), selector);
+                        resource = new de.intranda.api.annotation.wa.SpecificResource(parseNode(node.get("source"), p, context).getId(), selector);
                         break;
                     case "Feature": //geoJson
                         Geometry geometry = new Geometry(getAsDoubleArray(node.get("geometry").withArray("coordinates")), node.get("geometry").get("type").asText());
@@ -109,8 +119,11 @@ public class ResourceDeserializer extends StdDeserializer<IResource> {
                         resource = new de.intranda.api.annotation.GeoLocation(geometry, properties, view);
                         break;
                     default: 
-                        resource = new de.intranda.api.annotation.wa.TypedResource(new URI(node.get("id").asText()), node.get("type").asText(),
-                                    node.get("format").asText());
+                        if(node.has("format")) {
+                            resource = new de.intranda.api.annotation.wa.TypedResource(new URI(node.get("id").asText()), node.get("type").asText(), node.get("format").asText());
+                        } else {                            
+                            resource = new de.intranda.api.annotation.wa.TypedResource(new URI(node.get("id").asText()), node.get("type").asText());
+                        }
                 }
 
             }

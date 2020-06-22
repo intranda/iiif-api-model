@@ -33,6 +33,10 @@ public class Layer extends AbstractPresentationModelElement implements IPresenta
     
     private final List<AnnotationList> otherContent = new ArrayList<>();
     
+    public Layer() {
+        super(null);
+    }
+    
     /**
      * @param id
      */

@@ -18,7 +18,9 @@ public abstract class AbstractAnnotation implements IAnnotation {
 
     private String motivation;
     private URI id;
+    @JsonDeserialize(using=ResourceDeserializer.class)
     private IResource body;
+    @JsonDeserialize(using=ResourceDeserializer.class)
     private IResource target;
 
     /**
