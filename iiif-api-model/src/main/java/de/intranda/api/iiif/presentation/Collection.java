@@ -45,6 +45,10 @@ public class Collection extends AbstractPresentationModelElement implements IPre
     private Date navDate = null;
     private final String internalName;
 
+    public Collection() {
+        super(null);
+        this.internalName = "";
+    }
     
     /**
      * @param id
