@@ -16,6 +16,12 @@ public class TypedResource implements IResource{
     private final String type;
     private final String format;
     
+    public TypedResource() {
+        this.id = null;
+        this.type = null;
+        this.format = null;
+    }
+    
     public TypedResource(URI id, String type, String format) {
         this.type = type;
         this.format = format;
