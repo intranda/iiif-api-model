@@ -52,8 +52,8 @@ public class AnnotationCollectionBuilder {
         
         collection.setTotalItems(totalItemCount);
         collection.setLabel(label);
-        collection.setFirst(new AnnotationPage(getPageURI(baseURI.toString(), 1)));
         if(totalItemCount > 0) {            
+            collection.setFirst(new AnnotationPage(getPageURI(baseURI.toString(), 1)));
             collection.setLast(new AnnotationPage(getPageURI(baseURI.toString(), getLastPageNo())));
         }
 

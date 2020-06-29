@@ -22,7 +22,6 @@ public class SpecificResource extends TypedResource {
     @Override
     @JsonProperty("source")
     public URI getId() {
-        // TODO Auto-generated method stub
         return super.getId();
     }
 
