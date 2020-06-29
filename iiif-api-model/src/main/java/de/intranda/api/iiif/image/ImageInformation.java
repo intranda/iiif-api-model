@@ -54,7 +54,6 @@ import de.intranda.api.deserializer.ProfileDeserializer;
  */
 @XmlRootElement
 @XmlSeeAlso({ ComplianceLevelProfile.class, ImageProfile.class, PhysicalDimension.class })
-@XmlType(propOrder = { "context", "id", "protocol", "width", "height", "attribution", "license", "logo", "sizes", "tiles", "profiles", "service" })
 @JsonPropertyOrder({ "@context", "@id", "protocol", "width", "height", "attribution", "license", "logo", "sizes", "tiles", "profile", "service" })
 @JsonInclude(Include.NON_ABSENT)
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -84,7 +83,6 @@ public class ImageInformation extends Service {
         this("");
     }
 
-    @XmlElement(name = "width")
     @JsonProperty("width")
     public int getWidth() {
         return width;
@@ -94,7 +92,6 @@ public class ImageInformation extends Service {
         this.width = width;
     }
 
-    @XmlElement(name = "height")
     @JsonProperty("height")
     public int getHeight() {
         return height;
@@ -104,8 +101,6 @@ public class ImageInformation extends Service {
         this.height = height;
     }
 
-    @XmlElementWrapper(name = "profiles")
-    @XmlElement(name = "profile")
     @JsonProperty("profile")
     @JsonDeserialize(using = ProfileDeserializer.class)
     public List<IiifProfile> getProfiles() {
@@ -120,8 +115,6 @@ public class ImageInformation extends Service {
         this.profiles.remove(profile);
     }
 
-    @XmlElementWrapper(name = "sizes")
-    @XmlElement(name = "size")
     @JsonProperty("sizes")
     public List<ImageSize> getSizes() {
         return sizes;
@@ -143,8 +136,6 @@ public class ImageInformation extends Service {
         this.sizes.remove(size);
     }
 
-    @XmlElementWrapper(name = "tiles")
-    @XmlElement(name = "tile")
     @JsonProperty("tiles")
     public List<ImageTile> getTiles() {
         return tiles;
@@ -162,7 +153,6 @@ public class ImageInformation extends Service {
         this.tiles.remove(tile);
     }
 
-    @XmlElement(name = "service")
     @JsonProperty("service")
     public Service getService() {
         return service;
@@ -172,37 +162,31 @@ public class ImageInformation extends Service {
         this.service = service;
     }
 
-    @XmlElement(name = "context")
     @JsonProperty("@context")
     public String getContext() {
         return JSON_CONTEXT;
     }
 
-    @XmlElement(name = "id")
     @JsonProperty("@id")
     public String getId() {
         return id;
     }
 
-    @XmlElement(name = "protocol")
     @JsonProperty("protocol")
     public String getProtocol() {
         return JSON_PROTOCOL;
     }
 
-    @XmlElement(name = "attribution")
     @JsonProperty("attribution")
     public String getAttribution() {
         return attribution;
     }
 
-    @XmlElement(name = "license")
     @JsonProperty("license")
     public String getLicense() {
         return license;
     }
 
-    @XmlElement(name = "logo")
     @JsonProperty("logo")
     public String getLogo() {
         return logo;
