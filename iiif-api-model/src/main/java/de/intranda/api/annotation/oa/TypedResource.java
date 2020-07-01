@@ -8,12 +8,13 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 import de.intranda.api.annotation.IResource;
+import de.intranda.api.annotation.ITypedResource;
 import de.intranda.api.annotation.SimpleResource;
 import de.intranda.api.deserializer.ResourceDeserializer;
 
 @JsonInclude(Include.NON_NULL)
 @JsonDeserialize(using=ResourceDeserializer.class)
-public class TypedResource implements IResource{
+public class TypedResource implements ITypedResource, IResource{
     
     private final URI id;
     private final String type;
