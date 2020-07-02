@@ -33,7 +33,7 @@
 
 		<commons-io.version>2.7</commons-io.version>
 		<commons-lang3.version>3.10</commons-lang3.version>
-		<jackson.version>2.11.0</jackson.version>
+		<jackson.version>2.11.1</jackson.version>
 		<junit.version>4.13</junit.version>
 		<json.version>20200518</json.version>
 		<rs-api.version>2.1.1</rs-api.version>
