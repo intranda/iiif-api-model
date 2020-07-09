@@ -58,11 +58,12 @@ public abstract class AbstractPresentationModelElement implements IPresentationM
     private List<Metadata> metadata = new ArrayList<Metadata>();
     private ImageContent thumbnail;
     private IMetadataValue attribution;
-    private URI license;
+//    private URI license;
     private ImageContent logo;
     private ViewingHint viewingHint;
     private List<LinkingContent> related = new PropertyList<>();
     private List<LinkingContent> rendering = new PropertyList<>();
+    private List<URI> license = new PropertyList<>();
     private String context = null;
     private List<Service> service = new PropertyList<Service>();
     private List<LinkingContent> seeAlso = new PropertyList<>();
@@ -183,15 +184,15 @@ public abstract class AbstractPresentationModelElement implements IPresentationM
      * @see de.intranda.digiverso.presentation.model.iiif.presentation.IPresentationModelElement#getLicense()
      */
     @Override
-    public URI getLicense() {
+    public List<URI> getLicense() {
         return license;
     }
 
     /**
      * @param license the license to set
      */
-    public void setLicense(URI license) {
-        this.license = license;
+    public void addLicense(URI license) {
+        this.license .add(license);
     }
 
     /* (non-Javadoc)

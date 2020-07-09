@@ -74,7 +74,7 @@ public interface IPresentationModelElement {
     /**
      * @return the license
      */
-    URI getLicense();
+    List<URI> getLicense();
 
     /**
      * @return the logo
