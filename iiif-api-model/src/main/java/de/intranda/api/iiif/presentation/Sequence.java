@@ -17,6 +17,7 @@ package de.intranda.api.iiif.presentation;
 
 import java.net.URI;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import de.intranda.api.iiif.presentation.enums.ViewingDirection;
@@ -63,8 +64,8 @@ public class Sequence extends AbstractPresentationModelElement implements IPrese
 
     /*TODO: viewinghint dependent on configuration or metadata*/
     @Override
-    public ViewingHint getViewingHint() {
-        return ViewingHint.paged;
+    public List<ViewingHint> getViewingHints() {
+        return Collections.singletonList(ViewingHint.paged);
     }
 
     /*TODO: viewingdirection dependent on configuration or metadata*/

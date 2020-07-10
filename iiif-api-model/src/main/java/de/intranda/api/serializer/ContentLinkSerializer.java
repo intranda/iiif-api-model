@@ -28,7 +28,9 @@ import com.fasterxml.jackson.databind.SerializerProvider;
 
 import de.intranda.api.iiif.presentation.IPresentationModelElement;
 import de.intranda.api.iiif.presentation.Range;
+import de.intranda.api.iiif.presentation.content.ImageContent;
 import de.intranda.api.iiif.presentation.content.LinkingContent;
+import de.intranda.api.iiif.presentation.enums.ViewingHint;
 import de.intranda.api.services.Service;
 
 /**
@@ -71,20 +73,35 @@ public class ContentLinkSerializer extends JsonSerializer<List<IPresentationMode
         if (element.getLabel() != null && !element.getLabel().isEmpty()) {
             generator.writeObjectField("label", element.getLabel());
         }
-        if (element.getViewingHint() != null) {
-            generator.writeObjectField("viewingHint", element.getViewingHint());
+        
+        if (element.getViewingHints().size() > 1) {
+            generator.writeArrayFieldStart("viewingHint");
+            for (ViewingHint viewingHint : element.getViewingHints()) {
+                generator.writeObject(viewingHint);
+            }
+            generator.writeEndArray();
+        } else if(element.getViewingHints().size() == 1) {
+            generator.writeObjectField("viewingHint", element.getViewingHints().get(0));
         }
-        if (element.getThumbnail() != null) {
+        
+        if (element.getThumbnails().size() > 1) {
+            generator.writeArrayFieldStart("thumbnail");
+            for (ImageContent thumb : element.getThumbnails()) {
+                new ImageContentLinkSerializer().serialize(thumb, generator, provider);
+
+            }
+            generator.writeEndArray();
+        } else if(element.getThumbnails().size() == 1) {
             generator.writeFieldName("thumbnail");
-            new ImageContentLinkSerializer().serialize(element.getThumbnail(), generator, provider);
+            new ImageContentLinkSerializer().serialize(element.getThumbnails().get(0), generator, provider);
         }
 
-        if (element.getService() != null) {
-            if (element.getService().size() == 1) {
-                generator.writeObjectField("service", element.getService().get(0));
-            } else if (element.getService().size() > 1) {
+        if (element.getServices() != null) {
+            if (element.getServices().size() == 1) {
+                generator.writeObjectField("service", element.getServices().get(0));
+            } else if (element.getServices().size() > 1) {
                 generator.writeArrayFieldStart("service");
-                for (Service service : element.getService()) {
+                for (Service service : element.getServices()) {
                     generator.writeObject(service);
                 }
                 generator.writeEndArray();

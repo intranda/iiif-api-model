@@ -21,6 +21,8 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
@@ -41,6 +43,7 @@ import de.intranda.metadata.multilanguage.Metadata;
  *
  */
 @JsonInclude(Include.NON_EMPTY)
+@JsonPropertyOrder({ "@context", "@id", "@type", "label", "attribution", "license", "logo", "thumbnail", "viewingHint", "metadata", "service", "seeAlso" })
 public interface IPresentationModelElement {
 
     String getType();
@@ -63,28 +66,33 @@ public interface IPresentationModelElement {
     /**
      * @return the thumbnail
      */
-    @JsonSerialize(using = ImageContentLinkSerializer.class)
-    ImageContent getThumbnail();
+    @JsonSerialize(contentUsing = ImageContentLinkSerializer.class)
+    @JsonProperty("thumbnail")
+    List<ImageContent> getThumbnails();
 
     /**
      * @return the attribution
      */
-    IMetadataValue getAttribution();
+    @JsonProperty("attribution")
+    List<IMetadataValue> getAttributions();
 
     /**
      * @return the license
      */
-    List<URI> getLicense();
+    @JsonProperty("license")
+    List<URI> getLicenses();
 
     /**
      * @return the logo
      */
-    ImageContent getLogo();
+    @JsonProperty("logo")
+    List<ImageContent> getLogos();
 
     /**
      * @return the viewingHint
      */
-    ViewingHint getViewingHint();
+    @JsonProperty("viewingHint")
+    List<ViewingHint> getViewingHints();
 
     /**
      * @return the related
@@ -100,7 +108,7 @@ public interface IPresentationModelElement {
      * @return one or more services - may be null!
      */
     @JsonDeserialize(contentAs = CollectionExtent.class)
-    List<Service> getService();
+    List<Service> getServices();
 
     List<LinkingContent> getSeeAlso();
 
@@ -109,10 +117,11 @@ public interface IPresentationModelElement {
      * @param allowedClasses All classes which should be included in the service list
      * @return A PropertyList of all services of one of the given classes
      */
-    default List<Service> getService(Class... allowedClasses) {
+    @JsonProperty("service")
+    default List<Service> getServices(Class... allowedClasses) {
         List<Class> allowedClassesList = Arrays.asList(allowedClasses);
-        if (this.getService() != null) {
-            return new PropertyList(this.getService().stream()
+        if (this.getServices() != null) {
+            return new PropertyList(this.getServices().stream()
                     .filter(service -> allowedClassesList.contains(service.getClass()))
                     .collect(Collectors.toList()));
         } else {
