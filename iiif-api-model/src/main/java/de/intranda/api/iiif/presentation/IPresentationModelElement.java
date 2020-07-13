@@ -28,6 +28,7 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 import de.intranda.api.PropertyList;
+import de.intranda.api.deserializer.ServiceDeserializer;
 import de.intranda.api.deserializer.URLOnlyListDeserializer;
 import de.intranda.api.iiif.presentation.content.ImageContent;
 import de.intranda.api.iiif.presentation.content.LinkingContent;
@@ -107,7 +108,7 @@ public interface IPresentationModelElement {
     /**
      * @return one or more services - may be null!
      */
-    @JsonDeserialize(contentAs = CollectionExtent.class)
+    @JsonProperty("service")
     List<Service> getServices();
 
     List<LinkingContent> getSeeAlso();

@@ -281,7 +281,6 @@ public abstract class AbstractPresentationModelElement implements IPresentationM
      * @see de.intranda.digiverso.presentation.model.iiif.presentation.IPresentationModelElement#getService()
      */
     @Override
-    @JsonProperty("service")
     public List<Service> getServices() {
         return services.isEmpty() ? null : services;
     }
@@ -289,6 +288,7 @@ public abstract class AbstractPresentationModelElement implements IPresentationM
     public void addService(Service service) {
         this.services.add(service);
     }
+
 
     /**
      * @return the navDate
