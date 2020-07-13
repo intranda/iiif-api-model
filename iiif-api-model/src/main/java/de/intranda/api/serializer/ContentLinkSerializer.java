@@ -73,8 +73,9 @@ public class ContentLinkSerializer extends JsonSerializer<List<IPresentationMode
         if (element.getLabel() != null && !element.getLabel().isEmpty()) {
             generator.writeObjectField("label", element.getLabel());
         }
-        
-        if (element.getViewingHints().size() > 1) {
+        if (element.getViewingHints() == null) {
+            
+        } else if (element.getViewingHints().size() > 1) {
             generator.writeArrayFieldStart("viewingHint");
             for (ViewingHint viewingHint : element.getViewingHints()) {
                 generator.writeObject(viewingHint);
@@ -84,7 +85,9 @@ public class ContentLinkSerializer extends JsonSerializer<List<IPresentationMode
             generator.writeObjectField("viewingHint", element.getViewingHints().get(0));
         }
         
-        if (element.getThumbnails().size() > 1) {
+        if (element.getThumbnails() == null) {
+            
+        } else if(element.getThumbnails().size() > 1) {
             generator.writeArrayFieldStart("thumbnail");
             for (ImageContent thumb : element.getThumbnails()) {
                 new ImageContentLinkSerializer().serialize(thumb, generator, provider);
@@ -96,7 +99,9 @@ public class ContentLinkSerializer extends JsonSerializer<List<IPresentationMode
             new ImageContentLinkSerializer().serialize(element.getThumbnails().get(0), generator, provider);
         }
 
-        if (element.getServices() != null) {
+        if (element.getServices() == null) {
+            
+        } else if(element.getServices() != null) {
             if (element.getServices().size() == 1) {
                 generator.writeObjectField("service", element.getServices().get(0));
             } else if (element.getServices().size() > 1) {
