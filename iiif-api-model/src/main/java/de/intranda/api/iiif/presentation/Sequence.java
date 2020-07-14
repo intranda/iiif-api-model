@@ -34,6 +34,7 @@ public class Sequence extends AbstractPresentationModelElement implements IPrese
     private final List<Canvas> canvases = new ArrayList<>();
 
     public Sequence() {
+        addViewingHint(ViewingHint.paged);
     }
 
     /**
@@ -41,6 +42,7 @@ public class Sequence extends AbstractPresentationModelElement implements IPrese
      */
     public Sequence(URI id) {
         super(id);
+        addViewingHint(ViewingHint.paged);
     }
 
     /* (non-Javadoc)
@@ -62,11 +64,6 @@ public class Sequence extends AbstractPresentationModelElement implements IPrese
         this.canvases.add(image);
     }
 
-    /*TODO: viewinghint dependent on configuration or metadata*/
-    @Override
-    public List<ViewingHint> getViewingHints() {
-        return Collections.singletonList(ViewingHint.paged);
-    }
 
     /*TODO: viewingdirection dependent on configuration or metadata*/
     public ViewingDirection getViewingDirection() {
