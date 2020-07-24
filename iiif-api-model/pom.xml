@@ -34,6 +34,7 @@
 		<commons-io.version>2.7</commons-io.version>
 		<commons-lang3.version>3.11</commons-lang3.version>
 		<jackson.version>2.11.1</jackson.version>
+        <jaxb-api.version>2.4.0-b180830.0359</jaxb-api.version>
 		<junit.version>4.13</junit.version>
 		<json.version>20200518</json.version>
 		<rs-api.version>2.1.1</rs-api.version>
@@ -67,6 +68,11 @@
 			<artifactId>jackson-databind</artifactId>
 			<version>${jackson.version}</version>
 		</dependency>
+        <dependency>
+            <groupId>javax.xml.bind</groupId>
+            <artifactId>jaxb-api</artifactId>
+            <version>${jaxb-api.version}</version>
+        </dependency>
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
