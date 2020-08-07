@@ -73,6 +73,9 @@ public class ContentLinkSerializer extends JsonSerializer<List<IPresentationMode
         if (element.getLabel() != null && !element.getLabel().isEmpty()) {
             generator.writeObjectField("label", element.getLabel());
         }
+        if(element.getDescription() != null) {
+            generator.writeObjectField("description", element.getDescription());
+        }
         if (element.getViewingHints() == null) {
             
         } else if (element.getViewingHints().size() > 1) {
@@ -98,6 +101,8 @@ public class ContentLinkSerializer extends JsonSerializer<List<IPresentationMode
             generator.writeFieldName("thumbnail");
             new ImageContentLinkSerializer().serialize(element.getThumbnails().get(0), generator, provider);
         }
+        
+
 
         if (element.getServices() == null) {
             
