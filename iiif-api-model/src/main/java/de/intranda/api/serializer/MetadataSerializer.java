@@ -24,6 +24,7 @@ import com.fasterxml.jackson.databind.SerializerProvider;
 
 import de.intranda.metadata.multilanguage.IMetadataValue;
 import de.intranda.metadata.multilanguage.MultiLanguageMetadataValue;
+import de.intranda.metadata.multilanguage.MultiLanguageMetadataValue.ValuePair;
 
 /**
  * @author Florian Alpers
@@ -37,10 +38,10 @@ public class MetadataSerializer extends JsonSerializer<IMetadataValue> {
     @Override
     public void serialize(IMetadataValue element, JsonGenerator generator, SerializerProvider provicer) throws IOException, JsonProcessingException {
 
-        if (element instanceof MultiLanguageMetadataValue) {
+        if (element instanceof MultiLanguageMetadataValue && !allTranslationsEqual((MultiLanguageMetadataValue) element)) {
             generator.writeStartObject();
             for (String language : element.getLanguages()) {
-                if(element.getLanguages().size() > 1 && language.equals(MultiLanguageMetadataValue.DEFAULT_LANGUAGE)) {
+                if (element.getLanguages().size() > 1 && language.equals(MultiLanguageMetadataValue.DEFAULT_LANGUAGE)) {
                     continue;
                 }
                 if (element.getValue(language).isPresent()) {
@@ -51,13 +52,13 @@ public class MetadataSerializer extends JsonSerializer<IMetadataValue> {
             }
             generator.writeEndObject();
         } else {
-            generator.writeStartObject();
-            generator.writeArrayFieldStart("@none");
             generator.writeString(element.getValue().orElse(""));
-            generator.writeEndArray();
-            generator.writeEndObject();
         }
 
+    }
+
+    private boolean allTranslationsEqual(MultiLanguageMetadataValue element) {
+        return element.getValues().stream().map(ValuePair::getValue).distinct().count() == 1;
     }
 
 }

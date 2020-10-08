@@ -133,7 +133,7 @@ public abstract class AbstractPresentationModelElement implements IPresentationM
      */
     @Override
     public List<Metadata> getMetadata() {
-        return this.metadata.isEmpty() ? null : this.metadata;
+        return this.metadata.isEmpty() ? new ArrayList<>() : this.metadata;
     }
 
     public void addMetadata(Metadata md) {
@@ -152,7 +152,7 @@ public abstract class AbstractPresentationModelElement implements IPresentationM
      */
     @Override
     public List<ImageContent> getThumbnails() {
-        return this.thumbnails.isEmpty() ? null : this.thumbnails;
+        return this.thumbnails.isEmpty() ? new ArrayList<>() : this.thumbnails;
     }
 
     /**
@@ -167,7 +167,7 @@ public abstract class AbstractPresentationModelElement implements IPresentationM
      */
     @Override
     public List<IMetadataValue> getAttributions() {
-        return this.attributions.isEmpty() ? null : this.attributions;
+        return this.attributions.isEmpty() ? new ArrayList<>() : this.attributions;
     }
 
     /**
@@ -182,7 +182,7 @@ public abstract class AbstractPresentationModelElement implements IPresentationM
      */
     @Override
     public List<URI> getLicenses() {
-        return this.licenses.isEmpty() ? null : this.licenses;
+        return this.licenses.isEmpty() ? new ArrayList<>() : this.licenses;
     }
 
     /**
@@ -198,7 +198,7 @@ public abstract class AbstractPresentationModelElement implements IPresentationM
     @Override
     @JsonSerialize(contentUsing = ImageContentLinkSerializer.class)
     public List<ImageContent> getLogos() {
-        return this.logos.isEmpty() ? null : this.logos;
+        return this.logos.isEmpty() ? new ArrayList<>() : this.logos;
     }
 
     /**
@@ -213,7 +213,7 @@ public abstract class AbstractPresentationModelElement implements IPresentationM
      */
     @Override
     public List<ViewingHint> getViewingHints() {
-        return this.viewingHints.isEmpty() ? null : this.viewingHints;
+        return this.viewingHints.isEmpty() ? new ArrayList<>() : this.viewingHints;
     }
 
     /**
@@ -228,7 +228,7 @@ public abstract class AbstractPresentationModelElement implements IPresentationM
      */
     @Override
     public List<LinkingContent> getRelated() {
-        return related.isEmpty() ? null : related;
+        return related.isEmpty() ? new ArrayList<>() : related;
     }
 
     /**
@@ -243,7 +243,7 @@ public abstract class AbstractPresentationModelElement implements IPresentationM
      */
     @Override
     public List<LinkingContent> getRendering() {
-        return rendering.isEmpty() ? null : rendering;
+        return rendering.isEmpty() ? new ArrayList<>() : rendering;
     }
 
     /**
@@ -258,7 +258,7 @@ public abstract class AbstractPresentationModelElement implements IPresentationM
     */
     @Override
     public List<LinkingContent> getSeeAlso() {
-        return seeAlso.isEmpty() ? null : seeAlso;
+        return seeAlso.isEmpty() ? new ArrayList<>() : seeAlso;
     }
 
     /**
@@ -282,7 +282,7 @@ public abstract class AbstractPresentationModelElement implements IPresentationM
      */
     @Override
     public List<Service> getServices() {
-        return services.isEmpty() ? null : services;
+        return services.isEmpty() ? new ArrayList<>() : services;
     }
 
     public void addService(Service service) {

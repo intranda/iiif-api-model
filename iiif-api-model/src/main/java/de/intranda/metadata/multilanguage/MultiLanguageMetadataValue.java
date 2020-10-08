@@ -288,7 +288,7 @@ public class MultiLanguageMetadataValue implements IMetadataValue {
      * @author Florian Alpers
      *
      */
-    private static class ValuePair {
+    public static class ValuePair {
 
         private final String value;
         private final String language;
