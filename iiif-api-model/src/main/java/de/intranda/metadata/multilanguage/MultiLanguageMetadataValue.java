@@ -313,6 +313,11 @@ public class MultiLanguageMetadataValue implements IMetadataValue {
         public String getValue() {
             return value;
         }
+        
+        @JsonIgnore
+        public Locale getLocale() {
+            return Locale.forLanguageTag(language);
+        }
 
     }
 

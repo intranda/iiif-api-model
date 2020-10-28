@@ -17,6 +17,8 @@ package de.intranda.api.serializer;
 
 import java.io.IOException;
 
+import org.apache.commons.lang3.StringUtils;
+
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonSerializer;
@@ -44,11 +46,16 @@ public class MetadataSerializer extends JsonSerializer<IMetadataValue> {
                 if (element.getLanguages().size() > 1 && language.equals(MultiLanguageMetadataValue.DEFAULT_LANGUAGE)) {
                     continue;
                 }
-                if (element.getValue(language).isPresent()) {
-                    generator.writeArrayFieldStart(language);
-                    generator.writeString(element.getValue(language).get());
-                    generator.writeEndArray();
-                }
+                element.getValue(language).filter(StringUtils::isNotBlank).ifPresent(value -> {
+                    try {                        
+                        generator.writeArrayFieldStart(language);
+                        generator.writeString(value);
+                        generator.writeEndArray();
+                    } catch(IOException e) {
+                    }
+                    
+                });
+
             }
             generator.writeEndObject();
         } else {
