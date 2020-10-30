@@ -103,7 +103,12 @@ public class ResourceDeserializer extends StdDeserializer<IResource> {
                 String type = node.get("type").asText();
                 switch(type) {
                     case "TextualBody":
-                        resource = new de.intranda.api.annotation.wa.TextualResource(node.get("value").asText());
+                        if(node.has("format")) {
+                            String format = node.get("format").asText();
+                            resource = new de.intranda.api.annotation.wa.TextualResource(node.get("value").asText(), format);
+                        } else {                            
+                            resource = new de.intranda.api.annotation.wa.TextualResource(node.get("value").asText());
+                        }
                         break;
                     case "SpecificResource":
                         ISelector selector = null;
