@@ -22,6 +22,7 @@ public abstract class AbstractAnnotation implements IAnnotation {
     private IResource body;
     @JsonDeserialize(using=ResourceDeserializer.class)
     private IResource target;
+    private String rights;
 
     /**
      * @param id
@@ -76,6 +77,14 @@ public abstract class AbstractAnnotation implements IAnnotation {
         return body;
     }
     
+    @Override
+    public String getRights() {
+        return this.rights;
+    }
+    
+    public void setRights(String rights) {
+        this.rights = rights;
+    }
     
     @Override
     public int hashCode() {

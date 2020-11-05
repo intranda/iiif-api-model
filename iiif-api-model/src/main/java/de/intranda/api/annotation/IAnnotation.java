@@ -42,4 +42,6 @@ public interface IAnnotation{
     public Date getCreated();
     
     public Date getModified();
+    
+    public String getRights();
 }
