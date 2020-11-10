@@ -17,6 +17,7 @@ package de.intranda.api.serializer;
 
 import java.io.IOException;
 
+import org.apache.commons.lang3.StringEscapeUtils;
 import org.apache.commons.lang3.StringUtils;
 
 import com.fasterxml.jackson.core.JsonGenerator;
@@ -49,7 +50,7 @@ public class MetadataSerializer extends JsonSerializer<IMetadataValue> {
                 element.getValue(language).filter(StringUtils::isNotBlank).ifPresent(value -> {
                     try {                        
                         generator.writeArrayFieldStart(language);
-                        generator.writeString(value);
+                        generator.writeString(StringEscapeUtils.escapeHtml4(value));
                         generator.writeEndArray();
                     } catch(IOException e) {
                     }
