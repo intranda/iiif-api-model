@@ -64,7 +64,7 @@ public class MetadataSerializer extends JsonSerializer<IMetadataValue> {
 
     }
 
-    private boolean allTranslationsEqual(MultiLanguageMetadataValue element) {
+    protected boolean allTranslationsEqual(MultiLanguageMetadataValue element) {
         return element.getValues().stream().map(ValuePair::getValue).distinct().count() == 1;
     }
 
