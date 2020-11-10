@@ -156,7 +156,7 @@ public class MultiLanguageMetadataValue implements IMetadataValue {
      */
     @Override
     public Optional<String> getValue(String language) {
-        return Optional.ofNullable(this.values.get(language.toLowerCase()));
+        return Optional.ofNullable(this.values.get(language.toLowerCase())).map(t -> StringUtils.isBlank(t) ? null : t);
     }
 
     /* (non-Javadoc)
