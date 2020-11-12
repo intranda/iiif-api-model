@@ -17,6 +17,7 @@ package de.intranda.api.iiif.presentation;
 
 import java.net.URI;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import de.intranda.api.iiif.presentation.enums.ViewingDirection;
@@ -33,6 +34,7 @@ public class Sequence extends AbstractPresentationModelElement implements IPrese
     private final List<Canvas> canvases = new ArrayList<>();
 
     public Sequence() {
+        addViewingHint(ViewingHint.paged);
     }
 
     /**
@@ -40,6 +42,7 @@ public class Sequence extends AbstractPresentationModelElement implements IPrese
      */
     public Sequence(URI id) {
         super(id);
+        addViewingHint(ViewingHint.paged);
     }
 
     /* (non-Javadoc)
@@ -61,11 +64,6 @@ public class Sequence extends AbstractPresentationModelElement implements IPrese
         this.canvases.add(image);
     }
 
-    /*TODO: viewinghint dependent on configuration or metadata*/
-    @Override
-    public ViewingHint getViewingHint() {
-        return ViewingHint.paged;
-    }
 
     /*TODO: viewingdirection dependent on configuration or metadata*/
     public ViewingDirection getViewingDirection() {

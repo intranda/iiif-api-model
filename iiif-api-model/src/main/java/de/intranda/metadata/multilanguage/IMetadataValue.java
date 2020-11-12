@@ -21,8 +21,10 @@ import java.util.Optional;
 import java.util.function.UnaryOperator;
 
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 import de.intranda.api.deserializer.IMetadataValueDeserializer;
+import de.intranda.api.serializer.MetadataSerializer;
 
 /**
  * Interface to access both single and multi language metadata. Both implementations of this interface contain simple Strings representing the
@@ -34,6 +36,7 @@ import de.intranda.api.deserializer.IMetadataValueDeserializer;
  *
  */
 @JsonDeserialize(using = IMetadataValueDeserializer.class)
+@JsonSerialize(using=MetadataSerializer.class)
 public interface IMetadataValue {
 
     /**

@@ -50,11 +50,14 @@ public class PropertyList<T> extends ArrayList<T>{
 
     @JsonValue
     public Object getValue() {
-         if(this.size() == 1) {
+         if(this.isEmpty()) {
+             return null;
+         } else if(this.size() == 1) {
             return this.get(0);
         } else {
             return new ArrayList<T>(this);
         }
     }
+
 
 }

@@ -13,6 +13,11 @@ public class TextualResource extends TypedResource {
         this.text = text;
     }
     
+    public TextualResource(String text, String format) {
+        super(null, "TextualBody", format);
+        this.text = text;
+    }
+    
     @JsonProperty("value")
     public String getText() {
         return text;

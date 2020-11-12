@@ -156,7 +156,7 @@ public class MultiLanguageMetadataValue implements IMetadataValue {
      */
     @Override
     public Optional<String> getValue(String language) {
-        return Optional.ofNullable(this.values.get(language.toLowerCase()));
+        return Optional.ofNullable(this.values.get(language.toLowerCase())).map(t -> StringUtils.isBlank(t) ? null : t);
     }
 
     /* (non-Javadoc)
@@ -288,7 +288,7 @@ public class MultiLanguageMetadataValue implements IMetadataValue {
      * @author Florian Alpers
      *
      */
-    private static class ValuePair {
+    public static class ValuePair {
 
         private final String value;
         private final String language;
@@ -312,6 +312,11 @@ public class MultiLanguageMetadataValue implements IMetadataValue {
         @JsonProperty("@value")
         public String getValue() {
             return value;
+        }
+        
+        @JsonIgnore
+        public Locale getLocale() {
+            return Locale.forLanguageTag(language);
         }
 
     }

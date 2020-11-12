@@ -23,6 +23,9 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+
+import de.intranda.api.deserializer.ServiceDeserializer;
 
 /**
  * Interface for any services linked to in a rest response
@@ -30,6 +33,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
  * @author Florian Alpers
  *
  */
+@JsonDeserialize(using=ServiceDeserializer.class)
 @JsonPropertyOrder({"@context"})
 public interface Service {
     
