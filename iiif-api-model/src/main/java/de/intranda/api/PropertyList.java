@@ -21,6 +21,9 @@ import java.util.Collection;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+
+import de.intranda.api.serializer.IIIF2MetadataSerializer;
 
 /**
  * @author Florian Alpers

@@ -15,6 +15,10 @@
  */
 package de.intranda.metadata.multilanguage;
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+
+import de.intranda.api.serializer.IIIF2MetadataSerializer;
+
 /**
  * @author Florian Alpers
  *
@@ -55,6 +59,7 @@ public class Metadata {
     /**
      * @return the label
      */
+    @JsonSerialize(using=IIIF2MetadataSerializer.class)
     public IMetadataValue getLabel() {
         return label;
     }
@@ -62,6 +67,7 @@ public class Metadata {
     /**
      * @return the value
      */
+    @JsonSerialize(using=IIIF2MetadataSerializer.class)
     public IMetadataValue getValue() {
         return value;
     }
