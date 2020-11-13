@@ -17,8 +17,6 @@ package de.intranda.api.serializer;
 
 import java.io.IOException;
 
-import org.apache.commons.lang3.StringUtils;
-import org.apache.commons.text.StringEscapeUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -62,7 +60,7 @@ public class IIIF2MetadataSerializer extends JsonSerializer<IMetadataValue> {
             }
             generator.writeEndArray();
         } else {
-            generator.writeString(element.getValue().orElse("") + "TEST");
+            generator.writeString(element.getValue().orElse(""));
         }
 
     }
