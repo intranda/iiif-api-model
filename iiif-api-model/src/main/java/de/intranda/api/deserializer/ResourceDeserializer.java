@@ -13,6 +13,7 @@ import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.DeserializationContext;
 import com.fasterxml.jackson.databind.DeserializationFeature;
+import com.fasterxml.jackson.databind.JsonDeserializer;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.deser.std.StdDeserializer;
@@ -23,6 +24,7 @@ import de.intranda.api.annotation.SimpleResource;
 import de.intranda.api.annotation.GeoLocation.Geometry;
 import de.intranda.api.annotation.GeoLocation.Properties;
 import de.intranda.api.annotation.GeoLocation.ViewPoint;
+import de.intranda.api.annotation.wa.Dataset;
 import de.intranda.api.annotation.wa.collection.AnnotationCollection;
 import de.intranda.api.iiif.presentation.Manifest;
 
@@ -122,6 +124,10 @@ public class ResourceDeserializer extends StdDeserializer<IResource> {
                         Properties properties = new Properties(Optional.ofNullable(node.get("properties").get("name")).map(JsonNode::asText).orElse(""));
                         ViewPoint view = new ViewPoint(node.get("view").get("zoom").asDouble(), getAsDoubleArray(node.get("view").withArray("center")));
                         resource = new de.intranda.api.annotation.GeoLocation(geometry, properties, view);
+                        break;
+                    case "Dataset":
+                    case "dataset":
+                        resource = mapper.convertValue(node, Dataset.class);
                         break;
                     default: 
                         if(node.has("format")) {

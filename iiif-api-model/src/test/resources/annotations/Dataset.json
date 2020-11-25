@@ -1,0 +1,9 @@
+{
+	"type": "Dataset",
+	"format": "goobi-viewer-index",
+	"data" : {
+		"MD_TITLE" : "Der Titel",
+		"MD_AUTHOR" : ["Mustermann, Max", "Musterfrau, Magda"],
+		"MD_PLACEOFPUBLICATION" : ["Göttingen"]
+	}
+}
