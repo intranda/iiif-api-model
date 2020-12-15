@@ -42,7 +42,7 @@ public class IIIF2MetadataSerializer extends JsonSerializer<IMetadataValue> {
     @Override
     public void serialize(IMetadataValue element, JsonGenerator generator, SerializerProvider provider) throws IOException, JsonProcessingException {
 
-        if (element instanceof MultiLanguageMetadataValue && !allTranslationsEqual((MultiLanguageMetadataValue) element)) {
+        if (!allTranslationsEqual( element)) {
             generator.writeStartArray();
             for (String language : element.getLanguages()) {
                 element.getValue(language).ifPresent(value -> {                    
@@ -59,13 +59,14 @@ public class IIIF2MetadataSerializer extends JsonSerializer<IMetadataValue> {
                 });
             }
             generator.writeEndArray();
+            
         } else {
             generator.writeString(element.getValue().orElse(""));
         }
 
     }
 
-    protected boolean allTranslationsEqual(MultiLanguageMetadataValue element) {
+    protected boolean allTranslationsEqual(IMetadataValue element) {
         return element.getValues().stream().map(ValuePair::getValue).distinct().count() == 1;
     }
 

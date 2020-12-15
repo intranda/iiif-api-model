@@ -32,6 +32,7 @@ import de.intranda.api.iiif.presentation.content.ImageContent;
 import de.intranda.api.iiif.presentation.content.LinkingContent;
 import de.intranda.api.iiif.presentation.enums.ViewingHint;
 import de.intranda.api.services.Service;
+import de.intranda.metadata.multilanguage.IIIF2MetadataValue;
 
 /**
  * @author Florian Alpers
@@ -71,10 +72,10 @@ public class ContentLinkSerializer extends JsonSerializer<List<IPresentationMode
         generator.writeStringField("@id", element.getId().toString());
         generator.writeStringField("@type", element.getType());
         if (element.getLabel() != null && !element.getLabel().isEmpty()) {
-            generator.writeObjectField("label", element.getLabel());
+            generator.writeObjectField("label", new IIIF2MetadataValue(element.getLabel()));
         }
         if(element.getDescription() != null) {
-            generator.writeObjectField("description", element.getDescription());
+            generator.writeObjectField("description", new IIIF2MetadataValue(element.getDescription()));
         }
         if (element.getViewingHints() == null) {
             

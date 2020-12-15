@@ -16,6 +16,7 @@
 package de.intranda.metadata.multilanguage;
 
 import java.util.Collection;
+import java.util.List;
 import java.util.Locale;
 import java.util.Optional;
 import java.util.function.UnaryOperator;
@@ -25,6 +26,7 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 import de.intranda.api.deserializer.IMetadataValueDeserializer;
 import de.intranda.api.serializer.MetadataSerializer;
+import de.intranda.metadata.multilanguage.MultiLanguageMetadataValue.ValuePair;
 
 /**
  * Interface to access both single and multi language metadata. Both implementations of this interface contain simple Strings representing the
@@ -136,5 +138,7 @@ public interface IMetadataValue {
      * @return true if no entry is set for the given locale
      */
     public boolean isEmpty(String locale);
+
+    public List<ValuePair> getValues();
 
 }

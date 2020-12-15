@@ -17,6 +17,7 @@ package de.intranda.metadata.multilanguage;
 
 import java.util.Collection;
 import java.util.Collections;
+import java.util.List;
 import java.util.Locale;
 import java.util.Optional;
 import java.util.function.UnaryOperator;
@@ -24,6 +25,8 @@ import java.util.function.UnaryOperator;
 import org.apache.commons.lang3.StringUtils;
 
 import com.fasterxml.jackson.annotation.JsonValue;
+
+import de.intranda.metadata.multilanguage.MultiLanguageMetadataValue.ValuePair;
 
 /**
  * @author Florian Alpers
@@ -184,5 +187,10 @@ public class SimpleMetadataValue implements IMetadataValue {
     @Override
     public void removeTranslation(String locale) {
         //noopes
+    }
+
+    @Override
+    public List<ValuePair> getValues() {
+        return Collections.singletonList(new ValuePair(getValue().orElse(""), ""));
     }
 }
