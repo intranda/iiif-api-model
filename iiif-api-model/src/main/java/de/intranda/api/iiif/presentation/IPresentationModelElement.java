@@ -33,6 +33,7 @@ import de.intranda.api.deserializer.URLOnlyListDeserializer;
 import de.intranda.api.iiif.presentation.content.ImageContent;
 import de.intranda.api.iiif.presentation.content.LinkingContent;
 import de.intranda.api.iiif.presentation.enums.ViewingHint;
+import de.intranda.api.serializer.IIIF2MetadataSerializer;
 import de.intranda.api.serializer.ImageContentLinkSerializer;
 import de.intranda.api.serializer.URLOnlySerializer;
 import de.intranda.api.services.Service;
@@ -52,11 +53,13 @@ public interface IPresentationModelElement {
     /**
      * @return the label
      */
+    @JsonSerialize(using=IIIF2MetadataSerializer.class)
     IMetadataValue getLabel();
 
     /**
      * @return the description
      */
+    @JsonSerialize(using=IIIF2MetadataSerializer.class)
     IMetadataValue getDescription();
 
     /**
