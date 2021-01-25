@@ -27,6 +27,9 @@ public enum Format {
 
     IMAGE_JPEG("image/jpeg"),
     IMAGE_PNG("image/png"),
+    IMAGE_GIF("image/gif"),
+    IMAGE_TIFF("image/tiff"),
+    IMAGE_JP2("image/jp2"),
     VIDEO_MP4("video/mp4"),
     VIDEO_WEBM("video/webm"),
     AUDIO_OGG("audio/ogg"),
@@ -93,6 +96,13 @@ public enum Format {
                 return Format.APPLICATION_PDF;
             case "png":
                 return Format.IMAGE_PNG;
+            case "gif":
+                return Format.IMAGE_GIF;
+            case "tif":
+            case "tiff":
+                return Format.IMAGE_TIFF;
+            case "jp2":
+                return Format.IMAGE_JP2;
             default:
                 return Format.IMAGE_JPEG;
 

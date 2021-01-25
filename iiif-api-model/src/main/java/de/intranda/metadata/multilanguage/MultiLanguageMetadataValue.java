@@ -125,8 +125,8 @@ public class MultiLanguageMetadataValue implements IMetadataValue {
      * @see de.intranda.digiverso.presentation.model.toc.metadata.IMetadataValue#getValue(java.util.Locale)
      */
     @Override
-    public Optional<String> getValue(Locale language) {
-        return getValue(language.getLanguage());
+    public Optional<String> getValue(Locale locale) {
+        return Optional.ofNullable(locale).map(l -> getValue(l.getLanguage())).orElse(getValue());
     }
 
     /* (non-Javadoc)
@@ -258,6 +258,17 @@ public class MultiLanguageMetadataValue implements IMetadataValue {
     @JsonIgnore
     public boolean isEmpty() {
         return values.isEmpty() || values.values().stream().noneMatch(value -> StringUtils.isNotBlank(value));
+    }
+    
+    /**
+     * 
+     * @return true if any other languages than {@link #DEFAULT_LANGUAGE} are present and hava a value
+     */
+    public boolean hasTranslations() {
+        return this.values.entrySet().stream()
+                .filter(entry -> !DEFAULT_LANGUAGE.equals(entry.getKey()))
+                .filter(entry -> StringUtils.isNotEmpty(entry.getValue()))
+                .count() > 0;
     }
 
     /* (non-Javadoc)
