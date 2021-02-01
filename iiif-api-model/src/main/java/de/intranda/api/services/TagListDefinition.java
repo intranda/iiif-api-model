@@ -30,7 +30,7 @@ public class TagListDefinition {
     private static final Definition NAME = new Definition(SCHEMA, "name");
     private static final Definition TAGS = new Definition(SCHEMA, "itemListElement");
 
-    public static final String URI_PATH = "/taglists/context.json";
+    public static final String URI_PATH = "taglists/context.json";
     
     private IContextDefinition context = new IContextDefinition() {
         

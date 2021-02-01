@@ -28,7 +28,7 @@ public class CollectionExtentDefinition {
     
     private static final Definition ITEMS = new Definition(ACTIVITYSTREAMS, "totalItems");
     private static final Definition EXTENT = new Definition(DCTERMS, "extent");
-    public static final String URI_PATH = "/collection/extent/context.json";
+    public static final String URI_PATH = "collection/extent/context.json";
     
     private IContextDefinition context = new IContextDefinition() {
         
