@@ -44,8 +44,8 @@ public class ImageContent implements IContent {
     private final DcType TYPE = DcType.IMAGE;
 
     private final URI id;
-    private int width;
-    private int height;
+    private Integer width = null;
+    private Integer height = null;
     private Format format;
     private ImageInformation service;
 
