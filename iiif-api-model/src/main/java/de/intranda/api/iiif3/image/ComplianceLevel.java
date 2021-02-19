@@ -23,50 +23,35 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package de.intranda.api.iiif.image;
+package de.intranda.api.iiif3.image;
+
+import javax.xml.bind.annotation.XmlRootElement;
+
+import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
- * Implementation of the  iiif ImageInformation#sizes#size object
- * specified in http://iiif.io/api/image/2.0/#image-information
  * 
  * @author Florian Alpers
  *
  */
-public class ImageSize {
+@XmlRootElement
+public enum ComplianceLevel {
+    level0("level0", "http://iiif.io/api/image/3/level0.json"),
+    level1("level1", "http://iiif.io/api/image/3/level1.json"),
+    level2("level2", "http://iiif.io/api/image/3/level2.json");
 
-    private int width;
-    private int height;
-        
-    public ImageSize() {
-        this.width = 0;
-        this.height = 0;
-    }
+    final private String uri;
+    final private String label;
     
-    public ImageSize(int width, int height) {
-        this.width = width;
-        this.height = height;
+    private ComplianceLevel(String label, String uri) {
+        this.uri = uri;
+        this.label = label;
     }
-    
-    public ImageSize(ImageSize orig) {
-    	this(orig.width, orig.height);
+    public String getUri() {
+        return this.uri;
     }
-
-    public int getWidth() {
-        return width;
+    @JsonValue
+    public String getLabel() {
+        return this.label;
     }
-
-    public void setWidth(int width) {
-        this.width = width;
-    }
-
-    public int getHeight() {
-        return height;
-    }
-
-    public void setHeight(int height) {
-        this.height = height;
-    }
-    
-    
-    
 }

@@ -30,6 +30,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlElementWrapper;
@@ -44,6 +45,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
+import de.intranda.api.PropertyList;
 import de.intranda.api.deserializer.ProfileDeserializer;
 
 /**
@@ -69,7 +71,7 @@ public class ImageInformation extends Service {
     private List<IiifProfile> profiles = new ArrayList<>();
     private List<ImageSize> sizes = new ArrayList<>();
     private List<ImageTile> tiles = new ArrayList<>();
-    private Service service;
+    private List<Service> service = new PropertyList<>();
     private String attribution;
     private String license;
     private String logo;
@@ -83,7 +85,25 @@ public class ImageInformation extends Service {
         this("");
     }
 
-    @JsonProperty("width")
+    /**
+     * Copy constructor
+     * @param source	the ImageInformation object to clone
+     */
+    public ImageInformation(ImageInformation source) {
+		this(source.id);
+		this.width = source.width;
+		this.height = source.height;
+		this.profiles = new ArrayList<>(source.profiles);
+		this.sizes = source.sizes.stream().map(ImageSize::new).collect(Collectors.toList());
+		this.tiles = source.tiles.stream().map(ImageTile::new).collect(Collectors.toList());
+		this.service = new PropertyList<>(source.service);
+		this.attribution = source.attribution;
+		this.license = source.license;
+		this.logo = source.logo;
+
+	}
+
+	@JsonProperty("width")
     public int getWidth() {
         return width;
     }
@@ -154,12 +174,27 @@ public class ImageInformation extends Service {
     }
 
     @JsonProperty("service")
-    public Service getService() {
+    public List<Service> getService() {
         return service;
     }
 
+    /**
+     * Add a service to the list of supported services
+     * @param service
+     */
+    public void addService(Service service) {
+        this.service.add(service);
+    }
+    
+    /**
+     * 
+     * @param service
+     * @deprecated functionally equivalent to {@link #addService(Service)}. 
+     * Use that method instead for semantic clarity
+     */
+    @Deprecated
     public void setService(Service service) {
-        this.service = service;
+        this.addService(service);
     }
 
     @JsonProperty("@context")

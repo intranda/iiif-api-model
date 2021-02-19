@@ -23,50 +23,46 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package de.intranda.api.iiif.image;
+package de.intranda.api.iiif3.image;
+
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
+import com.fasterxml.jackson.annotation.JsonValue;
+
+import de.intranda.api.iiif.image.IiifProfile;
 
 /**
- * Implementation of the  iiif ImageInformation#sizes#size object
- * specified in http://iiif.io/api/image/2.0/#image-information
+ * Wraps an instance of compliance level
  * 
  * @author Florian Alpers
  *
  */
-public class ImageSize {
+@XmlRootElement
+public class ComplianceLevelProfile extends IiifProfile {
+    
+    private final ComplianceLevel level;
 
-    private int width;
-    private int height;
-        
-    public ImageSize() {
-        this.width = 0;
-        this.height = 0;
+    public ComplianceLevelProfile() {
+        this.level = ComplianceLevel.level0;
     }
     
-    public ImageSize(int width, int height) {
-        this.width = width;
-        this.height = height;
+    public ComplianceLevelProfile(ComplianceLevel level) {
+        this.level = level;
     }
     
-    public ImageSize(ImageSize orig) {
-    	this(orig.width, orig.height);
-    }
-
-    public int getWidth() {
-        return width;
-    }
-
-    public void setWidth(int width) {
-        this.width = width;
-    }
-
-    public int getHeight() {
-        return height;
-    }
-
-    public void setHeight(int height) {
-        this.height = height;
+    @XmlElement(name = "uri")
+    public String getAsString() {
+        return level.getUri();
     }
     
-    
-    
+    @JsonValue
+    public ComplianceLevel getComplianceLevel() {
+        return level;
+    }
+
+    @Override
+    public String toString() {
+        return level.getUri();
+    }
 }
