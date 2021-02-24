@@ -31,12 +31,6 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlElementWrapper;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlSeeAlso;
-import javax.xml.bind.annotation.XmlType;
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
@@ -52,8 +46,6 @@ import de.intranda.api.deserializer.ProfileDeserializer;
  * @author Florian Alpers
  *
  */
-@XmlRootElement
-@XmlSeeAlso({ ComplianceLevelProfile.class, ImageProfile.class, PhysicalDimension.class })
 @JsonPropertyOrder({ "@context", "@id", "protocol", "width", "height", "attribution", "license", "logo", "sizes", "tiles", "profile", "service" })
 @JsonInclude(Include.NON_ABSENT)
 @JsonIgnoreProperties(ignoreUnknown = true)

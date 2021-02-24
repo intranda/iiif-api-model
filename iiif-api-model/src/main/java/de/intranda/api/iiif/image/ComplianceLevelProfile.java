@@ -25,9 +25,6 @@
  */
 package de.intranda.api.iiif.image;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-
 import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
@@ -36,7 +33,6 @@ import com.fasterxml.jackson.annotation.JsonValue;
  * @author Florian Alpers
  *
  */
-@XmlRootElement
 public class ComplianceLevelProfile extends IiifProfile {
     
     private final ComplianceLevel level;
@@ -49,7 +45,6 @@ public class ComplianceLevelProfile extends IiifProfile {
         this.level = level;
     }
     
-    @XmlElement(name = "uri")
     public String getAsString() {
         return level.getUri();
     }

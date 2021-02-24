@@ -29,8 +29,6 @@ import java.util.ArrayList;
 import java.util.EnumSet;
 import java.util.List;
 
-import javax.xml.bind.annotation.XmlRootElement;
-
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -41,7 +39,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * @author Florian Alpers
  *
  */
-@XmlRootElement
+
 @JsonInclude(Include.NON_NULL)
 public class ImageProfile extends IiifProfile {
 

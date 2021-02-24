@@ -25,12 +25,6 @@
  */
 package de.intranda.api.iiif.image;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -44,8 +38,6 @@ import com.fasterxml.jackson.annotation.JsonValue;
  * @author Florian Alpers
  *
  */
-@XmlRootElement
-@XmlType(propOrder = { "context", "profile", "physicalScale", "unit" })
 @JsonPropertyOrder({ "@context", "profile", "physicalScale", "physicalUnits" })
 @JsonInclude(Include.NON_NULL)
 public class PhysicalDimension extends Service {
@@ -69,13 +61,11 @@ public class PhysicalDimension extends Service {
         this.unit = null;
     }
 
-    @XmlElement(name = "context")
     @JsonProperty("@context")
     public String getContext() {
         return CONTEXT;
     }
 
-    @XmlElement(name = "profile")
     @JsonProperty("profile")
     public String getProfile() {
         return PROFILE;
@@ -85,13 +75,11 @@ public class PhysicalDimension extends Service {
         return resolution;
     }
 
-    @XmlElement(name = "physicalScale")
     @JsonProperty("physicalScale")
     public float getPhysicalScale() {
         return 1/resolution;
     }
 
-    @XmlElement(name = "physicalUnits")
     @JsonProperty("physicalUnits")
     public ResolutionUnit getUnit() {
         return unit;
@@ -129,7 +117,6 @@ public class PhysicalDimension extends Service {
         }
     }
 
-    @XmlRootElement
     public static enum ResolutionUnit {
 
         millimeter("mm"),
@@ -143,7 +130,6 @@ public class PhysicalDimension extends Service {
         }
 
         @JsonValue
-        @XmlElement(name = "label")
         public String getLabel() {
             return this.label;
         }

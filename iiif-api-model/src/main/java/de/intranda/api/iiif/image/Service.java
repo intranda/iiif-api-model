@@ -25,15 +25,6 @@
  */
 package de.intranda.api.iiif.image;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlSeeAlso;
-
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonSubTypes;
-import com.fasterxml.jackson.annotation.JsonSubTypes.Type;
-import com.fasterxml.jackson.annotation.JsonTypeInfo;
-
 /**
  * Implementation of the iiif service hook specified in http://iiif.io/api/annex/services/#services Implementation is currently empty - but that is
  * ok, since service is optional
@@ -41,8 +32,6 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
  * @author Florian Alpers
  *
  */
-@XmlRootElement
-@XmlSeeAlso({ PhysicalDimension.class })
 public abstract class Service {
 
 }

@@ -25,15 +25,12 @@
  */
 package de.intranda.api.iiif.image;
 
-import javax.xml.bind.annotation.XmlRootElement;
-
 /**
  * General wrapper for iiif profiles
  * 
  * @author Florian Alpers
  *
  */
-@XmlRootElement(name = "profile")
 public abstract class IiifProfile {
  
 }

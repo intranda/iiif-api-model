@@ -29,10 +29,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlElementWrapper;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -44,8 +40,6 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
  * @author Florian Alpers
  *
  */
-@XmlRootElement
-@XmlType(propOrder={"width", "height", "scaleFactors"})
 @JsonPropertyOrder({"width", "height", "scaleFactors"})
 public class ImageTile {
     
@@ -74,20 +68,16 @@ public class ImageTile {
         this.scaleFactors = new ArrayList<Integer>();
     }
 
-    @XmlElement(name="width")
     @JsonProperty("width")
     public int getWidth() {
         return width;
     }
 
-    @XmlElement(name="height")
     @JsonProperty("height")
     public int getHeight() {
         return height;
     }
 
-    @XmlElementWrapper(name="scaleFactors")
-    @XmlElement(name="scaleFactor")
     @JsonProperty("scaleFactors")
     public List<Integer> getScaleFactors() {
         return scaleFactors;

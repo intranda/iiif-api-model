@@ -25,8 +25,6 @@
  */
 package de.intranda.api.iiif.image;
 
-import javax.xml.bind.annotation.XmlRootElement;
-
 import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
@@ -34,7 +32,6 @@ import com.fasterxml.jackson.annotation.JsonValue;
  * @author Florian Alpers
  *
  */
-@XmlRootElement
 public enum ComplianceLevel {
     level0("http://iiif.io/api/image/2/level0.json"),
     level1("http://iiif.io/api/image/2/level1.json"),
