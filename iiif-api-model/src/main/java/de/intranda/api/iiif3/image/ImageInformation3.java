@@ -29,9 +29,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
-import java.util.Set;
-import java.util.stream.Collector;
-import java.util.stream.Collectors;
 
 import org.apache.commons.collections4.CollectionUtils;
 
@@ -49,7 +46,7 @@ import de.intranda.metadata.multilanguage.IMetadataValue;
 import de.intranda.metadata.multilanguage.SimpleMetadataValue;
 
 /**
- * Implementation of the iiif ImageInformation object specified in http://iiif.io/api/image/2.0/#image-information
+ * Implementation of the iiif ImageInformation object specified in https://iiif.io/api/image/3.0/#5-image-information
  * 
  * @author Florian Alpers
  *
