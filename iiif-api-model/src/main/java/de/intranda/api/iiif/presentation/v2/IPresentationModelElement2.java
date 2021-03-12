@@ -13,109 +13,123 @@
  *
  * You should have received a copy of the GNU General Public License along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
-package de.intranda.api.iiif.presentation;
+package de.intranda.api.iiif.presentation.v2;
 
 import java.net.URI;
-import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
-import de.intranda.api.PropertyList;
 import de.intranda.api.annotation.IResource;
+import de.intranda.api.deserializer.URLOnlyListDeserializer;
+import de.intranda.api.iiif.presentation.IPresentationModelElement;
 import de.intranda.api.iiif.presentation.enums.ViewingHint;
 import de.intranda.api.iiif.presentation.v2.content.ImageContent;
 import de.intranda.api.iiif.presentation.v2.content.LinkingContent;
+import de.intranda.api.serializer.IIIF2MetadataSerializer;
+import de.intranda.api.serializer.LinkingContentSerializer;
+import de.intranda.api.serializer.URLOnlySerializer;
 import de.intranda.api.services.Service;
 import de.intranda.metadata.multilanguage.IMetadataValue;
 import de.intranda.metadata.multilanguage.Metadata;
 
 /**
- * Version agnostic base interface for IIIF Presentation objects
- * 
  * @author florian
  *
  */
 @JsonInclude(Include.NON_EMPTY)
-public interface IPresentationModelElement extends IResource {
-	
-	@JsonProperty("@context")
-	List<String> getContext();
-	
-    URI getId();
-	
-    String getType();
+@JsonPropertyOrder({ "@context", "@id", "@type", "label", "attribution", "license", "logo", "thumbnail", "viewingHint", "metadata", "service", "seeAlso" })
+public interface IPresentationModelElement2 extends IPresentationModelElement {
 
+	
+	
+	@JsonProperty("@id")
+	URI getId();
+    
+    @JsonProperty("@type")
+    String getType();
+	
     /**
      * @return the label
      */
+    @JsonSerialize(using=IIIF2MetadataSerializer.class)
+    @JsonProperty("label")
     IMetadataValue getLabel();
 
     /**
      * @return the description
      */
+    @JsonSerialize(using=IIIF2MetadataSerializer.class)
+    @JsonProperty("description")
     IMetadataValue getDescription();
 
     /**
      * @return the metadata
      */
+    @JsonProperty("metadata")
     List<Metadata> getMetadata();
 
     /**
      * @return the thumbnail
      */
+    @JsonProperty("thumbnail")
     List<ImageContent> getThumbnails();
 
+    /**
+     * @return the attribution
+     */
+    @JsonProperty("attribution")
+    List<IMetadataValue> getAttributions();
 
     /**
      * @return the license
      */
+    @JsonProperty("license")
     List<URI> getLicenses();
+
+    /**
+     * @return the logo
+     */
+    @JsonProperty("logo")
+    List<ImageContent> getLogos();
 
     /**
      * @return the viewingHint
      */
+    @JsonProperty("viewingHint")
     List<ViewingHint> getViewingHints();
 
     /**
      * @return the related
      */
+    @JsonProperty("related")
+    @JsonSerialize(contentUsing = LinkingContentSerializer.class)
     List<LinkingContent> getRelated();
 
     /**
      * @return the rendering
      */
+    @JsonProperty("rendering")
+    @JsonSerialize(contentUsing = LinkingContentSerializer.class)
     List<LinkingContent> getRendering();
 
     /**
      * @return one or more services - may be null!
      */
+    @JsonProperty("service")
     List<Service> getServices();
 
+    @JsonProperty("seeAlso")
+    @JsonSerialize(contentUsing = LinkingContentSerializer.class)
     List<LinkingContent> getSeeAlso();
 
+    @JsonSerialize(using = URLOnlySerializer.class)
+    @JsonDeserialize(using = URLOnlyListDeserializer.class)
     List<IResource> getWithin();
-
-    /**
-     * 
-     * @param allowedClasses All classes which should be included in the service list
-     * @return A PropertyList of all services of one of the given classes
-     */
-    @Deprecated
-    default List<Service> getServices(Class... allowedClasses) {
-        List<Class> allowedClassesList = Arrays.asList(allowedClasses);
-        if (this.getServices() != null) {
-            return new PropertyList(this.getServices().stream()
-                    .filter(service -> allowedClassesList.contains(service.getClass()))
-                    .collect(Collectors.toList()));
-        } else {
-            return null;
-        }
-    }
-
-
 
 }

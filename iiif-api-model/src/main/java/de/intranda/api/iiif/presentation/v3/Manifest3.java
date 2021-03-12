@@ -13,37 +13,34 @@
  *
  * You should have received a copy of the GNU General Public License along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
-package de.intranda.api.iiif.presentation;
+package de.intranda.api.iiif.presentation.v3;
 
 import java.net.URI;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
-import de.intranda.api.iiif.presentation.enums.ViewingDirection;
-import de.intranda.api.iiif.presentation.enums.ViewingHint;
-import de.intranda.api.iiif.presentation.v2.Canvas2;
+import de.intranda.api.annotation.IResource;
 
 /**
  * @author Florian Alpers
  *
  */
-public class Sequence extends AbstractPresentationModelElement implements IPresentationModelElement {
+public class Manifest3 extends AbstractPresentationModelElement3 implements IPresentationModelElement3 {
 
-    private static final String TYPE = "sc:Sequence";
+    public static final String TYPE = "Manifest";
+    
+    private final List<Canvas3> items = new ArrayList<>();
+    private final List<Range3> structures = new ArrayList<>();
 
-    private final List<Canvas2> canvases = new ArrayList<>();
-
-    public Sequence() {
-        addViewingHint(ViewingHint.paged);
+    public Manifest3() {
+        super();
     }
 
     /**
      * @param id
      */
-    public Sequence(URI id) {
+    public Manifest3(URI id) {
         super(id);
-        addViewingHint(ViewingHint.paged);
     }
 
     /* (non-Javadoc)
@@ -54,21 +51,21 @@ public class Sequence extends AbstractPresentationModelElement implements IPrese
         return TYPE;
     }
 
-    /**
-     * @return the images
-     */
-    public List<Canvas2> getCanvases() {
-        return canvases.isEmpty() ? null : canvases;
+    @Override
+    public List<Canvas3> getItems() {
+    	return items;
     }
+    
+	public void addItem(Canvas3 item) {
+		this.items.add(item);
+	}
+    
+    
+    public List<Range3> getStructures() {
+		return structures;
+	}
 
-    public void addCanvas(Canvas2 image) {
-        this.canvases.add(image);
-    }
 
 
-    /*TODO: viewingdirection dependent on configuration or metadata*/
-    public ViewingDirection getViewingDirection() {
-        return ViewingDirection.LEFT_TO_RIGHT;
-    }
 
 }

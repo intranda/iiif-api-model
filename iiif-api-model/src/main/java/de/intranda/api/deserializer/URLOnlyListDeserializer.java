@@ -12,10 +12,10 @@ import com.fasterxml.jackson.databind.DeserializationContext;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.deser.std.StdDeserializer;
 
-import de.intranda.api.iiif.presentation.IPresentationModelElement;
-import de.intranda.api.iiif.presentation.Manifest;
+import de.intranda.api.annotation.IResource;
+import de.intranda.api.annotation.SimpleResource;
 
-public class URLOnlyListDeserializer extends StdDeserializer<List<IPresentationModelElement>> {
+public class URLOnlyListDeserializer extends StdDeserializer<List<IResource>> {
 
     private static final long serialVersionUID = 548556810800461156L;
 
@@ -28,11 +28,11 @@ public class URLOnlyListDeserializer extends StdDeserializer<List<IPresentationM
     }
 
     @Override
-    public List<IPresentationModelElement> deserialize(JsonParser p, DeserializationContext ctxt) throws IOException, JsonProcessingException {
+    public List<IResource> deserialize(JsonParser p, DeserializationContext ctxt) throws IOException, JsonProcessingException {
         JsonNode node = p.getCodec().readTree(p);
         if (node.isTextual()) {
             try {
-                return Collections.singletonList(new Manifest(new URI(node.asText())));
+                return Collections.singletonList(new SimpleResource(new URI(node.asText())));
             } catch (URISyntaxException e) {
                 return null;
             }

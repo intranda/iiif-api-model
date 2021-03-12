@@ -13,37 +13,36 @@
  *
  * You should have received a copy of the GNU General Public License along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
-package de.intranda.api.iiif.presentation;
+package de.intranda.api.iiif.presentation.v2;
 
 import java.net.URI;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
-import de.intranda.api.iiif.presentation.enums.ViewingDirection;
-import de.intranda.api.iiif.presentation.enums.ViewingHint;
-import de.intranda.api.iiif.presentation.v2.Canvas2;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+
+import de.intranda.api.iiif.presentation.AnnotationList;
+import de.intranda.api.serializer.URLOnlySerializer;
 
 /**
  * @author Florian Alpers
  *
  */
-public class Sequence extends AbstractPresentationModelElement implements IPresentationModelElement {
+public class Layer extends AbstractPresentationModelElement2 implements IPresentationModelElement2 {
 
-    private static final String TYPE = "sc:Sequence";
-
-    private final List<Canvas2> canvases = new ArrayList<>();
-
-    public Sequence() {
-        addViewingHint(ViewingHint.paged);
+    private static final String TYPE = "sc:Layer";
+    
+    private final List<AnnotationList> otherContent = new ArrayList<>();
+    
+    public Layer() {
+        super(null);
     }
-
+    
     /**
      * @param id
      */
-    public Sequence(URI id) {
+    public Layer(URI id) {
         super(id);
-        addViewingHint(ViewingHint.paged);
     }
 
     /* (non-Javadoc)
@@ -53,22 +52,17 @@ public class Sequence extends AbstractPresentationModelElement implements IPrese
     public String getType() {
         return TYPE;
     }
-
+    
     /**
-     * @return the images
+     * @return the otherContent
      */
-    public List<Canvas2> getCanvases() {
-        return canvases.isEmpty() ? null : canvases;
+    @JsonSerialize(using=URLOnlySerializer.class)
+    public List<AnnotationList> getOtherContent() {
+        return otherContent.isEmpty() ? null : otherContent;
     }
-
-    public void addCanvas(Canvas2 image) {
-        this.canvases.add(image);
-    }
-
-
-    /*TODO: viewingdirection dependent on configuration or metadata*/
-    public ViewingDirection getViewingDirection() {
-        return ViewingDirection.LEFT_TO_RIGHT;
+    
+    public void addOtherContent(AnnotationList content) {
+        this.otherContent.add(content);
     }
 
 }

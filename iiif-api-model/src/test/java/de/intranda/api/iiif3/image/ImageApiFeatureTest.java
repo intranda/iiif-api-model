@@ -6,6 +6,8 @@ import java.util.Set;
 
 import org.junit.Test;
 
+import de.intranda.api.iiif.image.v3.ImageApiFeature;
+
 public class ImageApiFeatureTest {
 
 	@Test

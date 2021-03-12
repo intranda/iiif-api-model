@@ -22,6 +22,7 @@ import de.intranda.api.iiif.image.ImageProfile;
 import de.intranda.api.iiif.image.ImageTile;
 import de.intranda.api.iiif.image.PhysicalDimension;
 import de.intranda.api.iiif.image.PhysicalDimension.ResolutionUnit;
+import de.intranda.api.iiif.image.v3.ImageInformation3;
 import de.intranda.api.iiif.image.Service;
 import de.intranda.metadata.multilanguage.IMetadataValue;
 import de.intranda.metadata.multilanguage.MultiLanguageMetadataValue;

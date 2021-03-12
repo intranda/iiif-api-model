@@ -11,9 +11,9 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.deser.std.StdDeserializer;
 
-import de.intranda.api.iiif.presentation.content.IContent;
-import de.intranda.api.iiif.presentation.content.ImageContent;
-import de.intranda.api.iiif.presentation.content.LinkingContent;
+import de.intranda.api.iiif.presentation.v2.content.IContent;
+import de.intranda.api.iiif.presentation.v2.content.ImageContent;
+import de.intranda.api.iiif.presentation.v2.content.LinkingContent;
 
 public class LinkedAnnotationResourceDeserializer extends StdDeserializer<IContent> {
 

@@ -18,12 +18,10 @@ import org.junit.Before;
 import org.junit.Test;
 
 import com.fasterxml.jackson.core.JsonParseException;
-import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import de.intranda.api.annotation.wa.WebAnnotation;
-import de.intranda.api.iiif.presentation.Manifest;
 
 public class GeoLocationTest {
 

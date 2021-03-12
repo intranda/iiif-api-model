@@ -13,109 +13,135 @@
  *
  * You should have received a copy of the GNU General Public License along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
-package de.intranda.api.iiif.presentation;
+package de.intranda.api.iiif.presentation.v3;
 
 import java.net.URI;
-import java.util.Arrays;
+import java.time.LocalDateTime;
 import java.util.List;
-import java.util.stream.Collectors;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
-import de.intranda.api.PropertyList;
 import de.intranda.api.annotation.IResource;
+import de.intranda.api.iiif.presentation.IPresentationModelElement;
 import de.intranda.api.iiif.presentation.enums.ViewingHint;
 import de.intranda.api.iiif.presentation.v2.content.ImageContent;
 import de.intranda.api.iiif.presentation.v2.content.LinkingContent;
+import de.intranda.api.serializer.IIIF2MetadataSerializer;
+import de.intranda.api.serializer.IIIF3MetadataSerializer;
 import de.intranda.api.services.Service;
 import de.intranda.metadata.multilanguage.IMetadataValue;
 import de.intranda.metadata.multilanguage.Metadata;
 
 /**
- * Version agnostic base interface for IIIF Presentation objects
- * 
  * @author florian
  *
  */
 @JsonInclude(Include.NON_EMPTY)
-public interface IPresentationModelElement extends IResource {
+@JsonPropertyOrder({ "@context", "id", "type", "label", "requiredStatement", "license", "provider", "thumbnail", "behavior", "metadata", "service", "seeAlso" })
+public interface IPresentationModelElement3 extends IPresentationModelElement {
+
+	public static final String CONTEXT = "http://iiif.io/api/presentation/3/context.json";
 	
-	@JsonProperty("@context")
-	List<String> getContext();
-	
-    URI getId();
-	
+	@JsonProperty("id")
+	URI getId();
+    
+    @JsonProperty("type")
     String getType();
 
+
+	
     /**
      * @return the label
      */
+    @JsonProperty("label")
+    @JsonSerialize(using=IIIF3MetadataSerializer.class)
     IMetadataValue getLabel();
 
     /**
      * @return the description
      */
+    @JsonProperty("summary")
+    @JsonSerialize(using=IIIF3MetadataSerializer.class)
     IMetadataValue getDescription();
 
     /**
      * @return the metadata
      */
+    @JsonProperty("metadata")
     List<Metadata> getMetadata();
 
     /**
      * @return the thumbnail
      */
+    @JsonProperty("thumbnail")
     List<ImageContent> getThumbnails();
 
+    /**
+     * @return the attribution
+     */
+    @JsonProperty("requiredStatement")
+    Metadata getRequiredStatement();
 
     /**
      * @return the license
      */
+    @JsonProperty("rights")
     List<URI> getLicenses();
+
+    /**
+     * @return the logo
+     */
+    @JsonProperty("provider")
+    List<IIIFAgent> getProvider();
 
     /**
      * @return the viewingHint
      */
+    @JsonProperty("behavior")
     List<ViewingHint> getViewingHints();
 
     /**
+     * WebPages about the owning resource (viewer object page, related cms-pages, browse page for collections)
+     * 
      * @return the related
      */
+    @JsonProperty("homepage")
     List<LinkingContent> getRelated();
 
     /**
+     * Human usable, non-IIIF representations of the resource (pdf, epub, plaintext, rss-feed for collections)
+     * 
      * @return the rendering
      */
+    @JsonProperty("rendering")
     List<LinkingContent> getRendering();
 
     /**
      * @return one or more services - may be null!
      */
+    @JsonProperty("service")
     List<Service> getServices();
 
+    /**
+     * Machine readable resources related to the resource (ALTO, LIDO, METS/MODS)
+     */
+    @JsonProperty("seeAlso")
     List<LinkingContent> getSeeAlso();
 
+    @JsonProperty("partOf")
     List<IResource> getWithin();
-
-    /**
-     * 
-     * @param allowedClasses All classes which should be included in the service list
-     * @return A PropertyList of all services of one of the given classes
-     */
-    @Deprecated
-    default List<Service> getServices(Class... allowedClasses) {
-        List<Class> allowedClassesList = Arrays.asList(allowedClasses);
-        if (this.getServices() != null) {
-            return new PropertyList(this.getServices().stream()
-                    .filter(service -> allowedClassesList.contains(service.getClass()))
-                    .collect(Collectors.toList()));
-        } else {
-            return null;
-        }
-    }
+    
+    @JsonProperty("items")
+    List<? extends IResource> getItems();
 
 
+	/**
+	 * @return the navDate
+	 */
+	LocalDateTime getNavDate();
 
 }

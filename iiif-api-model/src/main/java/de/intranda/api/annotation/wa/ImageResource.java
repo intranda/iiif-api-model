@@ -16,7 +16,7 @@ public class ImageResource extends TypedResource {
     Optional<ImageInformation> service;
     
     public ImageResource(URI id, String format, Optional<ImageInformation> service) {
-        super(id, "type", format);
+        super(id, "Image", format);
         this.service = service;
     }
 

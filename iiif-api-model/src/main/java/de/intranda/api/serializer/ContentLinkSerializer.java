@@ -27,10 +27,12 @@ import com.fasterxml.jackson.databind.JsonSerializer;
 import com.fasterxml.jackson.databind.SerializerProvider;
 
 import de.intranda.api.iiif.presentation.IPresentationModelElement;
-import de.intranda.api.iiif.presentation.Range;
-import de.intranda.api.iiif.presentation.content.ImageContent;
-import de.intranda.api.iiif.presentation.content.LinkingContent;
 import de.intranda.api.iiif.presentation.enums.ViewingHint;
+import de.intranda.api.iiif.presentation.v2.IPresentationModelElement2;
+import de.intranda.api.iiif.presentation.v2.Range2;
+import de.intranda.api.iiif.presentation.v2.content.ImageContent;
+import de.intranda.api.iiif.presentation.v2.content.LinkingContent;
+import de.intranda.api.iiif.presentation.v3.Range3;
 import de.intranda.api.services.Service;
 import de.intranda.metadata.multilanguage.IIIF2MetadataValue;
 
@@ -38,7 +40,7 @@ import de.intranda.metadata.multilanguage.IIIF2MetadataValue;
  * @author Florian Alpers
  *
  */
-public class ContentLinkSerializer extends JsonSerializer<List<IPresentationModelElement>> {
+public class ContentLinkSerializer extends JsonSerializer<List<IPresentationModelElement2>> {
 
     private static final Logger logger = LoggerFactory.getLogger(ContentLinkSerializer.class);
 
@@ -46,7 +48,7 @@ public class ContentLinkSerializer extends JsonSerializer<List<IPresentationMode
      * @see com.fasterxml.jackson.databind.JsonSerializer#serialize(java.lang.Object, com.fasterxml.jackson.core.JsonGenerator, com.fasterxml.jackson.databind.SerializerProvider)
      */
     @Override
-    public void serialize(List<IPresentationModelElement> elements, JsonGenerator generator, SerializerProvider provider)
+    public void serialize(List<IPresentationModelElement2> elements, JsonGenerator generator, SerializerProvider provider)
             throws IOException, JsonProcessingException {
         if (elements != null && !elements.isEmpty()) {
             generator.writeStartArray();
@@ -137,12 +139,11 @@ public class ContentLinkSerializer extends JsonSerializer<List<IPresentationMode
             generator.writeEndArray();
         }
 
-        if (element instanceof Range) {
-            if (((Range) element).getStartCanvas() != null) {
-                generator.writeObjectField("startCanvas", ((Range) element).getStartCanvas().getId());
+        if (element instanceof Range2) {
+            if (((Range2) element).getStartCanvas() != null) {
+                generator.writeObjectField("startCanvas", ((Range2) element).getStartCanvas().getId());
             }
         }
-
         generator.writeEndObject();
     }
 

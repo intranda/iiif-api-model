@@ -26,6 +26,7 @@
 package de.intranda.api.iiif.image;
 
 import java.awt.Dimension;
+import java.net.URI;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -65,7 +66,7 @@ public class ImageInformation extends Service {
     public static final String JSON_PROTOCOL = "http://iiif.io/api/image";
     public static final ComplianceLevel IIIF_COMPLIANCE_LEVEL = ComplianceLevel.level2;
 
-    final private String id;
+    final private URI id;
     private int width;
     private int height;
     private List<IiifProfile> profiles = new ArrayList<>();
@@ -77,12 +78,16 @@ public class ImageInformation extends Service {
     private String logo;
 
     public ImageInformation(String id) {
+    	this(URI.create(id));
+    }
+    
+    public ImageInformation(URI id) {
         this.id = id;
         addProfile(new ComplianceLevelProfile(IIIF_COMPLIANCE_LEVEL));
     }
 
     public ImageInformation() {
-        this("");
+        this(URI.create(""));
     }
 
     /**
@@ -203,7 +208,7 @@ public class ImageInformation extends Service {
     }
 
     @JsonProperty("@id")
-    public String getId() {
+    public URI getId() {
         return id;
     }
 

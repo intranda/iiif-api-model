@@ -33,7 +33,17 @@ public enum ViewingHint {
     multipart("multi-part"),
     nonpaged("non-paged"),
     top,
-    facingpages("facing-pages");
+    facingpages("facing-pages"),
+    autoadvance("auto-advance"),
+    noautoadvance("non-auto-advance"),
+    repeat,
+    norepeat("no-repeat"),
+    unordered,
+    together,
+    sequence,
+    thumbnailnav("thumbnail-nav"),
+    nonav("no-nav"),
+    hidden;
     
     private final String label;
     
