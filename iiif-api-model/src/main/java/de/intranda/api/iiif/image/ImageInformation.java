@@ -48,6 +48,7 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 import de.intranda.api.PropertyList;
 import de.intranda.api.deserializer.ProfileDeserializer;
+import de.intranda.api.services.Service;
 
 /**
  * Implementation of the iiif ImageInformation object specified in http://iiif.io/api/image/2.0/#image-information
@@ -60,9 +61,9 @@ import de.intranda.api.deserializer.ProfileDeserializer;
 @JsonPropertyOrder({ "@context", "@id", "protocol", "width", "height", "attribution", "license", "logo", "sizes", "tiles", "profile", "service" })
 @JsonInclude(Include.NON_ABSENT)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class ImageInformation extends Service {
+public class ImageInformation implements Service {
 
-    public static final String JSON_CONTEXT = "http://iiif.io/api/image/2/context.json";
+    public static final URI JSON_CONTEXT = URI.create("http://iiif.io/api/image/2/context.json");
     public static final String JSON_PROTOCOL = "http://iiif.io/api/image";
     public static final ComplianceLevel IIIF_COMPLIANCE_LEVEL = ComplianceLevel.level2;
 
@@ -203,7 +204,7 @@ public class ImageInformation extends Service {
     }
 
     @JsonProperty("@context")
-    public String getContext() {
+    public URI getContext() {
         return JSON_CONTEXT;
     }
 

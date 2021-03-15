@@ -23,7 +23,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
-import de.intranda.api.serializer.IIIF2MetadataSerializer;
+import de.intranda.api.serializer.IIIF2MetadataValueSerializer;
 
 /**
  * @author Florian Alpers

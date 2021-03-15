@@ -21,7 +21,6 @@ import java.util.List;
 
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
-import de.intranda.api.iiif.presentation.AnnotationList;
 import de.intranda.api.serializer.URLOnlySerializer;
 
 /**

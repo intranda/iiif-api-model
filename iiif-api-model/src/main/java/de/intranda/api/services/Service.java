@@ -38,6 +38,6 @@ import de.intranda.api.deserializer.ServiceDeserializer;
 public interface Service {
     
     @JsonProperty("@context")
-    public URI getContext() throws URISyntaxException;
-
+    public URI getContext();
+    
 }

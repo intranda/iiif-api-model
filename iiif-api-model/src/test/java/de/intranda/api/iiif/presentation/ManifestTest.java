@@ -13,6 +13,7 @@ import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import de.intranda.api.iiif.presentation.v2.AbstractPresentationModelElement2;
 import de.intranda.api.iiif.presentation.v2.Manifest2;
 
 public class ManifestTest {
@@ -21,7 +22,7 @@ public class ManifestTest {
     @Test
     public void testNavDate() {
         String dateString = "2019-06-06";
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern(AbstractPresentationModelElement.DATETIME_FORMAT);
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern(AbstractPresentationModelElement2.DATETIME_FORMAT);
         LocalDate dateTime = LocalDate.parse(dateString);
 //        System.out.println(formatter.format(dateTime.atStartOfDay(ZoneId.systemDefault())));
         

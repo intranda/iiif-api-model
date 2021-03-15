@@ -42,7 +42,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 import de.intranda.api.iiif.image.IiifProfile;
 import de.intranda.api.iiif.image.ImageInformation;
-import de.intranda.api.iiif.image.Service;
+import de.intranda.api.services.Service;
 import de.intranda.metadata.multilanguage.IMetadataValue;
 import de.intranda.metadata.multilanguage.SimpleMetadataValue;
 
@@ -57,7 +57,7 @@ import de.intranda.metadata.multilanguage.SimpleMetadataValue;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class ImageInformation3 extends ImageInformation {
 
-    public static final String JSON_CONTEXT = "http://iiif.io/api/image/3/context.json";
+    public static final URI JSON_CONTEXT = URI.create("http://iiif.io/api/image/3/context.json");
     public static final String JSON_PROTOCOL = "http://iiif.io/api/image";
     public static final ComplianceLevel IIIF_COMPLIANCE_LEVEL = ComplianceLevel.level2;
     public static final String TYPE = "ImageService3";
@@ -126,7 +126,7 @@ public class ImageInformation3 extends ImageInformation {
 
 
     @JsonProperty("@context")
-    public String getContext() {
+    public URI getContext() {
         return JSON_CONTEXT;
     }
 

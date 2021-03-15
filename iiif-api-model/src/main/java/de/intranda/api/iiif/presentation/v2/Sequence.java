@@ -13,22 +13,22 @@
  *
  * You should have received a copy of the GNU General Public License along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
-package de.intranda.api.iiif.presentation;
+package de.intranda.api.iiif.presentation.v2;
 
 import java.net.URI;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import de.intranda.api.iiif.presentation.IPresentationModelElement;
 import de.intranda.api.iiif.presentation.enums.ViewingDirection;
 import de.intranda.api.iiif.presentation.enums.ViewingHint;
-import de.intranda.api.iiif.presentation.v2.Canvas2;
 
 /**
  * @author Florian Alpers
  *
  */
-public class Sequence extends AbstractPresentationModelElement implements IPresentationModelElement {
+public class Sequence extends AbstractPresentationModelElement2 {
 
     private static final String TYPE = "sc:Sequence";
 

@@ -35,9 +35,9 @@ import de.intranda.metadata.multilanguage.MultiLanguageMetadataValue.ValuePair;
  * @author Florian Alpers
  *
  */
-public class IIIF2MetadataSerializer extends JsonSerializer<IMetadataValue> {
+public class IIIF2MetadataValueSerializer extends JsonSerializer<IMetadataValue> {
 
-    private static final Logger logger = LoggerFactory.getLogger(IIIF2MetadataSerializer.class);
+    private static final Logger logger = LoggerFactory.getLogger(IIIF2MetadataValueSerializer.class);
 
     @Override
     public void serialize(IMetadataValue element, JsonGenerator generator, SerializerProvider provider) throws IOException, JsonProcessingException {

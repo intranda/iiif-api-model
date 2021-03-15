@@ -25,14 +25,15 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
+import de.intranda.api.annotation.IImageResource;
 import de.intranda.api.annotation.IResource;
 import de.intranda.api.deserializer.URLOnlyListDeserializer;
 import de.intranda.api.iiif.presentation.IPresentationModelElement;
+import de.intranda.api.iiif.presentation.content.ImageContent;
+import de.intranda.api.iiif.presentation.content.LinkingContent;
 import de.intranda.api.iiif.presentation.enums.ViewingHint;
-import de.intranda.api.iiif.presentation.v2.content.ImageContent;
-import de.intranda.api.iiif.presentation.v2.content.LinkingContent;
-import de.intranda.api.serializer.IIIF2MetadataSerializer;
-import de.intranda.api.serializer.LinkingContentSerializer;
+import de.intranda.api.serializer.IIIF2MetadataValueSerializer;
+import de.intranda.api.serializer.ImageContentLinkSerializer;
 import de.intranda.api.serializer.URLOnlySerializer;
 import de.intranda.api.services.Service;
 import de.intranda.metadata.multilanguage.IMetadataValue;
@@ -57,14 +58,14 @@ public interface IPresentationModelElement2 extends IPresentationModelElement {
     /**
      * @return the label
      */
-    @JsonSerialize(using=IIIF2MetadataSerializer.class)
+    @JsonSerialize(using=IIIF2MetadataValueSerializer.class)
     @JsonProperty("label")
     IMetadataValue getLabel();
 
     /**
      * @return the description
      */
-    @JsonSerialize(using=IIIF2MetadataSerializer.class)
+    @JsonSerialize(using=IIIF2MetadataValueSerializer.class)
     @JsonProperty("description")
     IMetadataValue getDescription();
 
@@ -78,6 +79,7 @@ public interface IPresentationModelElement2 extends IPresentationModelElement {
      * @return the thumbnail
      */
     @JsonProperty("thumbnail")
+    @JsonSerialize(contentUsing = ImageContentLinkSerializer.class)
     List<ImageContent> getThumbnails();
 
     /**
@@ -96,6 +98,7 @@ public interface IPresentationModelElement2 extends IPresentationModelElement {
      * @return the logo
      */
     @JsonProperty("logo")
+    @JsonSerialize(contentUsing = ImageContentLinkSerializer.class)
     List<ImageContent> getLogos();
 
     /**
@@ -108,14 +111,12 @@ public interface IPresentationModelElement2 extends IPresentationModelElement {
      * @return the related
      */
     @JsonProperty("related")
-    @JsonSerialize(contentUsing = LinkingContentSerializer.class)
     List<LinkingContent> getRelated();
 
     /**
      * @return the rendering
      */
     @JsonProperty("rendering")
-    @JsonSerialize(contentUsing = LinkingContentSerializer.class)
     List<LinkingContent> getRendering();
 
     /**
@@ -125,7 +126,6 @@ public interface IPresentationModelElement2 extends IPresentationModelElement {
     List<Service> getServices();
 
     @JsonProperty("seeAlso")
-    @JsonSerialize(contentUsing = LinkingContentSerializer.class)
     List<LinkingContent> getSeeAlso();
 
     @JsonSerialize(using = URLOnlySerializer.class)

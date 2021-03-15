@@ -23,16 +23,13 @@ import java.util.List;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 import de.intranda.api.annotation.oa.OpenAnnotation;
-import de.intranda.api.iiif.presentation.AbstractPresentationModelElement;
-import de.intranda.api.iiif.presentation.AnnotationList;
-import de.intranda.api.iiif.presentation.IPresentationModelElement;
 import de.intranda.api.serializer.ContentLinkSerializer;
 
 /**
  * @author Florian Alpers
  *
  */
-public class Canvas2 extends AbstractPresentationModelElement implements IPresentationModelElement {
+public class Canvas2 extends AbstractPresentationModelElement2 implements IPresentationModelElement2 {
 
     private static final String TYPE = "sc:Canvas";
 

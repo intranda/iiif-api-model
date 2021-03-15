@@ -8,10 +8,10 @@ import java.util.function.UnaryOperator;
 
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
-import de.intranda.api.serializer.IIIF2MetadataSerializer;
+import de.intranda.api.serializer.IIIF2MetadataValueSerializer;
 import de.intranda.metadata.multilanguage.MultiLanguageMetadataValue.ValuePair;
 
-@JsonSerialize(using=IIIF2MetadataSerializer.class)
+@JsonSerialize(using=IIIF2MetadataValueSerializer.class)
 public class IIIF2MetadataValue implements IMetadataValue {
 
     private final IMetadataValue value;

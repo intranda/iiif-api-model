@@ -20,6 +20,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import de.intranda.api.annotation.IResource;
+import de.intranda.api.iiif.presentation.enums.ViewingDirection;
 
 /**
  * @author Florian Alpers
@@ -31,6 +32,7 @@ public class Manifest3 extends AbstractPresentationModelElement3 implements IPre
     
     private final List<Canvas3> items = new ArrayList<>();
     private final List<Range3> structures = new ArrayList<>();
+    private ViewingDirection viewingDirection = ViewingDirection.LEFT_TO_RIGHT;
 
     public Manifest3() {
         super();
@@ -65,7 +67,13 @@ public class Manifest3 extends AbstractPresentationModelElement3 implements IPre
 		return structures;
 	}
 
-
+    public void setViewingDirection(ViewingDirection viewingDirection) {
+		this.viewingDirection = viewingDirection;
+	}
+    
+    public ViewingDirection getViewingDirection() {
+		return viewingDirection;
+	}
 
 
 }

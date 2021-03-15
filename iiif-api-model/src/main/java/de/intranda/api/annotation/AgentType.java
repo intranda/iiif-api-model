@@ -6,7 +6,8 @@ public enum AgentType {
 
     PERSON("Person"),
     ORGANIZATION("Organization"),
-    SOFTWARE("Software");
+    SOFTWARE("Software"),
+    AGENT("Agent");
     
     private String label;
     

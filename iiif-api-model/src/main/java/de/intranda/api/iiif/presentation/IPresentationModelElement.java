@@ -25,10 +25,11 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import de.intranda.api.PropertyList;
+import de.intranda.api.annotation.IImageResource;
+import de.intranda.api.annotation.ILabeledResource;
 import de.intranda.api.annotation.IResource;
+import de.intranda.api.iiif.presentation.content.LinkingContent;
 import de.intranda.api.iiif.presentation.enums.ViewingHint;
-import de.intranda.api.iiif.presentation.v2.content.ImageContent;
-import de.intranda.api.iiif.presentation.v2.content.LinkingContent;
 import de.intranda.api.services.Service;
 import de.intranda.metadata.multilanguage.IMetadataValue;
 import de.intranda.metadata.multilanguage.Metadata;
@@ -67,7 +68,7 @@ public interface IPresentationModelElement extends IResource {
     /**
      * @return the thumbnail
      */
-    List<ImageContent> getThumbnails();
+    List<? extends IImageResource> getThumbnails();
 
 
     /**
@@ -83,19 +84,19 @@ public interface IPresentationModelElement extends IResource {
     /**
      * @return the related
      */
-    List<LinkingContent> getRelated();
+    List<? extends ILabeledResource> getRelated();
 
     /**
      * @return the rendering
      */
-    List<LinkingContent> getRendering();
+    List<? extends ILabeledResource> getRendering();
 
     /**
      * @return one or more services - may be null!
      */
     List<Service> getServices();
 
-    List<LinkingContent> getSeeAlso();
+    List<? extends ILabeledResource> getSeeAlso();
 
     List<IResource> getWithin();
 

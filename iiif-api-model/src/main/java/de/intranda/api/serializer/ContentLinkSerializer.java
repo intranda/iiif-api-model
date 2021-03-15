@@ -26,12 +26,13 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonSerializer;
 import com.fasterxml.jackson.databind.SerializerProvider;
 
+import de.intranda.api.annotation.IImageResource;
 import de.intranda.api.iiif.presentation.IPresentationModelElement;
+import de.intranda.api.iiif.presentation.content.ImageContent;
+import de.intranda.api.iiif.presentation.content.LinkingContent;
 import de.intranda.api.iiif.presentation.enums.ViewingHint;
 import de.intranda.api.iiif.presentation.v2.IPresentationModelElement2;
 import de.intranda.api.iiif.presentation.v2.Range2;
-import de.intranda.api.iiif.presentation.v2.content.ImageContent;
-import de.intranda.api.iiif.presentation.v2.content.LinkingContent;
 import de.intranda.api.iiif.presentation.v3.Range3;
 import de.intranda.api.services.Service;
 import de.intranda.metadata.multilanguage.IIIF2MetadataValue;
@@ -52,7 +53,7 @@ public class ContentLinkSerializer extends JsonSerializer<List<IPresentationMode
             throws IOException, JsonProcessingException {
         if (elements != null && !elements.isEmpty()) {
             generator.writeStartArray();
-            for (IPresentationModelElement element : elements) {
+            for (IPresentationModelElement2 element : elements) {
                 try {
                     writeElement(element, generator, provider);
                 } catch (IOException e) {
@@ -69,7 +70,7 @@ public class ContentLinkSerializer extends JsonSerializer<List<IPresentationMode
      * @param generator
      * @throws IOException
      */
-    public void writeElement(IPresentationModelElement element, JsonGenerator generator, SerializerProvider provider) throws IOException {
+    public void writeElement(IPresentationModelElement2 element, JsonGenerator generator, SerializerProvider provider) throws IOException {
         generator.writeStartObject();
         generator.writeStringField("@id", element.getId().toString());
         generator.writeStringField("@type", element.getType());

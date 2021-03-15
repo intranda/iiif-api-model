@@ -13,7 +13,7 @@
  *
  * You should have received a copy of the GNU General Public License along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
-package de.intranda.api.iiif.presentation;
+package de.intranda.api.iiif.presentation.v2;
 
 import java.net.URI;
 import java.util.ArrayList;
@@ -26,12 +26,13 @@ import de.intranda.api.annotation.IAnnotation;
 import de.intranda.api.annotation.IAnnotationCollection;
 import de.intranda.api.annotation.IResource;
 import de.intranda.api.deserializer.AnnotationListResourceDeserializer;
+import de.intranda.api.iiif.presentation.IPresentationModelElement;
 
 /**
  * @author Florian Alpers
  *
  */
-public class AnnotationList extends AbstractPresentationModelElement implements IPresentationModelElement, IAnnotationCollection {
+public class AnnotationList extends AbstractPresentationModelElement2 implements IPresentationModelElement, IAnnotationCollection {
 
     private static final String TYPE = "sc:AnnotationList";
     private final List<IAnnotation> resources = new ArrayList<>();

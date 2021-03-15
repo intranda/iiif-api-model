@@ -29,7 +29,7 @@ public class AutoSuggestService implements Service {
     
     @Override
     @JsonIgnore
-    public URI getContext() throws URISyntaxException {
+    public URI getContext() {
         return URI.create(CONTEXT);
     }
     

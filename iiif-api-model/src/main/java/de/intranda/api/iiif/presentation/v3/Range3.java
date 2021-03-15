@@ -29,7 +29,6 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import de.intranda.api.annotation.IResource;
 import de.intranda.api.annotation.wa.collection.AnnotationCollection;
 import de.intranda.api.iiif.presentation.IPresentationModelElement;
-import de.intranda.api.iiif.presentation.v2.Canvas2;
 import de.intranda.api.serializer.ContentLinkSerializer;
 import de.intranda.api.serializer.URLOnlySerializer;
 

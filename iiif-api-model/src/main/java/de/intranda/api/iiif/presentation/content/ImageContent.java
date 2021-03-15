@@ -13,58 +13,65 @@
  *
  * You should have received a copy of the GNU General Public License along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
-package de.intranda.api.iiif.presentation.v2.content;
+package de.intranda.api.iiif.presentation.content;
 
 import java.net.URI;
+import java.util.Arrays;
+import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
+import de.intranda.api.PropertyList;
+import de.intranda.api.annotation.IImageResource;
+import de.intranda.api.iiif.image.ImageInformation;
 import de.intranda.api.iiif.presentation.enums.DcType;
 import de.intranda.api.iiif.presentation.enums.Format;
+import de.intranda.api.serializer.ImageInformationSerializer;
 import de.intranda.metadata.multilanguage.IMetadataValue;
 
 /**
- * @author Florian Alpers
+ * @author florian
  *
  */
 @JsonInclude(Include.NON_EMPTY)
-public class LinkingContent implements IContent {
+@JsonIgnoreProperties(ignoreUnknown = true)
+public class ImageContent implements IContent, IImageResource {
+
+    private static final Logger logger = LoggerFactory.getLogger(ImageContent.class);
+
+    private final DcType TYPE = DcType.IMAGE;
 
     private final URI id;
-    private IMetadataValue label;
-    private DcType type = null;
-    private Format format = Format.TEXT_HTML;
+    private Integer width = null;
+    private Integer height = null;
+    private Format format;
+    private ImageInformation service;
 
-    public LinkingContent() {
+    public ImageContent() {
         this.id = null;
     }
 
-    /**
-     * 
-     */
-    public LinkingContent(URI id) {
+    public ImageContent(URI id) {
         this.id = id;
     }
 
-    public LinkingContent(URI id, IMetadataValue label) {
+    public ImageContent(URI id, ImageInformation service) {
         this.id = id;
-        this.label = label;
+        this.service = service;
     }
 
     /* (non-Javadoc)
      * @see de.intranda.digiverso.presentation.model.iiif.presentation.content.IContent#getType()
      */
     @Override
-    public DcType getType() {
-        return type;
-    }
-
-    /**
-     * @param type the type to set
-     */
-    public void setType(DcType type) {
-        this.type = type;
+    public String getType() {
+        return TYPE.getLabel();
     }
 
     /* (non-Javadoc)
@@ -72,7 +79,14 @@ public class LinkingContent implements IContent {
      */
     @Override
     public Integer getWidth() {
-        return null;
+        return width;
+    }
+
+    /* (non-Javadoc)
+     * @see de.intranda.digiverso.presentation.model.iiif.presentation.content.IContent#setWidth(int)
+     */
+    public void setWidth(int width) {
+        this.width = width;
     }
 
     /* (non-Javadoc)
@@ -80,22 +94,44 @@ public class LinkingContent implements IContent {
      */
     @Override
     public Integer getHeight() {
-        return null;
+        return height;
+    }
+
+    /* (non-Javadoc)
+     * @see de.intranda.digiverso.presentation.model.iiif.presentation.content.IContent#setHeight(int)
+     */
+    public void setHeight(int height) {
+        this.height = height;
     }
 
     /* (non-Javadoc)
      * @see de.intranda.digiverso.presentation.model.iiif.presentation.content.IContent#getFormat()
      */
     @Override
-    public Format getFormat() {
-        return format;
+    public String getFormat() {
+        return format.getLabel();
     }
 
-    /**
-     * @param format the format to set
+    /* (non-Javadoc)
+     * @see de.intranda.digiverso.presentation.model.iiif.presentation.content.IContent#setFormat(de.intranda.digiverso.presentation.model.iiif.presentation.enums.Format)
      */
     public void setFormat(Format format) {
         this.format = format;
+    }
+
+    /**
+     * @return the service
+     */
+    public List<ImageInformation> getService() {
+        return new PropertyList(Arrays.asList(service));
+    }
+
+    /**
+     * @param service the service to set
+     */
+    @JsonSerialize(using = ImageInformationSerializer.class)
+    public void setService(ImageInformation service) {
+        this.service = service;
     }
 
     /* (non-Javadoc)
@@ -111,14 +147,7 @@ public class LinkingContent implements IContent {
      */
     @Override
     public IMetadataValue getLabel() {
-        return label;
-    }
-
-    /**
-     * @param label the label to set
-     */
-    public void setLabel(IMetadataValue label) {
-        this.label = label;
+        return null;
     }
 
 }

@@ -45,7 +45,7 @@ public class ImageInformationSerializer extends JsonSerializer<ImageInformation>
     		generator.writeEndObject();
     	} else {    		
     		generator.writeStartObject();
-    		generator.writeStringField("@context", ImageInformation.JSON_CONTEXT);
+    		generator.writeStringField("@context", ImageInformation.JSON_CONTEXT.toString());
     		generator.writeStringField("@id", element.getId().toString());
     		generator.writeStringField("profile", ImageInformation.IIIF_COMPLIANCE_LEVEL.getUri());
     		generator.writeEndObject();

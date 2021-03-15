@@ -4,10 +4,14 @@ import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+
 import de.intranda.api.annotation.AgentType;
 import de.intranda.api.annotation.IAgent;
-import de.intranda.api.iiif.presentation.v2.content.ImageContent;
-import de.intranda.api.iiif.presentation.v2.content.LinkingContent;
+import de.intranda.api.annotation.wa.ImageResource;
+import de.intranda.api.iiif.presentation.content.ImageContent;
+import de.intranda.api.iiif.presentation.content.LinkingContent;
+import de.intranda.api.serializer.IIIF3MetadataValueSerializer;
 import de.intranda.metadata.multilanguage.IMetadataValue;
 
 /**
@@ -22,20 +26,20 @@ public class IIIFAgent implements IAgent {
 	private final URI id;
 	private final AgentType type;
 	private final IMetadataValue label;
-	private final List<LinkingContent> homepage = new ArrayList<>();
-	private final List<ImageContent> logo = new ArrayList<>();
+	private final List<LabeledResource> homepage = new ArrayList<>();
+	private final List<ImageResource> logo = new ArrayList<>();
 	
-	public IIIFAgent(URI id, AgentType type, IMetadataValue label) {
+	public IIIFAgent(URI id, IMetadataValue label) {
 		this.id = id;
-		this.type = type;
+		this.type = AgentType.AGENT;
 		this.label = label;
 	}
 	
-	public void addHomepage(LinkingContent homepage) {
+	public void addHomepage(LabeledResource homepage) {
 		this.homepage.add(homepage);
 	}
 	
-	public void addLogo(ImageContent logo) {
+	public void addLogo(ImageResource logo) {
 		this.logo.add(logo);
 	}
 	
@@ -48,15 +52,16 @@ public class IIIFAgent implements IAgent {
 		return type;
 	}
 	
+	@JsonSerialize(using = IIIF3MetadataValueSerializer.class)
 	public IMetadataValue getLabel() {
 		return label;
 	}
 	
-	public List<LinkingContent> getHomepage() {
+	public List<LabeledResource> getHomepage() {
 		return homepage;
 	}
 	
-	public List<ImageContent> getLogo() {
+	public List<ImageResource> getLogo() {
 		return logo;
 	}
 

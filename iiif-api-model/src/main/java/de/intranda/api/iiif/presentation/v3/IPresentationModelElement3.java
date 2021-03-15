@@ -19,19 +19,25 @@ import java.net.URI;
 import java.time.LocalDateTime;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
+import de.intranda.api.annotation.IImageResource;
+import de.intranda.api.annotation.ILabeledResource;
 import de.intranda.api.annotation.IResource;
+import de.intranda.api.annotation.wa.ImageResource;
 import de.intranda.api.iiif.presentation.IPresentationModelElement;
+import de.intranda.api.iiif.presentation.content.ImageContent;
+import de.intranda.api.iiif.presentation.content.LinkingContent;
 import de.intranda.api.iiif.presentation.enums.ViewingHint;
-import de.intranda.api.iiif.presentation.v2.content.ImageContent;
-import de.intranda.api.iiif.presentation.v2.content.LinkingContent;
-import de.intranda.api.serializer.IIIF2MetadataSerializer;
+import de.intranda.api.serializer.IIIF2MetadataValueSerializer;
 import de.intranda.api.serializer.IIIF3MetadataSerializer;
+import de.intranda.api.serializer.IIIF3MetadataValueSerializer;
 import de.intranda.api.services.Service;
 import de.intranda.metadata.multilanguage.IMetadataValue;
 import de.intranda.metadata.multilanguage.Metadata;
@@ -43,7 +49,8 @@ import de.intranda.metadata.multilanguage.Metadata;
 @JsonInclude(Include.NON_EMPTY)
 @JsonPropertyOrder({ "@context", "id", "type", "label", "requiredStatement", "license", "provider", "thumbnail", "behavior", "metadata", "service", "seeAlso" })
 public interface IPresentationModelElement3 extends IPresentationModelElement {
-
+   
+	public static final String DATETIME_FORMAT = "yyyy-MM-dd'T'HH:mm:ss'Z'";
 	public static final String CONTEXT = "http://iiif.io/api/presentation/3/context.json";
 	
 	@JsonProperty("id")
@@ -58,14 +65,14 @@ public interface IPresentationModelElement3 extends IPresentationModelElement {
      * @return the label
      */
     @JsonProperty("label")
-    @JsonSerialize(using=IIIF3MetadataSerializer.class)
+    @JsonSerialize(using=IIIF3MetadataValueSerializer.class)
     IMetadataValue getLabel();
 
     /**
      * @return the description
      */
     @JsonProperty("summary")
-    @JsonSerialize(using=IIIF3MetadataSerializer.class)
+    @JsonSerialize(using=IIIF3MetadataValueSerializer.class)
     IMetadataValue getDescription();
 
     /**
@@ -78,7 +85,7 @@ public interface IPresentationModelElement3 extends IPresentationModelElement {
      * @return the thumbnail
      */
     @JsonProperty("thumbnail")
-    List<ImageContent> getThumbnails();
+    List<ImageResource> getThumbnails();
 
     /**
      * @return the attribution
@@ -110,7 +117,7 @@ public interface IPresentationModelElement3 extends IPresentationModelElement {
      * @return the related
      */
     @JsonProperty("homepage")
-    List<LinkingContent> getRelated();
+    List<LabeledResource> getRelated();
 
     /**
      * Human usable, non-IIIF representations of the resource (pdf, epub, plaintext, rss-feed for collections)
@@ -118,7 +125,7 @@ public interface IPresentationModelElement3 extends IPresentationModelElement {
      * @return the rendering
      */
     @JsonProperty("rendering")
-    List<LinkingContent> getRendering();
+    List<LabeledResource> getRendering();
 
     /**
      * @return one or more services - may be null!
@@ -130,7 +137,7 @@ public interface IPresentationModelElement3 extends IPresentationModelElement {
      * Machine readable resources related to the resource (ALTO, LIDO, METS/MODS)
      */
     @JsonProperty("seeAlso")
-    List<LinkingContent> getSeeAlso();
+    List<LabeledResource> getSeeAlso();
 
     @JsonProperty("partOf")
     List<IResource> getWithin();
@@ -142,6 +149,8 @@ public interface IPresentationModelElement3 extends IPresentationModelElement {
 	/**
 	 * @return the navDate
 	 */
-	LocalDateTime getNavDate();
+    @JsonSerialize(using = LocalDateTimeSerializer.class)
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = DATETIME_FORMAT)
+	public LocalDateTime getNavDate();
 
 }

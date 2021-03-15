@@ -3,7 +3,6 @@ package de.intranda.api.iiif3.image;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
@@ -23,7 +22,7 @@ import de.intranda.api.iiif.image.ImageTile;
 import de.intranda.api.iiif.image.PhysicalDimension;
 import de.intranda.api.iiif.image.PhysicalDimension.ResolutionUnit;
 import de.intranda.api.iiif.image.v3.ImageInformation3;
-import de.intranda.api.iiif.image.Service;
+import de.intranda.api.services.Service;
 import de.intranda.metadata.multilanguage.IMetadataValue;
 import de.intranda.metadata.multilanguage.MultiLanguageMetadataValue;
 
