@@ -30,6 +30,7 @@ import de.intranda.api.PropertyList;
 import de.intranda.api.annotation.IImageResource;
 import de.intranda.api.annotation.ILabeledResource;
 import de.intranda.api.annotation.IResource;
+import de.intranda.api.annotation.ITypedResource;
 import de.intranda.api.annotation.wa.ImageResource;
 import de.intranda.api.annotation.wa.collection.AnnotationPage;
 import de.intranda.api.iiif.presentation.IPresentationModelElement;
@@ -66,7 +67,9 @@ public abstract class AbstractPresentationModelElement3 implements IPresentation
 	private List<IIIFAgent> provider;
 	private Metadata requiredStatement = null;
 	private LocalDateTime navDate = null;
-	//What used to be layers; commenting annotations in resources
+	/**
+	 * What used to be layers; commenting annotations in resources
+	 */
     private final List<AnnotationPage> annotations;
 
 	
@@ -89,6 +92,7 @@ public abstract class AbstractPresentationModelElement3 implements IPresentation
         annotations = new ArrayList<>();
     }
 
+    
     public Metadata getRequiredStatement() {
 		return requiredStatement;
 	}

@@ -30,6 +30,7 @@ import de.intranda.api.annotation.IResource;
 import de.intranda.api.annotation.wa.collection.AnnotationCollection;
 import de.intranda.api.iiif.presentation.IPresentationModelElement;
 import de.intranda.api.serializer.ContentLinkSerializer;
+import de.intranda.api.serializer.LinkedResourceSerializer;
 import de.intranda.api.serializer.URLOnlySerializer;
 
 /**
@@ -42,7 +43,7 @@ public class Range3 extends AbstractPresentationModelElement3 implements IPresen
     private static final String TYPE = "Range";
 
     private final List<IPresentationModelElement3> items = new ArrayList<>();
-    private Canvas3 start;
+    private Canvas3 start = null;
     @JsonIgnore
     private boolean useMembers = false;
     
@@ -73,8 +74,8 @@ public class Range3 extends AbstractPresentationModelElement3 implements IPresen
     /**
      * @return the startCanvas
      */
-    @JsonSerialize(using = URLOnlySerializer.class)
     @JsonProperty("start")
+    @JsonSerialize(using = LinkedResourceSerializer.class)
     public Canvas3 getStart() {
         return start;
     }

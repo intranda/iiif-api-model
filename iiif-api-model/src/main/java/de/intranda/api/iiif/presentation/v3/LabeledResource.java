@@ -25,6 +25,16 @@ public class LabeledResource extends TypedResource implements ILabeledResource {
 	 * @param type
 	 * @param format
 	 */
+	public LabeledResource(URI id, String type, String format, String profile, IMetadataValue label) {
+		super(id, type, format, profile);
+		this.label = label;
+	}
+	
+	/**
+	 * @param id
+	 * @param type
+	 * @param format
+	 */
 	public LabeledResource(URI id, String type, String format, IMetadataValue label) {
 		super(id, type, format);
 		this.label = label;

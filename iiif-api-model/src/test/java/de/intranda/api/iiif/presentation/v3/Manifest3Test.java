@@ -6,6 +6,7 @@ import static org.junit.Assert.assertTrue;
 
 import java.net.URI;
 import java.time.LocalDateTime;
+import java.util.List;
 
 import javax.ws.rs.core.UriBuilder;
 
@@ -15,20 +16,15 @@ import org.junit.Before;
 import org.junit.Test;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.SerializationFeature;
 
-import de.intranda.api.annotation.AgentType;
-import de.intranda.api.annotation.wa.Agent;
 import de.intranda.api.annotation.wa.ImageResource;
 import de.intranda.api.iiif.image.ImageInformation;
 import de.intranda.api.iiif.image.v3.ImageInformation3;
-import de.intranda.api.iiif.presentation.content.ImageContent;
 import de.intranda.api.iiif.presentation.enums.Format;
 import de.intranda.api.iiif.presentation.enums.ViewingHint;
+import de.intranda.api.iiif.search.SearchService;
 import de.intranda.metadata.multilanguage.IIIF3Metadata;
-import de.intranda.metadata.multilanguage.Metadata;
 import de.intranda.metadata.multilanguage.MultiLanguageMetadataValue;
 import de.intranda.metadata.multilanguage.SimpleMetadataValue;
 
@@ -68,12 +64,29 @@ public class Manifest3Test {
 	private static final String HOMEPAGE_LABEL = "viewImage";
 	private static final String HOMEPAGE_ID = "http://www.viewer.goobi.io/images/1234/";
 	
+	private static final String SEARCH_SERVICE_ID = "htts://viewer.goobi.io/api/v1/records/1234/manifest/search";
+	private static final String AUTOCOMPLETE_SERVICE_ID = "htts://viewer.goobi.io/api/v1/records/1234/manifest/autocomplete";
+
+	private static final String METS_URL = "htts://viewer.goobi.io/api/v1/records/1234/meta.xml";
+	private static final String METS_LABEL = "METS/MODS";
+	private static final String METS_PROFILE = "http://www.loc.gov/METS/";
+
 	
+	private static final String VIEWER_URL = "htts://viewer.goobi.io/image/1234/";
+	private static final String VIEWER_LABEL = "goobi viewer";
+	
+	private static final String COLLECTION_ID = "htts://viewer.goobi.io/collections/mycollection/";
+	private static final String COLLECTION_LABEL = "Meine Sammlung";
+	
+	private static final String START_CANVAS_ID = "htts://viewer.goobi.io/records/1234/pages/3/canvas";
+
+
 	@Before
 	public void setUp() throws JsonProcessingException {
 		
 		
 		URI manifestId = URI.create("htts://viewer.goobi.io/api/v1/records/1234/manifest");
+
 		
 		manifest = new Manifest3(manifestId);
 		manifest.setContext(IPresentationModelElement3.CONTEXT);
@@ -105,6 +118,23 @@ public class Manifest3Test {
 		manifest.addProvider(provider);
 		
 		manifest.addRelated(new LabeledResource(URI.create(HOMEPAGE_ID), "Text", Format.TEXT_HTML.getLabel(), new SimpleMetadataValue(HOMEPAGE_LABEL)));
+		
+		SearchService search = new SearchService1(URI.create(SEARCH_SERVICE_ID));
+		AutoCompleteService1 autoComplete = new AutoCompleteService1(URI.create(AUTOCOMPLETE_SERVICE_ID));
+		manifest.addService(search);
+		manifest.addService(autoComplete);
+		
+		LabeledResource mets = new LabeledResource(URI.create(METS_URL), "Dataset", Format.TEXT_XML.getLabel(), METS_PROFILE, new SimpleMetadataValue(METS_LABEL));
+		manifest.addSeeAlso(mets);
+
+		manifest.addRendering(new LabeledResource(URI.create(VIEWER_URL), "Text", Format.TEXT_HTML.getLabel(), new SimpleMetadataValue(VIEWER_LABEL)));
+
+		Collection3 collection = new Collection3(URI.create(COLLECTION_ID), COLLECTION_LABEL);
+		collection.setLabel(new SimpleMetadataValue(COLLECTION_LABEL));
+		manifest.addWithin(collection);
+		
+		Canvas3 startCanvas = new Canvas3(URI.create(START_CANVAS_ID));
+		manifest.setStart(startCanvas);
 		
 		String json = mapper.writeValueAsString(manifest);
 		System.out.println(json);
@@ -170,7 +200,7 @@ public class Manifest3Test {
 	}
 	
 	@Test
-	public void testLicence() {
+	public void testRights() {
 		assertEquals(LICENCE, jManifest.getString("rights"));
 	}
 
@@ -199,11 +229,87 @@ public class Manifest3Test {
 	
 	@Test
 	public void testHomepage() {
-		JSONObject homepage = jManifest.getJSONArray("hompage").getJSONObject(0);
+		JSONObject homepage = jManifest.getJSONArray("homepage").getJSONObject(0);
 		assertNotNull(homepage);
 		assertEquals(HOMEPAGE_ID, homepage.getString("id"));
 		assertEquals("Text", homepage.getString("type"));
 		assertEquals("text/html", homepage.getString("format"));
 		assertEquals(HOMEPAGE_LABEL, homepage.getJSONObject("label").getJSONArray("none").getString(0));
+	}
+	
+	@Test
+	public void testService() {
+		
+		JSONArray services = jManifest.getJSONArray("service");
+		assertEquals(2, services.length());
+		
+		
+		JSONObject searchService = services.getJSONObject(0);
+		assertNotNull(searchService);
+		assertEquals(SEARCH_SERVICE_ID, searchService.getString("@id"));
+		assertEquals("SearchService1", searchService.getString("@type"));
+		
+		JSONObject autoCompleteService = services.getJSONObject(1);
+		assertNotNull(autoCompleteService);
+		assertEquals(AUTOCOMPLETE_SERVICE_ID, autoCompleteService.getString("@id"));
+		assertEquals("AutoCompleteService1", autoCompleteService.getString("@type"));
+	}
+
+	@Test
+	public void testSeeAlso() {
+		
+		JSONArray seeAlso = jManifest.getJSONArray("seeAlso");
+		assertEquals(1, seeAlso.length());
+		
+		
+		JSONObject mets = seeAlso.getJSONObject(0);
+		assertEquals(METS_URL, mets.getString("id"));
+		assertEquals("Dataset", mets.getString("type"));
+		assertEquals(METS_LABEL, getText(mets.getJSONObject("label"), null));
+		assertEquals(Format.TEXT_XML.getLabel(), mets.getString("format"));
+		assertEquals(METS_PROFILE, mets.getString("profile"));
+	
+	}
+	
+	@Test
+	public void testRendering() {
+		
+		JSONArray rendering = jManifest.getJSONArray("rendering");
+		assertEquals(1, rendering.length());
+		
+		JSONObject viewer = rendering.getJSONObject(0);
+		assertEquals(VIEWER_URL, viewer.getString("id"));
+		assertEquals("Text", viewer.getString("type"));
+		assertEquals(VIEWER_LABEL, getText(viewer.getJSONObject("label"), null));
+		assertEquals(Format.TEXT_HTML.getLabel(), viewer.getString("format"));
+		
+	}
+	
+
+	@Test
+	public void testPartOf() {
+		
+		JSONArray collections = jManifest.getJSONArray("partOf");
+		assertEquals(1, collections.length());
+		JSONObject collection = collections.getJSONObject(0);
+		assertEquals(COLLECTION_ID, collection.getString("id"));
+		assertEquals("Collection", collection.getString("type"));
+		assertEquals(COLLECTION_LABEL, getText(collection.getJSONObject("label"), null));
+	}
+	
+	@Test
+	public void testStart() {
+		
+		JSONObject start = jManifest.getJSONObject("start");
+		assertEquals(START_CANVAS_ID, start.getString("id"));
+		assertEquals("Canvas", start.getString("type"));		
+	}
+	
+	private String getText(JSONObject value, String language) {
+		if(language != null) {
+			return value.getJSONArray(language).getString(0);
+		} else {
+			return value.getJSONArray("none").getString(0);
+		}
 	}
 }

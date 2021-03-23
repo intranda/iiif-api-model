@@ -16,6 +16,7 @@
 package de.intranda.api.iiif.presentation.v3;
 
 import java.net.URI;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.ws.rs.core.UriBuilder;
@@ -46,8 +47,7 @@ public class Canvas3 extends AbstractPresentationModelElement3 implements IPrese
     private Integer width;
     private Integer height;
     private Float duration;
-	//the direct content, such as canvases in a manifest or range, or painting resources in a canvas
-	private List<IResource> items;
+	private final List<IResource> items = new ArrayList<IResource>();
 
     public Canvas3() {
     	this("");
@@ -63,7 +63,7 @@ public class Canvas3 extends AbstractPresentationModelElement3 implements IPrese
     public Canvas3(URI id) {
         super(id);
         AnnotationPage images = new AnnotationPage(UriBuilder.fromUri(id).path(IMAGE_LIST_PATH).build());
-        this.addItem(images);
+        this.items.add(images);
     }
 
     /* (non-Javadoc)

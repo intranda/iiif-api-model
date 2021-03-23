@@ -19,8 +19,13 @@ import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+
 import de.intranda.api.annotation.IResource;
 import de.intranda.api.iiif.presentation.enums.ViewingDirection;
+import de.intranda.api.serializer.LinkedResourceSerializer;
+import de.intranda.api.serializer.URLOnlySerializer;
 
 /**
  * @author Florian Alpers
@@ -30,6 +35,7 @@ public class Manifest3 extends AbstractPresentationModelElement3 implements IPre
 
     public static final String TYPE = "Manifest";
     
+    private Canvas3 start = null;
     private final List<Canvas3> items = new ArrayList<>();
     private final List<Range3> structures = new ArrayList<>();
     private ViewingDirection viewingDirection = ViewingDirection.LEFT_TO_RIGHT;
@@ -74,6 +80,22 @@ public class Manifest3 extends AbstractPresentationModelElement3 implements IPre
     public ViewingDirection getViewingDirection() {
 		return viewingDirection;
 	}
+    
+    /**
+     * @return the startCanvas
+     */
+    @JsonSerialize(using = LinkedResourceSerializer.class)
+    @JsonProperty("start")
+    public Canvas3 getStart() {
+        return start;
+    }
+
+    /**
+     * @param startCanvas the startCanvas to set
+     */
+    public void setStart(Canvas3 startCanvas) {
+        this.start = startCanvas;
+    }
 
 
 }
