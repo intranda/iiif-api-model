@@ -52,9 +52,11 @@ public class AnnotationPage implements IAnnotationCollection{
     private AnnotationPage next;
     private Integer startIndex = null;
     private List<IAnnotation> items = new ArrayList<>();
+    private final String context;
     
     public AnnotationPage() {
         this.id = null;
+        this.context = CONTEXT;
     }
     
     /**
@@ -62,9 +64,15 @@ public class AnnotationPage implements IAnnotationCollection{
      */
     public AnnotationPage(URI id) {
         this.id = id;
+        this.context = CONTEXT; 
     }
 
-    /**
+    public AnnotationPage(URI id, boolean includeContext) {
+    	this.id = id;
+        this.context = includeContext ? CONTEXT : ""; 
+	}
+
+	/**
      * Reference to the containing collection
      * 
      * @return the containing collection
@@ -143,7 +151,7 @@ public class AnnotationPage implements IAnnotationCollection{
      */
     @JsonProperty("@context")    
     public String getContext() {
-        return CONTEXT;
+        return this.context;
     }
 
 

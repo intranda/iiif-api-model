@@ -24,6 +24,7 @@ import javax.ws.rs.core.UriBuilder;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import de.intranda.api.annotation.IResource;
+import de.intranda.api.annotation.ITypedResource;
 import de.intranda.api.annotation.SimpleResource;
 import de.intranda.api.annotation.wa.Motivation;
 import de.intranda.api.annotation.wa.TypedResource;
@@ -62,7 +63,7 @@ public class Canvas3 extends AbstractPresentationModelElement3 implements IPrese
      */
     public Canvas3(URI id) {
         super(id);
-        AnnotationPage images = new AnnotationPage(UriBuilder.fromUri(id).path(IMAGE_LIST_PATH).build());
+        AnnotationPage images = new AnnotationPage(UriBuilder.fromUri(id).path(IMAGE_LIST_PATH).build(), false);
         this.items.add(images);
     }
 
@@ -118,7 +119,7 @@ public class Canvas3 extends AbstractPresentationModelElement3 implements IPrese
      * Add a resource body to the list of media items. The reosurce will be wrapped in an Annotation targeting the canvas itself
      * @param media
      */
-    public void addMedia(TypedResource media) {
+    public void addMedia(ITypedResource media) {
     	URI annotationId = UriBuilder.fromUri(getId())
     			.path(IMAGE_LIST_PATH)
     			.path(Integer.toString(getMedia().getItems().size() + 1))
@@ -127,6 +128,7 @@ public class Canvas3 extends AbstractPresentationModelElement3 implements IPrese
     	annotation.setBody(media);
     	annotation.setTarget(new SimpleResource(this.getId()));
     	annotation.setMotivation(Motivation.PAINTING);
+    	this.getMedia().getItems().add(annotation);
     }
 
 

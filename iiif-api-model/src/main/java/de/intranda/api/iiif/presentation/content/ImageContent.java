@@ -15,10 +15,12 @@
  */
 package de.intranda.api.iiif.presentation.content;
 
+import java.awt.Dimension;
 import java.net.URI;
 import java.util.Arrays;
 import java.util.List;
 
+import org.apache.commons.io.FilenameUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -29,6 +31,7 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 import de.intranda.api.PropertyList;
 import de.intranda.api.annotation.IImageResource;
+import de.intranda.api.iiif.IIIFUrlResolver;
 import de.intranda.api.iiif.image.ImageInformation;
 import de.intranda.api.iiif.presentation.enums.DcType;
 import de.intranda.api.iiif.presentation.enums.Format;
@@ -50,8 +53,8 @@ public class ImageContent implements IContent, IImageResource {
     private final URI id;
     private Integer width = null;
     private Integer height = null;
-    private Format format;
-    private ImageInformation service;
+    protected Format format = Format.UNKNOWN;
+    protected ImageInformation service;
 
     public ImageContent() {
         this.id = null;
@@ -66,7 +69,8 @@ public class ImageContent implements IContent, IImageResource {
         this.service = service;
     }
 
-    /* (non-Javadoc)
+
+	/* (non-Javadoc)
      * @see de.intranda.digiverso.presentation.model.iiif.presentation.content.IContent#getType()
      */
     @Override
@@ -122,6 +126,7 @@ public class ImageContent implements IContent, IImageResource {
     /**
      * @return the service
      */
+    @JsonSerialize(contentUsing = ImageInformationSerializer.class)
     public List<ImageInformation> getService() {
         return new PropertyList(Arrays.asList(service));
     }
@@ -129,7 +134,6 @@ public class ImageContent implements IContent, IImageResource {
     /**
      * @param service the service to set
      */
-    @JsonSerialize(using = ImageInformationSerializer.class)
     public void setService(ImageInformation service) {
         this.service = service;
     }
@@ -149,5 +153,7 @@ public class ImageContent implements IContent, IImageResource {
     public IMetadataValue getLabel() {
         return null;
     }
+
+
 
 }

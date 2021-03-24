@@ -52,8 +52,8 @@ public class Range3 extends AbstractPresentationModelElement3 implements IPresen
 
     }
 
-    public Range3(String id) throws URISyntaxException {
-        super(new URI(id));
+    public Range3(String id) {
+        this(URI.create(id));
     }
 
     /**
