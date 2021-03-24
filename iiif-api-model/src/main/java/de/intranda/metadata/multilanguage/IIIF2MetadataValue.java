@@ -11,6 +11,13 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import de.intranda.api.serializer.IIIF2MetadataValueSerializer;
 import de.intranda.metadata.multilanguage.MultiLanguageMetadataValue.ValuePair;
 
+/**
+ * A metadata value that is always serialized according to IIIF2 specifications. 
+ * Only needed in custom serializers
+ * 
+ * @author florian
+ *
+ */
 @JsonSerialize(using=IIIF2MetadataValueSerializer.class)
 public class IIIF2MetadataValue implements IMetadataValue {
 

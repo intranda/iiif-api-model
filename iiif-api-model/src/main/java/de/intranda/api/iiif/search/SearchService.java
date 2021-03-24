@@ -21,7 +21,6 @@ public class SearchService implements Service{
     
     private final URI id;
     private PropertyList<Service> service = new PropertyList<>();
-    private IMetadataValue label = null;
 
 
     public SearchService(URI id) {
@@ -55,14 +54,7 @@ public class SearchService implements Service{
         }
         return service;
     }
-    
-    public IMetadataValue getLabel() {
-        return label;
-    }
-    
-    public void setLabel(IMetadataValue label) {
-        this.label = label;
-    }
+
 
 
 }

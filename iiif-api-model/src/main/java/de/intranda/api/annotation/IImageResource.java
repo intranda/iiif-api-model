@@ -8,5 +8,4 @@ public interface IImageResource extends ITypedResource {
 
 	public Integer getWidth();
 	public Integer getHeight();
-	public List<ImageInformation> getService();
 }

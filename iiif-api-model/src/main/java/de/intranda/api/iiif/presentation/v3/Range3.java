@@ -16,7 +16,6 @@
 package de.intranda.api.iiif.presentation.v3;
 
 import java.net.URI;
-import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,12 +25,7 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
-import de.intranda.api.annotation.IResource;
-import de.intranda.api.annotation.wa.collection.AnnotationCollection;
-import de.intranda.api.iiif.presentation.IPresentationModelElement;
-import de.intranda.api.serializer.ContentLinkSerializer;
 import de.intranda.api.serializer.LinkedResourceSerializer;
-import de.intranda.api.serializer.URLOnlySerializer;
 
 /**
  * @author Florian Alpers
@@ -40,61 +34,62 @@ import de.intranda.api.serializer.URLOnlySerializer;
 @JsonInclude(Include.NON_EMPTY)
 public class Range3 extends AbstractPresentationModelElement3 implements IPresentationModelElement3 {
 
-    private static final String TYPE = "Range";
+	private static final String TYPE = "Range";
 
-    private final List<IPresentationModelElement3> items = new ArrayList<>();
-    private Canvas3 start = null;
-    @JsonIgnore
-    private boolean useMembers = false;
-    
+	private final List<IPresentationModelElement3> items = new ArrayList<>();
+	private Canvas3 start = null;
+	@JsonIgnore
+	private boolean useMembers = false;
 
-    public Range3() {
+	public Range3() {
 
-    }
+	}
 
-    public Range3(String id) {
-        this(URI.create(id));
-    }
+	public Range3(String id) {
+		this(URI.create(id));
+	}
 
-    /**
-     * @param id
-     */
-    public Range3(URI id) {
-        super(id);
-    }
+	/**
+	 * @param id
+	 */
+	public Range3(URI id) {
+		super(id);
+	}
 
-    /* (non-Javadoc)
-     * @see de.intranda.digiverso.presentation.model.iiif.presentation.AbstractPresentationModelElement#getType()
-     */
-    @Override
-    public String getType() {
-        return TYPE;
-    }
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see de.intranda.digiverso.presentation.model.iiif.presentation.
+	 * AbstractPresentationModelElement#getType()
+	 */
+	@Override
+	public String getType() {
+		return TYPE;
+	}
 
-    /**
-     * @return the startCanvas
-     */
-    @JsonProperty("start")
-    @JsonSerialize(using = LinkedResourceSerializer.class)
-    public Canvas3 getStart() {
-        return start;
-    }
+	/**
+	 * @return the startCanvas
+	 */
+	@JsonProperty("start")
+	@JsonSerialize(using = LinkedResourceSerializer.class)
+	public Canvas3 getStart() {
+		return start;
+	}
 
-    /**
-     * @param startCanvas the startCanvas to set
-     */
-    public void setStart(Canvas3 startCanvas) {
-        this.start = startCanvas;
-    }
+	/**
+	 * @param startCanvas the startCanvas to set
+	 */
+	public void setStart(Canvas3 startCanvas) {
+		this.start = startCanvas;
+	}
 
 	@Override
 	public List<IPresentationModelElement3> getItems() {
 		return this.items;
 	}
-	
+
 	public void addItem(IPresentationModelElement3 item) {
 		this.items.add(item);
 	}
-
 
 }

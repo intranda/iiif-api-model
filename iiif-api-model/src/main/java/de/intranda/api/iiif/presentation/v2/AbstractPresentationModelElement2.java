@@ -33,6 +33,7 @@ import de.intranda.api.iiif.presentation.content.ImageContent;
 import de.intranda.api.iiif.presentation.content.LinkingContent;
 import de.intranda.api.iiif.presentation.enums.ViewingHint;
 import de.intranda.api.services.Service;
+import de.intranda.metadata.multilanguage.IIIF2Metadata;
 import de.intranda.metadata.multilanguage.IMetadataValue;
 import de.intranda.metadata.multilanguage.Metadata;
 
@@ -178,18 +179,11 @@ public abstract class AbstractPresentationModelElement2 implements IPresentation
      */
     @Override
     public List<Metadata> getMetadata() {
-        return this.metadata.isEmpty() ? new ArrayList<>() : this.metadata;
+        return this.metadata.isEmpty() ? new ArrayList<>() : Collections.unmodifiableList(this.metadata);
     }
 
     public void addMetadata(Metadata md) {
-        this.metadata.add(md);
-    }
-
-    /**
-     * @param metadata the metadata to set
-     */
-    public void setMetadata(List<Metadata> metadata) {
-        this.metadata = metadata;
+        this.metadata.add(new IIIF2Metadata(md));
     }
 
     /* (non-Javadoc)

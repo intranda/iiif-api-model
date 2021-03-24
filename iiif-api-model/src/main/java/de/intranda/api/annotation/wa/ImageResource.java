@@ -8,6 +8,7 @@ import java.util.Optional;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 import de.intranda.api.annotation.IImageResource;
@@ -34,7 +35,8 @@ public class ImageResource extends TypedResource implements IImageResource{
     }
 
 	@JsonSerialize(contentUsing = ImageInformationSerializer.class)
-    public List<ImageInformation> getService() {
+	@JsonProperty("service")
+    public List<ImageInformation> getServices() {
         return service.map(Arrays::asList).orElse(null);
     }
     
@@ -63,4 +65,5 @@ public class ImageResource extends TypedResource implements IImageResource{
        }
        return ret;
     }
+
 }

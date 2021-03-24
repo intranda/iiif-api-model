@@ -4,7 +4,9 @@ import java.net.URI;
 import java.util.Arrays;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 import de.intranda.api.PropertyList;
 import de.intranda.api.iiif.IIIFUrlResolver;
@@ -12,6 +14,7 @@ import de.intranda.api.iiif.image.ImageInformation;
 import de.intranda.api.iiif.image.v3.ImageInformation3;
 import de.intranda.api.iiif.presentation.content.ImageContent;
 import de.intranda.api.iiif.presentation.enums.Format;
+import de.intranda.api.serializer.ImageInformationSerializer;
 
 public class ImageContent3 extends ImageContent {
 	
@@ -74,9 +77,16 @@ public class ImageContent3 extends ImageContent {
     	return super.getId();
     }
     
-    @Override
-    public List<ImageInformation> getService() {
+    @JsonProperty("service")
+	@JsonSerialize(contentUsing=ImageInformationSerializer.class)
+    public List<ImageInformation> getServices() {
         return Arrays.asList(service);
+    }
+    
+    @Override
+    @JsonIgnore
+    public ImageInformation getService() {
+    	return super.getService();
     }
     
     @Override

@@ -13,13 +13,13 @@ import de.intranda.metadata.multilanguage.IMetadataValue;
 import de.intranda.metadata.multilanguage.MultiLanguageMetadataValue;
 
 /**
- * Serializes values like the {@link MetadataSerializer} but always as a json
+ * Serializes values like the {@link WebAnnotationMetadataValueSerializer} but always as a json
  * object, never as string
  * 
  * @author florian
  *
  */
-public class IIIF3MetadataValueSerializer extends MetadataSerializer {
+public class IIIF3MetadataValueSerializer extends WebAnnotationMetadataValueSerializer {
 
 	public static final String DEFAULT_LANGUAGE_TAG = "none";
 	

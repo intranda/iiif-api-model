@@ -30,10 +30,12 @@ import de.intranda.metadata.multilanguage.MultiLanguageMetadataValue;
 import de.intranda.metadata.multilanguage.MultiLanguageMetadataValue.ValuePair;
 
 /**
+ * Serializes {@link IMetadataValue} objects to a single string if they only have a single value, or a W3C Webannotation translation object otherwise
+ * 
  * @author Florian Alpers
  *
  */
-public class MetadataSerializer extends JsonSerializer<IMetadataValue> {
+public class WebAnnotationMetadataValueSerializer extends JsonSerializer<IMetadataValue> {
 
     /* (non-Javadoc)
      * @see com.fasterxml.jackson.databind.JsonSerializer#serialize(java.lang.Object, com.fasterxml.jackson.core.JsonGenerator, com.fasterxml.jackson.databind.SerializerProvider)

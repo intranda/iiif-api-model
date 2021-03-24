@@ -24,9 +24,11 @@ import org.apache.commons.io.FilenameUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 import de.intranda.api.PropertyList;
@@ -126,9 +128,10 @@ public class ImageContent implements IContent, IImageResource {
     /**
      * @return the service
      */
-    @JsonSerialize(contentUsing = ImageInformationSerializer.class)
-    public List<ImageInformation> getService() {
-        return new PropertyList(Arrays.asList(service));
+    @JsonSerialize(using = ImageInformationSerializer.class)
+    @JsonProperty("service")
+    public ImageInformation getService() {
+    	return service;
     }
 
     /**

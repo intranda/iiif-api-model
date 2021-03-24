@@ -38,14 +38,14 @@ public class ImageContentLinkSerializer extends JsonSerializer<ImageContent>{
     @Override
     public void serialize(ImageContent element, JsonGenerator generator, SerializerProvider provicer) throws IOException, JsonProcessingException {
         
-        if(element.getService() == null || element.getService().isEmpty()) {
+        if(element.getService() == null ) {
 //            generator.writeString(element.getId().toString());
             generator.writeStartObject();
             generator.writeStringField("@id", element.getId().toString());
             generator.writeStringField("@type", element.getType());
             generator.writeEndObject();
-        } else if(element.getService().size() == 1){
-        	ImageInformation service = element.getService().get(0);
+        } else {
+        	ImageInformation service = element.getService();
             generator.writeStartObject();
             generator.writeStringField("@id", element.getId().toString());
             generator.writeStringField("@type", element.getType());
@@ -54,20 +54,6 @@ public class ImageContentLinkSerializer extends JsonSerializer<ImageContent>{
             generator.writeStringField("@id", service.getId().toString());
             generator.writeStringField("profile", ImageInformation.IIIF_COMPLIANCE_LEVEL.getUri());
             generator.writeEndObject();
-            generator.writeEndObject();
-        } else {
-        	generator.writeStartObject();
-            generator.writeStringField("@id", element.getId().toString());
-            generator.writeStringField("@type", element.getType());
-            generator.writeArrayFieldStart("service");
-            for (ImageInformation service : element.getService()) {
-				generator.writeStartObject();
-				generator.writeStringField("@context", ImageInformation.JSON_CONTEXT.toString());
-				generator.writeStringField("@id", service.getId().toString());
-				generator.writeStringField("profile", ImageInformation.IIIF_COMPLIANCE_LEVEL.getUri());
-				generator.writeEndObject();
-			}
-            generator.writeEndArray();
             generator.writeEndObject();
         }
         
