@@ -37,6 +37,7 @@ import de.intranda.api.iiif.presentation.IPresentationModelElement;
 import de.intranda.api.iiif.presentation.content.LinkingContent;
 import de.intranda.api.iiif.presentation.enums.ViewingHint;
 import de.intranda.api.services.Service;
+import de.intranda.metadata.multilanguage.IIIF3Metadata;
 import de.intranda.metadata.multilanguage.IMetadataValue;
 import de.intranda.metadata.multilanguage.Metadata;
 
@@ -55,7 +56,6 @@ public abstract class AbstractPresentationModelElement3 implements IPresentation
     protected IMetadataValue description;
     protected List<Metadata> metadata;
     protected List<ImageResource> thumbnails;
-    protected List<IMetadataValue> attributions;
     protected List<ViewingHint> behavior;
     protected List<LabeledResource> related;
     protected List<LabeledResource> rendering;
@@ -98,7 +98,7 @@ public abstract class AbstractPresentationModelElement3 implements IPresentation
 	}
     
     public void setRequiredStatement(Metadata requiredStatement) {
-		this.requiredStatement = requiredStatement;
+		this.requiredStatement = new IIIF3Metadata(requiredStatement);
 	}
 
 	@Override
@@ -210,14 +210,6 @@ public abstract class AbstractPresentationModelElement3 implements IPresentation
      */
     public void addThumbnail(ImageResource thumbnail) {
         this.thumbnails.add(thumbnail);
-    }
-
-
-    /**
-     * @param attribution the attribution to set
-     */
-    public void addAttribution(IMetadataValue attribution) {
-        this.attributions.add(attribution);
     }
 
     /* (non-Javadoc)

@@ -12,7 +12,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 import de.intranda.api.annotation.IImageResource;
+import de.intranda.api.iiif.IIIFUrlResolver;
 import de.intranda.api.iiif.image.ImageInformation;
+import de.intranda.api.iiif.image.v3.ImageInformation3;
 import de.intranda.api.iiif.presentation.enums.Format;
 import de.intranda.api.serializer.ImageInformationSerializer;
 
@@ -33,19 +35,66 @@ public class ImageResource extends TypedResource implements IImageResource{
     public ImageResource(URI id, String format) {
         this(id, format, Optional.empty());
     }
+    
+    public ImageResource(URI id) {
+        this(id, null, Optional.empty());
+    }
+
+    /**
+     * Constructor for IIIF image resources. Creates a thumbnail url with the given width and height and
+     * a ImageInformation service
+     * 
+     * @param baseId
+     * @param width
+     * @param height
+     */
+    public ImageResource(String baseId, int width, int height) {
+    	this(baseId, Format.IMAGE_JPEG, width, height);
+    }
+
+	
+    /**
+     * Constructor for IIIF image resources. Creates a thumbnail url with the given width and height and
+     * a ImageInformation service
+     * Allows specifying a format other than jpg for delivery
+     * 
+     * @param baseId
+     * @param width
+     * @param height
+     * @param format
+     */
+    public ImageResource(String baseId, Format outputFormat, int width, int height) {
+    	this(URI.create(IIIFUrlResolver.getIIIFImageUrl(baseId, "full", getSizeParameter(width, height), "0", "default", "jpg")), outputFormat, new ImageInformation3(baseId));
+    }
+	
+    private static String getSizeParameter(int width, int height) {
+		if(width == 0 && height == 0) {
+			return "max";
+		} else if(height == 0) {
+			return width + ",";
+		} else if(width == 0) {
+			return "," + height;
+		} else {
+			return "!" + width + "," + height;
+		}
+	}
 
 	@JsonSerialize(contentUsing = ImageInformationSerializer.class)
 	@JsonProperty("service")
     public List<ImageInformation> getServices() {
         return service.map(Arrays::asList).orElse(null);
     }
+	
+	public void setService(ImageInformation service) {
+		this.service = Optional.ofNullable(service);
+	}
     
     public Integer getWidth() {
-        return service.map(info -> info.getWidth()).orElse(null);
+        return service.map(info -> info.getWidth()).filter(w -> w > 0).orElse(null);
     }
     
     public Integer getHeight() {
-        return service.map(info -> info.getHeight()).orElse(null);
+        return service.map(info -> info.getHeight()).filter(h -> h > 0).orElse(null);
     }
     
     @Override

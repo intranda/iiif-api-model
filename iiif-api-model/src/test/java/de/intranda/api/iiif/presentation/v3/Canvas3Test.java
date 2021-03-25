@@ -17,6 +17,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import de.intranda.api.annotation.SimpleResource;
+import de.intranda.api.annotation.wa.ImageResource;
 import de.intranda.api.annotation.wa.TextualResource;
 import de.intranda.api.annotation.wa.WebAnnotation;
 import de.intranda.api.annotation.wa.collection.AnnotationPage;
@@ -68,7 +69,7 @@ public class Canvas3Test {
 		label.setValue(CANVAS_LABEL_EN, Locale.ENGLISH);
 		canvas.setLabel(label);
 		
-        canvas.addMedia(new ImageContent3(IMAGE_ID, 400, 400));
+        canvas.addMedia(new ImageResource(IMAGE_ID, 400, 400));
 
         WebAnnotation fulltext = new WebAnnotation(URI.create(FULLTEXT_ID));
         fulltext.setBody(new TextualResource(FULLTEXT_VALUE));

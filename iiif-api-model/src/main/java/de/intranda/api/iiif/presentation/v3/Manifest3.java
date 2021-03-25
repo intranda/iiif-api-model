@@ -38,7 +38,7 @@ public class Manifest3 extends AbstractPresentationModelElement3 implements IPre
     private Canvas3 start = null;
     private final List<Canvas3> items = new ArrayList<>();
     private final List<Range3> structures = new ArrayList<>();
-    private ViewingDirection viewingDirection = ViewingDirection.LEFT_TO_RIGHT;
+    private ViewingDirection viewingDirection = null;
 
     public Manifest3() {
         super();
