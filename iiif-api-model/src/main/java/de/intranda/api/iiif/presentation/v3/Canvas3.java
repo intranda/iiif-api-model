@@ -41,7 +41,7 @@ import de.intranda.api.annotation.wa.collection.AnnotationPage;
  * @author Florian Alpers
  *
  */
-@JsonPropertyOrder({"@context", "id", "type, label", "width", "height", "duration", "items", "annotations"})
+@JsonPropertyOrder({"@context", "id", "type", "label", "width", "height", "duration", "items", "annotations"})
 public class Canvas3 extends AbstractPresentationModelElement3 implements IPresentationModelElement3 {
 
     private static final String TYPE = "Canvas";
