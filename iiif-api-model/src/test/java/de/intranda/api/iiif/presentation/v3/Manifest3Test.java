@@ -108,16 +108,16 @@ public class Manifest3Test {
 		ImageResource thumbnail = new ImageResource(thumbnailId, Format.IMAGE_JPEG, info);
 		manifest.addThumbnail(thumbnail);
 		
-		manifest.addViewingHint(ViewingHint.paged);
+		manifest.addBehavior(ViewingHint.paged);
 		manifest.setNavDate(NAVDATE);
-		manifest.setLicense(URI.create(LICENCE));
+		manifest.setRights(URI.create(LICENCE));
 		manifest.setRequiredStatement(new IIIF3Metadata(new SimpleMetadataValue(REQUIRED_LABEL), new SimpleMetadataValue(REQUIRED_VALUE)));
 		
 		IIIFAgent provider = new IIIFAgent(URI.create(PROVIDER_ID), new SimpleMetadataValue(PROVIDER_LABEL));
 		provider.addLogo(new ImageResource(URI.create(PROVIDER_LOGO), Format.IMAGE_JPEG.getLabel()));
 		manifest.addProvider(provider);
 		
-		manifest.addRelated(new LabeledResource(URI.create(HOMEPAGE_ID), "Text", Format.TEXT_HTML.getLabel(), new SimpleMetadataValue(HOMEPAGE_LABEL)));
+		manifest.addHomepage(new LabeledResource(URI.create(HOMEPAGE_ID), "Text", Format.TEXT_HTML.getLabel(), new SimpleMetadataValue(HOMEPAGE_LABEL)));
 		
 		SearchService search = new SearchService1(URI.create(SEARCH_SERVICE_ID));
 		AutoCompleteService1 autoComplete = new AutoCompleteService1(URI.create(AUTOCOMPLETE_SERVICE_ID));

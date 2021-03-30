@@ -38,8 +38,8 @@ public class LabeledResourceTest {
 		System.out.println(jsonList);
 		
 		Manifest3 manifest = new Manifest3(URI.create(uri));
-		manifest.addRelated(resource);
-		manifest.addRelated(new LabeledResource(URI.create(HOMEPAGE_ID), "Text", Format.TEXT_HTML.getLabel(), new SimpleMetadataValue(HOMEPAGE_LABEL)));
+		manifest.addHomepage(resource);
+		manifest.addHomepage(new LabeledResource(URI.create(HOMEPAGE_ID), "Text", Format.TEXT_HTML.getLabel(), new SimpleMetadataValue(HOMEPAGE_LABEL)));
 
 		String jsonManifest = mapper.writeValueAsString(manifest);
 		System.out.println(jsonManifest);

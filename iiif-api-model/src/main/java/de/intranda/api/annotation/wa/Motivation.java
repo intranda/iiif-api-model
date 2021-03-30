@@ -37,6 +37,8 @@ public class Motivation {
     public static final String QUESTIONING = "questioning";
     public static final String REPLYING = "replying";
     public static final String TAGGING = "tagging";
+    public static final String SUPPLEMENTING = "supplementing";
+
 
     private Motivation() {}
 }

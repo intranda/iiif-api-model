@@ -146,6 +146,11 @@ public class AnnotationPage implements IAnnotationCollection{
         this.items = items;
     }
 
+
+	public void addItem(IAnnotation annotation) {
+		this.items.add(annotation);
+	}
+    
     /**
      * @return the context
      */
@@ -178,6 +183,7 @@ public class AnnotationPage implements IAnnotationCollection{
     public Integer getStartIndex() {
         return startIndex;
     }
+
     
     
 }

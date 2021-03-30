@@ -2,6 +2,7 @@ package de.intranda.api.iiif.presentation.v3;
 
 import java.net.URI;
 
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 import de.intranda.api.annotation.ILabeledResource;
@@ -9,6 +10,7 @@ import de.intranda.api.annotation.wa.TypedResource;
 import de.intranda.api.serializer.IIIF3MetadataValueSerializer;
 import de.intranda.metadata.multilanguage.IMetadataValue;
 
+@JsonPropertyOrder({"id", "type", "format", "profile", "label"})
 public class LabeledResource extends TypedResource implements ILabeledResource {
 
 	private final IMetadataValue label;

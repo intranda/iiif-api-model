@@ -22,6 +22,7 @@ import java.util.List;
 import javax.ws.rs.core.UriBuilder;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 import de.intranda.api.annotation.IResource;
 import de.intranda.api.annotation.ITypedResource;
@@ -40,6 +41,7 @@ import de.intranda.api.annotation.wa.collection.AnnotationPage;
  * @author Florian Alpers
  *
  */
+@JsonPropertyOrder({"@context", "id", "type, label", "width", "height", "duration", "items", "annotations"})
 public class Canvas3 extends AbstractPresentationModelElement3 implements IPresentationModelElement3 {
 
     private static final String TYPE = "Canvas";
@@ -48,7 +50,7 @@ public class Canvas3 extends AbstractPresentationModelElement3 implements IPrese
     private Integer width;
     private Integer height;
     private Float duration;
-	private final List<IResource> items = new ArrayList<IResource>();
+	private final List<AnnotationPage> items = new ArrayList<AnnotationPage>();
 
     public Canvas3() {
     	this("");
@@ -63,8 +65,7 @@ public class Canvas3 extends AbstractPresentationModelElement3 implements IPrese
      */
     public Canvas3(URI id) {
         super(id);
-        AnnotationPage images = new AnnotationPage(UriBuilder.fromUri(id).path(IMAGE_LIST_PATH).build(), false);
-        this.items.add(images);
+
     }
 
     /* (non-Javadoc)
@@ -111,43 +112,33 @@ public class Canvas3 extends AbstractPresentationModelElement3 implements IPrese
 		this.duration = duration;
 	}
 
-    public void addMedia(WebAnnotation media) {
-        this.getMedia().getItems().add(media);
-    }
-    
     /**
      * Add a resource body to the list of media items. The reosurce will be wrapped in an Annotation targeting the canvas itself
-     * @param media
+     * @param media	The annotation body containing the media reference
+     * @param itemUrl URI pointing to the AnnotationPage containing the media reference. If the AnnotationPage already exists within the 
+     * cavnvas the media annotation will be added to it. Otherwise a new AnnotationPage will be created
      */
-    public void addMedia(ITypedResource media) {
-    	URI annotationId = UriBuilder.fromUri(getId())
-    			.path(IMAGE_LIST_PATH)
-    			.path(Integer.toString(getMedia().getItems().size() + 1))
+    public void addMedia(URI itemUrl, ITypedResource media) {
+    	AnnotationPage page = this.items.stream().filter(p -> p.getId().equals(itemUrl)).findAny().orElseGet(() -> {
+    		AnnotationPage images = new AnnotationPage(itemUrl, false);
+    		this.items.add(images);
+    		return images;
+    	});
+    	URI annotationId = UriBuilder.fromUri(page.getId())
+    			.path(Integer.toString(page.getItems().size() + 1) + "/")
     			.build();
     	WebAnnotation annotation = new WebAnnotation(annotationId);
     	annotation.setBody(media);
     	annotation.setTarget(new SimpleResource(this.getId()));
     	annotation.setMotivation(Motivation.PAINTING);
-    	this.getMedia().getItems().add(annotation);
+    	page.getItems().add(annotation);
     }
 
-
-    public void addItem(IResource item) {
-    	if(item instanceof WebAnnotation) {    		
-    		this.addMedia((WebAnnotation) item);
-    	} else {
-    		throw new IllegalArgumentException("May only append 'rendering' annotations to canvas item");
-    	}
-    }
     
     @Override
-    public List<IResource> getItems() {
+    public List<AnnotationPage> getItems() {
 		return items;
 	}
-    
-    @JsonIgnore
-    public AnnotationPage getMedia() {
-    	return (AnnotationPage) this.getItems().get(0);
-    }
+
     
 }

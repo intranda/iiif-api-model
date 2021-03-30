@@ -35,6 +35,7 @@ public class Canvas3Test {
 	private static final int CANVAS_WIDTH = 1500;
 	private static final int CANVAS_HEIGHT = 2500;
 	
+	private static final String MEDIA_ANNOTATION_PAGE_ID = "htts://viewer.goobi.io/api/v1/records/1234/pages/media";
 	private static final String IMAGE_ID = "htts://viewer.goobi.io/api/v1/records/1234/files/images/00000001.tif";
 	private static final String THUMBNAIL_ID = IMAGE_ID + "/full/!400,400/0/default.jpg";
 
@@ -69,7 +70,7 @@ public class Canvas3Test {
 		label.setValue(CANVAS_LABEL_EN, Locale.ENGLISH);
 		canvas.setLabel(label);
 		
-        canvas.addMedia(new ImageResource(IMAGE_ID, 400, 400));
+        canvas.addMedia(URI.create(MEDIA_ANNOTATION_PAGE_ID), new ImageResource(IMAGE_ID, 400, 400));
 
         WebAnnotation fulltext = new WebAnnotation(URI.create(FULLTEXT_ID));
         fulltext.setBody(new TextualResource(FULLTEXT_VALUE));

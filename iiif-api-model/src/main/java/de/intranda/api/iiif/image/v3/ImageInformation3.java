@@ -88,16 +88,17 @@ public class ImageInformation3 extends ImageInformation {
     public ImageInformation3() {
         this("");
     }
-    
-    public ImageInformation3(ImageInformation3 source) {
-		super(source);
-		this.maxWidth = source.maxWidth;
-		this.maxHeight = source.maxHeight;
-		this.maxArea = source.maxArea;
-	}
+
 
     public ImageInformation3(ImageInformation source) {
 		super(source);
+		if(source instanceof ImageInformation3) {
+			this.maxWidth = ((ImageInformation3)source).maxWidth;
+			this.maxHeight = ((ImageInformation3)source).maxHeight;
+			this.maxArea = ((ImageInformation3)source).maxArea;
+			this.label = ((ImageInformation3)source).label;
+			this.preferredFormats = ((ImageInformation3)source).preferredFormats;
+		}
 	}
 
 	@Override

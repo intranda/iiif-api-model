@@ -21,10 +21,12 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.apache.commons.lang3.StringUtils;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import de.intranda.api.PropertyList;
 import de.intranda.api.annotation.IImageResource;
@@ -57,9 +59,9 @@ public abstract class AbstractPresentationModelElement3 implements IPresentation
     protected List<Metadata> metadata;
     protected List<ImageResource> thumbnails;
     protected List<ViewingHint> behavior;
-    protected List<LabeledResource> related;
+    protected List<LabeledResource> homepages;
     protected List<LabeledResource> rendering;
-    protected URI license;
+    protected URI rights;
     protected List<Service> services;
     protected List<LabeledResource> seeAlso;
     protected List<IResource> within;
@@ -82,9 +84,9 @@ public abstract class AbstractPresentationModelElement3 implements IPresentation
         metadata = new ArrayList<>();
         thumbnails = new ArrayList<>();
         behavior = new ArrayList<>();
-        related = new ArrayList<>();
+        homepages = new ArrayList<>();
         rendering = new ArrayList<>();
-        license = null;
+        rights = null;
         services = new ArrayList<Service>();
         seeAlso = new ArrayList<>();
         within = new ArrayList<>();
@@ -124,7 +126,9 @@ public abstract class AbstractPresentationModelElement3 implements IPresentation
     }    
 
     public void addAnnotations(AnnotationPage content) {
-        this.annotations.add(content);
+    	if(content != null) {    		
+    		this.annotations.add(content);
+    	}
     }
     
     /**
@@ -187,14 +191,14 @@ public abstract class AbstractPresentationModelElement3 implements IPresentation
     }
 
     public void addMetadata(Metadata md) {
-        this.metadata.add(md);
+        this.metadata.add(new IIIF3Metadata(md));
     }
 
     /**
      * @param metadata the metadata to set
      */
     public void setMetadata(List<Metadata> metadata) {
-        this.metadata = metadata;
+        this.metadata = metadata.stream().map(IIIF3Metadata::new).collect(Collectors.toList());
     }
 
     /* (non-Javadoc)
@@ -219,15 +223,24 @@ public abstract class AbstractPresentationModelElement3 implements IPresentation
     public List<URI> getLicenses() {
     	//the interface espects a list, but this may only be a single value. So package it in a PropertyList 
     	//of size 1 which is always rendered as single value
-        return this.license == null ? null : new PropertyList<>(Arrays.asList(this.license));
+        return this.rights == null ? null : new PropertyList<>(Arrays.asList(this.rights));
     }
 
     /**
      * @param license the license to set
      */
-    public void setLicense(URI license) {
-        this.license = license;
+    public void setRights(URI rightsStatement) {
+        this.rights = rightsStatement;
     }
+    
+    /**
+     * internal interface. For serialization {@link #getLicenses()} is used
+     * @return
+     */
+    @JsonIgnore
+    public URI getRights() {
+		return rights;
+	}
 
     /* (non-Javadoc)
      * @see de.intranda.digiverso.presentation.model.iiif.presentation.IPresentationModelElement#getViewingHint()
@@ -240,24 +253,42 @@ public abstract class AbstractPresentationModelElement3 implements IPresentation
     /**
      * @param viewingHint the viewingHint to set
      */
-    public void addViewingHint(ViewingHint viewingHint) {
-        this.behavior.add(viewingHint);
+    public void addBehavior(ViewingHint behavior) {
+        this.behavior.add(behavior);
     }
+    
+    /**
+     * internal interface. For serialization {@link #getViewingHints()} is used
+     * @return
+     */
+    @JsonIgnore
+    public List<ViewingHint> getBehaviors() {
+		return behavior;
+	}
 
     /* (non-Javadoc)
      * @see de.intranda.digiverso.presentation.model.iiif.presentation.IPresentationModelElement#getRelated()
      */
     @Override
     public List<LabeledResource> getRelated() {
-        return related;
+        return homepages;
     }
 
     /**
      * @param related the related to set
      */
-    public void addRelated(LabeledResource related) {
-        this.related.add(related);
+    public void addHomepage(LabeledResource related) {
+        this.homepages.add(related);
     }
+    
+    /**
+     * internal interface. For serialization {@link #getRelated()} is used
+     * @return
+     */
+    @JsonIgnore
+    public List<LabeledResource> getHomepages() {
+		return homepages;
+	}
 
     /* (non-Javadoc)
      * @see de.intranda.digiverso.presentation.model.iiif.presentation.IPresentationModelElement#getRendering()
