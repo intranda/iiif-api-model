@@ -72,6 +72,10 @@ public class Manifest3 extends AbstractPresentationModelElement3 implements IPre
     public List<Range3> getStructures() {
 		return structures;
 	}
+    
+    public void addRange(Range3 range) {
+    	this.structures.add(range);
+    }
 
     public void setViewingDirection(ViewingDirection viewingDirection) {
 		this.viewingDirection = viewingDirection;
