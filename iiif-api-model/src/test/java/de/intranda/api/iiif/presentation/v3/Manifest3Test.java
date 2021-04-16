@@ -22,6 +22,7 @@ import de.intranda.api.annotation.wa.ImageResource;
 import de.intranda.api.iiif.image.ImageInformation;
 import de.intranda.api.iiif.image.v3.ImageInformation3;
 import de.intranda.api.iiif.presentation.enums.Format;
+import de.intranda.api.iiif.presentation.enums.ViewingDirection;
 import de.intranda.api.iiif.presentation.enums.ViewingHint;
 import de.intranda.api.iiif.search.SearchService;
 import de.intranda.metadata.multilanguage.IIIF3Metadata;
@@ -118,6 +119,8 @@ public class Manifest3Test {
 		manifest.addProvider(provider);
 		
 		manifest.addHomepage(new LabeledResource(URI.create(HOMEPAGE_ID), "Text", Format.TEXT_HTML.getLabel(), new SimpleMetadataValue(HOMEPAGE_LABEL)));
+		
+		manifest.setViewingDirection(ViewingDirection.LEFT_TO_RIGHT);
 		
 		SearchService search = new SearchService1(URI.create(SEARCH_SERVICE_ID));
 		AutoCompleteService1 autoComplete = new AutoCompleteService1(URI.create(AUTOCOMPLETE_SERVICE_ID));
