@@ -16,6 +16,7 @@
 package de.intranda.api.iiif.presentation.v3;
 
 import java.net.URI;
+import java.net.URISyntaxException;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -231,6 +232,14 @@ public abstract class AbstractPresentationModelElement3 implements IPresentation
      */
     public void setRights(URI rightsStatement) {
         this.rights = rightsStatement;
+    }
+    
+    public void setRights(String rightsStatement) throws IllegalArgumentException{
+    	try {
+            this.setRights(new URI(rightsStatement));
+        } catch (URISyntaxException e) {
+            throw new IllegalArgumentException(rightsStatement + " is not valid URI and can therefore not be set as 'rights' statement");
+        }
     }
     
     /**
