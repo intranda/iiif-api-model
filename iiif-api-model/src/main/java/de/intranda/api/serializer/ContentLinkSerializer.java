@@ -26,11 +26,14 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonSerializer;
 import com.fasterxml.jackson.databind.SerializerProvider;
 
+import de.intranda.api.annotation.IImageResource;
 import de.intranda.api.iiif.presentation.IPresentationModelElement;
-import de.intranda.api.iiif.presentation.Range;
 import de.intranda.api.iiif.presentation.content.ImageContent;
 import de.intranda.api.iiif.presentation.content.LinkingContent;
 import de.intranda.api.iiif.presentation.enums.ViewingHint;
+import de.intranda.api.iiif.presentation.v2.IPresentationModelElement2;
+import de.intranda.api.iiif.presentation.v2.Range2;
+import de.intranda.api.iiif.presentation.v3.Range3;
 import de.intranda.api.services.Service;
 import de.intranda.metadata.multilanguage.IIIF2MetadataValue;
 
@@ -38,7 +41,7 @@ import de.intranda.metadata.multilanguage.IIIF2MetadataValue;
  * @author Florian Alpers
  *
  */
-public class ContentLinkSerializer extends JsonSerializer<List<IPresentationModelElement>> {
+public class ContentLinkSerializer extends JsonSerializer<List<IPresentationModelElement2>> {
 
     private static final Logger logger = LoggerFactory.getLogger(ContentLinkSerializer.class);
 
@@ -46,11 +49,11 @@ public class ContentLinkSerializer extends JsonSerializer<List<IPresentationMode
      * @see com.fasterxml.jackson.databind.JsonSerializer#serialize(java.lang.Object, com.fasterxml.jackson.core.JsonGenerator, com.fasterxml.jackson.databind.SerializerProvider)
      */
     @Override
-    public void serialize(List<IPresentationModelElement> elements, JsonGenerator generator, SerializerProvider provider)
+    public void serialize(List<IPresentationModelElement2> elements, JsonGenerator generator, SerializerProvider provider)
             throws IOException, JsonProcessingException {
         if (elements != null && !elements.isEmpty()) {
             generator.writeStartArray();
-            for (IPresentationModelElement element : elements) {
+            for (IPresentationModelElement2 element : elements) {
                 try {
                     writeElement(element, generator, provider);
                 } catch (IOException e) {
@@ -67,7 +70,7 @@ public class ContentLinkSerializer extends JsonSerializer<List<IPresentationMode
      * @param generator
      * @throws IOException
      */
-    public void writeElement(IPresentationModelElement element, JsonGenerator generator, SerializerProvider provider) throws IOException {
+    public void writeElement(IPresentationModelElement2 element, JsonGenerator generator, SerializerProvider provider) throws IOException {
         generator.writeStartObject();
         generator.writeStringField("@id", element.getId().toString());
         generator.writeStringField("@type", element.getType());
@@ -137,12 +140,11 @@ public class ContentLinkSerializer extends JsonSerializer<List<IPresentationMode
             generator.writeEndArray();
         }
 
-        if (element instanceof Range) {
-            if (((Range) element).getStartCanvas() != null) {
-                generator.writeObjectField("startCanvas", ((Range) element).getStartCanvas().getId());
+        if (element instanceof Range2) {
+            if (((Range2) element).getStartCanvas() != null) {
+                generator.writeObjectField("startCanvas", ((Range2) element).getStartCanvas().getId());
             }
         }
-
         generator.writeEndObject();
     }
 

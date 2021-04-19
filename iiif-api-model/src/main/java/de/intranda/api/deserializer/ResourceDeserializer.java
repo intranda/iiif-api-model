@@ -13,20 +13,17 @@ import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.DeserializationContext;
 import com.fasterxml.jackson.databind.DeserializationFeature;
-import com.fasterxml.jackson.databind.JsonDeserializer;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.deser.std.StdDeserializer;
 
-import de.intranda.api.annotation.IResource;
-import de.intranda.api.annotation.ISelector;
-import de.intranda.api.annotation.SimpleResource;
 import de.intranda.api.annotation.GeoLocation.Geometry;
 import de.intranda.api.annotation.GeoLocation.Properties;
 import de.intranda.api.annotation.GeoLocation.ViewPoint;
+import de.intranda.api.annotation.IResource;
+import de.intranda.api.annotation.ISelector;
+import de.intranda.api.annotation.SimpleResource;
 import de.intranda.api.annotation.wa.Dataset;
-import de.intranda.api.annotation.wa.collection.AnnotationCollection;
-import de.intranda.api.iiif.presentation.Manifest;
 
 public class ResourceDeserializer extends StdDeserializer<IResource> {
 

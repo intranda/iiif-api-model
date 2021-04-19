@@ -67,8 +67,8 @@ public class CollectionExtent implements Service {
      * @see de.intranda.digiverso.presentation.servlets.rest.services.Service#getContext()
      */
     @Override
-    public URI getContext() throws URISyntaxException {
-        return new URI(baseURI + CONTEXTPATH);
+    public URI getContext() {
+        return URI.create(baseURI + CONTEXTPATH);
     }
     
     /**

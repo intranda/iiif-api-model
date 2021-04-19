@@ -18,7 +18,8 @@ public class AutoSuggestService implements Service {
 
     private static final String CONTEXT = "http://iiif.io/api/search/1/context.json";
     private static final String PROFILE = "http://iiif.io/api/search/1/autocomplete";
-    
+    private static final String TYPE = "AutoCompleteService1";
+
     private final URI id;
     private IMetadataValue label = null;
 
@@ -29,7 +30,7 @@ public class AutoSuggestService implements Service {
     
     @Override
     @JsonIgnore
-    public URI getContext() throws URISyntaxException {
+    public URI getContext() {
         return URI.create(CONTEXT);
     }
     
@@ -40,6 +41,11 @@ public class AutoSuggestService implements Service {
     @JsonProperty("@id")
     public URI getId() {
         return id;
+    }
+    
+    @JsonProperty("@type")
+    public String getType() {
+        return TYPE;
     }
     
     public IMetadataValue getLabel() {

@@ -26,10 +26,12 @@
 package de.intranda.api.iiif.image;
 
 import java.awt.Dimension;
+import java.net.URI;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -38,7 +40,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
+import de.intranda.api.PropertyList;
 import de.intranda.api.deserializer.ProfileDeserializer;
+import de.intranda.api.services.Service;
 
 /**
  * Implementation of the iiif ImageInformation object specified in http://iiif.io/api/image/2.0/#image-information
@@ -49,33 +53,55 @@ import de.intranda.api.deserializer.ProfileDeserializer;
 @JsonPropertyOrder({ "@context", "@id", "protocol", "width", "height", "attribution", "license", "logo", "sizes", "tiles", "profile", "service" })
 @JsonInclude(Include.NON_ABSENT)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class ImageInformation extends Service {
+public class ImageInformation implements Service {
 
-    public static final String JSON_CONTEXT = "http://iiif.io/api/image/2/context.json";
+    public static final URI JSON_CONTEXT = URI.create("http://iiif.io/api/image/2/context.json");
     public static final String JSON_PROTOCOL = "http://iiif.io/api/image";
     public static final ComplianceLevel IIIF_COMPLIANCE_LEVEL = ComplianceLevel.level2;
 
-    final private String id;
+    final private URI id;
     private int width;
     private int height;
     private List<IiifProfile> profiles = new ArrayList<>();
     private List<ImageSize> sizes = new ArrayList<>();
     private List<ImageTile> tiles = new ArrayList<>();
-    private Service service;
+    private List<Service> service = new PropertyList<>();
     private String attribution;
     private String license;
     private String logo;
 
     public ImageInformation(String id) {
+    	this(URI.create(id));
+    }
+    
+    public ImageInformation(URI id) {
         this.id = id;
         addProfile(new ComplianceLevelProfile(IIIF_COMPLIANCE_LEVEL));
     }
 
     public ImageInformation() {
-        this("");
+        this(URI.create(""));
     }
 
-    @JsonProperty("width")
+    /**
+     * Copy constructor
+     * @param source	the ImageInformation object to clone
+     */
+    public ImageInformation(ImageInformation source) {
+		this(source.id);
+		this.width = source.width;
+		this.height = source.height;
+		this.profiles = new ArrayList<>(source.profiles);
+		this.sizes = source.sizes.stream().map(ImageSize::new).collect(Collectors.toList());
+		this.tiles = source.tiles.stream().map(ImageTile::new).collect(Collectors.toList());
+		this.service = new PropertyList<>(source.service);
+		this.attribution = source.attribution;
+		this.license = source.license;
+		this.logo = source.logo;
+
+	}
+
+	@JsonProperty("width")
     public int getWidth() {
         return width;
     }
@@ -146,21 +172,36 @@ public class ImageInformation extends Service {
     }
 
     @JsonProperty("service")
-    public Service getService() {
+    public List<Service> getService() {
         return service;
     }
 
+    /**
+     * Add a service to the list of supported services
+     * @param service
+     */
+    public void addService(Service service) {
+        this.service.add(service);
+    }
+    
+    /**
+     * 
+     * @param service
+     * @deprecated functionally equivalent to {@link #addService(Service)}. 
+     * Use that method instead for semantic clarity
+     */
+    @Deprecated
     public void setService(Service service) {
-        this.service = service;
+        this.addService(service);
     }
 
     @JsonProperty("@context")
-    public String getContext() {
+    public URI getContext() {
         return JSON_CONTEXT;
     }
 
     @JsonProperty("@id")
-    public String getId() {
+    public URI getId() {
         return id;
     }
 

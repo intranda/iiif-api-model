@@ -25,11 +25,16 @@
  */
 package de.intranda.api.iiif.image;
 
+
+import java.net.URI;
+
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonValue;
+
+import de.intranda.api.services.Service;
 
 /**
  * Implementation of the  iiif ImageInformation#services#pyhsdim object
@@ -40,9 +45,9 @@ import com.fasterxml.jackson.annotation.JsonValue;
  */
 @JsonPropertyOrder({ "@context", "profile", "physicalScale", "physicalUnits" })
 @JsonInclude(Include.NON_NULL)
-public class PhysicalDimension extends Service {
+public class PhysicalDimension implements Service {
 
-    private static final String CONTEXT = "http://iiif.io/api/annex/services/physdim/1/context.json";
+    private static final URI CONTEXT = URI.create("http://iiif.io/api/annex/services/physdim/1/context.json");
     private static final String PROFILE = "http://iiif.io/api/annex/services/physdim";
 
     private static final float MILLIMETER_PER_INCH = 25.4f;
@@ -62,7 +67,7 @@ public class PhysicalDimension extends Service {
     }
 
     @JsonProperty("@context")
-    public String getContext() {
+    public URI getContext() {
         return CONTEXT;
     }
 

@@ -13,7 +13,7 @@
  *
  * You should have received a copy of the GNU General Public License along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
-package de.intranda.api.iiif.presentation;
+package de.intranda.api.iiif.presentation.v2;
 
 import java.net.URI;
 import java.util.ArrayList;
@@ -27,6 +27,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
+import de.intranda.api.iiif.presentation.IPresentationModelElement;
 import de.intranda.api.serializer.ContentLinkSerializer;
 
 /**
@@ -34,18 +35,18 @@ import de.intranda.api.serializer.ContentLinkSerializer;
  *
  */
 @JsonInclude(Include.NON_EMPTY)
-public class Collection extends AbstractPresentationModelElement implements IPresentationModelElement {
+public class Collection2 extends AbstractPresentationModelElement2 implements IPresentationModelElement2 {
 
     public static final String TYPE = "sc:Collection";
     
     @JsonIgnore
-    public final List<Collection> collections = new ArrayList<>();
+    public final List<Collection2> collections = new ArrayList<>();
     @JsonIgnore
-    public final List<Manifest> manifests = new ArrayList<>();
+    public final List<Manifest2> manifests = new ArrayList<>();
     private Date navDate = null;
     private final String internalName;
 
-    public Collection() {
+    public Collection2() {
         super(null);
         this.internalName = "";
     }
@@ -53,7 +54,7 @@ public class Collection extends AbstractPresentationModelElement implements IPre
     /**
      * @param id
      */
-    public Collection(URI id, String name) {
+    public Collection2(URI id, String name) {
         super(id);
         this.internalName = name;
     }
@@ -64,11 +65,11 @@ public class Collection extends AbstractPresentationModelElement implements IPre
 //    @JsonSerialize(using = URLOnlySerializer.class)
     @JsonSerialize(using = ContentLinkSerializer.class)
     @JsonIgnore
-    public List<Collection> getCollections() {
+    public List<Collection2> getCollections() {
         return collections.isEmpty() ? null : collections;
     }
     
-    public void addCollection(Collection collection) {
+    public void addCollection(Collection2 collection) {
         this.collections.add(collection);
     }
     
@@ -78,11 +79,11 @@ public class Collection extends AbstractPresentationModelElement implements IPre
 //    @JsonSerialize(using = URLOnlySerializer.class)
     @JsonSerialize(using = ContentLinkSerializer.class)
     @JsonIgnore
-    public List<Manifest> getManifests() {
+    public List<Manifest2> getManifests() {
         return manifests.isEmpty() ? null : manifests;
     }
     
-    public void addManifest(Manifest manifest) {
+    public void addManifest(Manifest2 manifest) {
         this.manifests.add(manifest);
     }
     
@@ -125,12 +126,12 @@ public class Collection extends AbstractPresentationModelElement implements IPre
         return internalName;
     }
 
-    public Optional<Collection> getCollectionByInternalName(String name) {
+    public Optional<Collection2> getCollectionByInternalName(String name) {
         if(name.equals(this.getInternalName())) {
             return Optional.of(this);
         } else {
-            for (Collection collection : collections) {
-                Optional<Collection> match = collection.getCollectionByInternalName(name);
+            for (Collection2 collection : collections) {
+                Optional<Collection2> match = collection.getCollectionByInternalName(name);
                 if(match.isPresent()) {
                     return match;
                 }

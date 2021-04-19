@@ -33,7 +33,7 @@ public class LinkingContent implements IContent {
 
     private final URI id;
     private IMetadataValue label;
-    private DcType type = null;
+    private String type = null;
     private Format format = Format.TEXT_HTML;
 
     public LinkingContent() {
@@ -56,14 +56,14 @@ public class LinkingContent implements IContent {
      * @see de.intranda.digiverso.presentation.model.iiif.presentation.content.IContent#getType()
      */
     @Override
-    public DcType getType() {
+    public String getType() {
         return type;
     }
 
     /**
      * @param type the type to set
      */
-    public void setType(DcType type) {
+    public void setType(String type) {
         this.type = type;
     }
 
@@ -87,8 +87,8 @@ public class LinkingContent implements IContent {
      * @see de.intranda.digiverso.presentation.model.iiif.presentation.content.IContent#getFormat()
      */
     @Override
-    public Format getFormat() {
-        return format;
+    public String getFormat() {
+        return format.getLabel();
     }
 
     /**

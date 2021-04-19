@@ -15,28 +15,30 @@ import de.intranda.api.deserializer.ResourceDeserializer;
 
 @JsonInclude(Include.NON_NULL)
 @JsonDeserialize(using=ResourceDeserializer.class)
-public class TypedResource implements ITypedResource, IResource {
+public class TypedResource implements ITypedResource {
 
     private final String type;
     private final String format;
     private final URI id;
-    
-    public TypedResource() {
-        this.id = null;
-        this.type = null;
-        this.format = null;
-    }
-    
-    public TypedResource(URI id, String type, String format) {
+    private final String profile;
+
+    public TypedResource(URI id, String type, String format, String profile) {
         this.id = id;
         this.type = type;
         this.format = format;
+        this.profile = profile;
+    }
+    
+    public TypedResource(URI id, String type, String format) {
+        this(id, type, format, null);
     }
 
     public TypedResource(URI id, String type) {
-        this.id = id;
-        this.type = type;
-        this.format = null;
+    	this(id, type, null, null);
+    }
+    
+    public TypedResource() {
+        this(null, null, null, null);
     }
 
     /**
@@ -56,6 +58,10 @@ public class TypedResource implements ITypedResource, IResource {
     @Override
     public URI getId() {
         return id;
+    }
+    
+    public String getProfile() {
+    	return profile;
     }
     
     @Override

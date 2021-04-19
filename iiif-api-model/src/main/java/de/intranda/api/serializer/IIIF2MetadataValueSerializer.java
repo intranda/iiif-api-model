@@ -17,8 +17,8 @@ package de.intranda.api.serializer;
 
 import java.io.IOException;
 
-import org.apache.commons.lang3.StringUtils;
-import org.apache.commons.text.StringEscapeUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -30,42 +30,43 @@ import de.intranda.metadata.multilanguage.MultiLanguageMetadataValue;
 import de.intranda.metadata.multilanguage.MultiLanguageMetadataValue.ValuePair;
 
 /**
+ * Serialize Metadata conforming to the standard used in IIIF Presentation 2.0
+ * 
  * @author Florian Alpers
  *
  */
-public class MetadataSerializer extends JsonSerializer<IMetadataValue> {
+public class IIIF2MetadataValueSerializer extends JsonSerializer<IMetadataValue> {
 
-    /* (non-Javadoc)
-     * @see com.fasterxml.jackson.databind.JsonSerializer#serialize(java.lang.Object, com.fasterxml.jackson.core.JsonGenerator, com.fasterxml.jackson.databind.SerializerProvider)
-     */
+    private static final Logger logger = LoggerFactory.getLogger(IIIF2MetadataValueSerializer.class);
+
     @Override
-    public void serialize(IMetadataValue element, JsonGenerator generator, SerializerProvider provicer) throws IOException, JsonProcessingException {
+    public void serialize(IMetadataValue element, JsonGenerator generator, SerializerProvider provider) throws IOException, JsonProcessingException {
 
-        if (element instanceof MultiLanguageMetadataValue && !allTranslationsEqual((MultiLanguageMetadataValue) element)) {
-            generator.writeStartObject();
+        if (!allTranslationsEqual( element)) {
+            generator.writeStartArray();
             for (String language : element.getLanguages()) {
-                if (element.getLanguages().size() > 1 && language.equals(MultiLanguageMetadataValue.DEFAULT_LANGUAGE)) {
-                    continue;
-                }
-                element.getValue(language).filter(StringUtils::isNotBlank).ifPresent(value -> {
-                    try {                        
-                        generator.writeArrayFieldStart(language);
-                        generator.writeString(StringEscapeUtils.unescapeHtml4(value));
-                        generator.writeEndArray();
-                    } catch(IOException e) {
+                element.getValue(language).ifPresent(value -> {                    
+                    try {
+                        generator.writeStartObject();
+                        generator.writeFieldName("@language");
+                        generator.writeString(language);
+                        generator.writeFieldName("@value");
+                        generator.writeString(value);
+                        generator.writeEndObject();
+                    } catch (IOException e) {
+                        logger.error("Error writing metadata " + element, e);
                     }
-                    
                 });
-
             }
-            generator.writeEndObject();
+            generator.writeEndArray();
+            
         } else {
             generator.writeString(element.getValue().orElse(""));
         }
 
     }
 
-    protected boolean allTranslationsEqual(MultiLanguageMetadataValue element) {
+    protected boolean allTranslationsEqual(IMetadataValue element) {
         return element.getValues().stream().map(ValuePair::getValue).distinct().count() == 1;
     }
 

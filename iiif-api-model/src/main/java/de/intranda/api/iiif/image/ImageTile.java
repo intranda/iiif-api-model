@@ -61,6 +61,10 @@ public class ImageTile {
         this.scaleFactors = scaleFactors;
     }
     
+    public ImageTile(ImageTile orig) {
+    	this(orig.width, orig.height, new ArrayList<>(orig.scaleFactors));
+    }
+    
     public ImageTile() {
         super();
         this.width = 0;
