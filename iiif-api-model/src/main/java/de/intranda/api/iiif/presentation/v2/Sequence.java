@@ -33,6 +33,7 @@ public class Sequence extends AbstractPresentationModelElement2 {
     private static final String TYPE = "sc:Sequence";
 
     private final List<Canvas2> canvases = new ArrayList<>();
+    private Canvas2 startCanvas = null;
 
     public Sequence() {
         addViewingHint(ViewingHint.paged);
@@ -70,5 +71,13 @@ public class Sequence extends AbstractPresentationModelElement2 {
     public ViewingDirection getViewingDirection() {
         return ViewingDirection.LEFT_TO_RIGHT;
     }
+    
+    public void setStartCanvas(Canvas2 startCanvas) {
+		this.startCanvas = startCanvas;
+	}
+    
+    public Canvas2 getStartCanvas() {
+		return startCanvas;
+	}
 
 }

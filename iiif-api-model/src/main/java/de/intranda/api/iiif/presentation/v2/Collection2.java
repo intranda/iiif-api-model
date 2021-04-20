@@ -77,7 +77,7 @@ public class Collection2 extends AbstractPresentationModelElement2 implements IP
      * @return the manifests
      */
 //    @JsonSerialize(using = URLOnlySerializer.class)
-    @JsonSerialize(using = ContentLinkSerializer.class)
+//    @JsonSerialize(using = ContentLinkSerializer.class)
     @JsonIgnore
     public List<Manifest2> getManifests() {
         return manifests.isEmpty() ? null : manifests;
@@ -88,7 +88,7 @@ public class Collection2 extends AbstractPresentationModelElement2 implements IP
     }
     
 //    @JsonSerialize(using = URLOnlySerializer.class)
-    @JsonSerialize(using = ContentLinkSerializer.class)
+//    @JsonSerialize(using = ContentLinkSerializer.class)
 //    @JsonIgnore
     public List<IPresentationModelElement> getMembers() {
         List<IPresentationModelElement> list = new ArrayList<>();
