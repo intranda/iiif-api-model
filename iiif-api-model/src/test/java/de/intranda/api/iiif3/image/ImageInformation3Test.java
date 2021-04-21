@@ -7,6 +7,7 @@ import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
 import java.awt.Dimension;
+import java.net.URI;
 import java.util.Arrays;
 
 import org.json.JSONException;
@@ -37,7 +38,7 @@ public class ImageInformation3Test {
 	static final String ENGLISH_LABEL = "Image title";
 	static final IMetadataValue LABEL = new MultiLanguageMetadataValue(new String[][]{{"de", GERMAN_LABEL}, {"en", ENGLISH_LABEL}});
 	static final String RIGHTS = "@goobi";
-	static final Service PHYSICAL_DIMENSION_SERVICE = new PhysicalDimension(200f, ResolutionUnit.inch);
+	static final Service PHYSICAL_DIMENSION_SERVICE = new PhysicalDimension(URI.create(ID + "/" + PhysicalDimension.URI_PATH), 200f, ResolutionUnit.inch);
 	static final Dimension SIZE_1 = new Dimension(1000, 750);	
 	static final Dimension SIZE_2 = new Dimension(200, 150);	
 	static final int TILE_SIZE = 512;
