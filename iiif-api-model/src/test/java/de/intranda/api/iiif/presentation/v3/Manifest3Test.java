@@ -140,7 +140,7 @@ public class Manifest3Test {
 		manifest.setStart(startCanvas);
 		
 		String json = mapper.writeValueAsString(manifest);
-		System.out.println(json);
+		// System.out.println(json);
 		
 		jManifest = new JSONObject(json);
 	}

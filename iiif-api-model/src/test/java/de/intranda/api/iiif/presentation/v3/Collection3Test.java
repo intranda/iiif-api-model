@@ -81,7 +81,7 @@ private static final ObjectMapper mapper = new ObjectMapper();
 		collection.addItem(manifest);
 				
 		String json = mapper.writeValueAsString(collection);
-		System.out.println(json);
+		// System.out.println(json);
 		jCollection = new JSONObject(json);
 	}
 	
