@@ -32,13 +32,13 @@
 		<jdk.version>1.8</jdk.version>
 
 		<commons-io.version>2.8.0</commons-io.version>
-		<commons-lang3.version>3.11</commons-lang3.version>
-		<jackson.version>2.12.1</jackson.version>
+		<commons-lang3.version>3.12.0</commons-lang3.version>
+		<jackson.version>2.12.3</jackson.version>
 
-		<jersey.version>2.33</jersey.version>
+		<jersey.version>2.34</jersey.version>
 		<jaxb-api.version>2.4.0-b180830.0359</jaxb-api.version>
-		<junit.version>4.13.1</junit.version>
-		<json.version>20201115</json.version>
+		<junit.version>4.13.2</junit.version>
+		<json.version>20210307</json.version>
 		<rs-api.version>2.1.1</rs-api.version>
 		<slf4j.version>1.7.30</slf4j.version>
 		<commons-text.version>1.9</commons-text.version>

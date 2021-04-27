@@ -30,19 +30,19 @@ public class LabeledResourceTest {
 		
 		ObjectMapper mapper = new ObjectMapper();
 		String json = mapper.writeValueAsString(resource);
-		System.out.println(json);
+		// System.out.println(json);
 		
 		
 		List<? extends ILabeledResource> resources = Arrays.asList(resource);
 		String jsonList = mapper.writeValueAsString(resources);
-		System.out.println(jsonList);
+		// System.out.println(jsonList);
 		
 		Manifest3 manifest = new Manifest3(URI.create(uri));
 		manifest.addHomepage(resource);
 		manifest.addHomepage(new LabeledResource(URI.create(HOMEPAGE_ID), "Text", Format.TEXT_HTML.getLabel(), new SimpleMetadataValue(HOMEPAGE_LABEL)));
 
 		String jsonManifest = mapper.writeValueAsString(manifest);
-		System.out.println(jsonManifest);
+		// System.out.println(jsonManifest);
 	}
 
 }

@@ -94,7 +94,7 @@ public class Canvas3Test {
         canvas.addSeeAlso(new LabeledResource(URI.create(ALTO_SOURCE_ID), "Dataset", Format.TEXT_XML.getLabel(), ALTO_PROFILE, null ));
         
 		String json = mapper.writeValueAsString(canvas);
-		System.out.println(json);
+		// System.out.println(json);
 		
 		jCanvas = new JSONObject(json);
 	}
@@ -122,7 +122,7 @@ public class Canvas3Test {
 		assertEquals("AnnotationPage", page.getString("type"));
 		assertTrue(StringUtils.isNotBlank(page.getString("id")));
 		
-		System.out.println(page.toString());
+		// System.out.println(page.toString());
 		
 		JSONArray pageItems = page.getJSONArray("items");
 		assertEquals(1, pageItems.length());

@@ -56,7 +56,7 @@ private static final ObjectMapper mapper = new ObjectMapper();
 		range3.addItem(canvas3);
         
 		String json = mapper.writeValueAsString(range);
-		System.out.println(json);
+		// System.out.println(json);
 		
 		jRange = new JSONObject(json);
 	}
