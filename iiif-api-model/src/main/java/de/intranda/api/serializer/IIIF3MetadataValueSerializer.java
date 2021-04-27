@@ -29,10 +29,10 @@ public class IIIF3MetadataValueSerializer extends WebAnnotationMetadataValueSeri
 
 		generator.writeStartObject();
 		for (String language : element.getLanguages()) {
-			if (element.getLanguages().size() > 1 && isDefaultLanguage(language)) {
-				//skip default language if other languages are available
-				continue;
-			}
+//			if (element.getLanguages().size() > 1 && isDefaultLanguage(language)) {
+//				//skip default language if other languages are available
+//				continue;
+//			}
 			element.getValue(language).filter(StringUtils::isNotBlank).ifPresent(value -> {
 				try {
 					generator.writeArrayFieldStart(isDefaultLanguage(language) ? DEFAULT_LANGUAGE_TAG : language);
