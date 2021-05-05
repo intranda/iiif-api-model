@@ -39,7 +39,8 @@ public enum Format {
     TEXT_HTML("text/html"),
     APPLICATION_PDF("application/pdf"),
     APPLICATION_RDFXML("application/rdf+xml"),
-    APPLICATION_MARCXML("application/marcxml+xml");
+    APPLICATION_MARCXML("application/marcxml+xml"),
+    UNKNOWN("");
 
     private String label;
 
@@ -68,6 +69,42 @@ public enum Format {
         return null;
     }
 
+    public String getFileSuffix() {
+    	switch(this) {
+    	case IMAGE_GIF:
+    		return "gif";
+    	case IMAGE_JP2:
+    		return "jp2";
+    	case IMAGE_JPEG:
+    		return "jpg";
+    	case IMAGE_PNG:
+    		return "png";
+    	case IMAGE_TIFF:
+    		return "tif";
+    	case TEXT_XML:
+    	case APPLICATION_MARCXML:
+    	case APPLICATION_RDFXML:
+    		return "xml";
+    	case APPLICATION_PDF:
+    		return "pdf";
+    	case AUDI_MP3:
+    		return "mp3";
+    	case AUDIO_OGG:
+    		return "ogg";
+    	case VIDEO_MP4:
+    		return "mp4";
+    	case VIDEO_WEBM:
+    		return "webm";
+    	case TEXT_HTML:
+    		return "html";
+    	case TEXT_PLAIN:
+    		return "txt";
+    	default:
+    		return "";
+    	}
+    }
+
+    
     /**
      * @param displayMimeType
      * @return
@@ -103,9 +140,12 @@ public enum Format {
                 return Format.IMAGE_TIFF;
             case "jp2":
                 return Format.IMAGE_JP2;
-            default:
+            case "jpg":
+            case "jpeg":
                 return Format.IMAGE_JPEG;
-
+            default:
+            	return UNKNOWN;
+            
         }
     }
 

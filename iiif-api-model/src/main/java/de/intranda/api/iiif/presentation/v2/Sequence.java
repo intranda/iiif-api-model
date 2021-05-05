@@ -13,35 +13,38 @@
  *
  * You should have received a copy of the GNU General Public License along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
-package de.intranda.api.iiif.presentation;
+package de.intranda.api.iiif.presentation.v2;
 
 import java.net.URI;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-
-import de.intranda.api.serializer.URLOnlySerializer;
+import de.intranda.api.iiif.presentation.IPresentationModelElement;
+import de.intranda.api.iiif.presentation.enums.ViewingDirection;
+import de.intranda.api.iiif.presentation.enums.ViewingHint;
 
 /**
  * @author Florian Alpers
  *
  */
-public class Layer extends AbstractPresentationModelElement implements IPresentationModelElement {
+public class Sequence extends AbstractPresentationModelElement2 {
 
-    private static final String TYPE = "sc:Layer";
-    
-    private final List<AnnotationList> otherContent = new ArrayList<>();
-    
-    public Layer() {
-        super(null);
+    private static final String TYPE = "sc:Sequence";
+
+    private final List<Canvas2> canvases = new ArrayList<>();
+    private Canvas2 startCanvas = null;
+
+    public Sequence() {
+        addViewingHint(ViewingHint.paged);
     }
-    
+
     /**
      * @param id
      */
-    public Layer(URI id) {
+    public Sequence(URI id) {
         super(id);
+        addViewingHint(ViewingHint.paged);
     }
 
     /* (non-Javadoc)
@@ -51,17 +54,30 @@ public class Layer extends AbstractPresentationModelElement implements IPresenta
     public String getType() {
         return TYPE;
     }
-    
+
     /**
-     * @return the otherContent
+     * @return the images
      */
-    @JsonSerialize(using=URLOnlySerializer.class)
-    public List<AnnotationList> getOtherContent() {
-        return otherContent.isEmpty() ? null : otherContent;
+    public List<Canvas2> getCanvases() {
+        return canvases.isEmpty() ? null : canvases;
+    }
+
+    public void addCanvas(Canvas2 image) {
+        this.canvases.add(image);
+    }
+
+
+    /*TODO: viewingdirection dependent on configuration or metadata*/
+    public ViewingDirection getViewingDirection() {
+        return ViewingDirection.LEFT_TO_RIGHT;
     }
     
-    public void addOtherContent(AnnotationList content) {
-        this.otherContent.add(content);
-    }
+    public void setStartCanvas(Canvas2 startCanvas) {
+		this.startCanvas = startCanvas;
+	}
+    
+    public Canvas2 getStartCanvas() {
+		return startCanvas;
+	}
 
 }

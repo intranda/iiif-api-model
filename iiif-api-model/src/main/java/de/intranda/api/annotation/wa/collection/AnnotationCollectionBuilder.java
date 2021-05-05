@@ -94,7 +94,11 @@ public class AnnotationCollectionBuilder {
      * @return
      */
     public int getPageNo(int first) {
-        return ((first-1)/itemsPerPage)+1;
+    	if(itemsPerPage == 0)  {
+    		return 1;
+    	} else {    		
+    		return ((first-1)/itemsPerPage)+1;
+    	}
     }
 
     /**
@@ -102,7 +106,11 @@ public class AnnotationCollectionBuilder {
      * @return
      */
     public int getLastPageNo() {
-        return (int)((totalItemCount-1)/itemsPerPage) + 1;
+    	if(itemsPerPage == 0)  {
+    		return 1;
+    	} else {    		
+    		return (int)((totalItemCount-1)/itemsPerPage) + 1;
+    	}
     }
     
     /**

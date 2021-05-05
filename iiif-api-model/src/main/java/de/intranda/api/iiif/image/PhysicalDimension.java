@@ -25,11 +25,16 @@
  */
 package de.intranda.api.iiif.image;
 
+
+import java.net.URI;
+
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonValue;
+
+import de.intranda.api.services.Service;
 
 /**
  * Implementation of the  iiif ImageInformation#services#pyhsdim object
@@ -38,31 +43,36 @@ import com.fasterxml.jackson.annotation.JsonValue;
  * @author Florian Alpers
  *
  */
-@JsonPropertyOrder({ "@context", "profile", "physicalScale", "physicalUnits" })
+@JsonPropertyOrder({ "@context", "id", "type", "profile", "physicalScale", "physicalUnits" })
 @JsonInclude(Include.NON_NULL)
-public class PhysicalDimension extends Service {
+public class PhysicalDimension implements Service {
 
-    private static final String CONTEXT = "http://iiif.io/api/annex/services/physdim/1/context.json";
+    private static final URI CONTEXT = URI.create("http://iiif.io/api/annex/services/physdim/1/context.json");
     private static final String PROFILE = "http://iiif.io/api/annex/services/physdim";
-
+    private static final String TYPE = "PhysicalDimension";
+    public static final String URI_PATH = "physdim";
+    
     private static final float MILLIMETER_PER_INCH = 25.4f;
     private static final float MILLIMETER_PER_CM = 10f;
 
     private final float resolution;
     private final ResolutionUnit unit;
+    private final URI id;
 
-    public PhysicalDimension(float resolution, ResolutionUnit unit) {
+    public PhysicalDimension(URI id, float resolution, ResolutionUnit unit) {
+    	this.id = id;
         this.resolution = resolution;
         this.unit = unit;
     }
     
     public PhysicalDimension() {
+    	this.id = URI.create(URI_PATH);
         this.resolution = 0f;
         this.unit = null;
     }
 
     @JsonProperty("@context")
-    public String getContext() {
+    public URI getContext() {
         return CONTEXT;
     }
 
@@ -88,7 +98,7 @@ public class PhysicalDimension extends Service {
     public PhysicalDimension convertToUnit(ResolutionUnit newUnit) {
         float mm = convertToMillimeter(resolution, unit);
         float newRes = convertFromMillimeter(mm, newUnit);
-        return new PhysicalDimension(newRes, newUnit);
+        return new PhysicalDimension(this.id, newRes, newUnit);
     }
     
     private float convertFromMillimeter(float res, ResolutionUnit newUnit) {
@@ -116,6 +126,14 @@ public class PhysicalDimension extends Service {
                 throw new IllegalArgumentException(oldUnit + " not yet implemented");
         }
     }
+    
+    public String getType() {
+		return TYPE;
+	}
+    
+    public URI getId() {
+		return id;
+	}
 
     public static enum ResolutionUnit {
 

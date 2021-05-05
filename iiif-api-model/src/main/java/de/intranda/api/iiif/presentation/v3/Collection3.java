@@ -13,15 +13,14 @@
  *
  * You should have received a copy of the GNU General Public License along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
-package de.intranda.api.iiif.presentation;
+package de.intranda.api.iiif.presentation.v3;
 
 import java.net.URI;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
@@ -29,24 +28,27 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
  * @author Florian Alpers
  *
  */
-public class Manifest extends AbstractPresentationModelElement implements IPresentationModelElement {
+@JsonInclude(Include.NON_EMPTY)
+public class Collection3 extends AbstractPresentationModelElement3 implements IPresentationModelElement3 {
 
-    public static final String TYPE = "sc:Manifest";
-    public final List<Sequence> sequences = new ArrayList<>(1);
-    public final List<Range> structures = new ArrayList<>(1);
-    public Date navDate = null;
+    public static final String TYPE = "Collection";
+    @JsonIgnore
+    private final String internalName;
+    private final List<IPresentationModelElement3> items = new ArrayList<>();
 
-    public Manifest() {
-        super();
+    public Collection3() {
+        super(null);
+        this.internalName = "";
     }
-
+    
     /**
      * @param id
      */
-    public Manifest(URI id) {
+    public Collection3(URI id, String name) {
         super(id);
-    }
-
+        this.internalName = name;
+    }  
+    
     /* (non-Javadoc)
      * @see de.intranda.digiverso.presentation.model.iiif.presentation.AbstractPresentationModelElement#getType()
      */
@@ -55,47 +57,31 @@ public class Manifest extends AbstractPresentationModelElement implements IPrese
         return TYPE;
     }
 
-    /**
-     * @return the sequences
-     */
-    public List<Sequence> getSequences() {
-        return sequences;
+    public String getInternalName() {
+        return internalName;
+    }
+    
+    public List<IPresentationModelElement3> getItems() {
+		return items;
+	}
+    
+    public void addItem(IPresentationModelElement3 item) {
+    	this.items.add(item);
     }
 
-    public void setSequence(Sequence sequence) {
-        if (this.sequences.isEmpty()) {
-            this.sequences.add(sequence);
+    public Optional<Collection3> getCollectionByInternalName(String name) {
+        if(name.equals(this.getInternalName())) {
+            return Optional.of(this);
         } else {
-            this.sequences.set(0, sequence);
+        	return getItems().stream()
+        	.filter(item -> item instanceof Collection3)
+        	.map(item -> (Collection3)item)
+        	.map(item -> item.getCollectionByInternalName(name))
+        	.filter(o -> o.isPresent())
+        	.map(o -> o.get())
+        	.findFirst();
         }
     }
 
-    /**
-     * @return the structures
-     */
-    public List<Range> getStructures() {
-        return structures;
-    }
-
-    public void addStructure(Range range) {
-        this.structures.add(range);
-    }
-
-    /**
-     * @return the navDate
-     */
-    @Override
-    @JsonFormat(pattern = DATETIME_FORMAT)
-    public Date getNavDate() {
-        return navDate;
-    }
-
-    /**
-     * @param navDate the navDate to set
-     */
-    @Override
-    public void setNavDate(Date navDate) {
-        this.navDate = navDate;
-    }
 
 }

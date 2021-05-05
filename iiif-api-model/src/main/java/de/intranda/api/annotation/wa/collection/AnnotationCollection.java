@@ -25,7 +25,7 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 import de.intranda.api.annotation.IAnnotationCollection;
 import de.intranda.api.annotation.IResource;
-import de.intranda.api.serializer.MetadataSerializer;
+import de.intranda.api.serializer.WebAnnotationMetadataValueSerializer;
 import de.intranda.api.serializer.URLOnlySerializer;
 import de.intranda.metadata.multilanguage.IMetadataValue;
 
@@ -146,7 +146,7 @@ public class AnnotationCollection implements IAnnotationCollection{
         return label;
     }
     
-    @JsonSerialize(using = MetadataSerializer.class)
+    @JsonSerialize(using = WebAnnotationMetadataValueSerializer.class)
     public void setLabel(IMetadataValue label) {
         this.label = label;
     }

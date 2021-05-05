@@ -16,7 +16,7 @@ public class BaseService implements Service {
     }
     
     @Override
-    public URI getContext() throws URISyntaxException {
+    public URI getContext() {
         return context;
     }
     

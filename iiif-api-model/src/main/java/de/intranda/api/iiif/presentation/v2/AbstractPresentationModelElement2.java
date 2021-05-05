@@ -13,7 +13,7 @@
  *
  * You should have received a copy of the GNU General Public License along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
-package de.intranda.api.iiif.presentation;
+package de.intranda.api.iiif.presentation.v2;
 
 import java.net.URI;
 import java.util.ArrayList;
@@ -24,16 +24,16 @@ import java.util.List;
 import org.apache.commons.lang3.StringUtils;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 import de.intranda.api.PropertyList;
+import de.intranda.api.annotation.IImageResource;
 import de.intranda.api.annotation.IResource;
+import de.intranda.api.iiif.presentation.IPresentationModelElement;
 import de.intranda.api.iiif.presentation.content.ImageContent;
 import de.intranda.api.iiif.presentation.content.LinkingContent;
 import de.intranda.api.iiif.presentation.enums.ViewingHint;
-import de.intranda.api.serializer.ImageContentLinkSerializer;
 import de.intranda.api.services.Service;
+import de.intranda.metadata.multilanguage.IIIF2Metadata;
 import de.intranda.metadata.multilanguage.IMetadataValue;
 import de.intranda.metadata.multilanguage.Metadata;
 
@@ -43,35 +43,86 @@ import de.intranda.metadata.multilanguage.Metadata;
  * @author florian
  *
  */
-public abstract class AbstractPresentationModelElement implements IPresentationModelElement, IResource {
+public abstract class AbstractPresentationModelElement2 implements IPresentationModelElement2 {
+    
+    public static final String DATETIME_FORMAT = "yyyy-MM-dd'T'HH:mm:ss'Z'";
 
-    protected static final String DATETIME_FORMAT = "yyyy-MM-dd'T'HH:mm:ss'Z'";
-
-    private final URI id;
-    private IMetadataValue label;
-    private IMetadataValue description;
-    private List<Metadata> metadata = new ArrayList<>();
-    private List<ImageContent> thumbnails = new PropertyList<>();
-    private List<IMetadataValue> attributions = new PropertyList<>();
-    private List<ImageContent> logos = new PropertyList<>();
-    private List<ViewingHint> viewingHints = new PropertyList<>();
-    private List<LinkingContent> related = new PropertyList<>();
-    private List<LinkingContent> rendering = new PropertyList<>();
-    private List<URI> licenses = new PropertyList<>();
-    private String context = null;
-    private List<Service> services = new PropertyList<Service>();
-    private List<LinkingContent> seeAlso = new PropertyList<>();
-    private List<IPresentationModelElement> within = new PropertyList<>();
-
-    public AbstractPresentationModelElement() {
-        super();
-        this.id = null;
+	
+	protected final URI id;
+    protected String context = null;
+    protected IMetadataValue label;
+    protected IMetadataValue description;
+    protected List<Metadata> metadata;
+    protected List<ImageContent> thumbnails;
+    protected List<IMetadataValue> attributions;
+    protected List<ViewingHint> viewingHints;
+    protected List<LinkingContent> related;
+    protected List<LinkingContent> rendering;
+    protected List<URI> licenses;
+    protected List<Service> services;
+    protected List<LinkingContent> seeAlso;
+    protected List<IResource> within;
+    private List<ImageContent> logos;
+    
+    public AbstractPresentationModelElement2() {
+    	this(null);
     }
 
-    public AbstractPresentationModelElement(URI id) {
+    public AbstractPresentationModelElement2(URI id) {
         this.id = id;
+        metadata = new ArrayList<>();
+        thumbnails = new PropertyList<>();
+        attributions = new PropertyList<>();
+        logos = new PropertyList<>();
+        viewingHints = new PropertyList<>();
+        related = new PropertyList<>();
+        rendering = new PropertyList<>();
+        licenses = new PropertyList<>();
+        services = new PropertyList<Service>();
+        seeAlso = new PropertyList<>();
+        within = new PropertyList<>();
     }
 
+    public List<IMetadataValue> getAttributions() {
+        return this.attributions.isEmpty() ? new ArrayList<>() : this.attributions;
+    }
+
+    /**
+     * @param attribution the attribution to set
+     */
+    public void addAttribution(IMetadataValue attribution) {
+        this.attributions.add(attribution);
+    }
+    
+    /* (non-Javadoc)
+     * @see de.intranda.digiverso.presentation.model.iiif.presentation.IPresentationModelElement#getLogo()
+     */
+    @Override
+    public List<ImageContent> getLogos() {
+        return this.logos.isEmpty() ? new ArrayList<>() : this.logos;
+    }
+
+    /**
+     * @param logo the logo to set
+     */
+    public void addLogo(ImageContent logo) {
+        this.logos.add(logo);
+    } 
+
+    /**
+     * @return the navDate
+     */
+    @JsonFormat(pattern = DATETIME_FORMAT)
+    public Date getNavDate() {
+        return null;
+    }
+
+    /**
+     * @param navDate the navDate to set
+     */
+    public void setNavDate(Date navDate) {
+    }
+    
     /**
      * @param context the context to set
      */
@@ -79,7 +130,6 @@ public abstract class AbstractPresentationModelElement implements IPresentationM
         this.context = context;
     }
 
-    @JsonProperty("@context")
     public PropertyList<String> getContext() {
         if(StringUtils.isNotBlank(context)) {            
             return new PropertyList<>(Collections.singletonList(context));
@@ -92,7 +142,6 @@ public abstract class AbstractPresentationModelElement implements IPresentationM
      * @see de.intranda.digiverso.presentation.model.iiif.presentation.IPresentationModelElement#getType()
      */
     @Override
-    @JsonProperty("@type")
     public abstract String getType();
 
     /* (non-Javadoc)
@@ -130,18 +179,11 @@ public abstract class AbstractPresentationModelElement implements IPresentationM
      */
     @Override
     public List<Metadata> getMetadata() {
-        return this.metadata.isEmpty() ? new ArrayList<>() : this.metadata;
+        return this.metadata.isEmpty() ? new ArrayList<>() : Collections.unmodifiableList(this.metadata);
     }
 
     public void addMetadata(Metadata md) {
-        this.metadata.add(md);
-    }
-
-    /**
-     * @param metadata the metadata to set
-     */
-    public void setMetadata(List<Metadata> metadata) {
-        this.metadata = metadata;
+        this.metadata.add(new IIIF2Metadata(md));
     }
 
     /* (non-Javadoc)
@@ -160,21 +202,6 @@ public abstract class AbstractPresentationModelElement implements IPresentationM
     }
 
     /* (non-Javadoc)
-     * @see de.intranda.digiverso.presentation.model.iiif.presentation.IPresentationModelElement#getAttribution()
-     */
-    @Override
-    public List<IMetadataValue> getAttributions() {
-        return this.attributions.isEmpty() ? new ArrayList<>() : this.attributions;
-    }
-
-    /**
-     * @param attribution the attribution to set
-     */
-    public void addAttribution(IMetadataValue attribution) {
-        this.attributions.add(attribution);
-    }
-
-    /* (non-Javadoc)
      * @see de.intranda.digiverso.presentation.model.iiif.presentation.IPresentationModelElement#getLicense()
      */
     @Override
@@ -187,22 +214,6 @@ public abstract class AbstractPresentationModelElement implements IPresentationM
      */
     public void addLicense(URI license) {
         this.licenses.add(license);
-    }
-
-    /* (non-Javadoc)
-     * @see de.intranda.digiverso.presentation.model.iiif.presentation.IPresentationModelElement#getLogo()
-     */
-    @Override
-    @JsonSerialize(contentUsing = ImageContentLinkSerializer.class)
-    public List<ImageContent> getLogos() {
-        return this.logos.isEmpty() ? new ArrayList<>() : this.logos;
-    }
-
-    /**
-     * @param logo the logo to set
-     */
-    public void addLogo(ImageContent logo) {
-        this.logos.add(logo);
     }
 
     /* (non-Javadoc)
@@ -269,7 +280,6 @@ public abstract class AbstractPresentationModelElement implements IPresentationM
      * @see de.intranda.digiverso.presentation.model.iiif.presentation.IPresentationModelElement#getId()
      */
     @Override
-    @JsonProperty("@id")
     public URI getId() {
         return id;
     }
@@ -288,24 +298,10 @@ public abstract class AbstractPresentationModelElement implements IPresentationM
 
 
     /**
-     * @return the navDate
-     */
-    @JsonFormat(pattern = DATETIME_FORMAT)
-    public Date getNavDate() {
-        return null;
-    }
-
-    /**
-     * @param navDate the navDate to set
-     */
-    public void setNavDate(Date navDate) {
-    }
-
-    /**
      * @return the within
      */
     @Override
-    public List<IPresentationModelElement> getWithin() {
+    public List<IResource> getWithin() {
         return within.isEmpty() ? null : within;
     }
 

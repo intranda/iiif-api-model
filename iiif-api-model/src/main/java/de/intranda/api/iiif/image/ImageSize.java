@@ -36,7 +36,7 @@ public class ImageSize {
 
     private int width;
     private int height;
-    
+        
     public ImageSize() {
         this.width = 0;
         this.height = 0;
@@ -45,6 +45,10 @@ public class ImageSize {
     public ImageSize(int width, int height) {
         this.width = width;
         this.height = height;
+    }
+    
+    public ImageSize(ImageSize orig) {
+    	this(orig.width, orig.height);
     }
 
     public int getWidth() {

@@ -21,45 +21,43 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import de.intranda.api.PropertyList;
-import de.intranda.api.deserializer.ServiceDeserializer;
-import de.intranda.api.deserializer.URLOnlyListDeserializer;
-import de.intranda.api.iiif.presentation.content.ImageContent;
+import de.intranda.api.annotation.IImageResource;
+import de.intranda.api.annotation.ILabeledResource;
+import de.intranda.api.annotation.IResource;
 import de.intranda.api.iiif.presentation.content.LinkingContent;
 import de.intranda.api.iiif.presentation.enums.ViewingHint;
-import de.intranda.api.serializer.IIIF2MetadataSerializer;
-import de.intranda.api.serializer.ImageContentLinkSerializer;
-import de.intranda.api.serializer.URLOnlySerializer;
 import de.intranda.api.services.Service;
 import de.intranda.metadata.multilanguage.IMetadataValue;
 import de.intranda.metadata.multilanguage.Metadata;
 
 /**
+ * Version agnostic base interface for IIIF Presentation objects
+ * 
  * @author florian
  *
  */
 @JsonInclude(Include.NON_EMPTY)
-@JsonPropertyOrder({ "@context", "@id", "@type", "label", "attribution", "license", "logo", "thumbnail", "viewingHint", "metadata", "service", "seeAlso" })
-public interface IPresentationModelElement {
-
+public interface IPresentationModelElement extends IResource {
+	
+	@JsonProperty("@context")
+	List<String> getContext();
+	
+    URI getId();
+	
     String getType();
 
     /**
      * @return the label
      */
-    @JsonSerialize(using=IIIF2MetadataSerializer.class)
     IMetadataValue getLabel();
 
     /**
      * @return the description
      */
-    @JsonSerialize(using=IIIF2MetadataSerializer.class)
     IMetadataValue getDescription();
 
     /**
@@ -70,58 +68,44 @@ public interface IPresentationModelElement {
     /**
      * @return the thumbnail
      */
-    @JsonSerialize(contentUsing = ImageContentLinkSerializer.class)
-    @JsonProperty("thumbnail")
-    List<ImageContent> getThumbnails();
+    List<? extends IImageResource> getThumbnails();
 
-    /**
-     * @return the attribution
-     */
-    @JsonProperty("attribution")
-    List<IMetadataValue> getAttributions();
 
     /**
      * @return the license
      */
-    @JsonProperty("license")
     List<URI> getLicenses();
-
-    /**
-     * @return the logo
-     */
-    @JsonProperty("logo")
-    List<ImageContent> getLogos();
 
     /**
      * @return the viewingHint
      */
-    @JsonProperty("viewingHint")
     List<ViewingHint> getViewingHints();
 
     /**
      * @return the related
      */
-    List<LinkingContent> getRelated();
+    List<? extends ILabeledResource> getRelated();
 
     /**
      * @return the rendering
      */
-    List<LinkingContent> getRendering();
+    List<? extends ILabeledResource> getRendering();
 
     /**
      * @return one or more services - may be null!
      */
-    @JsonProperty("service")
     List<Service> getServices();
 
-    List<LinkingContent> getSeeAlso();
+    List<? extends ILabeledResource> getSeeAlso();
+
+    List<IResource> getWithin();
 
     /**
      * 
      * @param allowedClasses All classes which should be included in the service list
      * @return A PropertyList of all services of one of the given classes
      */
-    @JsonProperty("service")
+    @Deprecated
     default List<Service> getServices(Class... allowedClasses) {
         List<Class> allowedClassesList = Arrays.asList(allowedClasses);
         if (this.getServices() != null) {
@@ -133,13 +117,6 @@ public interface IPresentationModelElement {
         }
     }
 
-    /**
-     * @return the id
-     */
-    URI getId();
 
-    @JsonSerialize(using = URLOnlySerializer.class)
-    @JsonDeserialize(using = URLOnlyListDeserializer.class)
-    List<IPresentationModelElement> getWithin();
 
 }

@@ -23,6 +23,7 @@ import com.fasterxml.jackson.databind.JsonSerializer;
 import com.fasterxml.jackson.databind.SerializerProvider;
 
 import de.intranda.api.iiif.image.ImageInformation;
+import de.intranda.api.iiif.image.v3.ImageInformation3;
 
 /**
  * @author Florian Alpers
@@ -36,11 +37,19 @@ public class ImageInformationSerializer extends JsonSerializer<ImageInformation>
     @Override
     public void serialize(ImageInformation element, JsonGenerator generator, SerializerProvider provicer) throws IOException, JsonProcessingException {
 
-            generator.writeStartObject();
-            generator.writeStringField("@context", ImageInformation.JSON_CONTEXT);
-            generator.writeStringField("@id", element.getId());
-            generator.writeStringField("profile", ImageInformation.IIIF_COMPLIANCE_LEVEL.getUri());
-            generator.writeEndObject();
+    	if(element instanceof ImageInformation3) {
+    		generator.writeStartObject();
+    		generator.writeStringField("id", element.getId().toString());
+    		generator.writeStringField("type", ImageInformation3.TYPE);
+    		generator.writeStringField("profile", ImageInformation3.IIIF_COMPLIANCE_LEVEL.getLabel());
+    		generator.writeEndObject();
+    	} else {    		
+    		generator.writeStartObject();
+    		generator.writeStringField("@context", ImageInformation.JSON_CONTEXT.toString());
+    		generator.writeStringField("@id", element.getId().toString());
+    		generator.writeStringField("profile", ImageInformation.IIIF_COMPLIANCE_LEVEL.getUri());
+    		generator.writeEndObject();
+    	}
         
     }
 

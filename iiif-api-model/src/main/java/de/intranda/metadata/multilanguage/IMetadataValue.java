@@ -25,7 +25,7 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 import de.intranda.api.deserializer.IMetadataValueDeserializer;
-import de.intranda.api.serializer.MetadataSerializer;
+import de.intranda.api.serializer.WebAnnotationMetadataValueSerializer;
 import de.intranda.metadata.multilanguage.MultiLanguageMetadataValue.ValuePair;
 
 /**
@@ -38,7 +38,7 @@ import de.intranda.metadata.multilanguage.MultiLanguageMetadataValue.ValuePair;
  *
  */
 @JsonDeserialize(using = IMetadataValueDeserializer.class)
-@JsonSerialize(using=MetadataSerializer.class)
+@JsonSerialize(using=WebAnnotationMetadataValueSerializer.class)
 public interface IMetadataValue {
 
     /**

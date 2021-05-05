@@ -13,7 +13,7 @@
  *
  * You should have received a copy of the GNU General Public License along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
-package de.intranda.api.iiif.presentation;
+package de.intranda.api.iiif.presentation.v2;
 
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -29,7 +29,7 @@ import de.intranda.api.serializer.ContentLinkSerializer;
  * @author Florian Alpers
  *
  */
-public class Canvas extends AbstractPresentationModelElement implements IPresentationModelElement {
+public class Canvas2 extends AbstractPresentationModelElement2 implements IPresentationModelElement2 {
 
     private static final String TYPE = "sc:Canvas";
 
@@ -38,17 +38,17 @@ public class Canvas extends AbstractPresentationModelElement implements IPresent
     private final List<OpenAnnotation> images = new ArrayList<>();
     private final List<AnnotationList> otherContent = new ArrayList<>();
 
-    public Canvas() {
+    public Canvas2() {
     }
 
-    public Canvas(String uri) throws URISyntaxException {
+    public Canvas2(String uri) throws URISyntaxException {
         this(new URI(uri));
     }
 
     /**
      * @param id
      */
-    public Canvas(URI id) {
+    public Canvas2(URI id) {
         super(id);
     }
 

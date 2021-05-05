@@ -13,7 +13,7 @@
  *
  * You should have received a copy of the GNU General Public License along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
-package de.intranda.api.iiif.presentation;
+package de.intranda.api.iiif.presentation.v2;
 
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -25,6 +25,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
+import de.intranda.api.iiif.presentation.IPresentationModelElement;
 import de.intranda.api.serializer.ContentLinkSerializer;
 import de.intranda.api.serializer.URLOnlySerializer;
 
@@ -33,29 +34,29 @@ import de.intranda.api.serializer.URLOnlySerializer;
  *
  */
 @JsonInclude(Include.NON_EMPTY)
-public class Range extends AbstractPresentationModelElement implements IPresentationModelElement {
+public class Range2 extends AbstractPresentationModelElement2 implements IPresentationModelElement2 {
 
     private static final String TYPE = "sc:Range";
 
-    private final List<Canvas> canvases = new ArrayList<>();
-    private final List<Range> ranges = new ArrayList<>();
+    private final List<Canvas2> canvases = new ArrayList<>();
+    private final List<Range2> ranges = new ArrayList<>();
     private Layer contentLayer;
-    private Canvas startCanvas;
+    private Canvas2 startCanvas;
     @JsonIgnore
     private boolean useMembers = false;
 
-    public Range() {
+    public Range2() {
 
     }
 
-    public Range(String id) throws URISyntaxException {
+    public Range2(String id) throws URISyntaxException {
         super(new URI(id));
     }
 
     /**
      * @param id
      */
-    public Range(URI id) {
+    public Range2(URI id) {
         super(id);
     }
 
@@ -71,14 +72,14 @@ public class Range extends AbstractPresentationModelElement implements IPresenta
      * @return the startCanvas
      */
     @JsonSerialize(using = URLOnlySerializer.class)
-    public Canvas getStartCanvas() {
+    public Canvas2 getStartCanvas() {
         return startCanvas;
     }
 
     /**
      * @param startCanvas the startCanvas to set
      */
-    public void setStartCanvas(Canvas startCanvas) {
+    public void setStartCanvas(Canvas2 startCanvas) {
         this.startCanvas = startCanvas;
     }
 
@@ -101,7 +102,7 @@ public class Range extends AbstractPresentationModelElement implements IPresenta
      * @return the canvases
      */
     @JsonSerialize(using = URLOnlySerializer.class)
-    public List<Canvas> getCanvases() {
+    public List<Canvas2> getCanvases() {
         if (isUseMembers()) {
             return null;
         } else {
@@ -113,7 +114,7 @@ public class Range extends AbstractPresentationModelElement implements IPresenta
      * @return the ranges
      */
     @JsonSerialize(using = URLOnlySerializer.class)
-    public List<Range> getRanges() {
+    public List<Range2> getRanges() {
         if (isUseMembers()) {
             return null;
         } else {
@@ -122,7 +123,7 @@ public class Range extends AbstractPresentationModelElement implements IPresenta
     }
 
     @JsonIgnore
-    public List<Range> getRangeList() {
+    public List<Range2> getRangeList() {
         return ranges;
     }
 
@@ -130,11 +131,11 @@ public class Range extends AbstractPresentationModelElement implements IPresenta
         this.ranges.clear();
     }
 
-    public void addCanvas(Canvas canvas) {
+    public void addCanvas(Canvas2 canvas) {
         this.canvases.add(canvas);
     }
 
-    public void addRange(Range range) {
+    public void addRange(Range2 range) {
         this.ranges.add(range);
     }
 

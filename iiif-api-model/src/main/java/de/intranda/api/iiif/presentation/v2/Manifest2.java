@@ -13,37 +13,34 @@
  *
  * You should have received a copy of the GNU General Public License along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
-package de.intranda.api.iiif.presentation;
+package de.intranda.api.iiif.presentation.v2;
 
 import java.net.URI;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-
-import de.intranda.api.PropertyList;
-import de.intranda.api.annotation.IAnnotation;
-import de.intranda.api.annotation.IAnnotationCollection;
-import de.intranda.api.deserializer.AnnotationListResourceDeserializer;
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 /**
  * @author Florian Alpers
  *
  */
-public class AnnotationList extends AbstractPresentationModelElement implements IPresentationModelElement, IAnnotationCollection {
+public class Manifest2 extends AbstractPresentationModelElement2 implements IPresentationModelElement2 {
 
-    private static final String TYPE = "sc:AnnotationList";
-    private final List<IAnnotation> resources = new ArrayList<>();
-    private List<IPresentationModelElement> within = new PropertyList<>();
+    public static final String TYPE = "sc:Manifest";
+    public final List<Sequence> sequences = new ArrayList<>(1);
+    public final List<Range2> structures = new ArrayList<>(1);
+    public Date navDate = null;
 
-    public AnnotationList() {
+    public Manifest2() {
         super();
     }
 
     /**
      * @param id
      */
-    public AnnotationList(URI id) {
+    public Manifest2(URI id) {
         super(id);
     }
 
@@ -56,29 +53,46 @@ public class AnnotationList extends AbstractPresentationModelElement implements 
     }
 
     /**
-     * @return the resources, null if empty
+     * @return the sequences
      */
-//    @JsonSerialize(using = IIIFAnnotationSerializer.class)
-    @JsonDeserialize(using = AnnotationListResourceDeserializer.class)
-    public List<IAnnotation> getResources() {
-        return resources.isEmpty() ? null : resources;
+    public List<Sequence> getSequences() {
+        return sequences;
     }
 
-    public void addResource(IAnnotation resource) {
-        this.resources.add(resource);
+    public void setSequence(Sequence sequence) {
+        if (this.sequences.isEmpty()) {
+            this.sequences.add(sequence);
+        } else {
+            this.sequences.set(0, sequence);
+        }
     }
 
     /**
-     * @return the within
+     * @return the structures
      */
-    @Override
-    public List<IPresentationModelElement> getWithin() {
-        return within.isEmpty() ? null : within;
+    public List<Range2> getStructures() {
+        return structures;
     }
 
+    public void addStructure(Range2 range) {
+        this.structures.add(range);
+    }
+
+    /**
+     * @return the navDate
+     */
     @Override
-    public void addWithin(IPresentationModelElement within) {
-        this.within.add(within);
+    @JsonFormat(pattern = DATETIME_FORMAT)
+    public Date getNavDate() {
+        return navDate;
+    }
+
+    /**
+     * @param navDate the navDate to set
+     */
+    @Override
+    public void setNavDate(Date navDate) {
+        this.navDate = navDate;
     }
 
 }
