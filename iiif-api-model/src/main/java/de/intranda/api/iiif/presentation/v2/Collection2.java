@@ -16,8 +16,8 @@
 package de.intranda.api.iiif.presentation.v2;
 
 import java.net.URI;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -43,7 +43,7 @@ public class Collection2 extends AbstractPresentationModelElement2 implements IP
     public final List<Collection2> collections = new ArrayList<>();
     @JsonIgnore
     public final List<Manifest2> manifests = new ArrayList<>();
-    private Date navDate = null;
+    private LocalDateTime navDate = null;
     private final String internalName;
 
     public Collection2() {
@@ -101,14 +101,14 @@ public class Collection2 extends AbstractPresentationModelElement2 implements IP
      * @return the navDate
      */
     @JsonFormat(pattern = DATETIME_FORMAT)
-    public Date getNavDate() {
+    public LocalDateTime getNavDate() {
         return navDate;
     }
     
     /**
      * @param navDate the navDate to set
      */
-    public void setNavDate(Date navDate) {
+    public void setNavDate(LocalDateTime navDate) {
         this.navDate = navDate;
     }
     

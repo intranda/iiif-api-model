@@ -1,7 +1,7 @@
 package de.intranda.api.annotation.wa;
 
 import java.net.URI;
-import java.util.Date;
+import java.time.LocalDateTime;
 import java.util.Objects;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
@@ -22,8 +22,8 @@ public class WebAnnotation extends AbstractAnnotation {
 
     private Agent creator;
     private Agent generator;
-    private Date created;
-    private Date modified;
+    private LocalDateTime created;
+    private LocalDateTime modified;
 
     public WebAnnotation() {
         super(null);
@@ -53,13 +53,13 @@ public class WebAnnotation extends AbstractAnnotation {
 
     @Override
     @JsonFormat(pattern = DATETIME_FORMAT)
-    public Date getCreated() {
+    public LocalDateTime getCreated() {
         return created;
     }
 
     @Override
     @JsonFormat(pattern = DATETIME_FORMAT)
-    public Date getModified() {
+    public LocalDateTime getModified() {
         return modified;
     }
     
@@ -71,11 +71,11 @@ public class WebAnnotation extends AbstractAnnotation {
         this.generator = generator;
     }
     
-    public void setCreated(Date created) {
+    public void setCreated(LocalDateTime created) {
         this.created = created;
     }
     
-    public void setModified(Date modified) {
+    public void setModified(LocalDateTime modified) {
         this.modified = modified;
     }
     

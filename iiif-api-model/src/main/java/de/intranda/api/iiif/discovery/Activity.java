@@ -15,7 +15,7 @@
  */
 package de.intranda.api.iiif.discovery;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
@@ -35,7 +35,7 @@ public class Activity {
     
     private ActivityType type;
     private IPresentationModelElement object;
-    private Date endTime;
+    private LocalDateTime endTime;
     /**
      * The type of this Activity. One of UPDATE, CREATE and DELETE
      * 
@@ -75,7 +75,7 @@ public class Activity {
      * @return the update time
      */
     @JsonFormat(pattern = DATETIME_FORMAT)
-    public Date getEndTime() {
+    public LocalDateTime getEndTime() {
         return endTime;
     }
     /**
@@ -83,7 +83,7 @@ public class Activity {
      * 
      * @param endTime the updat time
      */
-    public void setEndTime(Date endTime) {
+    public void setEndTime(LocalDateTime endTime) {
         this.endTime = endTime;
     }
     

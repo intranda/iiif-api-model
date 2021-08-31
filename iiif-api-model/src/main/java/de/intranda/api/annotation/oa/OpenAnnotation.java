@@ -1,7 +1,7 @@
 package de.intranda.api.annotation.oa;
 
 import java.net.URI;
-import java.util.Date;
+import java.time.LocalDateTime;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -59,12 +59,12 @@ public class OpenAnnotation extends AbstractAnnotation{
     }
 
     @Override
-    public Date getCreated() {
+    public LocalDateTime getCreated() {
         return null;
     }
 
     @Override
-    public Date getModified() {
+    public LocalDateTime getModified() {
         return null;
     }
 

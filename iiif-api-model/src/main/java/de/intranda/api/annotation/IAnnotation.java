@@ -16,12 +16,7 @@
 package de.intranda.api.annotation;
 
 import java.net.URI;
-import java.util.Date;
-
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-
-import de.intranda.api.deserializer.AnnotationDeserializer;
-import de.intranda.api.deserializer.ResourceDeserializer;
+import java.time.LocalDateTime;
 
 /**
  * @author Florian Alpers
@@ -39,9 +34,9 @@ public interface IAnnotation{
     
     public IAgent getGenerator();
     
-    public Date getCreated();
+    public LocalDateTime getCreated();
     
-    public Date getModified();
+    public LocalDateTime getModified();
     
     public String getRights();
 }
