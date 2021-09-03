@@ -19,6 +19,7 @@ import java.time.LocalDateTime;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer;
 
 import de.intranda.api.iiif.presentation.IPresentationModelElement;
 import de.intranda.api.serializer.ActivityObjectSerializer;
@@ -74,7 +75,8 @@ public class Activity {
      * 
      * @return the update time
      */
-    @JsonFormat(pattern = DATETIME_FORMAT)
+    @JsonSerialize(using = LocalDateTimeSerializer.class)
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = DATETIME_FORMAT)
     public LocalDateTime getEndTime() {
         return endTime;
     }

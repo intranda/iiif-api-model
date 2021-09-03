@@ -10,6 +10,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer;
 
 import de.intranda.api.annotation.AbstractAnnotation;
 
@@ -52,13 +54,15 @@ public class WebAnnotation extends AbstractAnnotation {
     }
 
     @Override
-    @JsonFormat(pattern = DATETIME_FORMAT)
+    @JsonSerialize(using = LocalDateTimeSerializer.class)
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = DATETIME_FORMAT)
     public LocalDateTime getCreated() {
         return created;
     }
 
     @Override
-    @JsonFormat(pattern = DATETIME_FORMAT)
+    @JsonSerialize(using = LocalDateTimeSerializer.class)
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = DATETIME_FORMAT)
     public LocalDateTime getModified() {
         return modified;
     }

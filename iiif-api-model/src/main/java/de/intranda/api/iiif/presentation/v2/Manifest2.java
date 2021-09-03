@@ -21,6 +21,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer;
 
 /**
  * @author Florian Alpers
@@ -82,7 +84,8 @@ public class Manifest2 extends AbstractPresentationModelElement2 implements IPre
      * @return the navDate
      */
     @Override
-    @JsonFormat(pattern = DATETIME_FORMAT)
+    @JsonSerialize(using = LocalDateTimeSerializer.class)
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = DATETIME_FORMAT)
     public LocalDateTime getNavDate() {
         return navDate;
     }

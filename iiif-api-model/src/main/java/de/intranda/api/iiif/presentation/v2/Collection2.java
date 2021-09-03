@@ -26,6 +26,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer;
 
 import de.intranda.api.iiif.presentation.IPresentationModelElement;
 import de.intranda.api.serializer.ContentLinkSerializer;
@@ -100,7 +101,8 @@ public class Collection2 extends AbstractPresentationModelElement2 implements IP
     /**
      * @return the navDate
      */
-    @JsonFormat(pattern = DATETIME_FORMAT)
+    @JsonSerialize(using = LocalDateTimeSerializer.class)
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = DATETIME_FORMAT)
     public LocalDateTime getNavDate() {
         return navDate;
     }
