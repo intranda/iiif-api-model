@@ -20,13 +20,18 @@ import org.junit.Test;
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.datatype.jsr310.JSR310Module;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 
 import de.intranda.api.annotation.wa.WebAnnotation;
 
 public class GeoLocationTest {
 
+    private final ObjectMapper mapper = new ObjectMapper();
+    
     @Before
     public void setUp() throws Exception {
+        mapper.registerModule(new JavaTimeModule());
     }
 
     @After
@@ -37,10 +42,8 @@ public class GeoLocationTest {
     public void testReadAnnotation() throws JsonParseException, JsonMappingException, IOException {
        Path annotationFile = Paths.get("src/test/resources/annotations/WA-GeoJson.json");
        String json = readFileToString(annotationFile.toFile(), "UTF-8");
-
-//       mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
-//       mapper.configure(DeserializationFeature.ACCEPT_SINGLE_VALUE_AS_ARRAY, true);
-       WebAnnotation annotation = new ObjectMapper().readValue(json, WebAnnotation.class);
+       
+       WebAnnotation annotation = mapper.readValue(json, WebAnnotation.class);
 //       System.out.println("Annotation: " + annotation);
        Assert.assertTrue(annotation.getBody() instanceof GeoLocation);
     }

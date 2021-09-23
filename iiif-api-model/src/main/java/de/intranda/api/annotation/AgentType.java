@@ -19,5 +19,6 @@ public enum AgentType {
     public String getLabel() {
         return label;
     }
+
     
 }
