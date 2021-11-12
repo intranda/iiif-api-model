@@ -76,8 +76,14 @@ public class TypedResource implements ITypedResource {
         }
     }
     
+
     @Override
     public String toString() {
+        return asJson();
+    }
+    
+    
+    public String asJson() {
         ObjectMapper mapper = new ObjectMapper();
         try {
             return mapper.writeValueAsString(this);
