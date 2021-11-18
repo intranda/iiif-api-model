@@ -20,7 +20,7 @@ import de.intranda.api.annotation.AbstractAnnotation;
 public class WebAnnotation extends AbstractAnnotation {
 
     public final static String TYPE = "Annotation";
-    protected static final String DATETIME_FORMAT = "yyyy-MM-dd'T'HH:mm:ss'Z'";
+    public static final String DATETIME_FORMAT = "yyyy-MM-dd'T'HH:mm:ss'Z'";
 
     private Agent creator;
     private Agent generator;
