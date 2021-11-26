@@ -7,9 +7,11 @@ import java.net.URISyntaxException;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.DeserializationContext;
+import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.deser.std.StdDeserializer;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 
 import de.intranda.api.iiif.presentation.content.IContent;
 import de.intranda.api.iiif.presentation.content.ImageContent;
@@ -26,7 +28,8 @@ public class LinkedAnnotationResourceDeserializer extends StdDeserializer<IConte
 
     protected LinkedAnnotationResourceDeserializer(Class<?> vc) {
         super(vc);
-        // TODO Auto-generated constructor stub
+        mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+        mapper.registerModule(new JavaTimeModule());
     }
 
     @Override
