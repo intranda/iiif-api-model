@@ -22,17 +22,13 @@
 			"zoom": 8.0
 		}
 	},
-	"target": "https://viewer.goobi.io/rest/iiif/manifests/02008070428708/manifest/",
-	"creator": {
-		"id": "https://viewer.goobi.io/rest/users/19",
-		"type": "Person",
-		"name": "Beechy"
-	},
+	"creator": "https://viewer.goobi.io/rest/users/19",
+	"created": "2019-10-07T08:36:40Z",
+	"modified": "2019-10-07T08:36:40Z",
 	"generator": {
 		"id": "https://viewer.goobi.io/rest/crowdsourcing/campaigns/2/questions/5",
 		"type": "Software",
 		"name": "Georeferenzierung"
 	},
-	"created": "2019-10-07T08:36:40Z",
-	"modified": "2019-10-07T08:36:40Z"
+	"target": "https://viewer.goobi.io/rest/iiif/manifests/02008070428708/manifest/"
 }

@@ -9,12 +9,15 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 import de.intranda.api.annotation.AgentType;
 import de.intranda.api.annotation.IAgent;
+import de.intranda.api.deserializer.AgentDeserializer;
 
 @JsonInclude(Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown=true)
+@JsonDeserialize(using=AgentDeserializer.class)
 public class Agent implements IAgent {
 
     private final URI id;

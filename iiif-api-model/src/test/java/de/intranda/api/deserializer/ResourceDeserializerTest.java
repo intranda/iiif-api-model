@@ -11,6 +11,8 @@ import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.datatype.jsr310.JSR310Module;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 
 import de.intranda.api.annotation.oa.OpenAnnotation;
 import de.intranda.api.annotation.oa.SpecificResource;
@@ -27,6 +29,7 @@ public class ResourceDeserializerTest {
         ObjectMapper mapper = new ObjectMapper();
         mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
         mapper.configure(DeserializationFeature.ACCEPT_SINGLE_VALUE_AS_ARRAY, true);
+        mapper.registerModule(new JavaTimeModule());
         
         OpenAnnotation anno = mapper.readValue(jsonPath.toFile(), OpenAnnotation.class);
         Assert.assertEquals(anno.getBody().getClass(), TextualResource.class);
@@ -41,7 +44,8 @@ public class ResourceDeserializerTest {
         ObjectMapper mapper = new ObjectMapper();
         mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
         mapper.configure(DeserializationFeature.ACCEPT_SINGLE_VALUE_AS_ARRAY, true);
-        
+        mapper.registerModule(new JavaTimeModule());
+
         WebAnnotation anno = mapper.readValue(jsonPath.toFile(), WebAnnotation.class);
         Assert.assertEquals(anno.getBody().getClass(), de.intranda.api.annotation.wa.TextualResource.class);
         Assert.assertEquals(anno.getTarget().getClass(), de.intranda.api.annotation.wa.SpecificResource.class);

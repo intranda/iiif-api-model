@@ -16,11 +16,13 @@
 package de.intranda.api.iiif.presentation.v2;
 
 import java.net.URI;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer;
 
 /**
  * @author Florian Alpers
@@ -31,7 +33,7 @@ public class Manifest2 extends AbstractPresentationModelElement2 implements IPre
     public static final String TYPE = "sc:Manifest";
     public final List<Sequence> sequences = new ArrayList<>(1);
     public final List<Range2> structures = new ArrayList<>(1);
-    public Date navDate = null;
+    public LocalDateTime navDate = null;
 
     public Manifest2() {
         super();
@@ -82,8 +84,9 @@ public class Manifest2 extends AbstractPresentationModelElement2 implements IPre
      * @return the navDate
      */
     @Override
-    @JsonFormat(pattern = DATETIME_FORMAT)
-    public Date getNavDate() {
+    @JsonSerialize(using = LocalDateTimeSerializer.class)
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = DATETIME_FORMAT)
+    public LocalDateTime getNavDate() {
         return navDate;
     }
 
@@ -91,7 +94,7 @@ public class Manifest2 extends AbstractPresentationModelElement2 implements IPre
      * @param navDate the navDate to set
      */
     @Override
-    public void setNavDate(Date navDate) {
+    public void setNavDate(LocalDateTime navDate) {
         this.navDate = navDate;
     }
 

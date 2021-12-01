@@ -11,5 +11,5 @@ import de.intranda.api.deserializer.ResourceDeserializer;
 public interface IResource {
 
     public URI getId();
-
+    
 }
