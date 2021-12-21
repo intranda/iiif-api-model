@@ -13,6 +13,7 @@ import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.deser.std.StdDeserializer;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 
 import de.intranda.api.annotation.AgentType;
 import de.intranda.api.annotation.wa.Agent;
@@ -29,6 +30,7 @@ public class AgentDeserializer extends StdDeserializer<Agent> {
     public AgentDeserializer() {
         this(null);
         mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+        mapper.registerModule(new JavaTimeModule());
     }
     
     /**
@@ -37,6 +39,7 @@ public class AgentDeserializer extends StdDeserializer<Agent> {
     public AgentDeserializer(Class<?> vc) {
         super(vc);
         mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+        mapper.registerModule(new JavaTimeModule());
     }
 
 
