@@ -24,6 +24,8 @@ import java.util.List;
 import org.apache.commons.lang3.StringUtils;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer;
 
@@ -84,8 +86,9 @@ public abstract class AbstractPresentationModelElement2 implements IPresentation
         within = new PropertyList<>();
     }
 
+    @JsonInclude(Include.NON_NULL)
     public List<IMetadataValue> getAttributions() {
-        return this.attributions.isEmpty() ? new ArrayList<>() : this.attributions;
+        return this.attributions.isEmpty() ? null : this.attributions;
     }
 
     /**
