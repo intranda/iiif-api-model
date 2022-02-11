@@ -16,6 +16,7 @@
 package de.intranda.api.serializer;
 
 import java.io.IOException;
+import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -26,7 +27,6 @@ import com.fasterxml.jackson.databind.JsonSerializer;
 import com.fasterxml.jackson.databind.SerializerProvider;
 
 import de.intranda.metadata.multilanguage.IMetadataValue;
-import de.intranda.metadata.multilanguage.MultiLanguageMetadataValue;
 import de.intranda.metadata.multilanguage.MultiLanguageMetadataValue.ValuePair;
 
 /**
@@ -35,13 +35,34 @@ import de.intranda.metadata.multilanguage.MultiLanguageMetadataValue.ValuePair;
  * @author Florian Alpers
  *
  */
-public class IIIF2MetadataValueSerializer extends JsonSerializer<IMetadataValue> {
+public class IIIF2MetadataValueSerializer extends JsonSerializer<Object> {
 
     private static final Logger logger = LoggerFactory.getLogger(IIIF2MetadataValueSerializer.class);
 
     @Override
-    public void serialize(IMetadataValue element, JsonGenerator generator, SerializerProvider provider) throws IOException, JsonProcessingException {
+    public void serialize(Object obj, JsonGenerator generator, SerializerProvider provider) throws IOException, JsonProcessingException {
 
+        if(obj instanceof IMetadataValue ) {
+            writeSingleObject((IMetadataValue)obj, generator, provider);
+        } else if(obj instanceof List) {
+            if(((List) obj).size() == 1) {
+                writeSingleObject((IMetadataValue)((List) obj).get(0), generator, provider);
+            } else {
+                generator.writeStartArray();
+                for (Object element : (List)obj) {
+                    if(element instanceof IMetadataValue) {
+                        writeSingleObject((IMetadataValue)element, generator, provider);
+                    }
+                }
+                generator.writeEndArray();
+            }
+        }
+        
+
+
+    }
+    
+    private void writeSingleObject(IMetadataValue element, JsonGenerator generator,SerializerProvider provider) throws IOException {
         if (!allTranslationsEqual( element)) {
             generator.writeStartArray();
             for (String language : element.getLanguages()) {
@@ -63,7 +84,6 @@ public class IIIF2MetadataValueSerializer extends JsonSerializer<IMetadataValue>
         } else {
             generator.writeString(element.getValue().orElse(""));
         }
-
     }
 
     protected boolean allTranslationsEqual(IMetadataValue element) {

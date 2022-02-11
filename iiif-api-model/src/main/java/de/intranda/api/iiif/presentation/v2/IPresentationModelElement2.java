@@ -85,6 +85,7 @@ public interface IPresentationModelElement2 extends IPresentationModelElement {
     /**
      * @return the attribution
      */
+    @JsonSerialize(using=IIIF2MetadataValueSerializer.class)
     @JsonProperty("attribution")
     List<IMetadataValue> getAttributions();
 
