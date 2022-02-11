@@ -26,6 +26,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonSerializer;
 import com.fasterxml.jackson.databind.SerializerProvider;
 
+import de.intranda.api.PropertyList;
 import de.intranda.metadata.multilanguage.IMetadataValue;
 import de.intranda.metadata.multilanguage.MultiLanguageMetadataValue.ValuePair;
 
@@ -45,7 +46,9 @@ public class IIIF2MetadataValueSerializer extends JsonSerializer<Object> {
         if(obj instanceof IMetadataValue ) {
             writeSingleObject((IMetadataValue)obj, generator, provider);
         } else if(obj instanceof List) {
-            if(((List) obj).size() == 1) {
+            if(((List) obj).isEmpty())  {
+                generator.writeNull();
+            } else if(((List) obj).size() == 1) {
                 writeSingleObject((IMetadataValue)((List) obj).get(0), generator, provider);
             } else {
                 generator.writeStartArray();
