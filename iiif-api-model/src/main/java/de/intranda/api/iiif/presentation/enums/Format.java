@@ -61,6 +61,7 @@ public enum Format {
      * @return
      */
     public static Format fromMimeType(String mimeType) {
+        mimeType = mimeType.replace("/jpg", "/jpeg").replace("/tif", "/tiff");
         for (Format format : Format.values()) {
             if (mimeType.toLowerCase().equals(format.getLabel())) {
                 return format;
