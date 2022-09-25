@@ -4,8 +4,8 @@ import java.net.URI;
 import java.net.URISyntaxException;
 
 import org.json.JSONObject;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
 
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
@@ -14,7 +14,7 @@ import de.intranda.api.serializer.JsonObjectSerializer;
 
 public class JSONResource  implements IResource {
 
-    private static final Logger logger = LoggerFactory.getLogger(JSONResource.class);
+    private static final Logger logger = LogManager.getLogger(JSONResource.class);
     
     private final JSONObject json;
     
