@@ -103,5 +103,10 @@ public class IIIF2MetadataValue implements IMetadataValue {
     public List<ValuePair> getValues() {
         return this.value.getValues();
     }
+
+    @Override
+    public IMetadataValue copy() {
+        return new IIIF2MetadataValue(this.value.copy());
+    }
   
 }

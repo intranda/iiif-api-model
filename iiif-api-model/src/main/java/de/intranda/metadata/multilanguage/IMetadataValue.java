@@ -72,6 +72,18 @@ public interface IMetadataValue {
      * @param locale
      */
     public Optional<String> getValue(Locale language);
+    
+    /**
+     * Get the value for a specific locale, or the default language locale if none exists.
+     * If the value is entirely empty, an empty string is returned
+     * 
+     * @param value
+     * @param locale
+     * @return the value as string. May be empty, but never null
+     */
+    public default String getValueOrFallback(Locale language) {
+        return getValue(language).isPresent() ? getValue(language).get() : getValue().orElse("");
+    }
 
     /**
      * Get the value for a specific locale
@@ -140,5 +152,7 @@ public interface IMetadataValue {
     public boolean isEmpty(String locale);
 
     public List<ValuePair> getValues();
+    
+    public IMetadataValue copy();
 
 }

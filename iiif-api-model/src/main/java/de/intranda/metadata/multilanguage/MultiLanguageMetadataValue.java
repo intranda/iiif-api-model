@@ -340,4 +340,9 @@ public class MultiLanguageMetadataValue implements IMetadataValue {
         values.remove(locale);
     }
 
+    @Override
+    public IMetadataValue copy() {
+        return new MultiLanguageMetadataValue(this.values);
+    }
+
 }
