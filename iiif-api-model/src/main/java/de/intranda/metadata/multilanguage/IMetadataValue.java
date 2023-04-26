@@ -154,5 +154,10 @@ public interface IMetadataValue {
     public List<ValuePair> getValues();
     
     public IMetadataValue copy();
+    
+    public default long getNumberOfUniqueTranslations() {
+        return getValues().stream().map(ValuePair::getValue).distinct().count();
+
+    }
 
 }
