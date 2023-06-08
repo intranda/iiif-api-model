@@ -152,5 +152,12 @@ public interface IMetadataValue {
     public boolean isEmpty(String locale);
 
     public List<ValuePair> getValues();
+    
+    public IMetadataValue copy();
+    
+    public default long getNumberOfUniqueTranslations() {
+        return getValues().stream().map(ValuePair::getValue).distinct().count();
+
+    }
 
 }

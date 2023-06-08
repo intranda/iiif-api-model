@@ -108,7 +108,7 @@ public class SimpleMetadataValue implements IMetadataValue {
      */
     @Override
     public int hashCode() {
-        return value.hashCode();
+        return value == null ? 0 : value.hashCode();
     }
 
     /* (non-Javadoc)
@@ -192,5 +192,10 @@ public class SimpleMetadataValue implements IMetadataValue {
     @Override
     public List<ValuePair> getValues() {
         return Collections.singletonList(new ValuePair(getValue().orElse(""), ""));
+    }
+
+    @Override
+    public IMetadataValue copy() {
+        return new SimpleMetadataValue(this.value);
     }
 }
