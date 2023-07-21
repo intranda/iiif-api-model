@@ -78,7 +78,7 @@ public interface IMetadataValue {
      * If the value is entirely empty, an empty string is returned
      * 
      * @param value
-     * @param locale
+     * @param locale    the preferred locale to get the value for. If null, empty no a language without translation, {@link IMetadataValue#getValue()} is returned 
      * @return the value as string. May be empty, but never null
      */
     public default String getValueOrFallback(Locale language) {
@@ -95,6 +95,7 @@ public interface IMetadataValue {
 
     /**
      * Get the value for the default locale {@code _DEFAULT}
+     * If no default locale is set, get the value for the first entered language
      * 
      * @param value
      * @param locale

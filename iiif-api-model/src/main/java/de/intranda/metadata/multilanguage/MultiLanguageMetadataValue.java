@@ -342,7 +342,7 @@ public class MultiLanguageMetadataValue implements IMetadataValue {
 
     @Override
     public IMetadataValue copy() {
-        return new MultiLanguageMetadataValue(this.values);
+        return new MultiLanguageMetadataValue(new HashMap<>(this.values));
     }
 
 }
