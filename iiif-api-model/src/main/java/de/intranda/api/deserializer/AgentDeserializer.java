@@ -2,7 +2,6 @@ package de.intranda.api.deserializer;
 
 import java.io.IOException;
 import java.net.URI;
-import java.net.URISyntaxException;
 import java.util.Optional;
 
 import com.fasterxml.jackson.core.JsonParseException;
@@ -16,9 +15,10 @@ import com.fasterxml.jackson.databind.deser.std.StdDeserializer;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 
 import de.intranda.api.annotation.AgentType;
+import de.intranda.api.annotation.IAgent;
 import de.intranda.api.annotation.wa.Agent;
 
-public class AgentDeserializer extends StdDeserializer<Agent> {
+public class AgentDeserializer extends StdDeserializer<IAgent> {
 
     /**
      * 

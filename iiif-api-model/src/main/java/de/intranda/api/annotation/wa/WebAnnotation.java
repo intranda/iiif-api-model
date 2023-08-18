@@ -10,6 +10,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer;
 
@@ -17,6 +18,7 @@ import de.intranda.api.annotation.AbstractAnnotation;
 
 @JsonPropertyOrder({ "id", "type", "motivation", "body", "target" })
 @JsonIgnoreProperties(ignoreUnknown=true)
+@JsonDeserialize
 public class WebAnnotation extends AbstractAnnotation {
 
     public final static String TYPE = "Annotation";
