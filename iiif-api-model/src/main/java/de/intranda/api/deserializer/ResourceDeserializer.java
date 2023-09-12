@@ -25,6 +25,8 @@ import de.intranda.api.annotation.IResource;
 import de.intranda.api.annotation.ISelector;
 import de.intranda.api.annotation.SimpleResource;
 import de.intranda.api.annotation.wa.Dataset;
+import de.intranda.api.iiif.presentation.v2.Canvas2;
+import de.intranda.api.iiif.presentation.v2.Manifest2;
 
 public class ResourceDeserializer extends StdDeserializer<IResource> {
 
@@ -100,7 +102,7 @@ public class ResourceDeserializer extends StdDeserializer<IResource> {
             } else {    
                 //WebAnnotationsResource
                 
-                String type = node.get("type").asText();
+                String type = Optional.ofNullable(node.get("type")).map(n -> n.asText()).orElse("");
                 switch(type) {
                     case "TextualBody":
                         if(node.has("format")) {
@@ -123,15 +125,21 @@ public class ResourceDeserializer extends StdDeserializer<IResource> {
                         ViewPoint view = new ViewPoint(node.get("view").get("zoom").asDouble(), getAsDoubleArray(node.get("view").withArray("center")));
                         resource = new de.intranda.api.annotation.GeoLocation(geometry, properties, view);
                         break;
+                    case "Manifest":
+                        resource = new Manifest2(new URI(node.get("id").asText()));
+                        break;
+                    case "Canvas":
+                        resource = new Canvas2(new URI(node.get("id").asText()));
+                        break;
                     case "Dataset":
                     case "dataset":
                         resource = mapper.convertValue(node, Dataset.class);
                         break;
                     default: 
                         if(node.has("format")) {
-                            resource = new de.intranda.api.annotation.wa.TypedResource(new URI(node.get("id").asText()), node.get("type").asText(), node.get("format").asText());
+                            resource = new de.intranda.api.annotation.wa.TypedResource(new URI(node.get("id").asText()), type, node.get("format").asText());
                         } else {                            
-                            resource = new de.intranda.api.annotation.wa.TypedResource(new URI(node.get("id").asText()), node.get("type").asText());
+                            resource = new de.intranda.api.annotation.wa.TypedResource(new URI(node.get("id").asText()), type);
                         }
                 }
 

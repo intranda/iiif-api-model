@@ -12,11 +12,13 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.deser.std.StdDeserializer;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 
+import de.intranda.api.annotation.AbstractAnnotation;
 import de.intranda.api.annotation.IAnnotation;
+import de.intranda.api.annotation.IncomingAnnotation;
 import de.intranda.api.annotation.oa.OpenAnnotation;
 import de.intranda.api.annotation.wa.WebAnnotation;
 
-public class AnnotationDeserializer extends StdDeserializer<IAnnotation> {
+public class AnnotationDeserializer extends StdDeserializer<AbstractAnnotation> {
     
 
     private static final long serialVersionUID = -8048305385834181297L;
@@ -33,7 +35,7 @@ public class AnnotationDeserializer extends StdDeserializer<IAnnotation> {
     }
 
     @Override
-    public IAnnotation deserialize(JsonParser p, DeserializationContext ctxt) throws IOException, JsonProcessingException {
+    public AbstractAnnotation deserialize(JsonParser p, DeserializationContext ctxt) throws IOException, JsonProcessingException {
         JsonNode node = p.getCodec().readTree(p);
         String type = "unknown";
         if(node.has("@type")) {
@@ -43,9 +45,9 @@ public class AnnotationDeserializer extends StdDeserializer<IAnnotation> {
         }
         switch(type) {
             case OpenAnnotation.TYPE:
-                return mapper.convertValue(node, OpenAnnotation.class);
+                return new IncomingAnnotation(mapper.convertValue(node, OpenAnnotation.class));
             case WebAnnotation.TYPE:
-                return mapper.convertValue(node, WebAnnotation.class);
+                return new IncomingAnnotation(mapper.convertValue(node, WebAnnotation.class));
             default:
                 String id = "unknown";
                 if(node.has("@id")) {
@@ -53,7 +55,7 @@ public class AnnotationDeserializer extends StdDeserializer<IAnnotation> {
                 } else if(node.has("id"))  {
                     id = node.get("id").asText();
                 }
-                return new WebAnnotation(URI.create(id));
+                return new IncomingAnnotation(URI.create(id));
         }
     }
 
