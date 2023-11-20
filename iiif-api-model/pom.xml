@@ -41,7 +41,7 @@
 		<json.version>20231013</json.version>
 		<rs-api.version>2.1.1</rs-api.version>
 		<log4j.version>2.21.1</log4j.version>
-		<commons-text.version>1.10.0</commons-text.version>
+		<commons-text.version>1.11.0</commons-text.version>
 		<commons-collections.version>4.4</commons-collections.version>
 	</properties>
 
