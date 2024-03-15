@@ -38,7 +38,7 @@
 		<jersey.version>2.41</jersey.version>
 		<jaxb-api.version>2.4.0-b180830.0359</jaxb-api.version>
 		<junit.version>4.13.2</junit.version>
-		<json.version>20231013</json.version>
+		<json.version>20240303</json.version>
 		<rs-api.version>2.1.1</rs-api.version>
 		<log4j.version>2.21.1</log4j.version>
 		<commons-text.version>1.11.0</commons-text.version>
