@@ -35,7 +35,7 @@ public class AnnotationDeserializer extends StdDeserializer<AbstractAnnotation> 
     }
 
     @Override
-    public AbstractAnnotation deserialize(JsonParser p, DeserializationContext ctxt) throws IOException, JsonProcessingException {
+    public AbstractAnnotation deserialize(JsonParser p, DeserializationContext ctxt) throws IOException {
         JsonNode node = p.getCodec().readTree(p);
         String type = "unknown";
         if(node.has("@type")) {
