@@ -23,6 +23,7 @@ public class IncomingAnnotation extends AbstractAnnotation {
         this.setBody(orig.getBody());
         this.setMotivation(orig.getMotivation());
         this.setRights(orig.getRights());
+        this.created = orig.getCreated() == null ? LocalDateTime.now() : orig.getCreated();
     }
 
     @Override
