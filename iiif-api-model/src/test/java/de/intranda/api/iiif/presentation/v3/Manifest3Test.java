@@ -8,7 +8,7 @@ import java.net.URI;
 import java.time.LocalDateTime;
 import java.util.List;
 
-import javax.ws.rs.core.UriBuilder;
+import jakarta.ws.rs.core.UriBuilder;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
