@@ -25,7 +25,7 @@
  */
 package de.intranda.api.iiif.image.v3;
 
-import jakarta.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlRootElement;
 
 import com.fasterxml.jackson.annotation.JsonValue;
 

@@ -9,4 +9,15 @@
 		<ignoreVersion type="regex">.*[-_\.](alpha|Alpha|ALPHA|beta|Beta|BETA|rc|RC|M|EA)[-_\.]?[0-9]?.*</ignoreVersion>
     </ignoreVersions>
 
+    <!-- The following rules exist, because updating to this major versions include changing the javax. to jakarta. namespaces.
+         Not all dependencies are compatible yet. Therefore excluding this is the best thing for now -->
+    <rules>
+        <rule groupId="org.glassfish.jersey">
+            <ignoreVersions>
+                <ignoreVersion type="regex">3.0.*</ignoreVersion>
+                <ignoreVersion type="regex">3.1.*</ignoreVersion>
+            </ignoreVersions>
+        </rule>
+    </rules>
+
 </ruleset>
