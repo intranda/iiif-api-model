@@ -16,19 +16,15 @@
 package de.intranda.api.iiif.presentation;
 
 import java.net.URI;
-import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import de.intranda.api.PropertyList;
 import de.intranda.api.annotation.IImageResource;
 import de.intranda.api.annotation.ILabeledResource;
 import de.intranda.api.annotation.IResource;
-import de.intranda.api.iiif.presentation.content.LinkingContent;
 import de.intranda.api.iiif.presentation.enums.ViewingHint;
 import de.intranda.api.services.Service;
 import de.intranda.metadata.multilanguage.IMetadataValue;
@@ -42,12 +38,12 @@ import de.intranda.metadata.multilanguage.Metadata;
  */
 @JsonInclude(Include.NON_EMPTY)
 public interface IPresentationModelElement extends IResource {
-	
-	@JsonProperty("@context")
-	List<String> getContext();
-	
+
+    @JsonProperty("@context")
+    List<String> getContext();
+
     URI getId();
-	
+
     String getType();
 
     /**
@@ -69,7 +65,6 @@ public interface IPresentationModelElement extends IResource {
      * @return the thumbnail
      */
     List<? extends IImageResource> getThumbnails();
-
 
     /**
      * @return the license
@@ -99,24 +94,5 @@ public interface IPresentationModelElement extends IResource {
     List<? extends ILabeledResource> getSeeAlso();
 
     List<IResource> getWithin();
-
-    /**
-     * 
-     * @param allowedClasses All classes which should be included in the service list
-     * @return A PropertyList of all services of one of the given classes
-     */
-    @Deprecated
-    default List<Service> getServices(Class... allowedClasses) {
-        List<Class> allowedClassesList = Arrays.asList(allowedClasses);
-        if (this.getServices() != null) {
-            return new PropertyList(this.getServices().stream()
-                    .filter(service -> allowedClassesList.contains(service.getClass()))
-                    .collect(Collectors.toList()));
-        } else {
-            return null;
-        }
-    }
-
-
 
 }
