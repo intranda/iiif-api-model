@@ -6,9 +6,6 @@ import static org.junit.Assert.assertTrue;
 
 import java.net.URI;
 import java.time.LocalDateTime;
-import java.util.List;
-
-import javax.ws.rs.core.UriBuilder;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -28,6 +25,7 @@ import de.intranda.api.iiif.search.SearchService;
 import de.intranda.metadata.multilanguage.IIIF3Metadata;
 import de.intranda.metadata.multilanguage.MultiLanguageMetadataValue;
 import de.intranda.metadata.multilanguage.SimpleMetadataValue;
+import jakarta.ws.rs.core.UriBuilder;
 
 public class Manifest3Test {
 

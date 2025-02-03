@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>de.intranda.api.iiif</groupId>
 	<artifactId>iiif-api-model</artifactId>
-	<version>2.6.5</version>
+	<version>3.0.0-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
 	<repositories>
@@ -29,20 +29,20 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<jdk.version>1.8</jdk.version>
+		<maven.compiler.release>21</maven.compiler.release>
 
-		<commons-io.version>2.17.0</commons-io.version>
+		<commons-io.version>2.18.0</commons-io.version>
 		<commons-lang3.version>3.17.0</commons-lang3.version>
-		<commons-text.version>1.12.0</commons-text.version>
+		<commons-text.version>1.13.0</commons-text.version>
 		<commons-collections.version>4.4</commons-collections.version>
-		<jackson.version>2.18.0</jackson.version>
+		<jackson.version>2.18.2</jackson.version>
 
-		<jersey.version>2.45</jersey.version>
-		<jaxb-api.version>2.4.0-b180830.0359</jaxb-api.version>
+		<jersey.version>3.1.10</jersey.version>
+		<jaxb-api.version>4.0.2</jaxb-api.version>
 		<junit.version>4.13.2</junit.version>
-		<json.version>20240303</json.version>
-		<rs-api.version>2.1.1</rs-api.version>
-		<log4j.version>2.24.1</log4j.version>
+		<json.version>20250107</json.version>
+		<rs-api.version>3.1.0</rs-api.version>
+		<log4j.version>2.24.3</log4j.version>
 	</properties>
 
 
@@ -95,8 +95,8 @@
 			<scope>test</scope>
 		</dependency>
 		<dependency>
-			<groupId>javax.xml.bind</groupId>
-			<artifactId>jaxb-api</artifactId>
+			<groupId>jakarta.xml.bind</groupId>
+			<artifactId>jakarta.xml.bind-api</artifactId>
 			<version>${jaxb-api.version}</version>
 		</dependency>
 		<dependency>
@@ -109,15 +109,15 @@
 			<groupId>org.json</groupId>
 			<artifactId>json</artifactId>
 			<version>${json.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.logging.log4j</groupId>
-            <artifactId>log4j-api</artifactId>
-            <version>${log4j.version}</version>
-        </dependency>
+		</dependency>
 		<dependency>
-			<groupId>javax.ws.rs</groupId>
-			<artifactId>javax.ws.rs-api</artifactId>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-api</artifactId>
+			<version>${log4j.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>jakarta.ws.rs</groupId>
+			<artifactId>jakarta.ws.rs-api</artifactId>
 			<version>${rs-api.version}</version>
 		</dependency>
 	</dependencies>
@@ -127,21 +127,43 @@
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-enforcer-plugin</artifactId>
+				<version>3.5.0</version>
+				<executions>
+					<execution>
+						<id>enforce-maven</id>
+						<goals>
+							<goal>enforce</goal>
+						</goals>
+						<configuration>
+							<rules>
+								<requireMavenVersion>
+									<version>3.8.6</version>
+								</requireMavenVersion>
+							</rules>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-plugin</artifactId>
-				<version>3.0.0-M4</version>
+				<version>3.5.2</version>
 			</plugin>
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.8.1</version>
+				<version>3.13.0</version>
 				<configuration>
-					<source>${jdk.version}</source>
-					<target>${jdk.version}</target>
+					<compilerArgs>
+						<arg>-Xlint:deprecation</arg>
+						<arg>-Xlint:unchecked</arg>
+					</compilerArgs>
 				</configuration>
 			</plugin>
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>versions-maven-plugin</artifactId>
-				<version>2.7</version>
+				<version>2.18.0</version>
 				<configuration>
 					<rulesUri>file://${basedir}/version-number-rules.xml</rulesUri>
 				</configuration>
@@ -149,7 +171,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-dependency-plugin</artifactId>
-				<version>3.1.1</version>
+				<version>3.8.1</version>
 				<executions>
 					<execution>
 						<id>analyze</id>
@@ -157,7 +179,12 @@
 							<goal>analyze-only</goal>
 						</goals>
 						<configuration>
-							<failOnWarning>false</failOnWarning>
+							<failOnWarning>true</failOnWarning>
+							<ignoredUnusedDeclaredDependencies>
+								<!-- Jersey is used during unit tests, if not declared they will fail with
+									 Runtime java.lang.ClassNotFoundException: Provider for jakarta.ws.rs.ext.RuntimeDelegate cannot be found -->
+								<ignoredUnusedDeclaredDependency>org.glassfish.jersey.core:jersey-common</ignoredUnusedDeclaredDependency>
+							</ignoredUnusedDeclaredDependencies>
 						</configuration>
 					</execution>
 				</executions>
