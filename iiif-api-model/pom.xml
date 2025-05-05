@@ -34,7 +34,7 @@
 		<commons-io.version>2.18.0</commons-io.version>
 		<commons-lang3.version>3.17.0</commons-lang3.version>
 		<commons-text.version>1.13.0</commons-text.version>
-		<commons-collections.version>4.4</commons-collections.version>
+		<commons-collections.version>4.5.0</commons-collections.version>
 		<jackson.version>2.19.0</jackson.version>
 
 		<jersey.version>3.1.10</jersey.version>
