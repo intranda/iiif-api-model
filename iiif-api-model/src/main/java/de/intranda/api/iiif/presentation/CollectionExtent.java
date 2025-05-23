@@ -16,7 +16,6 @@
 package de.intranda.api.iiif.presentation;
 
 import java.net.URI;
-import java.net.URISyntaxException;
 
 import de.intranda.api.services.CollectionExtentDefinition;
 import de.intranda.api.services.Service;
@@ -28,41 +27,44 @@ import de.intranda.api.services.Service;
 public class CollectionExtent implements Service {
 
     private static final String CONTEXTPATH = CollectionExtentDefinition.URI_PATH;
+    private static final String SERVICEID = "collectionExtent";
+    private static final String TYPE = "GoobiCollectionExtentsService";
+    private static final String PROFILE = "goobi/iiif/collectionExtent/1.0/service";
 
     private int children;
     private int containedWorks;
     private String baseURI;
-    
+
     /**
      * 
      */
     public CollectionExtent() {
-       this.children = 0;
-       this.containedWorks = 0;
-       baseURI =  "";
+        this.children = 0;
+        this.containedWorks = 0;
+        baseURI = "";
     }
-    
+
     public CollectionExtent(String baseURI) {
         this.children = 0;
         this.containedWorks = 0;
-        this.baseURI =  baseURI;
-     }
-    
+        this.baseURI = baseURI;
+    }
+
     /**
      * 
-     * @param children     The number of direct subcollections of this collection
-     * @param containedWorks    The number of works within this collection (including subcollections)
+     * @param children The number of direct subcollections of this collection
+     * @param containedWorks The number of works within this collection (including subcollections)
      */
-    public CollectionExtent(int items, int extent) {
-        this.children = items;
-        this.containedWorks = extent;
-        baseURI =  "";
-     }
-    
+    public CollectionExtent(int children, int containedWorks) {
+        this.children = children;
+        this.containedWorks = containedWorks;
+        baseURI = "";
+    }
+
     public void setBaseURI(String baseURI) {
         this.baseURI = baseURI;
     }
-    
+
     /* (non-Javadoc)
      * @see de.intranda.digiverso.presentation.servlets.rest.services.Service#getContext()
      */
@@ -70,28 +72,40 @@ public class CollectionExtent implements Service {
     public URI getContext() {
         return URI.create(baseURI + CONTEXTPATH);
     }
-    
+
+    public URI getId() {
+        return URI.create(baseURI + SERVICEID);
+    }
+
+    public String getType() {
+        return TYPE;
+    }
+
+    public String getProfile() {
+        return PROFILE;
+    }
+
     /**
      * @return The number of direct subcollections of this collection
      */
     public int getChildren() {
         return children;
     }
-    
+
     /**
      * @return The number of works within this collection (including subcollections)
      */
     public int getContainedWorks() {
         return containedWorks;
     }
-    
+
     /**
      * @param items the items to set
      */
     public void setChildren(int items) {
         this.children = items;
     }
-    
+
     /**
      * @param extent the extent to set
      */

@@ -22,29 +22,28 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  *
  */
 public class ImageReaderDefinition {
-    
-    private static final Context SCHEMA = new Context("schema",  "https://schema.org/");
-    
+
+    private static final Context SCHEMA = new Context("schema", "https://schema.org/");
+
     private static final Definition NAME = new Definition(SCHEMA, "name");
 
     public static final String URI_PATH = "imageReaders/context.json";
-    
+
     private IContextDefinition context = new IContextDefinition() {
-        
+
         public Context getSchema() {
             return SCHEMA;
         }
-        
+
         public Definition getName() {
             return NAME;
         }
- 
-    };
 
+    };
 
     @JsonProperty("@context")
     public IContextDefinition getContext() {
         return context;
     }
-    
+
 }
