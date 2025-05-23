@@ -21,9 +21,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Optional;
 import java.util.Set;
 import java.util.function.BinaryOperator;
+import java.util.function.Function;
 import java.util.function.UnaryOperator;
 import java.util.stream.Collectors;
 
@@ -58,17 +60,17 @@ public class MultiLanguageMetadataValue implements IMetadataValue {
         this(metadataValuesForLanguage, 0);
     }
 
-    public MultiLanguageMetadataValue(String[]...values) {
+    public MultiLanguageMetadataValue(String[]... values) {
         this.values = new HashMap<>();
         for (String[] value : values) {
-            if(value.length >= 2) {
+            if (value.length >= 2) {
                 String lang = value[0];
                 String translation = value[1];
                 setValue(translation, lang);
             }
         }
     }
-    
+
     /**
      * Creates values from a map with the language codes as keys and values which are either Strings or a list of Strings. In the latter case, the
      * entry of index {@code valueIndex} in the list is as taken as value
@@ -92,18 +94,19 @@ public class MultiLanguageMetadataValue implements IMetadataValue {
         }
 
     }
-    
+
     @SuppressWarnings("unchecked")
-    public MultiLanguageMetadataValue(Map<String, ? extends Object> metadataValuesForLanguage, BinaryOperator<String> combiner)  {
+    public MultiLanguageMetadataValue(Map<String, ? extends Object> metadataValuesForLanguage, BinaryOperator<String> combiner) {
         if (metadataValuesForLanguage.isEmpty()) {
             values = new HashMap<>();
         } else if (metadataValuesForLanguage.values().iterator().next() instanceof List) {
             this.values = new HashMap<>();
             for (String language : metadataValuesForLanguage.keySet()) {
                 List<String> langValues = (List<String>) metadataValuesForLanguage.get(language);
-                try {                    
-                    this.values.put(language.toLowerCase(), langValues.stream().reduce((v1, v2) -> combiner.apply(v1, v2)).orElseThrow(() -> new NullPointerException()));
-                } catch(NullPointerException e) {
+                try {
+                    this.values.put(language.toLowerCase(),
+                            langValues.stream().reduce((v1, v2) -> combiner.apply(v1, v2)).orElseThrow(() -> new NullPointerException()));
+                } catch (NullPointerException e) {
                     //no value present. skip
                 }
             }
@@ -259,13 +262,14 @@ public class MultiLanguageMetadataValue implements IMetadataValue {
     public boolean isEmpty() {
         return values.isEmpty() || values.values().stream().noneMatch(value -> StringUtils.isNotBlank(value));
     }
-    
+
     /**
      * 
      * @return true if any other languages than {@link #DEFAULT_LANGUAGE} are present and hava a value
      */
     public boolean hasTranslations() {
-        return this.values.entrySet().stream()
+        return this.values.entrySet()
+                .stream()
                 .filter(entry -> !DEFAULT_LANGUAGE.equals(entry.getKey()))
                 .filter(entry -> StringUtils.isNotEmpty(entry.getValue()))
                 .count() > 0;
@@ -324,7 +328,7 @@ public class MultiLanguageMetadataValue implements IMetadataValue {
         public String getValue() {
             return value;
         }
-        
+
         @JsonIgnore
         public Locale getLocale() {
             return Locale.forLanguageTag(language);
@@ -343,6 +347,14 @@ public class MultiLanguageMetadataValue implements IMetadataValue {
     @Override
     public IMetadataValue copy() {
         return new MultiLanguageMetadataValue(new HashMap<>(this.values));
+    }
+
+    @Override
+    public IMetadataValue transformValues(Function<String, String> transformer) {
+        for (Entry<String, String> entry : values.entrySet()) {
+            entry.setValue(transformer.apply(entry.getValue()));
+        }
+        return this;
     }
 
 }
