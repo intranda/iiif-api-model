@@ -4,6 +4,7 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Locale;
 import java.util.Optional;
+import java.util.function.Function;
 import java.util.function.UnaryOperator;
 
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
@@ -12,21 +13,20 @@ import de.intranda.api.serializer.IIIF2MetadataValueSerializer;
 import de.intranda.metadata.multilanguage.MultiLanguageMetadataValue.ValuePair;
 
 /**
- * A metadata value that is always serialized according to IIIF2 specifications. 
- * Only needed in custom serializers
+ * A metadata value that is always serialized according to IIIF2 specifications. Only needed in custom serializers
  * 
  * @author florian
  *
  */
-@JsonSerialize(using=IIIF2MetadataValueSerializer.class)
+@JsonSerialize(using = IIIF2MetadataValueSerializer.class)
 public class IIIF2MetadataValue implements IMetadataValue {
 
     private final IMetadataValue value;
-    
+
     public IIIF2MetadataValue(IMetadataValue value) {
         this.value = value;
     }
-    
+
     @Override
     public void setValue(String value, Locale locale) {
         this.value.setValue(value, locale);
@@ -108,5 +108,11 @@ public class IIIF2MetadataValue implements IMetadataValue {
     public IMetadataValue copy() {
         return new IIIF2MetadataValue(this.value.copy());
     }
-  
+
+    @Override
+    public IMetadataValue transformValues(Function<String, String> transformer) {
+        this.value.transformValues(transformer);
+        return this;
+    }
+
 }

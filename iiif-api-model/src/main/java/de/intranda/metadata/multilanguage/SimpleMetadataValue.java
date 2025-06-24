@@ -20,6 +20,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Locale;
 import java.util.Optional;
+import java.util.function.Function;
 import java.util.function.UnaryOperator;
 
 import org.apache.commons.lang3.StringUtils;
@@ -197,5 +198,12 @@ public class SimpleMetadataValue implements IMetadataValue {
     @Override
     public IMetadataValue copy() {
         return new SimpleMetadataValue(this.value);
+    }
+
+    @Override
+    public IMetadataValue transformValues(Function<String, String> transformer) {
+        this.value = transformer.apply(this.value);
+        return this;
+
     }
 }

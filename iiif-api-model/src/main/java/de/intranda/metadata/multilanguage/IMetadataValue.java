@@ -19,6 +19,7 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Locale;
 import java.util.Optional;
+import java.util.function.Function;
 import java.util.function.UnaryOperator;
 
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
@@ -38,7 +39,7 @@ import de.intranda.metadata.multilanguage.MultiLanguageMetadataValue.ValuePair;
  *
  */
 @JsonDeserialize(using = IMetadataValueDeserializer.class)
-@JsonSerialize(using=WebAnnotationMetadataValueSerializer.class)
+@JsonSerialize(using = WebAnnotationMetadataValueSerializer.class)
 public interface IMetadataValue {
 
     /**
@@ -72,13 +73,13 @@ public interface IMetadataValue {
      * @param locale
      */
     public Optional<String> getValue(Locale language);
-    
+
     /**
-     * Get the value for a specific locale, or the default language locale if none exists.
-     * If the value is entirely empty, an empty string is returned
+     * Get the value for a specific locale, or the default language locale if none exists. If the value is entirely empty, an empty string is returned
      * 
      * @param value
-     * @param locale    the preferred locale to get the value for. If null, empty no a language without translation, {@link IMetadataValue#getValue()} is returned 
+     * @param locale the preferred locale to get the value for. If null, empty no a language without translation, {@link IMetadataValue#getValue()} is
+     *            returned
      * @return the value as string. May be empty, but never null
      */
     public default String getValueOrFallback(Locale language) {
@@ -94,8 +95,7 @@ public interface IMetadataValue {
     public Optional<String> getValue(String language);
 
     /**
-     * Get the value for the default locale {@code _DEFAULT}
-     * If no default locale is set, get the value for the first entered language
+     * Get the value for the default locale {@code _DEFAULT} If no default locale is set, get the value for the first entered language
      * 
      * @param value
      * @param locale
@@ -153,12 +153,14 @@ public interface IMetadataValue {
     public boolean isEmpty(String locale);
 
     public List<ValuePair> getValues();
-    
+
     public IMetadataValue copy();
-    
+
     public default long getNumberOfUniqueTranslations() {
         return getValues().stream().map(ValuePair::getValue).distinct().count();
 
     }
+
+    public IMetadataValue transformValues(Function<String, String> transformer);
 
 }
