@@ -1,7 +1,6 @@
 package de.intranda.api.services;
 
 import java.net.URI;
-import java.net.URISyntaxException;
 
 public class BaseService implements Service {
 

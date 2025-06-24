@@ -59,7 +59,7 @@ public class ImageInformation implements Service {
     public static final String JSON_PROTOCOL = "http://iiif.io/api/image";
     public static final ComplianceLevel IIIF_COMPLIANCE_LEVEL = ComplianceLevel.level2;
 
-    final private URI id;
+    private final URI id;
     private int width;
     private int height;
     private List<IiifProfile> profiles = new ArrayList<>();
