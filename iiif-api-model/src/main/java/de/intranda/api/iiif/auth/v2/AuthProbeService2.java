@@ -23,27 +23,27 @@ public class AuthProbeService2 extends AbstractAuthService2 {
         this.service = service;
     }
 
-    @JsonProperty("@id")
+    @JsonProperty("id")
     public URI getId() {
         return id;
     }
 
-    @JsonProperty("@type")
+    @JsonProperty("type")
     public String getType() {
         return TYPE;
     }
 
-    @JsonProperty("@errorHeading")
+    @JsonProperty("errorHeading")
     public Map<String, String> getErrorHeading() {
         return errorHeading;
     }
 
-    @JsonProperty("@errorNote")
+    @JsonProperty("errorNote")
     public Map<String, String> getErrorNote() {
         return errorNote;
     }
 
-    @JsonProperty("@service")
+    @JsonProperty("service")
     public List<AuthAccessService2> getService() {
         return service;
     }

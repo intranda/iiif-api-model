@@ -19,22 +19,22 @@ public class AuthAccessTokenService2 extends AbstractAuthService2 {
         this.id = id;
     }
 
-    @JsonProperty("@id")
+    @JsonProperty("id")
     public URI getId() {
         return id;
     }
 
-    @JsonProperty("@type")
+    @JsonProperty("type")
     public String getType() {
         return TYPE;
     }
 
-    @JsonProperty("@errorHeading")
+    @JsonProperty("errorHeading")
     public Map<String, String> getErrorHeading() {
         return errorHeading;
     }
 
-    @JsonProperty("@errorNote")
+    @JsonProperty("errorNote")
     public Map<String, String> getErrorNote() {
         return errorNote;
     }

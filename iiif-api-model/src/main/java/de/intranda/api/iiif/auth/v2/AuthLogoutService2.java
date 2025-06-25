@@ -14,12 +14,12 @@ public class AuthLogoutService2 extends AbstractAuthService2 {
         this.id = id;
     }
 
-    @JsonProperty("@id")
+    @JsonProperty("id")
     public URI getId() {
         return id;
     }
 
-    @JsonProperty("@type")
+    @JsonProperty("type")
     public String getType() {
         return TYPE;
     }

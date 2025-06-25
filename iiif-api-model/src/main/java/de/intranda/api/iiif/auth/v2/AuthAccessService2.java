@@ -45,12 +45,12 @@ public class AuthAccessService2 extends AbstractAuthService2 {
         this.logoutService = logoutService;
     }
 
-    @JsonProperty("@id")
+    @JsonProperty("id")
     public URI getId() {
         return id;
     }
 
-    @JsonProperty("@type")
+    @JsonProperty("type")
     public String getType() {
         return TYPE;
     }
@@ -60,12 +60,12 @@ public class AuthAccessService2 extends AbstractAuthService2 {
      * 
      * @return String
      */
-    @JsonProperty("@profile")
+    @JsonProperty("profile")
     public String getProfile() {
         return profile.name().toLowerCase();
     }
 
-    @JsonProperty("@service")
+    @JsonProperty("service")
     public List<AbstractAuthService2> getService() {
         List<AbstractAuthService2> ret = new ArrayList<>();
         if (tokenService != null) {
