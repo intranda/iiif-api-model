@@ -4,6 +4,8 @@ import java.net.URI;
 import java.util.List;
 import java.util.Map;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class AuthProbeService2 extends AbstractAuthService2 {
@@ -34,11 +36,13 @@ public class AuthProbeService2 extends AbstractAuthService2 {
     }
 
     @JsonProperty("errorHeading")
+    @JsonInclude(Include.NON_NULL)
     public Map<String, String> getErrorHeading() {
         return errorHeading;
     }
 
     @JsonProperty("errorNote")
+    @JsonInclude(Include.NON_NULL)
     public Map<String, String> getErrorNote() {
         return errorNote;
     }
