@@ -1,7 +1,9 @@
 package de.intranda.api.iiif.auth.v2;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
+@JsonPropertyOrder({ "@context", "type", "messageId", "accessToken", "expiresIn" })
 public class AuthAccessToken2 implements IAuthMessage {
 
     private static final String TYPE = "AuthAccessToken2";

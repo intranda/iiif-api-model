@@ -5,7 +5,9 @@ import java.util.Map;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
+@JsonPropertyOrder({ "@context", "type", "status", "substitute", "location", "heading", "note" })
 public class AuthProbeResult2 implements IAuthMessage {
 
     private static final String TYPE = "AuthProbeResult2";
