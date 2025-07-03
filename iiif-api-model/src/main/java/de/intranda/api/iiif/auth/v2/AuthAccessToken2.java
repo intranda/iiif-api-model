@@ -49,7 +49,7 @@ public class AuthAccessToken2 implements IAuthMessage, Serializable {
         permissions.put(resourceId, allowed);
     }
 
-    public boolean hasPermission(String resourceId) {
+    public Boolean hasPermission(String resourceId) {
         return permissions.getOrDefault(resourceId, null);
     }
 
