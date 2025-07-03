@@ -1,10 +1,20 @@
 package de.intranda.api.iiif.auth.v2;
 
+import java.io.Serializable;
+import java.time.Instant;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.UUID;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 @JsonPropertyOrder({ "@context", "type", "messageId", "accessToken", "expiresIn" })
-public class AuthAccessToken2 implements IAuthMessage {
+public class AuthAccessToken2 implements IAuthMessage, Serializable {
+
+    private static final long serialVersionUID = -6431032660504903788L;
 
     private static final String TYPE = "AuthAccessToken2";
 
@@ -12,7 +22,36 @@ public class AuthAccessToken2 implements IAuthMessage {
 
     private final String accessToken;
 
-    private int expiresIn;
+    private final int expiresIn;
+
+    private final Instant expiresAt;
+
+    private final Map<String, Boolean> permissions = new HashMap<>();
+
+    /**
+     * 
+     * @param messageId
+     * @param expiresIn
+     */
+    public AuthAccessToken2(String messageId, int expiresIn) {
+        this.messageId = messageId;
+        this.accessToken = UUID.randomUUID().toString();
+        this.expiresIn = expiresIn;
+        this.expiresAt = Instant.now().plusSeconds(expiresIn);
+    }
+
+    @JsonIgnore
+    public boolean isExpired() {
+        return Instant.now().isAfter(expiresAt);
+    }
+
+    public void addPermission(String resourceId, boolean allowed) {
+        permissions.put(resourceId, allowed);
+    }
+
+    public boolean hasPermission(String resourceId) {
+        return permissions.getOrDefault(resourceId, null);
+    }
 
     @JsonProperty("@context")
     public String getContext() {
@@ -22,11 +61,6 @@ public class AuthAccessToken2 implements IAuthMessage {
     @JsonProperty("type")
     public String getType() {
         return TYPE;
-    }
-
-    public AuthAccessToken2(String messageId, String accessToken) {
-        this.messageId = messageId;
-        this.accessToken = accessToken;
     }
 
     /**
@@ -54,11 +88,12 @@ public class AuthAccessToken2 implements IAuthMessage {
     }
 
     /**
-     * @param expiresIn the expiresIn to set
-     * @return this
+     * 
+     * @return Immutable version of permissions
      */
-    public AuthAccessToken2 setExpiresIn(int expiresIn) {
-        this.expiresIn = expiresIn;
-        return this;
+    @JsonIgnore
+    public Map<String, Boolean> getPermissions() {
+        return Collections.unmodifiableMap(permissions);
     }
+
 }
