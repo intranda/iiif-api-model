@@ -1,11 +1,12 @@
 package de.intranda.api.iiif.auth.v2;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 @JsonPropertyOrder({ "@context", "type", "profile", "heading", "note", "messageId" })
 public class AuthAccessTokenError2 implements IAuthMessage {
@@ -44,9 +45,9 @@ public class AuthAccessTokenError2 implements IAuthMessage {
 
     private final String messageId;
 
-    private Map<String, String> heading;
+    private final Map<String, String> heading = new HashMap<>();
 
-    private Map<String, String> note;
+    private final Map<String, String> note = new HashMap<>();
 
     /**
      * 
@@ -79,32 +80,14 @@ public class AuthAccessTokenError2 implements IAuthMessage {
     }
 
     @JsonProperty("heading")
-    @JsonInclude(Include.NON_NULL)
+    @JsonInclude(Include.NON_EMPTY)
     public Map<String, String> getHeading() {
         return heading;
     }
 
-    /**
-     * @param heading the heading to set
-     * @return this
-     */
-    public AuthAccessTokenError2 setHeading(Map<String, String> heading) {
-        this.heading = heading;
-        return this;
-    }
-
     @JsonProperty("note")
-    @JsonInclude(Include.NON_NULL)
+    @JsonInclude(Include.NON_EMPTY)
     public Map<String, String> getNote() {
         return note;
-    }
-
-    /**
-     * @param note the note to set
-     * @return this
-     */
-    public AuthAccessTokenError2 setNote(Map<String, String> note) {
-        this.note = note;
-        return this;
     }
 }

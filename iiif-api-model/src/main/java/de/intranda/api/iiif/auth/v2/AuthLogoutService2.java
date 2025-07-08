@@ -5,14 +5,16 @@ import java.util.HashMap;
 import java.util.Map;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
+@JsonPropertyOrder({ "@context", "id", "type", "label" })
 public class AuthLogoutService2 extends AbstractAuthService2 {
 
     public static final String TYPE = "AuthLogoutService2";
 
     private final URI id;
 
-    private Map<String, String> label = new HashMap<>();
+    private final Map<String, String> label = new HashMap<>();
 
     public AuthLogoutService2(URI id) {
         this.id = id;
@@ -33,4 +35,14 @@ public class AuthLogoutService2 extends AbstractAuthService2 {
         return label;
     }
 
+    /**
+     * 
+     * @param lang
+     * @param text
+     * @return this
+     */
+    public AuthLogoutService2 addLabel(String lang, String text) {
+        label.put(lang, text);
+        return this;
+    }
 }

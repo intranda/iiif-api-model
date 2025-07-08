@@ -2,10 +2,16 @@ package de.intranda.api.iiif.auth.v2;
 
 import java.net.URI;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
+@JsonPropertyOrder({ "@context", "id", "type", "profile", "label", "heading", "note", "confirmLabel", "service" })
 public class AuthAccessService2 extends AbstractAuthService2 {
 
     public enum Profile {
@@ -20,6 +26,14 @@ public class AuthAccessService2 extends AbstractAuthService2 {
 
     private final Profile profile;
 
+    private final Map<String, String> label;
+
+    private final Map<String, String> heading = new HashMap<>();
+
+    private final Map<String, String> note = new HashMap<>();
+
+    private final Map<String, String> confirmLabel = new HashMap<>();
+
     private final AuthAccessTokenService2 tokenService;
 
     private final AuthLogoutService2 logoutService;
@@ -28,10 +42,12 @@ public class AuthAccessService2 extends AbstractAuthService2 {
      * 
      * @param id
      * @param profile
+     * @param label
      * @param tokenService
      * @param logoutService
      */
-    public AuthAccessService2(URI id, Profile profile, AuthAccessTokenService2 tokenService, AuthLogoutService2 logoutService) {
+    public AuthAccessService2(URI id, Profile profile, Map<String, String> label, AuthAccessTokenService2 tokenService,
+            AuthLogoutService2 logoutService) {
         if (profile == null) {
             throw new IllegalArgumentException("profile may not be null");
         }
@@ -41,6 +57,7 @@ public class AuthAccessService2 extends AbstractAuthService2 {
 
         this.id = id;
         this.profile = profile;
+        this.label = label;
         this.tokenService = tokenService;
         this.logoutService = logoutService;
     }
@@ -55,14 +72,41 @@ public class AuthAccessService2 extends AbstractAuthService2 {
         return TYPE;
     }
 
-    /**
-     * SHOULD NOT be present if profile="external"
-     * 
-     * @return String
-     */
     @JsonProperty("profile")
     public String getProfile() {
         return profile.name().toLowerCase();
+    }
+
+    @JsonProperty("label")
+    public Map<String, String> getLabel() {
+        return label;
+    }
+
+    /**
+     * @return the heading
+     */
+    @JsonProperty("heading")
+    @JsonInclude(Include.NON_EMPTY)
+    public Map<String, String> getHeading() {
+        return heading;
+    }
+
+    /**
+     * @return the note
+     */
+    @JsonProperty("note")
+    @JsonInclude(Include.NON_EMPTY)
+    public Map<String, String> getNote() {
+        return note;
+    }
+
+    /**
+     * @return the confirmLabel
+     */
+    @JsonProperty("confirmLabel")
+    @JsonInclude(Include.NON_EMPTY)
+    public Map<String, String> getConfirmLabel() {
+        return confirmLabel;
     }
 
     @JsonProperty("service")

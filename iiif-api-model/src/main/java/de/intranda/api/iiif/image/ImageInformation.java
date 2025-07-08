@@ -69,11 +69,12 @@ public class ImageInformation implements Service {
     private String attribution;
     private String license;
     private String logo;
+    private boolean addAuthServices = false;
 
     public ImageInformation(String id) {
-    	this(URI.create(id));
+        this(URI.create(id));
     }
-    
+
     public ImageInformation(URI id) {
         this.id = id;
         addProfile(new ComplianceLevelProfile(IIIF_COMPLIANCE_LEVEL));
@@ -85,23 +86,23 @@ public class ImageInformation implements Service {
 
     /**
      * Copy constructor
-     * @param source	the ImageInformation object to clone
+     * 
+     * @param source the ImageInformation object to clone
      */
     public ImageInformation(ImageInformation source) {
-		this(source.id);
-		this.width = source.width;
-		this.height = source.height;
-		this.profiles = new ArrayList<>(source.profiles);
-		this.sizes = source.sizes.stream().map(ImageSize::new).collect(Collectors.toList());
-		this.tiles = source.tiles.stream().map(ImageTile::new).collect(Collectors.toList());
-		this.service = new PropertyList<>(source.service);
-		this.attribution = source.attribution;
-		this.license = source.license;
-		this.logo = source.logo;
+        this(source.id);
+        this.width = source.width;
+        this.height = source.height;
+        this.profiles = new ArrayList<>(source.profiles);
+        this.sizes = source.sizes.stream().map(ImageSize::new).collect(Collectors.toList());
+        this.tiles = source.tiles.stream().map(ImageTile::new).collect(Collectors.toList());
+        this.service = new PropertyList<>(source.service);
+        this.attribution = source.attribution;
+        this.license = source.license;
+        this.logo = source.logo;
+    }
 
-	}
-
-	@JsonProperty("width")
+    @JsonProperty("width")
     public int getWidth() {
         return width;
     }
@@ -178,17 +179,17 @@ public class ImageInformation implements Service {
 
     /**
      * Add a service to the list of supported services
+     * 
      * @param service
      */
     public void addService(Service service) {
         this.service.add(service);
     }
-    
+
     /**
      * 
      * @param service
-     * @deprecated functionally equivalent to {@link #addService(Service)}. 
-     * Use that method instead for semantic clarity
+     * @deprecated functionally equivalent to {@link #addService(Service)}. Use that method instead for semantic clarity
      */
     @Deprecated
     public void setService(Service service) {
@@ -235,6 +236,22 @@ public class ImageInformation implements Service {
 
     public void setLogo(String logo) {
         this.logo = logo;
+    }
+
+    /**
+     * @return the addAuthServices
+     */
+    public boolean isAddAuthServices() {
+        return addAuthServices;
+    }
+
+    /**
+     * @param addAuthServices the addAuthServices to set
+     * @return this
+     */
+    public ImageInformation setAddAuthServices(boolean addAuthServices) {
+        this.addAuthServices = addAuthServices;
+        return this;
     }
 
     @Override

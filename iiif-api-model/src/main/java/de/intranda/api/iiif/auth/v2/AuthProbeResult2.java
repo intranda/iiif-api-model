@@ -1,5 +1,6 @@
 package de.intranda.api.iiif.auth.v2;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -14,13 +15,13 @@ public class AuthProbeResult2 implements IAuthMessage {
 
     private int status;
 
-    private Map<String, String> substitute;
+    private final Map<String, String> substitute = new HashMap<>();
 
-    private Map<String, String> location;
+    private final Map<String, String> location = new HashMap<>();
 
-    private Map<String, String> heading;
+    private final Map<String, String> heading = new HashMap<>();
 
-    private Map<String, String> note;
+    private final Map<String, String> note = new HashMap<>();
 
     @JsonProperty("@context")
     public String getContext() {
@@ -47,63 +48,26 @@ public class AuthProbeResult2 implements IAuthMessage {
     }
 
     @JsonProperty("substitute")
-    @JsonInclude(Include.NON_NULL)
+    @JsonInclude(Include.NON_EMPTY)
     public Map<String, String> getSubstitute() {
         return substitute;
     }
 
-    /**
-     * @param substitute the substitute to set
-     * @return this
-     */
-    public AuthProbeResult2 setSubstitute(Map<String, String> substitute) {
-        this.substitute = substitute;
-        return this;
-    }
-
     @JsonProperty("location")
-    @JsonInclude(Include.NON_NULL)
+    @JsonInclude(Include.NON_EMPTY)
     public Map<String, String> getLocation() {
         return location;
     }
 
-    /**
-     * @param location the location to set
-     * @return this
-     */
-    public AuthProbeResult2 setLocation(Map<String, String> location) {
-        this.location = location;
-        return this;
-    }
-
     @JsonProperty("heading")
-    @JsonInclude(Include.NON_NULL)
+    @JsonInclude(Include.NON_EMPTY)
     public Map<String, String> getHeading() {
         return heading;
     }
 
-    /**
-     * @param heading the heading to set
-     * @return this
-     */
-    public AuthProbeResult2 setHeading(Map<String, String> heading) {
-        this.heading = heading;
-        return this;
-    }
-
     @JsonProperty("note")
-    @JsonInclude(Include.NON_NULL)
+    @JsonInclude(Include.NON_EMPTY)
     public Map<String, String> getNote() {
         return note;
     }
-
-    /**
-     * @param note the note to set
-     * @return this
-     */
-    public AuthProbeResult2 setNote(Map<String, String> note) {
-        this.note = note;
-        return this;
-    }
-
 }

@@ -1,24 +1,27 @@
 package de.intranda.api.iiif.auth.v2;
 
 import java.net.URI;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
+@JsonPropertyOrder({ "@context", "id", "type", "errorHeading", "errorNote", "service" })
 public class AuthProbeService2 extends AbstractAuthService2 {
 
     public static final String TYPE = "AuthProbeService2";
 
     private final URI id;
 
-    private Map<String, String> errorHeading;
+    private final Map<String, String> errorHeading = new HashMap<>();
 
-    private Map<String, String> errorNote;
+    private final Map<String, String> errorNote = new HashMap<>();
 
-    private List<AuthAccessService2> service;
+    private final List<AuthAccessService2> service;
 
     public AuthProbeService2(URI id, List<AuthAccessService2> service) {
         this.id = id;

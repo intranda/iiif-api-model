@@ -8,17 +8,16 @@ import de.intranda.api.iiif.search.AutoSuggestService;
 
 public class AutoCompleteService1 extends AutoSuggestService {
 
-	public static final String TYPE ="AutoCompleteService1";
+    public static final String TYPE = "AutoCompleteService1";
 
-	
-	public AutoCompleteService1(URI id) {
-		super(id);
-	}
-	
-	@JsonProperty("@type")
-	public String getType() {
-		return TYPE;
-	}
+    public AutoCompleteService1(URI id) {
+        super(id);
+    }
 
+    @Override
+    @JsonProperty("@type")
+    public String getType() {
+        return TYPE;
+    }
 
 }

@@ -5,6 +5,9 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -19,6 +22,8 @@ import de.intranda.api.serializer.ImageInformationSerializer;
 
 @JsonInclude(Include.NON_ABSENT)
 public class ImageResource extends TypedResource implements IImageResource {
+    
+    private static final Logger logger = LogManager.getLogger(ImageResource.class);
 
     private final Optional<ImageInformation> service;
     private final Integer width;
@@ -55,9 +60,10 @@ public class ImageResource extends TypedResource implements IImageResource {
      * @param baseId
      * @param width
      * @param height
+     * @param addAuthServices
      */
-    public ImageResource(String baseId, int width, int height) {
-        this(baseId, Format.IMAGE_JPEG, width, height);
+    public ImageResource(String baseId, int width, int height, boolean addAuthServices) {
+        this(baseId, Format.IMAGE_JPEG, width, height, addAuthServices);
     }
 
     /**
@@ -65,13 +71,16 @@ public class ImageResource extends TypedResource implements IImageResource {
      * a format other than jpg for delivery
      * 
      * @param baseId
+     * @param outputFormat
      * @param width
      * @param height
      * @param format
+     * @param addAuthServices
      */
-    public ImageResource(String baseId, Format outputFormat, int width, int height) {
+    public ImageResource(String baseId, Format outputFormat, int width, int height, boolean addAuthServices) {
         this(URI.create(IIIFUrlResolver.getIIIFImageUrl(baseId, "full", getSizeParameter(width, height), "0", "default", "jpg")), outputFormat,
-                new ImageInformation3(baseId));
+                new ImageInformation3(baseId).setAddAuthServices(addAuthServices));
+        logger.trace("ImageResource");
     }
 
     private static String getSizeParameter(int width, int height) {
@@ -102,11 +111,11 @@ public class ImageResource extends TypedResource implements IImageResource {
 
     @Override
     public boolean equals(Object obj) {
-        if (obj.getClass().equals(this.getClass())) {
+        if (obj != null && obj.getClass().equals(this.getClass())) {
             return this.getId().equals(((ImageResource) obj).getId());
-        } else {
-            return false;
         }
+        
+        return false;
     }
 
     @Override
@@ -117,5 +126,4 @@ public class ImageResource extends TypedResource implements IImageResource {
         }
         return ret;
     }
-
 }

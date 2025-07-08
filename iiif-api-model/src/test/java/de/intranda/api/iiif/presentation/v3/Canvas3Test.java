@@ -70,7 +70,7 @@ public class Canvas3Test {
 		label.setValue(CANVAS_LABEL_EN, Locale.ENGLISH);
 		canvas.setLabel(label);
 		
-        canvas.addMedia(URI.create(MEDIA_ANNOTATION_PAGE_ID), new ImageResource(IMAGE_ID, 400, 400));
+        canvas.addMedia(URI.create(MEDIA_ANNOTATION_PAGE_ID), new ImageResource(IMAGE_ID, 400, 400, false));
 
         WebAnnotation fulltext = new WebAnnotation(URI.create(FULLTEXT_ID));
         fulltext.setBody(new TextualResource(FULLTEXT_VALUE));

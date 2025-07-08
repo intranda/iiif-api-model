@@ -52,7 +52,8 @@ import de.intranda.metadata.multilanguage.SimpleMetadataValue;
  * @author Florian Alpers
  *
  */
-@JsonPropertyOrder({ "@context", "id", "type", "protocol", "profile", "width", "height", "maxWidth", "maxHeight", "maxArea", "rights", "sizes", "tiles",  "service" })
+@JsonPropertyOrder({ "@context", "id", "type", "protocol", "profile", "width", "height", "maxWidth", "maxHeight", "maxArea", "rights", "sizes",
+        "tiles", "service" })
 @JsonInclude(Include.NON_ABSENT)
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class ImageInformation3 extends ImageInformation {
@@ -64,23 +65,22 @@ public class ImageInformation3 extends ImageInformation {
     /**
      * All image formats that are supported for all regular images
      */
-    private static final List<String> SUPPORTED_FORMATS = Arrays.asList(new String[]{"tif", "png", "jpg"});
+    private static final List<String> SUPPORTED_FORMATS = Arrays.asList("tif", "png", "jpg");
     /**
      * All image formats required by compliance level2
      */
-    private static final List<String> LEVEL2_FORMATS = Arrays.asList(new String[]{"png", "jpg"});
-
+    private static final List<String> LEVEL2_FORMATS = Arrays.asList("png", "jpg");
 
     private Integer maxWidth = null;
     private Integer maxHeight = null;
     private Integer maxArea = null;
     private IMetadataValue label = null;
-    private List<String> preferredFormats = new ArrayList<String>();
-    
+    private List<String> preferredFormats = new ArrayList<>();
+
     public ImageInformation3(URI id) {
         super(id);
     }
-    
+
     public ImageInformation3(String id) {
         super(id);
     }
@@ -89,29 +89,28 @@ public class ImageInformation3 extends ImageInformation {
         this("");
     }
 
-
     public ImageInformation3(ImageInformation source) {
-		super(source);
-		if(source instanceof ImageInformation3) {
-			this.maxWidth = ((ImageInformation3)source).maxWidth;
-			this.maxHeight = ((ImageInformation3)source).maxHeight;
-			this.maxArea = ((ImageInformation3)source).maxArea;
-			this.label = ((ImageInformation3)source).label;
-			this.preferredFormats = ((ImageInformation3)source).preferredFormats;
-		}
-	}
+        super(source);
+        if (source instanceof ImageInformation3 imageInformation3) {
+            this.maxWidth = imageInformation3.maxWidth;
+            this.maxHeight = imageInformation3.maxHeight;
+            this.maxArea = imageInformation3.maxArea;
+            this.label = imageInformation3.label;
+            this.preferredFormats = imageInformation3.preferredFormats;
+        }
+    }
 
-	@Override
+    @Override
     @JsonProperty("id")
     public URI getId() {
-    	return super.getId();
+        return super.getId();
     }
 
     @JsonProperty("type")
     public String getType() {
-		return TYPE;
-	}
-    
+        return TYPE;
+    }
+
     /**
      * Ignore old profiles. This is replaced with {@link #getProfile()}
      */
@@ -120,18 +119,18 @@ public class ImageInformation3 extends ImageInformation {
     public List<IiifProfile> getProfiles() {
         return null;
     }
-    
+
     public IiifProfile getProfile() {
-    	return new ComplianceLevelProfile(IIIF_COMPLIANCE_LEVEL);
+        return new ComplianceLevelProfile(IIIF_COMPLIANCE_LEVEL);
     }
 
-
+    @Override
     @JsonProperty("@context")
     public URI getContext() {
         return JSON_CONTEXT;
     }
 
-
+    @Override
     @JsonProperty("protocol")
     public String getProtocol() {
         return JSON_PROTOCOL;
@@ -140,99 +139,97 @@ public class ImageInformation3 extends ImageInformation {
     @Override
     @JsonIgnore
     public String getLogo() {
-    	return super.getLogo();
+        return super.getLogo();
     }
-    
+
     @Override
     @JsonIgnore
     public String getAttribution() {
-    	return super.getAttribution();
+        return super.getAttribution();
     }
-    
+
     @Override
     @JsonProperty("rights")
     public String getLicense() {
-    	return super.getLicense();
+        return super.getLicense();
     }
 
     @Override
     public List<Service> getService() {
-    	// always return a json array, even for a single service
-    	return new ArrayList<>(super.getService());
+        // always return a json array, even for a single service
+        return new ArrayList<>(super.getService());
     }
-    
+
     /**
      * 
-     * @return all iii3 image api features (see https://iiif.io/api/image/3.0/#57-extra-functionality)
-     * which are not included in level2 compliance level specification (https://iiif.io/api/image/3/level2.json)
+     * @return all iii3 image api features (see https://iiif.io/api/image/3.0/#57-extra-functionality) which are not included in level2 compliance
+     *         level specification (https://iiif.io/api/image/3/level2.json)
      */
     public Collection<ImageApiFeature> getExtraFeatures() {
-    	return ImageApiFeature.getExtraFeatures();
+        return ImageApiFeature.getExtraFeatures();
     }
-    
+
     /**
-     * "png", "jpg" and "tif" are supported. This method only returns "tif" and "pdf" because the others are included
-     * in compliance level specification (https://iiif.io/api/image/3/level2.json)
+     * "png", "jpg" and "tif" are supported. This method only returns "tif" and "pdf" because the others are included in compliance level
+     * specification (https://iiif.io/api/image/3/level2.json)
+     * 
      * @return Any formats for image delivery not included in compliance level
      */
     public Collection<String> getExtraFormats() {
-    	return CollectionUtils.subtract(
-    			CollectionUtils.union(SUPPORTED_FORMATS, getPreferredFormats()), 
-    			LEVEL2_FORMATS);   
+        return CollectionUtils.subtract(
+                CollectionUtils.union(SUPPORTED_FORMATS, getPreferredFormats()),
+                LEVEL2_FORMATS);
     }
-    
+
     public Collection<String> getExtraQualities() {
-    	return Arrays.asList("gray", "bitonal");
+        return Arrays.asList("gray", "bitonal");
     }
-    
+
     public IMetadataValue getLabel() {
-		return label;
-	}
-    
-    public void setLabel(IMetadataValue label) {
-		this.label = label;
-	}
-    
-    public void setLabel(String label) {
-    	this.setLabel(new SimpleMetadataValue(label));
+        return label;
     }
-    
+
+    public void setLabel(IMetadataValue label) {
+        this.label = label;
+    }
+
+    public void setLabel(String label) {
+        this.setLabel(new SimpleMetadataValue(label));
+    }
+
     public void setMaxWidth(Integer maxWidth) {
-		this.maxWidth = maxWidth;
-	}
-    
+        this.maxWidth = maxWidth;
+    }
+
     public Integer getMaxWidth() {
-		return maxWidth;
-	}
-    
+        return maxWidth;
+    }
+
     public void setMaxHeight(Integer maxHeight) {
-		this.maxHeight = maxHeight;
-	}
-    
+        this.maxHeight = maxHeight;
+    }
+
     public Integer getMaxHeight() {
-		return maxHeight;
-	}
-    
+        return maxHeight;
+    }
+
     public void setMaxArea(Integer maxArea) {
-		this.maxArea = maxArea;
-	}
-    
+        this.maxArea = maxArea;
+    }
+
     public Integer getMaxArea() {
-		return maxArea;
-	}
-    
+        return maxArea;
+    }
+
     public void setPreferredFormats(List<String> preferredFormats) {
-		this.preferredFormats = new ArrayList<>(preferredFormats);
-	}
-    
+        this.preferredFormats = new ArrayList<>(preferredFormats);
+    }
+
     public void setPreferredFormats(String... preferredFormats) {
-		this.preferredFormats = Arrays.asList(preferredFormats);
-	}
-    
+        this.preferredFormats = Arrays.asList(preferredFormats);
+    }
+
     public List<String> getPreferredFormats() {
-		return preferredFormats;
-	}
-    
-    
-    
+        return preferredFormats;
+    }
 }
