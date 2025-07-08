@@ -22,7 +22,7 @@ import de.intranda.api.serializer.ImageInformationSerializer;
 
 @JsonInclude(Include.NON_ABSENT)
 public class ImageResource extends TypedResource implements IImageResource {
-    
+
     private static final Logger logger = LogManager.getLogger(ImageResource.class);
 
     private final Optional<ImageInformation> service;
@@ -60,10 +60,9 @@ public class ImageResource extends TypedResource implements IImageResource {
      * @param baseId
      * @param width
      * @param height
-     * @param addAuthServices
      */
-    public ImageResource(String baseId, int width, int height, boolean addAuthServices) {
-        this(baseId, Format.IMAGE_JPEG, width, height, addAuthServices);
+    public ImageResource(String baseId, int width, int height) {
+        this(baseId, Format.IMAGE_JPEG, width, height);
     }
 
     /**
@@ -75,12 +74,10 @@ public class ImageResource extends TypedResource implements IImageResource {
      * @param width
      * @param height
      * @param format
-     * @param addAuthServices
      */
-    public ImageResource(String baseId, Format outputFormat, int width, int height, boolean addAuthServices) {
+    public ImageResource(String baseId, Format outputFormat, int width, int height) {
         this(URI.create(IIIFUrlResolver.getIIIFImageUrl(baseId, "full", getSizeParameter(width, height), "0", "default", "jpg")), outputFormat,
-                new ImageInformation3(baseId).setAddAuthServices(addAuthServices));
-        logger.trace("ImageResource");
+                new ImageInformation3(baseId));
     }
 
     private static String getSizeParameter(int width, int height) {
@@ -114,7 +111,7 @@ public class ImageResource extends TypedResource implements IImageResource {
         if (obj != null && obj.getClass().equals(this.getClass())) {
             return this.getId().equals(((ImageResource) obj).getId());
         }
-        
+
         return false;
     }
 

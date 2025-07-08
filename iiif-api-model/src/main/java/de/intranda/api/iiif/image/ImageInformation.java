@@ -69,7 +69,6 @@ public class ImageInformation implements Service {
     private String attribution;
     private String license;
     private String logo;
-    private boolean addAuthServices = false;
 
     public ImageInformation(String id) {
         this(URI.create(id));
@@ -236,22 +235,6 @@ public class ImageInformation implements Service {
 
     public void setLogo(String logo) {
         this.logo = logo;
-    }
-
-    /**
-     * @return the addAuthServices
-     */
-    public boolean isAddAuthServices() {
-        return addAuthServices;
-    }
-
-    /**
-     * @param addAuthServices the addAuthServices to set
-     * @return this
-     */
-    public ImageInformation setAddAuthServices(boolean addAuthServices) {
-        this.addAuthServices = addAuthServices;
-        return this;
     }
 
     @Override

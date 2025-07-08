@@ -39,13 +39,13 @@ public class AuthProbeService2 extends AbstractAuthService2 {
     }
 
     @JsonProperty("errorHeading")
-    @JsonInclude(Include.NON_NULL)
+    @JsonInclude(Include.NON_EMPTY)
     public Map<String, String> getErrorHeading() {
         return errorHeading;
     }
 
     @JsonProperty("errorNote")
-    @JsonInclude(Include.NON_NULL)
+    @JsonInclude(Include.NON_EMPTY)
     public Map<String, String> getErrorNote() {
         return errorNote;
     }

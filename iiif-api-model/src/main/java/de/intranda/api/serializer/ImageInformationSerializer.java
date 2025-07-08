@@ -18,39 +18,44 @@ package de.intranda.api.serializer;
 import java.io.IOException;
 
 import com.fasterxml.jackson.core.JsonGenerator;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonSerializer;
 import com.fasterxml.jackson.databind.SerializerProvider;
 
 import de.intranda.api.iiif.image.ImageInformation;
 import de.intranda.api.iiif.image.v3.ImageInformation3;
+import de.intranda.api.services.Service;
 
 /**
  * @author Florian Alpers
  *
  */
-public class ImageInformationSerializer extends JsonSerializer<ImageInformation>{
+public class ImageInformationSerializer extends JsonSerializer<ImageInformation> {
 
     /* (non-Javadoc)
      * @see com.fasterxml.jackson.databind.JsonSerializer#serialize(java.lang.Object, com.fasterxml.jackson.core.JsonGenerator, com.fasterxml.jackson.databind.SerializerProvider)
      */
     @Override
-    public void serialize(ImageInformation element, JsonGenerator generator, SerializerProvider provicer) throws IOException, JsonProcessingException {
+    public void serialize(ImageInformation element, JsonGenerator generator, SerializerProvider provicer) throws IOException {
 
-    	if(element instanceof ImageInformation3) {
-    		generator.writeStartObject();
-    		generator.writeStringField("id", element.getId().toString());
-    		generator.writeStringField("type", ImageInformation3.TYPE);
-    		generator.writeStringField("profile", ImageInformation3.IIIF_COMPLIANCE_LEVEL.getLabel());
-    		generator.writeEndObject();
-    	} else {    		
-    		generator.writeStartObject();
-    		generator.writeStringField("@context", ImageInformation.JSON_CONTEXT.toString());
-    		generator.writeStringField("@id", element.getId().toString());
-    		generator.writeStringField("profile", ImageInformation.IIIF_COMPLIANCE_LEVEL.getUri());
-    		generator.writeEndObject();
-    	}
-        
+        if (element instanceof ImageInformation3) {
+            generator.writeStartObject();
+            generator.writeStringField("id", element.getId().toString());
+            generator.writeStringField("type", ImageInformation3.TYPE);
+            generator.writeStringField("profile", ImageInformation3.IIIF_COMPLIANCE_LEVEL.getLabel());
+            generator.writeArrayFieldStart("service");
+            for (Service service : element.getService()) {
+                generator.writeObject(service);
+            }
+            generator.writeEndArray();
+            generator.writeEndObject();
+        } else {
+            generator.writeStartObject();
+            generator.writeStringField("@context", ImageInformation.JSON_CONTEXT.toString());
+            generator.writeStringField("@id", element.getId().toString());
+            generator.writeStringField("profile", ImageInformation.IIIF_COMPLIANCE_LEVEL.getUri());
+            generator.writeEndObject();
+        }
+
     }
 
 }
