@@ -36,25 +36,24 @@ public class ImageInformationSerializer extends JsonSerializer<ImageInformation>
      */
     @Override
     public void serialize(ImageInformation element, JsonGenerator generator, SerializerProvider provicer) throws IOException {
-
+        generator.writeStartObject();
         if (element instanceof ImageInformation3) {
-            generator.writeStartObject();
             generator.writeStringField("id", element.getId().toString());
             generator.writeStringField("type", ImageInformation3.TYPE);
             generator.writeStringField("profile", ImageInformation3.IIIF_COMPLIANCE_LEVEL.getLabel());
-            generator.writeArrayFieldStart("service");
-            for (Service service : element.getService()) {
-                generator.writeObject(service);
-            }
-            generator.writeEndArray();
-            generator.writeEndObject();
         } else {
-            generator.writeStartObject();
             generator.writeStringField("@context", ImageInformation.JSON_CONTEXT.toString());
             generator.writeStringField("@id", element.getId().toString());
             generator.writeStringField("profile", ImageInformation.IIIF_COMPLIANCE_LEVEL.getUri());
-            generator.writeEndObject();
         }
+        
+        generator.writeArrayFieldStart("service");
+        for (Service service : element.getService()) {
+            generator.writeObject(service);
+        }
+        
+        generator.writeEndArray();
+        generator.writeEndObject();
 
     }
 
