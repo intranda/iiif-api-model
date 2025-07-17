@@ -21,9 +21,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 import de.intranda.api.annotation.ILabeledResource;
-import de.intranda.api.annotation.IResource;
-import de.intranda.api.iiif.presentation.enums.DcType;
-import de.intranda.api.iiif.presentation.enums.Format;
 import de.intranda.metadata.multilanguage.IMetadataValue;
 
 /**
@@ -62,5 +59,4 @@ public interface IContent extends ILabeledResource {
 	 * @return the label
 	 */
 	public IMetadataValue getLabel();
-
 }

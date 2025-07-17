@@ -28,10 +28,9 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 import de.intranda.api.annotation.IAnnotation;
 import de.intranda.api.annotation.IAnnotationCollection;
-import de.intranda.api.annotation.IResource;
-import de.intranda.api.deserializer.AnnotationDeserializer;
 import de.intranda.api.deserializer.AnnotationListResourceDeserializer;
 import de.intranda.api.serializer.URLOnlySerializer;
+import de.intranda.api.services.Service;
 
 /**
  * A Page in a resource list which contains a list of paged items and a reference to the next and previous page and the containing list
@@ -39,13 +38,13 @@ import de.intranda.api.serializer.URLOnlySerializer;
  * @author Florian Alpers
  *
  */
-@JsonPropertyOrder({"@context", "id", "type", "prev", "next", "partOf", "items"})
+@JsonPropertyOrder({ "@context", "id", "type", "prev", "next", "partOf", "items", "service" })
 @JsonInclude(Include.NON_EMPTY)
-public class AnnotationPage implements IAnnotationCollection{
+public class AnnotationPage implements IAnnotationCollection {
 
     private final static String TYPE = "AnnotationPage";
     private static final String CONTEXT = "http://www.w3.org/ns/anno.jsonld";
-    
+
     private final URI id;
     private AnnotationCollection partOf;
     private AnnotationPage prev;
@@ -53,26 +52,27 @@ public class AnnotationPage implements IAnnotationCollection{
     private Integer startIndex = null;
     private List<IAnnotation> items = new ArrayList<>();
     private final String context;
-    
+    private final List<Service> service = new ArrayList<>();
+
     public AnnotationPage() {
         this.id = null;
         this.context = CONTEXT;
     }
-    
+
     /**
      * Constructs a collection page from the URI to the resource providing this object
      */
     public AnnotationPage(URI id) {
         this.id = id;
-        this.context = CONTEXT; 
+        this.context = CONTEXT;
     }
 
     public AnnotationPage(URI id, boolean includeContext) {
-    	this.id = id;
-        this.context = includeContext ? CONTEXT : ""; 
-	}
+        this.id = id;
+        this.context = includeContext ? CONTEXT : "";
+    }
 
-	/**
+    /**
      * Reference to the containing collection
      * 
      * @return the containing collection
@@ -132,7 +132,7 @@ public class AnnotationPage implements IAnnotationCollection{
      * 
      * @return the items
      */
-    @JsonDeserialize(using=AnnotationListResourceDeserializer.class)
+    @JsonDeserialize(using = AnnotationListResourceDeserializer.class)
     public List<IAnnotation> getItems() {
         return items;
     }
@@ -146,19 +146,17 @@ public class AnnotationPage implements IAnnotationCollection{
         this.items = items;
     }
 
+    public void addItem(IAnnotation annotation) {
+        this.items.add(annotation);
+    }
 
-	public void addItem(IAnnotation annotation) {
-		this.items.add(annotation);
-	}
-    
     /**
      * @return the context
      */
-    @JsonProperty("@context")    
+    @JsonProperty("@context")
     public String getContext() {
         return this.context;
     }
-
 
     /**
      * The type of this resource. Always "OrderedCollectionPage"
@@ -175,15 +173,27 @@ public class AnnotationPage implements IAnnotationCollection{
     public URI getId() {
         return id;
     }
-    
+
     public void setStartIndex(Integer startIndex) {
         this.startIndex = startIndex;
     }
-    
+
     public Integer getStartIndex() {
         return startIndex;
     }
 
-    
-    
+    /**
+     * @return the service
+     */
+    @JsonProperty("service")
+    @JsonInclude(Include.NON_EMPTY)
+    public List<Service> getService() {
+        return service;
+    }
+
+    public void addService(Service service) {
+        if (service != null) {
+            this.service.add(service);
+        }
+    }
 }

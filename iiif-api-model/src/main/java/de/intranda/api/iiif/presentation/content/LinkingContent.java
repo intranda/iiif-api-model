@@ -16,12 +16,15 @@
 package de.intranda.api.iiif.presentation.content;
 
 import java.net.URI;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
-import de.intranda.api.iiif.presentation.enums.DcType;
 import de.intranda.api.iiif.presentation.enums.Format;
+import de.intranda.api.services.Service;
 import de.intranda.metadata.multilanguage.IMetadataValue;
 
 /**
@@ -35,6 +38,7 @@ public class LinkingContent implements IContent {
     private IMetadataValue label;
     private String type = null;
     private Format format = Format.TEXT_HTML;
+    private List<Service> service = new ArrayList<>();
 
     public LinkingContent() {
         this.id = null;
@@ -121,4 +125,23 @@ public class LinkingContent implements IContent {
         this.label = label;
     }
 
+    /**
+     * 
+     * @return the service
+     */
+    @JsonProperty("service")
+    @JsonInclude(Include.NON_EMPTY)
+    public List<Service> getService() {
+        return service;
+    }
+
+    /**
+     * 
+     * @param service
+     */
+    public void addService(Service service) {
+        if (service != null) {
+            this.service.add(service);
+        }
+    }
 }
