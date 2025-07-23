@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -158,6 +159,7 @@ public class AuthAccessService2 extends AbstractAuthService2 {
     /**
      * @return the tokenService
      */
+    @JsonIgnore
     public AuthAccessTokenService2 getTokenService() {
         return tokenService;
     }
@@ -165,6 +167,7 @@ public class AuthAccessService2 extends AbstractAuthService2 {
     /**
      * @return the logoutService
      */
+    @JsonIgnore
     public AuthLogoutService2 getLogoutService() {
         return logoutService;
     }
