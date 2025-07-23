@@ -92,6 +92,17 @@ public class AuthAccessService2 extends AbstractAuthService2 {
     }
 
     /**
+     * 
+     * @param lang
+     * @param text
+     * @return this
+     */
+    public AuthAccessService2 addHeading(String lang, String text) {
+        heading.put(lang, text);
+        return this;
+    }
+
+    /**
      * @return the note
      */
     @JsonProperty("note")
@@ -101,12 +112,34 @@ public class AuthAccessService2 extends AbstractAuthService2 {
     }
 
     /**
+     * 
+     * @param lang
+     * @param text
+     * @return this
+     */
+    public AuthAccessService2 addNote(String lang, String text) {
+        note.put(lang, text);
+        return this;
+    }
+
+    /**
      * @return the confirmLabel
      */
     @JsonProperty("confirmLabel")
     @JsonInclude(Include.NON_EMPTY)
     public Map<String, String> getConfirmLabel() {
         return confirmLabel;
+    }
+
+    /**
+     * 
+     * @param lang
+     * @param text
+     * @return this
+     */
+    public AuthAccessService2 addConfirmLabel(String lang, String text) {
+        confirmLabel.put(lang, text);
+        return this;
     }
 
     @JsonProperty("service")
@@ -120,5 +153,19 @@ public class AuthAccessService2 extends AbstractAuthService2 {
         }
 
         return ret;
+    }
+
+    /**
+     * @return the tokenService
+     */
+    public AuthAccessTokenService2 getTokenService() {
+        return tokenService;
+    }
+
+    /**
+     * @return the logoutService
+     */
+    public AuthLogoutService2 getLogoutService() {
+        return logoutService;
     }
 }
