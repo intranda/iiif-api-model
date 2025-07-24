@@ -51,6 +51,7 @@ public class AuthProbeService2 extends AbstractAuthService2 {
     }
 
     @JsonProperty("service")
+    @JsonInclude(Include.NON_NULL)
     public List<AuthAccessService2> getService() {
         return service;
     }

@@ -49,12 +49,12 @@ public class AuthAccessService2 extends AbstractAuthService2 {
      */
     public AuthAccessService2(URI id, Profile profile, Map<String, String> label, AuthAccessTokenService2 tokenService,
             AuthLogoutService2 logoutService) {
-        if (profile == null) {
-            throw new IllegalArgumentException("profile may not be null");
-        }
-        if (tokenService == null) {
-            throw new IllegalArgumentException("tokenService may not be null");
-        }
+        //        if (profile == null) {
+        //            throw new IllegalArgumentException("profile may not be null");
+        //        }
+        //        if (tokenService == null) {
+        //            throw new IllegalArgumentException("tokenService may not be null");
+        //        }
 
         this.id = id;
         this.profile = profile;
@@ -75,8 +75,8 @@ public class AuthAccessService2 extends AbstractAuthService2 {
 
     @JsonProperty("profile")
     public String getProfile() {
-        // return profile.name().toLowerCase();
-        return "http://iiif.io/api/auth/2/login";
+        return profile.name().toLowerCase();
+        //        return "http://iiif.io/api/auth/2/login";
     }
 
     @JsonProperty("label")
@@ -145,6 +145,7 @@ public class AuthAccessService2 extends AbstractAuthService2 {
     }
 
     @JsonProperty("service")
+    @JsonInclude(Include.NON_EMPTY)
     public List<AbstractAuthService2> getService() {
         List<AbstractAuthService2> ret = new ArrayList<>();
         if (tokenService != null) {
