@@ -75,7 +75,8 @@ public class AuthAccessService2 extends AbstractAuthService2 {
 
     @JsonProperty("profile")
     public String getProfile() {
-        return profile.name().toLowerCase();
+        // return profile.name().toLowerCase();
+        return "http://iiif.io/api/auth/2/login";
     }
 
     @JsonProperty("label")
