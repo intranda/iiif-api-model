@@ -70,7 +70,7 @@ public class TypedResource implements ITypedResource {
 
     @Override
     public boolean equals(Object obj) {
-        if (obj.getClass().equals(this.getClass())) {
+        if (obj != null && obj.getClass().equals(this.getClass())) {
             TypedResource other = (TypedResource) obj;
             return this.getId().equals(other.getId())
                     && Objects.equals(this.getType(), other.getType())
