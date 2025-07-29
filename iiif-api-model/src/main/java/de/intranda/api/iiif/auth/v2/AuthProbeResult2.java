@@ -13,7 +13,7 @@ public class AuthProbeResult2 implements IAuthMessage {
 
     private static final String TYPE = "AuthProbeResult2";
 
-    private int status;
+    private int status = 401;
 
     private final Map<String, String> substitute = new HashMap<>();
 
