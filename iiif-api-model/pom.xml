@@ -31,7 +31,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven.compiler.release>21</maven.compiler.release>
 
-		<commons-io.version>2.19.0</commons-io.version>
+		<commons-io.version>2.20.0</commons-io.version>
 		<commons-lang3.version>3.17.0</commons-lang3.version>
 		<commons-text.version>1.13.1</commons-text.version>
 		<commons-collections.version>4.5.0</commons-collections.version>
