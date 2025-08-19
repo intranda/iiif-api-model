@@ -42,7 +42,7 @@
 		<junit.version>4.13.2</junit.version>
 		<json.version>20250107</json.version>
 		<rs-api.version>3.1.0</rs-api.version>
-		<log4j.version>2.24.3</log4j.version>
+		<log4j.version>2.25.1</log4j.version>
 	</properties>
 
 
