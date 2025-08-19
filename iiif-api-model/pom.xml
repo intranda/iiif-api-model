@@ -40,7 +40,7 @@
 		<jersey.version>3.1.11</jersey.version>
 		<jaxb-api.version>4.0.2</jaxb-api.version>
 		<junit.version>4.13.2</junit.version>
-		<json.version>20250107</json.version>
+		<json.version>20250517</json.version>
 		<rs-api.version>3.1.0</rs-api.version>
 		<log4j.version>2.25.1</log4j.version>
 	</properties>
